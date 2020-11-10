@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'User@mailaddress.com',
             'password' => bcrypt('password'),
         ]);
+        $users = factory(App\Models\User::class, 100)->create();
     }
 }

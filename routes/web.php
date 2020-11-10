@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,12 +21,15 @@ Route::get('/', function () {
 Route::get('/concept', function () {
     return view('gear_register');
 });
+Route::get('/all_user', function () {
+    return view('all_user_list_view');
+});
 
 Route::get('/user_detail/{id?}', function () {
-    return view('user_detail');
+    return view('user_detail_view')->name('user_detail');
 });
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('posts', 'PostsController');

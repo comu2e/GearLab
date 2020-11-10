@@ -14,5 +14,10 @@
 {{--    @foreach ($element_title as $item )--}}
 {{--    <li>{{$item}}</li>--}}
 {{--    @endforeach--}}
+
+
+    {{$users = \App\Http\Controllers\UserController::index()}}
+
+
 </div>
 @endsection

@@ -18,7 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('/concept', function () {
-    return view('concept');
+    return view('gear_register');
+});
+
+Route::get('/user_detail/{id?}', function () {
+    return view('user_detail');
 });
 
 

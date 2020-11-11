@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <form action="">
-
+    <form method="POST" action="{{route('users.store')}}">
+        @csrf
     <ul>
         {{--↓この間をcomponentにする　ImgeInput.vue--}}
 
@@ -119,15 +119,18 @@
                 <option value="comfort">快適化ギア</option>
             </select>
         </li>
-        <li>ギアの名前<input type="text"> </li>
-        <li>ギアのメーカー名 <input type="text"></li>
-        <li>ギアの使用場面 <input type="text"></li>
-        <li>お気に入りポイント<input type="text"> </li>
-        <li>購入場所<input type="text"></li>
+        <li>ギアの名前<input id="gear_name" type="text"> </li>
+        <li>ギアのメーカー名 <input id="gear_maker" type="text"></li>
+        <li>ギアの使用場面 <input id="situation"type="text"></li>
+        <li>お気に入りポイント<input  id="favorite"type="text"> </li>
+        <li>購入場所<input id="place"type="text"></li>
     </ul>
+
+        <a href={{ route('gears.create') }}>登録</a>
+
     </form>
-    <input type="submit">
     <script src="{{ mix('js/app.js') }}"></script>
+
 
 @endsection
 

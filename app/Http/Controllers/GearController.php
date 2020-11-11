@@ -12,7 +12,7 @@ class GearController extends Controller
 
     public function index()
     {
-        $users =Gear::all();
+        $gears =Gear::all();
         return view('gear/index',compact('gears'));
 
     }
@@ -25,12 +25,20 @@ class GearController extends Controller
     public function create()
     {
         //
+        return view('gears/create');
+
     }
 
     public function store(Request $request)
 {
-        //
-     }
+    $gear = new Gear;
+    $gear -> gear_name= $request-> gear_name;
+    $gear -> maker_name= $request-> maker_name;
+
+    $gear->save();
+    return redirect()->route('users.index');
+}
+
 
     /**
      * Display the specified resource.
@@ -38,11 +46,11 @@ class GearController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($gear_id)
     {
         $categories = array('カットギア','シェルターギア','','火熾しギア','コンテナギア','快適化ギア');
 
-        $gear = Gear::find($id);
+        $gear = Gear::find($gear_id);
         return view('gears.show', compact('gear','categories'));
     }
 

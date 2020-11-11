@@ -21,9 +21,6 @@ Route::get('/', function () {
 Route::get('/concept', function () {
     return view('gear_register');
 });
-Route::get('/all_user', function () {
-    return view('all_user_list_view');
-});
 
 Route::get('/user_detail/{id?}', function () {
     return view('user_detail_view')->name('user_detail');
@@ -32,4 +29,5 @@ Route::get('/user_detail/{id?}', function () {
 
 Auth::routes();
 
-Route::resource('posts', 'PostsController');
+Route::resource('users','App\Http\Controllers\UserController');
+Route::resource('gears','App\Http\Controllers\GearController');

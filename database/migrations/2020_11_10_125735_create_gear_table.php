@@ -17,7 +17,7 @@ class CreateGearTable extends Migration
 
             $table->bigIncrements('gear_id');
             $table->integer('user_id')->unsigned();
-
+            $table->string('gear_category');
             $table->string('gear_name');
             $table->string('maker_name');
             $table->timestamp('updated_time_at')->nullable();

@@ -2,23 +2,23 @@
 
 @section('content')
 
-<div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
 
-    <div>
-        <ul>
-            <li class="d-flex justify-content-center">
-                {{{$user -> name}}}
-            </li>
-            <li class="d-flex justify-content-center">
+        <div>
+            <ul>
+                <li class="d-flex justify-content-center">
+                    {{{$user -> name}}}
+                </li>
+                <li class="d-flex justify-content-center">
                     @foreach($categories as $category)
-                    <div>
-                        <div> {{"image"}}</div>
-                       <div> {{$category}}</div>
-                       </div>
+                        <div>
+                            <div> {{"image"}}</div>
+                            <a href={{url('gears/category_index/category={?id}')}}>{{$category}}</a>
+                        </div>
                     @endforeach
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
 @endsection

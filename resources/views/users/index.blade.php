@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
 
-    <ul>
-        @foreach($users as $user)
-          <li>
-            <a href={{route('users.show',$user->id)}}>
-            {{$user->name}}
-            </a>
-           </li>
+        <ul>
+            @foreach($users as $user)
+                <li>
+                    <a href={{route('users.show',$user->id)}}>
+                        {{$user->name}}
+                    </a>
+                </li>
 
-        @endforeach
+            @endforeach
 
-    </ul>
+        </ul>
 
-    {{$users->links()}}
-</div>
+        {{$users->links()}}
+    </div>
 @endsection

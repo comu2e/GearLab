@@ -14,15 +14,23 @@
                         </div>
                     @endif
                     画像配置
-                </div>
 
+                </div>
+            <div>
+                <a href="{{ url('/users') }}" class="text-sm text-gray-700 underline">ユーザーリスト</a>
+
+            </div>
+
+                <div>
+                    {{--        ログイン前に表示--}}
+                    @auth (session('status'))
+                        <a href="{{ url('/concept') }}" class="text-sm text-gray-700 underline">技術概要</a>
+                    @endif
+                </div>
             </div>
         </div>
 
-{{--        ログイン前に表示--}}
-        @auth (session('status'))
-            <a href="{{ url('/concept') }}" class="text-sm text-gray-700 underline">技術概要</a>
-        @endif
+
     </div>
 </div>
 @endsection

@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/concept', function () {
-    return view('gear_register');
+    return view('concept');
 });
 
 Route::get('/user_detail/{id?}', function () {

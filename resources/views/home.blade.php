@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Gear Lab') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,15 +18,13 @@
                 </div>
             <div>
                 <a href="{{ url('/users') }}" class="text-sm text-gray-700 underline">ユーザーリスト</a>
-
-            </div>
-
-                <div>
-                    {{--        ログイン前に表示--}}
+                    <span>   </span>
                     @auth (session('status'))
                         <a href="{{ url('/concept') }}" class="text-sm text-gray-700 underline">技術概要</a>
                     @endif
-                </div>
+            </div>
+
+
             </div>
         </div>
 

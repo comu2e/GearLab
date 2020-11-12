@@ -42,7 +42,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $categories = array('カットギア','シェルターギア','','火熾しギア','コンテナギア','快適化ギア');
+        $categories = array('Cutting Gear','Shelter','Fire gear','Container','Comfort Gear ');
 
         $user = User::find($id);
         return view('users.show', compact('user','categories'));

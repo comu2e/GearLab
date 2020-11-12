@@ -54,7 +54,7 @@ class GearController extends Controller
      */
     public function show($gear_id)
     {
-        $categories = array('カットギア','シェルターギア','','火熾しギア','コンテナギア','快適化ギア');
+        $categories = array('カットギア','Shelter','Fire gear','コンテナギア','快適化ギア');
 
         $gear = Gear::find($gear_id);
         return view('gears.show', compact('gear','categories'));

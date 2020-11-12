@@ -10,6 +10,18 @@ use App\Models\Gear;
 class GearController extends Controller
 {
 
+    public function category_index()
+    {
+        $gear_category = 1;
+        $gears =Gear::all();
+
+        $gear_categorized =$gears->where('gear_category',$gear_category)->where('user_id',1)->all();
+        var_dump($gear_categorized);
+        return view('gears/category_index',compact('gear_categorized'));
+
+
+    }
+
     public function index()
     {
         $gears =Gear::all();

@@ -20,8 +20,9 @@ class CreateGearTable extends Migration
             $table->string('gear_category');
             $table->string('gear_name');
             $table->string('maker_name');
-            $table->timestamp('updated_time_at')->nullable();
-            $table->timestamp('edited_time_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('edited_at')->nullable();
             $table->text('content');
             $table->string('image_url');
         });

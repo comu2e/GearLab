@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="POST" action="{{route('users.store')}}">
+    <form method="POST" action="/gears">
         @csrf
     <ul>
         {{--↓この間をcomponentにする　ImgeInput.vue--}}
@@ -107,26 +107,23 @@
         </style>
 {{--↑この間をcomponentにする　ImgeInput.vue--}}
         <li>ギアの写真
-
+            <input name="image_url" type="text">
 
         </li>
+
         <li>カテゴリ
-            <select name="kibun">
-                <option value="cutting">カットギア</option>
-                <option value="shelter">シェルターギア</option>
-                <option value="fire">火熾しギア</option>
-                <option value="container">コンテナギア</option>
-                <option value="comfort">快適化ギア</option>
-            </select>
+            {{Form::select('gear_category', ['Cut Gear', 'Shelter', 'Fire Gear','Container','Comfort Gear'])}}
+
+
         </li>
-        <li>ギアの名前<input id="gear_name" type="text"> </li>
-        <li>ギアのメーカー名 <input id="gear_maker" type="text"></li>
-        <li>ギアの使用場面 <input id="situation"type="text"></li>
-        <li>お気に入りポイント<input  id="favorite"type="text"> </li>
-        <li>購入場所<input id="place"type="text"></li>
+        <li>ギアの名前<input name="gear_name" type="text"> </li>
+        <li>ギアのメーカー名 <input name="gear_maker" type="text"></li>
+        <li>ギアの使用場面 <input name="situation"type="text"></li>
+        <li>お気に入りポイント<input  name="content"type="text"> </li>
+        <li>購入場所<input name="place"type="text"></li>
     </ul>
 
-        <a href={{ route('gears.create') }}>登録</a>
+        <input type="submit" class="btn btn-primary" value="投稿"/>
 
     </form>
     <script src="{{ mix('js/app.js') }}"></script>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-
+use Auth;
 use App\Models\Gear;
 
 class GearController extends Controller
@@ -33,7 +33,13 @@ class GearController extends Controller
 {
     $gear = new Gear;
     $gear -> gear_name= $request-> gear_name;
-    $gear -> maker_name= $request-> maker_name;
+    $gear -> user_id = Auth::id();
+    $gear -> gear_category = $request-> gear_category ;
+    $gear -> maker_name= $request-> gear_maker;
+    $gear -> content = $request-> content;
+    $gear -> image_url = 'イメージurl';
+    $gear -> updated_at = date('Y/m/d H:i:s');
+    $gear -> edited_at = date('Y/m/d H:i:s');
 
     $gear->save();
     return redirect()->route('users.index');

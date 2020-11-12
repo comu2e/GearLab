@@ -1,11 +1,15 @@
 @extends('layouts.app')
-//
-// {{--ページネーション機能--}}
-// {{--foreachでuserを一覧表示--}}
-// {{--foreachでuserを一覧からユーザー画面に遷移--}}
+
 @section('content')
+<div class="d-flex justify-content-center">
+
 
     @foreach($users as $user)
-        <div >{{$user->name}}</div>
+        <a href={{route('users.show',$user->id)}}>
+        {{$user->name}}
+        </a>
     @endforeach
+
+    {{$users->links()}}
+</div>
 @endsection

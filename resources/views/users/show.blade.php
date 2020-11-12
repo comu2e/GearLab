@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-// {{--foreachでuserを詳細表示--}}
-// {{--foreachでuserをユーザーの道具表示--}}
 
-
+<div class="d-flex justify-content-center">
 
 <div>
-{{$user}}
-
+{{{"ssss"}}}
+<span>
+@foreach($categories as $category)
+{{$category}}
+@endforeach
+</span>
 
 </div>
+</div>
+
 @endsection

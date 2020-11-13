@@ -17,12 +17,17 @@
                             {{$category}}
                             </a>
 
-
                         </div>
 
                     @endforeach
                 </li>
             </ul>
+            {{--   認証されているときのみ投稿できるフォームを出す--}}
+                @auth
+
+                <a  href = {{ url('gears/create') }}> + </a>
+                @endauth
+
         </div>
     </div>
 

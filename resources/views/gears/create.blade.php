@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="d-flex justify-content-center">
     <form method="POST" action="/gears">
         @csrf
     <ul>
         {{--↓この間をcomponentにする　ImgeInput.vue--}}
 
-        <template>
+        <template >
             <div class="image-input">
                 <div
                     class="image-input__field"
@@ -128,6 +128,6 @@
     </form>
     <script src="{{ mix('js/app.js') }}"></script>
 
-
+</div>
 @endsection
 

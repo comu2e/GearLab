@@ -7,13 +7,13 @@
         <div>
             <ul>
                 <li class="d-flex justify-content-center">
-                    {{{$user -> name}}}
+                    {{$user->name}}
                 </li>
                 <li class="d-flex justify-content-center">
                     @foreach($categories as $category)
                         <div>
                             <div> {{"image"}}</div>
-                            <a href = {{url()->current()}}>
+                            <a href = {{url()->current().'/'.$category}}>
                             {{$category}}
                             </a>
 

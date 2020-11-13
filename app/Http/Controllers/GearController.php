@@ -16,7 +16,7 @@ class GearController extends Controller
 
         $gear_categorized =$gears->where('gear_category',$gear_category)->where('user_id',$user_id)->all();
 
-
+        return view('users/category_index',compact('user_id','gear_categorized'));
     }
 
     public function index()

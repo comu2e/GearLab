@@ -10,13 +10,13 @@ use App\Models\Gear;
 class GearController extends Controller
 {
 
-    public function category_index($gear_category,$user_id)
+    public function category_index($user,$gear_category)
     {
         $gears =Gear::all();
 
-        $gear_categorized =$gears->where('gear_category',$gear_category)->where('user_id',$user_id)->all();
+        $gear_categorized =$gears->where('user_id',$user)->where('gear_category',$gear_category)->all();
 
-        return view('users/category_index',compact('user_id','gear_categorized'));
+        return view('users/category_index',compact('user','gear_categorized','gear_category'));
     }
 
     public function index()
@@ -42,7 +42,8 @@ class GearController extends Controller
 {
     $gear = new Gear;
     $gear -> gear_name= $request-> gear_name;
-    $gear -> user_id = Auth::id();
+    $gear -> user_id = $request -> id;
+
     $gear -> gear_category = $request-> gear_category ;
     $gear -> maker_name= $request-> gear_maker;
     $gear -> content = $request-> content;
@@ -63,7 +64,8 @@ class GearController extends Controller
      */
     public function show($gear_id)
     {
-        $categories = array('カットギア','Shelter','Fire gear','コンテナギア','快適化ギア');
+//        どこかに保存して
+        $categories = array('Cut','Shelter','Fire','Container','Comfort');
 
         $gear = Gear::find($gear_id);
         return view('gears.show', compact('gear','categories'));

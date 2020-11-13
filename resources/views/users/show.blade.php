@@ -23,10 +23,9 @@
                 </li>
             </ul>
             {{--   認証されているときのみ投稿できるフォームを出す--}}
-                @auth
-
-                <a  href = {{ url('gears/create') }}> + </a>
-                @endauth
+                @if(Auth::id() === $user)
+                    <a  href = {{ url('gears/create') }}> + </a>
+                @endif
 
         </div>
     </div>

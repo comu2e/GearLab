@@ -112,7 +112,7 @@
         </li>
 
         <li>カテゴリ
-            {{Form::select('gear_category', ['Cut Gear', 'Shelter', 'Fire Gear','Container','Comfort Gear'])}}
+            {{Form::select('gear_category', ['Cut Gear'=> 'Cut Gear', 'Cut'=> 'Cut', 'Fire'=> 'Fire','Container'=> 'Container','Comfort'=>'Comfort'])}}
 
 
         </li>

@@ -18,9 +18,10 @@
                 </div>
             <div>
                 <a href="{{ url('/users') }}" class="text-sm text-gray-700 underline">ユーザーリスト</a>
-                    <span>   </span>
+                <a href="{{ url('/concept') }}" class="text-sm text-gray-700 underline">技術概要</a>
+
+                <span>   </span>
                     @auth (session('status'))
-                        <a href="{{ url('/concept') }}" class="text-sm text-gray-700 underline">技術概要</a>
                     @endif
             </div>
 

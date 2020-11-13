@@ -31,4 +31,4 @@ Auth::routes();
 
 Route::resource('users','App\Http\Controllers\UserController');
 Route::resource('gears','App\Http\Controllers\GearController');
-Route::get('gears/category_index/category={gear_category}','App\Http\Controllers\GearController@category_index');
+Route::get('users/{id}/category={gear_category}','App\Http\Controllers\GearController@category_index')->name('category_index');

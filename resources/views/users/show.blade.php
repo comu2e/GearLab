@@ -13,8 +13,13 @@
                     @foreach($categories as $category)
                         <div>
                             <div> {{"image"}}</div>
-                            <a href={{url('gears/category_index/category={?id}')}}>{{$category}}</a>
+                            <a href = {{url()->current()}}>
+                            {{$category}}
+                            </a>
+
+
                         </div>
+
                     @endforeach
                 </li>
             </ul>

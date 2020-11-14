@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Auth;
 use App\Models\Gear;
+use Storage;
 
 class GearController extends Controller
 {
@@ -41,13 +42,24 @@ class GearController extends Controller
     public function store(Request $request)
 {
     $gear = new Gear;
+//    $form = $request -> all();
+//    dd($form);
+//    dd($request);
+    //s3アップロード開始
+        var_dump($request->all());
+    $image = $request->file('image_url');
+
+    // バケットの`myprefix`フォルダへアップロード
+    $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
+    // アップロードした画像のフルパスを取得
+    $gear->image_url = Storage::disk('s3')->url($path);
+
     $gear -> gear_name= $request-> gear_name;
     $gear -> user_id = $request -> id;
 
     $gear -> gear_category = $request-> gear_category ;
     $gear -> maker_name= $request-> gear_maker;
     $gear -> content = $request-> content;
-    $gear -> image_url = 'イメージurl';
     $gear -> updated_at = date('Y/m/d H:i:s');
     $gear -> edited_at = date('Y/m/d H:i:s');
 

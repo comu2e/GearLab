@@ -17,14 +17,14 @@ class CreateGearTable extends Migration
 
             $table->bigIncrements('gear_id');
             $table->integer('user_id')->unsigned();
-            $table->string('gear_category');
-            $table->string('gear_name');
-            $table->string('maker_name');
+            $table->string('gear_category')->nullable();
+            $table->string('gear_name')->nullable();
+            $table->string('maker_name')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('edited_at')->nullable();
-            $table->text('content');
-            $table->string('image_url');
+            $table->text('content')->nullable();
+            $table->string('image_url')->nullable();
         });
     }
     /**

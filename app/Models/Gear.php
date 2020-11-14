@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Gear extends Model
 {
     use HasFactory;
+    //    一体他のリレーション
+    public function likes(){
+        return $this -> hasMany('App\Models\Like');
+    }
 }

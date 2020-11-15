@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Auth;
 use App\Models\Gear;
 use Storage;
+use App\Http\Requests\GearRequest;
 
 class GearController extends Controller
 {
@@ -39,7 +39,7 @@ class GearController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(GearRequest $request)
 {
     $gear = new Gear;
 //    $form = $request -> all();
@@ -55,7 +55,7 @@ class GearController extends Controller
     $gear->image_url = Storage::disk('s3')->url($path);
 
     $gear -> gear_name= $request-> gear_name;
-    $gear -> user_id = 1;
+    $gear -> user_id = Auth::user()->id;;
 
     $gear -> gear_category = $request-> gear_category ;
     $gear -> maker_name= $request-> gear_maker;

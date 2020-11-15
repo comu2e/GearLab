@@ -58,7 +58,7 @@ class GearController extends Controller
     $gear -> user_id = Auth::user()->id;;
 
     $gear -> gear_category = $request-> gear_category ;
-    $gear -> maker_name= $request-> gear_maker;
+    $gear -> maker_name= $request-> maker_name;
     $gear -> content = $request-> content;
     $gear -> updated_at = date('Y/m/d H:i:s');
     $gear -> edited_at = date('Y/m/d H:i:s');

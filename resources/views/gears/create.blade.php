@@ -6,14 +6,11 @@
     <form method="POST" action="/gears"enctype="multipart/form-data">
         @csrf
         <ul>
-            <div class="form-group has-error">
             <li>カテゴリ
             {{Form::select('gear_category', ['Cut Gear'=> 'Cut Gear', 'Cut'=> 'Cut', 'Fire'=> 'Fire','Container'=> 'Container','Comfort'=>'Comfort'])}}
 
             </li>
-            </div>
 
-            <div class="form-group has-error">
 
             <li>ギアの名前<input name="gear_name" type="text"> </li>
                 <div class="text-danger">
@@ -21,9 +18,8 @@
                 {{$message}}
                 @enderror
                 </div>
-            </div>
 
-            <li>ギアのメーカー名 <input name="gear_maker" type="text"></li>
+            <li>ギアのメーカー名 <input name="maker_name" type="text"></li>
         {{--        入力値をデータベースにまだ渡しない--}}
             <div class="text-danger">
                 @error('maker_name')

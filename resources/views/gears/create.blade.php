@@ -2,20 +2,51 @@
 
 @section('content')
 <div class="d-flex justify-content-center">
+
     <form method="POST" action="/gears"enctype="multipart/form-data">
         @csrf
-    <ul>
-        <li>カテゴリ
+        <ul>
+            <div class="form-group has-error">
+            <li>カテゴリ
             {{Form::select('gear_category', ['Cut Gear'=> 'Cut Gear', 'Cut'=> 'Cut', 'Fire'=> 'Fire','Container'=> 'Container','Comfort'=>'Comfort'])}}
-        </li>
-        <li>ギアの名前<input name="gear_name" type="text"> </li>
-        <li>ギアのメーカー名 <input name="gear_maker" type="text"></li>
+
+            </li>
+            </div>
+
+            <div class="form-group has-error">
+
+            <li>ギアの名前<input name="gear_name" type="text"> </li>
+                <div class="text-danger">
+                @error('gear_name')
+                {{$message}}
+                @enderror
+                </div>
+            </div>
+
+            <li>ギアのメーカー名 <input name="gear_maker" type="text"></li>
+        {{--        入力値をデータベースにまだ渡しない--}}
+            <div class="text-danger">
+                @error('maker_name')
+                {{$message}}
+                @enderror
+            </div>
         <li>ギアの使用場面 <input name="situation"type="text"></li>
+
         <li>お気に入りポイント<input  name="content"type="text"> </li>
+{{--        入力値をデータベースにまだ渡しない--}}
+            <div class="text-danger">
+                @error('content')
+                {{$message}}
+                @enderror
+            </div>
         <li>購入場所<input name="place"type="text"></li>
         <li>ギアの写真
             <input name="image_url"type="file" >
-
+            <div class="text-danger">
+                @error('image_url')
+                {{$message}}
+                @enderror
+            </div>
         </li>
     </ul>
 

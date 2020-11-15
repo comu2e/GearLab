@@ -15,7 +15,7 @@ class GearController extends Controller
     {
         $gears =Gear::all();
 
-        $gear_categorized =$gears->where('user_id',$user)->where('gear_category',$gear_category)->all();
+        $gear_categorized = $gears->where('user_id',$user)->where('gear_category',$gear_category)->all();
 
         return view('users/category_index',compact('user','gear_categorized','gear_category'));
     }
@@ -55,7 +55,7 @@ class GearController extends Controller
     $gear->image_url = Storage::disk('s3')->url($path);
 
     $gear -> gear_name= $request-> gear_name;
-    $gear -> user_id = $request -> id;
+    $gear -> user_id = 1;
 
     $gear -> gear_category = $request-> gear_category ;
     $gear -> maker_name= $request-> gear_maker;

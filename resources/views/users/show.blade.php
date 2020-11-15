@@ -13,6 +13,7 @@
                     @foreach($categories as $category)
                         <div>
                             <div> {{"image"}}</div>
+                            <div class="d-flex justify-content-center" ></div>
                             <a href = {{url()->current().'/gear_category='.$category}}>
                             {{$category}}
                             </a>
@@ -23,7 +24,9 @@
                 </li>
             </ul>
             {{--   認証されているときのみ投稿できるフォームを出す--}}
-                    <a  href = {{ url('gears/create') }}> + </a>
+
+
+                    <a  class="d-flex justify-content-center"  href = {{ url('gears/create') }}> + </a>
 
         </div>
     </div>

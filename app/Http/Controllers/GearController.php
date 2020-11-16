@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\App;
 use Auth;
 use App\Models\Gear;
+use App\Models\User;
 use Storage;
 use App\Http\Requests\GearRequest;
 
 class GearController extends Controller
 {
 
-    public function category_index($user,$gear_category)
+    public function category_index($user_id,$gear_category)
     {
         $gears =Gear::all();
+        $users =User::all();
 
-        $gear_categorized = $gears->where('user_id',$user)->where('gear_category',$gear_category)->all();
+        $gear_categorized = $gears->where('user_id',$user_id)->where('gear_category',$gear_category)->all();
+        $user  = $users -> where('user_id',$user_id)->all();
 
         return view('users/category_index',compact('user','gear_categorized','gear_category'));
     }

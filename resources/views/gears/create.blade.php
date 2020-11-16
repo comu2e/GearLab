@@ -7,7 +7,7 @@
         @csrf
         <ul>
             <li>カテゴリ
-{{--            {{Form::select($categories)}}--}}
+                {{Form::select('gear_category',$categories)}}
 
             </li>
 

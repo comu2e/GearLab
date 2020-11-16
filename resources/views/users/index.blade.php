@@ -3,6 +3,7 @@
 @section('content')
     <div class="d-flex justify-content-center">
 
+
         <ul>
             @foreach($users as $user)
                 <li>

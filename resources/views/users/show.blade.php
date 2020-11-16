@@ -2,7 +2,7 @@
 
 @section('content')
  <div class="d-flex justify-content-center">
-                           {{$user->name}}
+                           {{$user->name ."'s Gears"}}
                        </div>
     <div class="d-flex justify-content-center">
 
@@ -29,7 +29,7 @@
             {{--   認証されているときのみ投稿できるフォームを出す--}}
 
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;">
+                <button type="button" class="btn btn-primary rounded-circle p-0" style="width:5rem;height:5rem;color:white">
                     <a color=white href = {{ url('gears/create') }}>Add Gear</a>
                 </button>
             </div>

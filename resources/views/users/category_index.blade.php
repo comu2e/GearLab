@@ -7,7 +7,7 @@
       <div class="d-flex justify-content-center">  {{($gear->gear_category)}}</div>
       <img src={{$gear->image_url}} width="500" height="500">
       <div>
-          <a href="{{ route('gear_edit')}}?id={{ $gear->gear_id }}" class="btn btn-primary">
+          <a href="{{ route('gear_edit')}}/id={{ $gear->id }}" class="btn btn-primary">
               {{ __('Edit') }}
           </a>
           {{-- 削除ボタンは後で正式なものに置き換えます --}}

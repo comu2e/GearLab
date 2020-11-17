@@ -93,12 +93,30 @@ class GearController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-    public function edit(GearRequest $request)
+    public function edit_gear(GearRequest $request)
     {
         $gears = Gear::find($request->id);
         var_dump($gears);
-        return view('gears.edit', compact('gears'));
+        return view('gears.edit', compact('gear'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_gear(GearRequest $request)
+    {
+        $gears = Gear::find($request->id);
+        $gears->content = $request->gear_name;
+        $gears->save();
+        return redirect('/');
+    }
+    public function edit(GearRequest $request)
+    {
 
     }
 
@@ -111,10 +129,7 @@ class GearController extends Controller
      */
     public function update(GearRequest $request)
     {
-        $gears = Gear::find($request->id);
-        $gears->content = $request->gear_name;
-        $gears->save();
-        return redirect('/');
+
     }
     /**
      * Remove the specified resource from storage.

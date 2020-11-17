@@ -14,7 +14,7 @@
                     @foreach($categories as $category)
                         <div class="d-flex justify-content-center" >
                         <div>
-                           <img src={{asset('/img/'.$category.'.svg')  }} width=20% >
+                           <img src={{asset('/img/GearLab/'.$category.'.jpg')  }} width=80% >
 
                             <div>
                                <a href = {{url()->current().'/gear_category='.$category}}>

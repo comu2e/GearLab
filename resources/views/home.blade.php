@@ -13,7 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    画像配置
+                    <div class="row justify-content-center">
+                        <img src={{asset('/img/GearLab/campall.jpg')  }} width=90% >
+
+                    </divv>
 
                 </div>
             <div>

@@ -10,7 +10,7 @@
 
                 <label>カテゴリ</label>
 
-                {{Form::select('gear_category',$categories)}}
+                {{Form::select('gear_category',$categories,null,['class' => 'form-hoge',  'placeholder' => '選択してください']),}}
 
             </div>
 

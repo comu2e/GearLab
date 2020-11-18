@@ -59,7 +59,7 @@ class GearController extends Controller
     $gear->image_url = Storage::disk('s3')->url($path);
 
     $gear -> gear_name= $request-> gear_name;
-    $gear -> user_id = Auth::user()->id;;
+    $gear -> user_id = Auth::user()->id;
 
     $gear -> gear_category = $request-> gear_category ;
     $gear -> maker_name= $request-> maker_name;

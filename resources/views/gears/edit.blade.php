@@ -11,13 +11,15 @@
                 <label>カテゴリ</label>
 
                 {{Form::select('gear_category',
-$categories,null,['class' => 'form-hoge',  'placeholder' => $gear->gear_category]) }}
-
+$categories,null,[ 'value' => $gear->gear_category]) }}
+                @error('gear_category')
+                {{$message}}
+                @enderror
             </div>
 
             <div class="form-group">
                 <label>ギアの名前</label>
-                <input name="gear_name" type="text" placeholder="{{$gear->gear_name}}">
+                <input name="gear_name" type="text" value="{{$gear->gear_name}}">
                 <div class="text-danger">
                     @error('gear_name')
                     {{$message}}
@@ -29,7 +31,7 @@ $categories,null,['class' => 'form-hoge',  'placeholder' => $gear->gear_category
 
                 <div class="form-group">
                     <label>ギアのメーカー名</label>
-                    <input name="maker_name" type="text" placeholder="{{$gear->maker_name}}">
+                    <input name="maker_name" type="text" value="{{$gear->maker_name}}">
                 </div>
             </div>
             <div class="text-danger">
@@ -39,7 +41,7 @@ $categories,null,['class' => 'form-hoge',  'placeholder' => $gear->gear_category
             </div>
 
             <div class="form-group">
-                お気に入りポイント<input name="content" type="text"  placeholder="{{$gear->content}}"></div>
+                お気に入りポイント<input name="content" type="text"  value="{{$gear->content}}"></div>
             {{--        入力値をデータベースにまだ渡しない--}}
             <div class="text-danger">
                 @error('content')

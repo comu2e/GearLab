@@ -25,6 +25,7 @@ class GearRequest extends FormRequest
     {
         return [
             'gear_name' => 'required',
+            'gear_category' => 'required',
             'maker_name' => 'required',
             'content' => ['required','min:2'],
             'image_url' => 'required',
@@ -33,6 +34,8 @@ class GearRequest extends FormRequest
     public function messages()
     {
         return [
+            'gear_category.required' => '登録するギアのカテゴリを選択してください',
+
             'gear_name.required' => '登録するギアの名前を入力してください',
             'maker_name.required' => '登録するギアのメーカ名を入力してください',
             'content.min' => 'ギアのお気に入りポイントを2文字以上入力してください',

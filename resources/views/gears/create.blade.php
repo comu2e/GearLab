@@ -10,7 +10,13 @@
 
                 <label>カテゴリ</label>
 
-                {{Form::select('gear_category',$categories,null,['class' => 'form-hoge',  'placeholder' => '選択してください']),}}
+                {{Form::select('gear_category',$categories,null,['placeholder' => '選択してください']),}}
+                <div class="text-danger">
+
+                    @error('gear_category')
+                    {{$message}}
+                    @enderror
+                </div>
 
             </div>
 
@@ -18,45 +24,46 @@
                 <label>ギアの名前</label>
                 <input name="gear_name" type="text">
                 <div class="text-danger">
-                    @error('gear_name')
-                    {{$message}}
-                    @enderror
-                </div>
 
-            </div>
-            <div class="form-group">
-
-                <div class="form-group">ギアのメーカー名 <input name="maker_name" type="text">
+                @error('gear_name')
+                {{$message}}
+                @enderror
                 </div>
             </div>
-            <div class="text-danger">
-                @error('maker_name')
-                {{$message}}
-                @enderror
-            </div>
-            <div class="form-group">ギアの使用場面
-                <input name="situation" type="text">
-            </div>
 
-            <div class="form-group">お気に入りポイント<input name="content" type="text"></div>
-            {{--        入力値をデータベースにまだ渡しない--}}
-            <div class="text-danger">
-                @error('content')
-                {{$message}}
-                @enderror
-            </div>
-            ギアの写真
+    <div class="form-group">
 
-            <input name="image_url" type="file">
-            <div class="text-danger">
-                @error('image_url')
-                {{$message}}
-                @enderror
-            </div>
+        <div class="form-group">ギアのメーカー名 <input name="maker_name" type="text">
+        </div>
+    </div>
+    <div class="text-danger">
+        @error('maker_name')
+        {{$message}}
+        @enderror
+    </div>
+    <div class="form-group">ギアの使用場面
+        <input name="situation" type="text">
+    </div>
 
-            <input type="submit" class="btn btn-primary" value="投稿"/>
+    <div class="form-group">お気に入りポイント<input name="content" type="text"></div>
+    {{--        入力値をデータベースにまだ渡しない--}}
+    <div class="text-danger">
+        @error('content')
+        {{$message}}
+        @enderror
+    </div>
+    ギアの写真
 
-        </form>
+    <input name="image_url" type="file">
+    <div class="text-danger">
+        @error('image_url')
+        {{$message}}
+        @enderror
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="投稿"/>
+
+    </form>
 
     </div>
 @endsection

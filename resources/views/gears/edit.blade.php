@@ -1,14 +1,24 @@
-@extends('...layouts.layout')
+@extends('layouts.app')
 
-@section('gear_edit')
-    投稿編集<br>
+@section('content')
 
-    <form action='{{ route('gear_update') }}' method='post'>
-        {{ csrf_field() }}
-        <input type='hidden' name='id' value='{{ $gear->gear_id }}'><br>
-        ユーザーID：{{ $gear->gear_id }}<br>
-        タイトル：<input type='text' name='title' value='{{ $gear->title }}'><br>
-        内容：<input type='text' name='content' value='{{ $gear->content }}'><br>
-        <input type='submit' value='投稿'>
-    </form>
+
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <img src={{$gear->image_url}} width="500" height="500">
+        </div>
+        <div class="d-flex justify-content-center">
+            {{--        <a href="{{ route('gear_edit') }}">--}}
+
+            <a href="{{ url("edit/$gear->gear_id") }}" class="btn btn-primary">
+                {{ __('Edit') }}
+            </a>
+            {{-- 削除ボタンは後で正式なものに置き換えます --}}
+            <a href="{{ url('gears/{gear}') }}" class="btn btn-danger">
+                {{ __('Delete') }}
+            </a>
+        </div>
+
+    </div>
+
 @endsection

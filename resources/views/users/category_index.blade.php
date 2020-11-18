@@ -17,11 +17,15 @@
             {{ __('Edit') }}
         </a>
         {{-- 削除ボタンは後で正式なものに置き換えます --}}
-        <a href="{{ url('gears/{gear}') }}" class="btn btn-danger">
-            {{ __('Delete') }}
-        </a>
-    </div>
+        <form action="{{route('gears.destroy',$gear->gear_id) }}" method="POST">
+            @csrf
+            @method('DELETE')
 
+            <button type="submit" class="btn btn-danger">
+                Delete
+            </button>
+        </form>
+    </div>
 </div>
 
     @endforeach

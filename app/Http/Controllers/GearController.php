@@ -110,9 +110,9 @@ class GearController extends Controller
      */
     public function update_gear($id)
     {
-        $gears = Gear::where('gear_id',$id)->first();
-        $gears->content = $gears->content;
-        $gears->save();
+        $gear = Gear::where('gear_id',$id)->first();
+        $gear->content = $gear>content;
+        $gear ->save();
         return redirect('users.index');
     }
     public function edit(GearRequest $request)
@@ -139,7 +139,11 @@ class GearController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gears = Gear::where('gear_id',$id);
+        // 削除
+        $gears->delete();
+        // 一覧にリダイレクト
+        return redirect('/');
     }
 
 }

@@ -83,12 +83,12 @@ class GearController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($gear_id)
+    public function show($id)
     {
 //        どこかに保存して
         $categories = array('Cut','Shelter','Fire','Container','Comfort');
 
-        $gear = Gear::find($gear_id);
+        $gear = Gear::find($id);
         return view('gears.show', compact('gear','categories'));
     }
 
@@ -100,7 +100,7 @@ class GearController extends Controller
      */
     public function edit_gear($id)
     {
-        $gear = Gear::where('gear_id',$id)->first();
+        $gear = Gear::find($id);
 
         return view('gears.edit', compact('gear'));
 
@@ -115,7 +115,7 @@ class GearController extends Controller
      */
     public function update_gear($id)
     {
-        $gear = Gear::where('gear_id',$id)->first();
+        $gear = Gear::find($id)->first();
         $gear->content = $gear>content;
         $gear ->save();
         return redirect('users.index');
@@ -144,7 +144,7 @@ class GearController extends Controller
      */
     public function destroy($id)
     {
-        $gears = Gear::where('gear_id',$id);
+        $gears = Gear::find($id);
         // 削除
         $gears->delete();
         // 一覧にリダイレクト

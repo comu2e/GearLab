@@ -15,7 +15,7 @@
                     <a href="{{ route('gear.unlike', ['id' => 1]) }}" class="btn btn-success btn-sm">いいね<span
                             class="badge">{{$gear->likes->count() }}</span></a>
                 @else
-                    <a href="{{ route('gear.like', ['id' => 1]) }}" class="btn btn-secondary btn-sm">いいね<span
+                    <a href="{{ route('gear.like', ['id' => $gear->id]) }}" class="btn btn-secondary btn-sm">いいね<span
                             class="badge">{{ $gear->likes->count()}}</span></a>
                 @endif
             </div>

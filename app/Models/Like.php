@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    use HasFactory;
+    protected $fillable = ['gear_id','user_id'];
 
+    public function gear()
+    {
+        return $this->belongsTo('App\Models\Gear');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

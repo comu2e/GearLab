@@ -93,10 +93,10 @@ class GearController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_gear(GearRequest $request)
+    public function edit_gear($id)
     {
-        $gears = Gear::find($request->id);
-        var_dump($gears);
+        $gear = Gear::where('gear_id',$id)->first();
+
         return view('gears.edit', compact('gear'));
 
     }
@@ -108,12 +108,12 @@ class GearController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_gear(GearRequest $request)
+    public function update_gear($id)
     {
-        $gears = Gear::find($request->id);
-        $gears->content = $request->gear_name;
+        $gears = Gear::where('gear_id',$id)->first();
+        $gears->content = $gears->content;
         $gears->save();
-        return redirect('/');
+        return redirect('users.index');
     }
     public function edit(GearRequest $request)
     {

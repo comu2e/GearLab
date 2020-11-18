@@ -11,8 +11,9 @@
         <img src={{$gear->image_url}} width="500" height="500">
     </div>
     <div class="d-flex justify-content-center">
+{{--        <a href="{{ route('gear_edit') }}">--}}
 
-        <a href="{{ route('gear_edit')}}/id?{{$gear->id}}" class="btn btn-primary">
+        <a href="{{ url("edit/$gear->gear_id") }}" class="btn btn-primary">
             {{ __('Edit') }}
         </a>
         {{-- 削除ボタンは後で正式なものに置き換えます --}}

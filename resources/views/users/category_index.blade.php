@@ -22,11 +22,11 @@
             <div class="d-flex justify-content-center">
                 {{--        <a href="{{ route('gear_edit') }}">--}}
 
-                <a href="{{ url("edit/$gear->gear_id") }}" class="btn btn-primary">
+                <a href="{{ url("edit/$gear->id") }}" class="btn btn-primary">
                     {{ __('Edit') }}
                 </a>
                 {{-- 削除ボタンは後で正式なものに置き換えます --}}
-                <form action="{{route('gears.destroy',$gear->gear_id) }}" method="POST">
+                <form action="{{route('gears.destroy',$gear->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
 

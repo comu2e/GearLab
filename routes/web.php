@@ -36,3 +36,11 @@ Route::get('users/{user_id}/gear_category={gear_category}','App\Http\Controllers
 
 Route::get('edit/{id}', 'App\Http\Controllers\GearController@edit_gear')->name('gear_edit');
 Route::post('edit/{id}', 'App\Http\Controllers\GearController@update_gear')->name('gear_update');
+//投稿フォームページ
+//Route::group(['middleware' => 'auth'], function() {
+//    Route::get('/gears', 'GearController@showCreateForm')->name('posts.create');
+//    Route::post('/gears', 'GearController@create');
+//});
+//いいね
+Route::get('/gear/{id}', 'App\Http\Controllers\GearController@like')->name('gear.like');
+Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');

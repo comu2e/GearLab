@@ -7,12 +7,17 @@ use Illuminate\Support\Facades\App;
 use Auth;
 use App\Models\Gear;
 use App\Models\User;
+use App\Models\Like;
+
 use Storage;
 use App\Http\Requests\GearRequest;
 
 class GearController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
+    }
     public function category_index($user_id,$gear_category)
     {
         $gears =Gear::all();
@@ -145,5 +150,24 @@ class GearController extends Controller
         // 一覧にリダイレクト
         return redirect('/');
     }
+    public function like($id)
+    {
+
+        Like::create([
+            'gear_id' => $id,
+            'user_id' => Auth::user()->id,
+        ]);
+
+        session()->flash('success', 'You Liked the Post.');
+
+        return redirect()->back();
+    }
+    public function unlike($id)
+    {
+        $like = Like::where('gear_id', $id)->where('user_id', Auth::id())->first();
+        $like->delete();
+        session()->flash('success', 'You Unliked the Post.');
+        return redirect()->back();
+}
 
 }

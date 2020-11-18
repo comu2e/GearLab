@@ -64,7 +64,7 @@ $categories,null,['class' => 'form-hoge',  'placeholder' => $gear->gear_category
             </div>
             </div>
 
-            <input type="submit" class="btn btn-primary" value="投稿"/>
+            <input type="submit" class="btn btn-primary" value="編集登録"/>
         </form>
 
     </div>

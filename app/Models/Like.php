@@ -11,7 +11,7 @@ class Like extends Model
 
     public function gear()
     {
-        return $this->belongsTo('App\Models\Gear');
+        return $this->belongsTo(Gear::class);
     }
 
     public function user()

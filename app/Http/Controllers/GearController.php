@@ -55,7 +55,6 @@ class GearController extends Controller
 //    dd($form);
 //    dd($request);
     //s3アップロード開始
-        var_dump($request->all());
     $image = $request->file('image_url');
 
     // バケットの`myprefix`フォルダへアップロード

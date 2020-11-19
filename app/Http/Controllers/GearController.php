@@ -166,7 +166,9 @@ class GearController extends Controller
     {
         $like = Like::where('gear_id', $id)->where('user_id', Auth::id())->first();
         $like->delete();
-        session()->flash('success', 'You Unliked the Post.');
+
+        session()->flash('success', 'You Unliked the Reply.');
+
         return redirect()->back();
 }
 

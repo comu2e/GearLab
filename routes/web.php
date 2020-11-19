@@ -42,5 +42,5 @@ Route::post('edit/{id}', 'App\Http\Controllers\GearController@update_gear')->nam
 //    Route::post('/gears', 'GearController@create');
 //});
 //いいね
-Route::get('/gear/{id}', 'App\Http\Controllers\GearController@like')->name('gear.like');
+Route::get('/gear/like/{id}', 'App\Http\Controllers\GearController@like')->name('gear.like');
 Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');

@@ -12,7 +12,7 @@
             </div>
             <div>
                 @if($gear->is_liked_by_auth_user())
-                    <a href="{{ route('gear.unlike', ['id' => 1]) }}" class="btn btn-success btn-sm">いいね<span
+                    <a href="{{ route('gear.unlike', ['id' => $gear->id]) }}" class="btn btn-success btn-sm">いいね<span
                             class="badge">{{$gear->likes->count() }}</span></a>
                 @else
                     <a href="{{ route('gear.like', ['id' => $gear->id]) }}" class="btn btn-secondary btn-sm">いいね<span

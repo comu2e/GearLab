@@ -53,8 +53,9 @@
         @enderror
     </div>
     ギアの写真
+{{--            https://www.kabanoki.net/6250/--}}
+            <drag></drag>
 
-    <input name="image_url" type="file">
     <div class="text-danger">
         @error('image_url')
         {{$message}}
@@ -62,7 +63,6 @@
     </div>
 
     <input type="submit" class="btn btn-primary" value="投稿"/>
-
     </form>
 
     </div>

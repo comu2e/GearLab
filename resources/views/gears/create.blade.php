@@ -54,6 +54,7 @@
     </div>
     ギアの写真
 {{--            https://www.kabanoki.net/6250/--}}
+            <input type="file"name="image_url">
             <drag></drag>
 
     <div class="text-danger">

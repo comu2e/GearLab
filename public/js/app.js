@@ -1930,6 +1930,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Drag.vue",
   components: {
@@ -38938,7 +38945,9 @@ var render = function() {
           theme: "light",
           size: "large",
           placeholder: "ファイルをここにドラッグする",
-          "bottom-text": "ファイルをドロップするかここをクリックしてください"
+          "bottom-text": "ファイルをドロップするかここをクリックしてください",
+          auto_upload: "true",
+          name: "image_url"
         },
         model: {
           value: _vm.file,

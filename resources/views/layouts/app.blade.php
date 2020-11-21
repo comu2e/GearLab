@@ -1,30 +1,67 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+{{--<!doctype html>--}}
+{{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
+{{--<head>--}}
+{{--    <meta charset="utf-8">--}}
+{{--    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
+
+{{--    <!-- CSRF Token -->--}}
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
+
+{{--    <title>                    {{ 'GearLab' }}--}}
+{{--    </title>--}}
+
+{{--    <!-- Scripts -->--}}
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+
+{{--    <!-- Fonts -->--}}
+{{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
+{{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
+
+{{--    <!-- Styles -->--}}
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+{{--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">--}}
+
+{{--</head>--}}
+
+    <!DOCTYPE html>
+<html lang="ja">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>                    {{ 'GearLab' }}
-    </title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mountain King - Bootstrap Template</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{{asset('css/theme.css')}}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,700,900,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.7/typicons.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('css/pushy.css')}}">
+    <link rel="stylesheet" href="{{asset('css/masonry.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('css/odometer-theme-default.css')}}">
+    <script>
+        window.odometerOptions = {
+            selector: '.odometer',
+            format: '(,ddd)', // Change how digit groups are formatted, and how many digits are shown after the decimal point
+            duration: 13000, // Change how long the javascript expects the CSS animation to take
+            theme: 'default'
+        };
+    </script>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="pushy pushy-left">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ 'GearLab' }}
@@ -77,19 +114,62 @@
                 </div>
             </div>
         </nav>
-
+        <header id="home">
+            <div class="container-fluid">
+                <!-- change the image in style.css to the class header .container-fluid [approximately row 50] -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-10">
+                            <a href="#" class="thumbnail logo">
+                                <img src="{{asset('img/your_logo.png')}}" alt="" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="col-md-1 col-md-offset-8 col-xs-2 text-center">
+                            <div class="menu-btn"><span class="hamburger">&#9776;</span></div>
+                        </div>
+                    </div>
+                    <div class="jumbotron">
+                        <h1><small>In the hall of the</small></br>
+                            <strong>Mountain King</strong></h1>
+                        <p>This is a simple hero unit, a simple jumbotron-style component for<br>
+                            calling extra attention to featured content or information.</p>
+                        <p><a class="btn btn-primary btn-lg" role="button">Learn more</a> <a target="_blank" href="http://www.themeinthebox.com/ourtheme/mountain-king-bootstrap-template/" class="btn btn-lg btn-danger" role="button">Download</a></p>
+                    </div>
+                </div>
+            </div>
+        </header>
         <main class="py-4">
             @yield('content')
         </main>
     </div>
     @yield('footer')
-
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Your Logo</h3>
+                    <p>© 2016 Your Company. Designed and Developed by <a target="_blank" href="http://www.themeinthebox.com">ThemeintheBox.com</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-right social"><i class="typcn typcn-social-facebook-circular"></i><i class="typcn typcn-social-twitter-circular"></i><i class="typcn typcn-social-tumbler-circular"></i><i class="typcn typcn-social-github-circular"></i><i class="typcn typcn-social-dribbble-circular"></i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+{{--<script src="asset/jquery.min.js"></script>--}}
+{{--<script src="bootstrap/js/bootstrap.min.js"></script>--}}
+{{--<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-scrollspy.js"></script>--}}
+{{--<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->--}}
+{{--<script src="./ie10-viewport-bug-workaround.js"></script>--}}
+{{--<script src="http://masonry.desandro.com/masonry.pkgd.js"></script>--}}
+{{--<script src="masonry.js"></script>--}}
+{{--<script src="pushy.min.js"></script>--}}
+{{--<script src="jquery.magnific-popup.min.js"></script>--}}
+{{--<script src="wow.min.js"></script>--}}
+{{--<script src="scripts.js"></script>--}}
+{{--<script src="odometer.js"></script>--}}
 
 </html>

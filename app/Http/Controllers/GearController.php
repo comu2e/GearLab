@@ -17,6 +17,7 @@ class GearController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
+        $this->middleware('auth');
     }
     public function category_index($user_id,$gear_category)
     {
@@ -65,7 +66,7 @@ class GearController extends Controller
     $gear->image_url = Storage::disk('s3')->url($path);
 
     $gear -> gear_name= $request-> gear_name;
-    $gear -> user_id = Auth::user()->id;
+    $gear -> user_id = Auth::id();
 
     $gear -> gear_category = $request-> gear_category ;
     $gear -> maker_name= $request-> maker_name;

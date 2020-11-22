@@ -10,6 +10,11 @@ use App\Models\User;
 class UserController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
+        $this->middleware('auth');
+    }
     public function index()
     {
 //        $users =User::all();

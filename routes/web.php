@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,7 +32,7 @@ Auth::routes();
 Route::resource('users','App\Http\Controllers\UserController');
 Route::resource('gears','App\Http\Controllers\GearController');
 
-Route::get('users/{user_id}/gear_category={gear_category}','App\Http\Controllers\GearController@category_index');
+Route::get('users/{user_id}/gear_category={gear_category}','App\Http\Controllers\GearController@category_index')->name('gear_category');
 
 Route::get('edit/{id}', 'App\Http\Controllers\GearController@edit_gear')->name('gear_edit');
 Route::post('edit/{id}', 'App\Http\Controllers\GearController@update_gear')->name('gear_update');

@@ -1,1 +1,56 @@
 @extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="card">
+            <div class="card-header">ギア一覧</div>
+            <div class="card-body">
+
+                <ul class="list-group">
+                    @foreach ($gears as $gear)
+                        <li class="list-group-item">
+                            <a href="{{ url('gear/' . $gear->id) }}"></a>
+                                <div align="center" >
+                                    <img src="{{ $gear->image_url }} "  width="30%" alt="">
+
+                                </div>
+                                <div align="right">
+
+                                    <div>
+                                        {{ 'ギア名: '.$gear->gear_name }}
+                                    </div>
+                                    <div>
+                                        {{ 'ギアカテゴリ: '.$gear->gear_category }}
+                                    </div>
+                                    <div>
+                                        {{ '登録日: '.$gear->updated_at }}
+                                    </div>
+
+                                    <div>
+                                        @if($gear->is_liked_by_auth_user())
+                                            <a href="{{ route('gear.unlike', ['id' => $gear->id]) }}" class="btn btn-success btn-sm">いいね<span
+                                                    class="badge">{{$gear->likes->count() }}</span></a>
+                                        @else
+                                            <a href="{{ route('gear.like', ['id' => $gear->id]) }}" class="btn btn-secondary btn-sm">いいね<span
+                                                    class="badge">{{ $gear->likes->count()}}</span></a>
+                                        @endif
+                                    </div>
+                    @endforeach
+                </ul>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+@endsection
+
+
+@section('footer')
+    <div class="d-flex justify-content-center">
+        {{$gears->links('pagination::bootstrap-4') }}
+    </div>
+@endsection

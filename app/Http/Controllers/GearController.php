@@ -20,8 +20,9 @@ class GearController extends Controller
     }
     public function category_index($user_id,$gear_category)
     {
+
         $gears =Gear::all();
-        $users =User::all();
+       $users =User::all();
 
         $gear_categorized = $gears->where('user_id',$user_id)->where('gear_category',$gear_category)->all();
         $user  = $users -> where('user_id',$user_id)->all();
@@ -31,8 +32,9 @@ class GearController extends Controller
 
     public function index()
     {
-        $gears =Gear::all();
-        return view('gear/index',compact('gears'));
+//        $gears =Gear::all();
+        $gears = Gear::paginate(10);
+        return view('gears/index',compact('gears'));
 
     }
 

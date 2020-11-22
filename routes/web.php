@@ -61,3 +61,9 @@ Route::group(['middleware' => ['auth.admin']], function () {
 //管理側ログイン
 Route::get('/admin/login', 'App\Http\Controllers\admin\AdminLoginController@showLoginform');
 Route::post('/admin/login', 'App\Http\Controllers\admin\AdminLoginController@login');
+
+
+//ルートの保護
+Route::get('profile', function() {
+    // 認証済みのユーザーのみが入れる
+})->middleware('auth');

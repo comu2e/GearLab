@@ -41,6 +41,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
@@ -54,6 +55,10 @@
                             </li>
                         @endif
                     @else
+                        <div class="d-flex justify-content-center">
+
+                            <a href={{ url('gears/create') }} class="btn btn-primary" >Register Gear</a>
+                        </div>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -76,6 +81,8 @@
                 </ul>
             </div>
         </div>
+
+
     </nav>
 
     <main class="py-4">

@@ -21,6 +21,7 @@
 </head>
 <body>
 <div id="app">
+
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
 
@@ -32,11 +33,12 @@
                     aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="d-flex justify-content-center">
-                <a href={{ url('/users') }} class="btn btn-primary">
-                ユーザ一覧
-                </a>
+                <div class="d-flex justify-content-center">
+
+            <button onclick="history.back()" class="btn btn-primary">戻る</button>
             </div>
+
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
@@ -60,6 +62,11 @@
                             </li>
                         @endif
                     @else
+                        <div class="d-flex justify-content-center">
+                            <a href={{ url('/users') }} class="btn btn-primary">
+                            ユーザ一覧
+                            </a>
+                        </div>
                         <div class="d-flex justify-content-center">
 
                             <a href={{ url('gears/create') }} class="btn btn-primary"> Gear <strong> + </strong></a>
@@ -104,6 +111,7 @@
     </nav>
 
     <main class="py-4">
+
         @yield('content')
     </main>
 </div>
@@ -113,3 +121,9 @@
     @yield('footer')
 </footer>
 </html>
+<script>
+    import HeaderComponent from "../../js/components/HeaderComponent";
+    export default {
+        components: {HeaderComponent}
+    }
+</script>

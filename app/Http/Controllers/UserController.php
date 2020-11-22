@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 use App\Models\User;
+use App\Models\Gear;
 
 class UserController extends Controller
 {

@@ -33,10 +33,13 @@
     <title>Mountain King - Bootstrap Template</title>
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/theme.css')}}" rel="stylesheet">
-    <!-- Custom styles for this template -->
+    <!-- Custm styles for this template -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
@@ -130,9 +133,9 @@
                         </div>
                     </div>
                     <div class="jumbotron">
-                        <h1><small>キャンプをもっと楽しく</small>
-                            <strong>Gear Lab</strong></h1>
-                        <p><a class="btn btn-primary btn-lg" role="button">Experience</a> <a target="_blank" href="http://www.themeinthebox.com/ourtheme/mountain-king-bootstrap-template/" class="btn btn-lg btn-danger" role="button">Download</a></p>
+                        <h1><small>キャンプを追求しよう</small>
+                            <h1>Gear Lab</h1></h1>
+                        <p><a class="btn btn-primary btn-lg" href="{{url('gears')}}" role="button">Experience</a> <a target="_blank" href="#" class="btn btn-lg btn-danger" role="button">Concept</a></p>
                     </div>
                 </div>
             </div>

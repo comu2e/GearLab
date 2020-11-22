@@ -15,7 +15,7 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{$user->name}}</h5>
-                                <p class="card-text"></p>
+{{--                                <p class="card-text">{{count($gears->user_id)}}</p>--}}
                                 <p class="card-text"><small class="text-muted">登録日:{{$user->created_at}}</small></p>
                             </div>
                         </div>

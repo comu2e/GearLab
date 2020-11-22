@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="drag">
         <img-inputer v-model="file"
                      theme="light"
                      size="large"

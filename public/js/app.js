@@ -38938,7 +38938,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "app" } },
+    { attrs: { id: "drag" } },
     [
       _c("img-inputer", {
         attrs: {
@@ -51229,7 +51229,7 @@ Vue.component('drag', __webpack_require__(/*! ./components/Drag.vue */ "./resour
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#drag'
 });
 
 /***/ }),

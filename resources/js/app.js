@@ -40,5 +40,5 @@ Vue.component('drag', require('./components/Drag.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#drag',
 });

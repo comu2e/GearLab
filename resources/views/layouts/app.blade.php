@@ -33,12 +33,7 @@
                     aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <form class="form-inline my-2 my-lg-0 ml-2">
-                <div class="form-group">
-                    <input type="search" class="form-control mr-sm-2" name="search"  value="{{request('search')}}" placeholder="キーワードを入力" aria-label="検索...">
-                </div>
-                <input type="submit" value="検索" class="btn btn-primary">
-            </form>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">

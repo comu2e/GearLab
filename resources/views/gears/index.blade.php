@@ -1,7 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container">
+<div align="center">
+
+    @if(!empty($_GET['category']))
+        <div>{{$_GET['category']}}</div>
+        <img src={{asset('/img/'.$_GET['category'].'.svg')  }} width=15% alt="">
+
+    @endif
+
+    <form  class="form-inline my-2 my-lg-0 ml-2">
+        <select class="form-control"name="category">
+           <option>All</option>
+
+            @foreach($categories as $category)
+
+                <option>{{$category}}</option>
+            @endforeach
+
+        </select>
+        <div class="form-group">
+            <input type="search" class="form-control mr-sm-2" name="content"  value="{{request('content')}}" placeholder="キーワードを入力" aria-label="検索...">
+        </div>
+
+        <input type="submit" value="検索" class="btn btn-primary">
+    </form>
+</div>
+
         <div class="card">
             <div class="card-header">ギア一覧</div>
             <div class="card-body">

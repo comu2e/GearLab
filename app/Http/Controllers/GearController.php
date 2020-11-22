@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use http\Env\Request;
+//use http\Env\Request;
 use Illuminate\Support\Facades\App;
 use Auth;
 use App\Models\Gear;
 use App\Models\User;
 use App\Models\Like;
+use Illuminate\Http\Request;
 
 use Storage;
 use App\Http\Requests\GearRequest;
+
 
 class GearController extends Controller
 {
@@ -31,10 +33,23 @@ class GearController extends Controller
         return view('users/category_index',compact('user','gear_categorized','gear_category'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-//        $gears =Gear::all();
-        $gears = Gear::paginate(10);
+        //RequestはFormrequest使ってはだめ
+        $query = Gear::query();
+
+        $search1 = $request->input('category');
+        $search2 = $request->input('content');
+
+        if ($request -> has('category') && $search1 ==('All')){
+        }
+        else{
+            $query -> where('gear_category',$search1)->get();
+        }
+
+
+            $gears = $query->paginate(10);
+
         return view('gears/index',compact('gears'));
 
     }

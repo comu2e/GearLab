@@ -153,18 +153,18 @@
             <div class="row features">
                 <h2 align="center">機能</h2>
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="100ms">
-                    <span class="typcn typcn-pencil x3"></span>
-                    <h4>お気入りのキャンプギア登録</h4>
-                    <p>キャンプギアを保存してみんなと共有しよう</p>
+                    <img src={{asset('/img/share.svg')  }} width=15% alt="">
+                    <h4>お気入りのキャンプギア共有</h4>
+                    <p>お気に入りのキャンプギアを共有できます</p>
                 </div>
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="300ms">
-                    <span class="typcn typcn-camera-outline x3"></span>
-                    <h4>キャンプギアの検索　（検索アイコンにする）</h4>
-                    <p>キャンプ体験を豊かにするキャンプギアを探す</p>
+                    <img src={{asset('/img/search.svg')  }} width=15% alt="">
+                    <h4>キャンプギアの検索</h4>
+                    <p>理想のキャンプギアを探せます</p>
                 </div>
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="500ms">
-                    <span class="typcn typcn-bookmark x3"></span>
-                    <h4>いいね機能</h4>
+                    <img src={{asset('/img/follow.svg')  }} width=15% alt="">
+                    <h4>フォロー機能</h4>
                     <p></p>
                 </div>
             </div>

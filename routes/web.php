@@ -68,5 +68,3 @@ Route::get('profile', function() {
     // 認証済みのユーザーのみが入れる
 })->middleware('auth');
 
-//検索結果を表示する
-Route::get('/search','App\Http\Controllers\GearController@search');

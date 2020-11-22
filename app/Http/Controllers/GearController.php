@@ -75,7 +75,7 @@ class GearController extends Controller
     $gear -> edited_at = date('Y/m/d H:i:s');
 
     $gear->save();
-    return redirect()->route('users.index');
+    return redirect()->route('gears.index');
 }
 
 

@@ -18,13 +18,13 @@
         "laravelcollective/html": "^6.2",
         "league/flysystem-aws-s3-v3": "^1.0",
         "kanazaca/counter-cache": "1.0.*"
-
     },
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
+        "nunomaduro/phpinsights": "^1.14",
         "phpunit/phpunit": "^9.3.3"
     },
     "config": {

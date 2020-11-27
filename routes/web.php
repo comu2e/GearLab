@@ -18,9 +18,7 @@ Route::get('/', function () {
     return view('layouts.landing');
 });
 
-Route::get('/concept', function () {
-    return view('concept');
-});
+
 
 Route::get('/user_detail/{id?}', function () {
     return view('user_detail_view')->name('user_detail');

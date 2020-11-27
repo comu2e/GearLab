@@ -107,46 +107,57 @@
                             <img src="{{asset('img/your_logo.png')}}" alt="" class="img-responsive">
                         </a>
                     </div>
-                    <div class="col-md-1 col-md-offset-8 col-xs-2 text-center">
-                        <div class="menu-btn"><span class="hamburger">&#9776;</span></div>
-                    </div>
+{{--                    <div class="col-md-1 col-md-offset-8 col-xs-2 text-center">--}}
+{{--                        <div class="menu-btn"><span class="hamburger">&#9776;</span>--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="jumbotron">
                     <h1><small>キャンプを追求しよう</small>
                         <h1>Gear Lab</h1></h1>
-                    <p><a class="btn btn-danger btn-lg" href="{{url('gears')}}" role="button">Experience <i
-                                class="fa fa-arrow-circle-o-right"></i> </a> <a
-                            target="_blank" href="#" class="btn btn-lg btn-primary" role="button">Concept</a></p>
+                    <p>
+                        <a class="btn btn-danger btn-lg" href="{{url('/gears?category=All&content=')}}" role="button">Experience <i
+                                class="fa fa-arrow-circle-o-right"></i> </a>
+                        <a target="_blank" href="#concept"  target="_blank" class="btn btn-lg btn-primary" role="button">
+                            Concept
+                        </a>
+                        <a target="_blank"  href="{{ route('register') }}"  target="_blank" class="btn btn-lg btn-success" role="button">
+                           Register
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
     </header>
     <section id="about" class="number wow fadeInUp" data-wow-delay="300ms">
         <!-- change the image in style.css to the class .number .container-fluid [approximately row 102] -->
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 opaline col-md-offset-6">
-                        <div class="row">
-                            <div class="col-md-offset-1 col-md-10">
-                                <h2>コンセプト
-                                    <hr>
-                                </h2>
-                                <h5>自分にあったキャンプギアを見つけ出そう</h5>
+
+            <div class="container-fluid" id="concept">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 opaline col-md-offset-6">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10">
+                                    <h2>コンセプト
+                                        <hr>
+                                    </h2>
+                                    <h5>自分にあったキャンプギアを見つけ出そう</h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row text-center">
-                            <!-- set the numbers in assets/js/scripts.js  -->
-                            <p align="center">自分にあったキャンプギアの準備で困ったことはないでしょうか？</p>
-                            <p align="center">友達やキャンプ場であった他の人の道具、</p>
-                            <p align="center">はたまたYoutubeで気になる道具を見つけ出した経験はあるでしょう。</p>
-                            <hr>
-                            <strong align="center">このサイトでは自分のキャンプギアを共有や理想のキャンプの実現を達成するキャンプギアを見つけ出しやすくすることができます!</strong>
+                            <div class="row text-center">
+                                <!-- set the numbers in assets/js/scripts.js  -->
+                                <p align="center">自分にあったキャンプギアの準備で困ったことはないでしょうか？</p>
+                                <p align="center">友達やキャンプ場であった他の人の道具、</p>
+                                <p align="center">はたまたYoutubeで気になる道具を見つけ出した経験はあるでしょう。</p>
+                                <hr>
+                                <strong align="center">このサイトでは自分のキャンプギアを共有や理想のキャンプの実現を達成するキャンプギアを見つけ出しやすくすることができます!</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
     </section>
     <section id="feat">
         <div class="container">

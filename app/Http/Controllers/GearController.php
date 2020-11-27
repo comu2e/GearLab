@@ -9,6 +9,7 @@ use App\Models\Gear;
 use App\Models\User;
 use App\Models\Like;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Storage;
 use App\Http\Requests\GearRequest;
@@ -38,18 +39,20 @@ class GearController extends Controller
         //RequestはFormrequest使ってはだめ
         $query = Gear::query();
 
+
         $search1 = $request->input('category');
         $search2 = $request->input('content');
 
         if ($request -> has('category') && $search1 ==('All')){
+            $gears = DB::table('gears')->paginate(10);
         }
         else{
-            $query -> where('gear_category',$search1)->get();
+            $query -> where('gear_category',$search2)->get();
+
         }
 
 
             $gears = $query->paginate(10);
-
         return view('gears/index',compact('gears'));
 
     }

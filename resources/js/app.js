@@ -32,6 +32,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('gear-component', require('./components/GearComponent.vue').default);
+Vue.component('gear-category-component', require('./components/GearCategoryComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

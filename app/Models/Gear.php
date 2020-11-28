@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 class Gear extends Model
 {
+    protected $fillable = [
+        'gear_name',
+        'gear_category',
+        'maker_name',
+        'content',
+        'image_url',
+        'user_id',
+    ];
     use HasFactory;
     //    一体他のリレーション
     const UPDATED_AT = null;

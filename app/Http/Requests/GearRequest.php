@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\ValidationException;
 
 class GearRequest extends FormRequest
 {
@@ -11,6 +14,7 @@ class GearRequest extends FormRequest
      *
      * @return bool
      */
+
     public function authorize()
     {
         return true;
@@ -42,5 +46,13 @@ class GearRequest extends FormRequest
             'content.required' => 'ギアのお気に入りポイントを入力してください',
             'image_url.required' => '画像をアップロードしてください',
         ];
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $errors = (new ValidationException($validator))->errors();
+        throw new HttpResponseException(response()->json([
+            'message' => 'Failed validation',
+            'errors' => $errors,
+        ], 422, [], JSON_UNESCAPED_UNICODE));
     }
 }

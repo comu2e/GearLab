@@ -1932,6 +1932,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GearCategoryComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GearCategoryComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "GearCategoryComponent"
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GearComponent.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GearComponent.vue?vue&type=script&lang=js& ***!
@@ -1980,26 +2001,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearComponent",
   data: function data() {
     return {
+      gears: {},
       message: "",
       isPush: false,
       updateForm: false,
-      gears: {},
       id: "",
+      content: "",
       user_id: "",
       gear_category: "",
       gear_name: "",
       maker_name: "",
       image_url: "",
       updated_at: "",
-      created_at: ""
+      created_at: "",
+      edited_at: ""
     };
   },
   created: function created() {
@@ -2011,6 +2030,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/gears/").then(function (response) {
         _this.gears = response.data;
+        console.log(_this.gears);
       })["catch"](function (err) {
         _this.message = err;
       });
@@ -2021,6 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/api/gears/", {
         gear_category: this.gear_category,
         gear_name: this.gear_name,
+        contet: this.content,
         maker_name: this.maker_name,
         updated_at: this.updated_at,
         content: this.content,
@@ -37784,12 +37805,13 @@ var render = function() {
               "\n                    " +
                 _vm._s(gear.id) +
                 "/" +
-                _vm._s(gear.title) +
+                _vm._s(gear.content) +
                 "/" +
                 _vm._s(gear.gear_category) +
-                "\n"
+                "\n" +
+                _vm._s("Heee") +
+                "\n                    "
             ),
-            _vm._v(" "),
             _c(
               "button",
               {
@@ -50025,6 +50047,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('gear-component', __webpack_require__(/*! ./components/GearComponent.vue */ "./resources/js/components/GearComponent.vue")["default"]);
+Vue.component('gear-category-component', __webpack_require__(/*! ./components/GearCategoryComponent.vue */ "./resources/js/components/GearCategoryComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50148,6 +50171,88 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/GearCategoryComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/GearCategoryComponent.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GearCategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GearCategoryComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/GearCategoryComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _GearCategoryComponent_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GearCategoryComponent.vue?vue&type=custom&index=0&blockType=div */ "./resources/js/components/GearCategoryComponent.vue?vue&type=custom&index=0&blockType=div");
+/* harmony import */ var _GearCategoryComponent_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_GearCategoryComponent_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _GearCategoryComponent_vue_vue_type_custom_index_1_blockType_div__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GearCategoryComponent.vue?vue&type=custom&index=1&blockType=div */ "./resources/js/components/GearCategoryComponent.vue?vue&type=custom&index=1&blockType=div");
+/* harmony import */ var _GearCategoryComponent_vue_vue_type_custom_index_1_blockType_div__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_GearCategoryComponent_vue_vue_type_custom_index_1_blockType_div__WEBPACK_IMPORTED_MODULE_3__);
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _GearCategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "a8ba2b16",
+  null
+  
+)
+
+/* custom blocks */
+
+if (typeof _GearCategoryComponent_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2___default.a === 'function') _GearCategoryComponent_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2___default()(component)
+
+if (typeof _GearCategoryComponent_vue_vue_type_custom_index_1_blockType_div__WEBPACK_IMPORTED_MODULE_3___default.a === 'function') _GearCategoryComponent_vue_vue_type_custom_index_1_blockType_div__WEBPACK_IMPORTED_MODULE_3___default()(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GearCategoryComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/GearCategoryComponent.vue?vue&type=custom&index=0&blockType=div":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/GearCategoryComponent.vue?vue&type=custom&index=0&blockType=div ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/GearCategoryComponent.vue?vue&type=custom&index=1&blockType=div":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/GearCategoryComponent.vue?vue&type=custom&index=1&blockType=div ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/GearCategoryComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/GearCategoryComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GearCategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./GearCategoryComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GearCategoryComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GearCategoryComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

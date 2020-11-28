@@ -2,19 +2,16 @@
 
 @section('content')
 
-{{--<div id="app">--}}
-{{--    <gear-component></gear-component>--}}
-{{--</div>--}}
+<div id="app">
+    <gear-component></gear-component>
+<gear-category-component></gear-category-component>
 
+</div>
 
 <div class="container">
 <div align="center">
 
-    @if(!empty($_GET['category']))
-        <div>{{$_GET['category']}}</div>
-        <img src={{asset('/img/'.$_GET['category'].'.svg')  }} width=15% alt="">
 
-    @endif
 
     <form  class="form-inline my-2 my-lg-0 ml-2">
         <select class="form-control"name="category">

@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <!-- 新規追加フォーム -->
         <div>
@@ -11,8 +12,8 @@
         <div>
             <ul>
                 <li v-for="gear in gears" :key="gear.id">
-                    {{ gear.id }}/{{ gear.title }}/{{ gear.gear_category }}
-
+                    {{ gear.id }}/{{ gear.content }}/{{ gear.gear_category }}
+{{'Heee'}}
                     <button :disabled="isPush" @click="deleteGear(gear.id)">
                         削除
                     </button>
@@ -41,18 +42,20 @@ export default {
     name: "GearComponent",
     data() {
         return {
+            gears: {},
             message: "",
             isPush: false,
             updateForm: false,
-            gears: {},
             id: "",
+            content: "",
             user_id: "",
             gear_category: "",
             gear_name: "",
             maker_name: "",
             image_url: "",
             updated_at: "",
-            created_at: ""
+            created_at: "",
+            edited_at: ""
         };
     },
     created: function() {
@@ -64,6 +67,7 @@ export default {
                 .get("/api/gears/")
                 .then(response => {
                     this.gears = response.data;
+                    console.log(this.gears);
                 })
                 .catch(err => {
                     this.message = err;
@@ -74,6 +78,7 @@ export default {
                 .post("/api/gears/", {
                     gear_category: this.gear_category,
                     gear_name: this.gear_name,
+                    contet: this.content,
                     maker_name: this.maker_name,
                     updated_at: this.updated_at,
                     content: this.content,

@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
 
-	jQuery(window).load(function(){
+    jQuery(window).on('load', function(){
 
 		jQuery('.masonry').masonry({
 			columnWidth: '.grid-sizer',

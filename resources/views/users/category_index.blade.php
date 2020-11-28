@@ -4,7 +4,8 @@
     <div class="d-flex justify-content-center">
         <img src={{asset('/img/'.$gear_category.'.svg')  }} width=15%>
 
-    </div>
+
+
     @foreach($gear_categorized as $gear)
         <div class="container">
             <div class="d-flex justify-content-center">

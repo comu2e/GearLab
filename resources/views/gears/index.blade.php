@@ -2,7 +2,12 @@
 
 @section('content')
 
-    <div class="container">
+{{--<div id="app">--}}
+{{--    <gear-component></gear-component>--}}
+{{--</div>--}}
+
+
+<div class="container">
 <div align="center">
 
     @if(!empty($_GET['category']))

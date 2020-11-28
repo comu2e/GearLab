@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <div id="app">
+        <example-component></example-component>
+
+    </div>
     <div class="d-flex justify-content-center">
 
         <form method="POST" action="/gears" enctype="multipart/form-data">
@@ -67,5 +71,7 @@
     </form>
 
     </div>
+
+
 @endsection
 

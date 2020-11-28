@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/layouts.landing', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
-    return view('layouts.landing');
+    return view('/layouts.landing');
 });
 
 

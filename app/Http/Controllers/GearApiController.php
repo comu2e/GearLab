@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 //use http\Env\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Auth;
 use App\Models\Gear;
@@ -20,21 +21,22 @@ class GearApiController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
         $gear = Gear::all();
         return response()->json([
             'message' => 'ok',
-            'data' =>  $gear
-        ], 200, [], JSON_UNESCAPED_UNICODE);    }
+            'data' => $gear
+        ], 200, [], JSON_UNESCAPED_UNICODE);
+    }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(GearRequest $request)
     {
@@ -51,8 +53,8 @@ class GearApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function show($id)
     {
@@ -66,14 +68,15 @@ class GearApiController extends Controller
             return response()->json([
                 'message' => 'Gear not found',
             ], 404);
-        }    }
+        }
+    }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $id
+     * @return Response
      */
 //    public function update(GearRequest $request,$id)
 //    {
@@ -100,8 +103,8 @@ class GearApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function destroy($id)
     {

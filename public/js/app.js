@@ -2167,7 +2167,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'GearCreateComponent',
   data: function data() {
@@ -2198,9 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append('file', this.fileInfo);
       axios.post('/api/file_upload', formData).then(function (response) {
-        _this2.user = response.data;
-        console.log(_this2.user);
-        console.log(_this2.gear); // this.gear['image_url'] = response.data.file_path
+        _this2.gear = response.data; // console.log(this.gear)
 
         if (response.data.file_path) _this2.showUserImage = true;
       });
@@ -38122,13 +38119,9 @@ var render = function() {
             _vm._v(" "),
             _c("p", [
               _c("input", {
-                attrs: { type: "file" },
+                attrs: { type: "file", name: "image_url" },
                 on: { change: _vm.fileSelected }
               })
-            ]),
-            _vm._v(" "),
-            _c("button", { on: { click: _vm.fileUpload } }, [
-              _vm._v("アップロード")
             ]),
             _vm._v(" "),
             _c(
@@ -38269,26 +38262,19 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", [
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", on: { click: _vm.fileUpload } },
+              [_vm._v("投稿")]
+            )
+          ])
         ]
       )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,5 +1,11 @@
 <template>
+
     <div>
+        <div id="header">
+            <router-link to="/">about</router-link>
+
+        </div>
+
         <div class="form-group row border-bottom">
             <label class="col-sm-3 col-form-label" for="person-in-charge">Gear ID</label>
             <input id="gear-id" v-model="gear.id" class="col-sm-9 form-control-plaintext" readonly

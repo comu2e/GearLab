@@ -39,7 +39,7 @@ Vue.component('gear-list-component', require('./components/GearListComponent.vue
 Vue.component('gear-show-component', require('./components/GearShowComponent.vue').default);
 Vue.component('gear-create-component', require('./components/GearCreateComponent.vue').default);
 
-/**
+/*
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.

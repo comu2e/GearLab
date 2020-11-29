@@ -2197,6 +2197,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
@@ -38197,6 +38203,10 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
                 _vm._v(" "),
+                _c("div", { staticClass: "btn btn-success btn-sm" }, [
+                  _vm._v(_vm._s("いいね数 : " + gear.likes_count))
+                ]),
+                _vm._v(" "),
                 _c(
                   "div",
                   [
@@ -53674,7 +53684,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('gear-category-component', 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('gear-list-component', __webpack_require__(/*! ./components/GearListComponent.vue */ "./resources/js/components/GearListComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('gear-show-component', __webpack_require__(/*! ./components/GearShowComponent.vue */ "./resources/js/components/GearShowComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('gear-create-component', __webpack_require__(/*! ./components/GearCreateComponent.vue */ "./resources/js/components/GearCreateComponent.vue")["default"]);
-/**
+/*
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.

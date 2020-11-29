@@ -10,8 +10,14 @@
                         <div align="right">
 
                             <div>{{'投稿者 : '+gear.user_id }}</div>
+
                             <div>{{'GearContent : ' +gear.content }}</div>
                             <div>{{'メーカー名 : ' + gear.maker_name }}</div>
+                            <div  class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
+
+                            <!--                            <a :href="{{ route('gear.unlike', ['id' => gear.id]) }}" class="btn btn-success btn-sm">いいね<span-->
+                            <!--                                class="badge">{{gear.likes_count }}</span></a>-->
+
                             <div>
                                 <router-link v-bind:to="{name: 'gear.show', params: {gearId: gear.id }}">
                                     <button class="btn btn-primary">Show</button>

@@ -2186,6 +2186,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
   data: function data() {
@@ -38160,56 +38172,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.gears, function(gear) {
-      return _c("tr", [
-        _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(gear.id))]),
-        _vm._v(" "),
-        _c("td", [_vm._v(_vm._s(gear.user_id))]),
-        _vm._v(" "),
-        _c("td", [_vm._v(_vm._s(gear.content))]),
-        _vm._v(" "),
-        _c("td", [_vm._v(_vm._s(gear.maker_name))]),
-        _vm._v(" "),
-        _c(
-          "td",
-          [
-            _c(
-              "router-link",
-              {
-                attrs: {
-                  to: { name: "gear.show", params: { gearId: gear.id } }
-                }
-              },
-              [
-                _c("button", { staticClass: "btn btn-primary" }, [
-                  _vm._v("Show")
-                ])
-              ]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("td", [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-danger",
-              on: {
-                click: function($event) {
-                  return _vm.deleteGear(gear.id)
-                }
-              }
-            },
-            [_vm._v("Delete")]
-          )
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { attrs: { align: "center" } },
+      _vm._l(_vm.gears, function(gear) {
+        return _c("ul", { staticClass: "list-group" }, [
+          _c("li", { staticClass: "list-group-item" }, [
+            _c("div", { attrs: { align: "center", scope: "row" } }, [
+              _c("img", {
+                attrs: { alt: "", src: gear.image_url, width: "30%" }
+              }),
+              _vm._v(" "),
+              _c("div", { attrs: { align: "right" } }, [
+                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_id))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s("GearContent : " + gear.content))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: { name: "gear.show", params: { gearId: gear.id } }
+                        }
+                      },
+                      [
+                        _c("button", { staticClass: "btn btn-primary" }, [
+                          _vm._v("Show")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteGear(gear.id)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ])
         ])
-      ])
-    }),
-    0
-  )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38254,7 +38275,7 @@ var render = function() {
           }
         ],
         staticClass: "col-sm-9 form-control-plaintext",
-        attrs: { type: "text", readonly: "", id: "gear-id" },
+        attrs: { id: "gear-id", readonly: "", type: "text" },
         domProps: { value: _vm.gear.id },
         on: {
           input: function($event) {
@@ -38287,7 +38308,7 @@ var render = function() {
           }
         ],
         staticClass: "col-sm-9 form-control-plaintext",
-        attrs: { type: "text", readonly: "", id: "Content" },
+        attrs: { id: "Content", readonly: "", type: "text" },
         domProps: { value: _vm.gear.content },
         on: {
           input: function($event) {
@@ -38320,7 +38341,7 @@ var render = function() {
           }
         ],
         staticClass: "col-sm-9 form-control-plaintext",
-        attrs: { type: "text", readonly: "", id: "person-in-charge" },
+        attrs: { id: "person-in-charge", readonly: "", type: "text" },
         domProps: { value: _vm.gear.maker_name },
         on: {
           input: function($event) {

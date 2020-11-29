@@ -33,6 +33,9 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('gear-component', require('./components/GearComponent.vue').default);
 Vue.component('gear-category-component', require('./components/GearCategoryComponent.vue').default);
+Vue.component('gear-list-component', require('./components/GearListComponent.vue').default);
+Vue.component('gear-show-component', require('./components/GearShowComponent.vue').default);
+Vue.component('gear-create-component', require('./components/GearCreateComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

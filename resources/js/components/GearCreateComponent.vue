@@ -3,13 +3,18 @@
 <div class="container">
     <div align="center">
         <form v-on:submit.prevent="submit" >
-
+            <div class="content">
+                <h1>File Upload</h1>
+                <p><input type="file" v-on:change="fileSelected"></p>
+                <button v-on:click="fileUpload">アップロード</button>
+                <p v-show="showUserImage"><img v-bind:src="user.file_path"></p>
+            </div>
             <div>
 
 
                 <label>カテゴリー</label>
 
-                <select v-model="selected">
+                <select id="gear_category" v-model="gear.gear_category">
 
                     <option>BackPack</option>
                     <option>Cut</option>
@@ -17,7 +22,6 @@
                     <option>Kitchen</option>
                     <option>Bonfire</option>
                 </select>
-                {{selected}}
             </div>
             <div class="form-group">
                 <label>ギアの名前</label>
@@ -54,10 +58,9 @@ export default {
     data: function () {
         return {
             gear: {},
-            isDrag: null
-
-
-        }
+            fileInfo: '',
+            user: '',
+            showUserImage: false        }
     },
     props: {},
     methods: {
@@ -66,8 +69,26 @@ export default {
                 .then((res) => {
                     this.$router.push({name: 'gear.list'});
                 });
+        },
+        fileSelected(event){
+            this.fileInfo = event.target.files[0]
+        },
+        fileUpload(){
+            const formData = new FormData()
+
+            formData.append('file',this.fileInfo)
+
+            axios.post('/api/file_upload',formData).then(response =>{
+                this.user = response.data
+                console.log(this.user)
+                console.log(this.gear)
+                // this.gear['image_url'] = response.data.file_path
+                if(response.data.file_path) this.showUserImage = true
+            });
         }
     },
+
+
 
 }
 

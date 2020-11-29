@@ -1,26 +1,26 @@
 <template>
-<div>
-    <div class="form-group row border-bottom">
-        <label for="person-in-charge" class="col-sm-3 col-form-label">Gear ID</label>
-        <input type="text" class="col-sm-9 form-control-plaintext" readonly id="gear-id"
-               v-model="gear.id">
+    <div>
+        <div class="form-group row border-bottom">
+            <label class="col-sm-3 col-form-label" for="person-in-charge">Gear ID</label>
+            <input id="gear-id" v-model="gear.id" class="col-sm-9 form-control-plaintext" readonly
+                   type="text">
 
+        </div>
+
+        <div class="form-group row border-bottom">
+            <label class="col-sm-3 col-form-label" for="person-in-charge">Gear Content</label>
+            <input id="Content" v-model="gear.content" class="col-sm-9 form-control-plaintext" readonly
+                   type="text">
+
+        </div>
+        d
+        <div class="form-group row border-bottom">
+            <label class="col-sm-3 col-form-label" for="person-in-charge">Gear maker</label>
+            <input id="person-in-charge" v-model="gear.maker_name" class="col-sm-9 form-control-plaintext" readonly
+                   type="text">
+
+        </div>
     </div>
-
-    <div class="form-group row border-bottom">
-        <label for="person-in-charge" class="col-sm-3 col-form-label">Gear Content</label>
-        <input type="text" class="col-sm-9 form-control-plaintext" readonly id="Content"
-               v-model="gear.content">
-
-    </div>
-    d
-    <div class="form-group row border-bottom">
-        <label for="person-in-charge" class="col-sm-3 col-form-label">Gear maker</label>
-        <input type="text" class="col-sm-9 form-control-plaintext" readonly id="person-in-charge"
-               v-model="gear.maker_name">
-
-    </div>
-</div>
 
 </template>
 
@@ -38,12 +38,11 @@ export default {
     methods: {
         getGear() {
             axios.get('/api/gears/',
-            this.gearId
-        )
-        .
-            then((res) => {
-                this.gear = res.data['data'];
-            });
+                this.gearId
+            )
+                .then((res) => {
+                    this.gear = res.data['data'];
+                });
         }
     },
     mounted() {

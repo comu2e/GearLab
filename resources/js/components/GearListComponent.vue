@@ -1,25 +1,37 @@
 <template>
-<div>
-<tr v-for="gear in gears">
-    <th scope="row">{{ gear.id }}</th>
-    <td>{{ gear.user_id }}</td>
-    <td>{{ gear.content }}</td>
-    <td>{{ gear.maker_name }}</td>
-    <td>
-        <router-link v-bind:to="{name: 'gear.show', params: {gearId: gear.id }}">
-            <button class="btn btn-primary">Show</button>
-        </router-link>
-    </td>
+    <div class="container">
+        <div align="center">
 
-    <td>
-        <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
-    </td>
-</tr>
-</div>
+            <ul v-for="gear in gears" class="list-group">
+                <li class="list-group-item">
+                    <div align="center" scope="row">
 
+                    <img alt="" v-bind:src='gear.image_url' width="30%">
+                        <div align="right">
+
+                            <div>{{'投稿者 : '+gear.user_id }}</div>
+                            <div>{{'GearContent : ' +gear.content }}</div>
+                            <div>{{'メーカー名 : ' + gear.maker_name }}</div>
+                            <div>
+                                <router-link v-bind:to="{name: 'gear.show', params: {gearId: gear.id }}">
+                                    <button class="btn btn-primary">Show</button>
+                                </router-link>
+                                <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 </template>
 
 <script>
+const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "GearListComponent",
     data: function () {

@@ -74,8 +74,8 @@
 @endsection
 
 
-@section('footer')
-    <div class="d-flex justify-content-center">
-        {{$gears->links('pagination::bootstrap-4') }}
-    </div>
-@endsection
+{{--@section('footer')--}}
+{{--    <div class="d-flex justify-content-center">--}}
+{{--        {{$gears->links('pagination::bootstrap-4') }}--}}
+{{--    </div>--}}
+{{--@endsection--}}

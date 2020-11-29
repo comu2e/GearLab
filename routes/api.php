@@ -22,7 +22,9 @@ Route::apiResource('/gears', 'App\Http\Controllers\GearApiController',['except' 
 
 Route::post('file_upload',function(){
 
+    $file = request()->file;
     $file_name = request()->file->getClientOriginalName();
+    $disk = Storage::disk('s3')->putFileAs('/myprefix', $file, $file_name,'public');
 
     request()->file->storeAs('public/',$file_name);
 

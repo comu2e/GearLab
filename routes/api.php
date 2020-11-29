@@ -20,3 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/gears', 'App\Http\Controllers\GearApiController',['except' => ['update']]);
 
+Route::post('file_upload',function(){
+
+    $file_name = request()->file->getClientOriginalName();
+
+    request()->file->storeAs('public/',$file_name);
+
+    $user = App\Models\User::find(1);
+
+    $user->update(['file_path' => '/storage/'.$file_name]);
+
+    return $user;
+});

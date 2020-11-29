@@ -2164,12 +2164,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'GearCreateComponent',
   data: function data() {
     return {
       gear: {},
-      isDrag: null
+      fileInfo: '',
+      user: '',
+      showUserImage: false
     };
   },
   props: {},
@@ -2181,6 +2187,22 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push({
           name: 'gear.list'
         });
+      });
+    },
+    fileSelected: function fileSelected(event) {
+      this.fileInfo = event.target.files[0];
+    },
+    fileUpload: function fileUpload() {
+      var _this2 = this;
+
+      var formData = new FormData();
+      formData.append('file', this.fileInfo);
+      axios.post('/api/file_upload', formData).then(function (response) {
+        _this2.user = response.data;
+        console.log(_this2.user);
+        console.log(_this2.gear); // this.gear['image_url'] = response.data.file_path
+
+        if (response.data.file_path) _this2.showUserImage = true;
       });
     }
   }
@@ -38095,6 +38117,36 @@ var render = function() {
           }
         },
         [
+          _c("div", { staticClass: "content" }, [
+            _c("h1", [_vm._v("File Upload")]),
+            _vm._v(" "),
+            _c("p", [
+              _c("input", {
+                attrs: { type: "file" },
+                on: { change: _vm.fileSelected }
+              })
+            ]),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.fileUpload } }, [
+              _vm._v("アップロード")
+            ]),
+            _vm._v(" "),
+            _c(
+              "p",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.showUserImage,
+                    expression: "showUserImage"
+                  }
+                ]
+              },
+              [_c("img", { attrs: { src: _vm.user.file_path } })]
+            )
+          ]),
+          _vm._v(" "),
           _c("div", [
             _c("label", [_vm._v("カテゴリー")]),
             _vm._v(" "),
@@ -38105,10 +38157,11 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.selected,
-                    expression: "selected"
+                    value: _vm.gear.gear_category,
+                    expression: "gear.gear_category"
                   }
                 ],
+                attrs: { id: "gear_category" },
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -38119,9 +38172,11 @@ var render = function() {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
-                    _vm.selected = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
+                    _vm.$set(
+                      _vm.gear,
+                      "gear_category",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
                   }
                 }
               },
@@ -38136,9 +38191,6 @@ var render = function() {
                 _vm._v(" "),
                 _c("option", [_vm._v("Bonfire")])
               ]
-            ),
-            _vm._v(
-              "\n                " + _vm._s(_vm.selected) + "\n            "
             )
           ]),
           _vm._v(" "),

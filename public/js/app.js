@@ -38207,38 +38207,20 @@ var render = function() {
                   _vm._v(_vm._s("いいね数 : " + gear.likes_count))
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: { name: "gear.show", params: { gearId: gear.id } }
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteGear(gear.id)
                         }
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-primary" }, [
-                          _vm._v("Show")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteGear(gear.id)
-                          }
-                        }
-                      },
-                      [_vm._v("Delete")]
-                    )
-                  ],
-                  1
-                )
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  )
+                ])
               ])
             ])
           ])
@@ -53638,7 +53620,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 // vueとvue-routerの定義
+
 
 
 /**
@@ -53693,7 +53677,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('gear-create-component', __
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app'
+  el: '#app',
+  router: _router__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
@@ -56602,6 +56587,36 @@ $(function () {
     });
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/router.js":
+/*!********************************!*\
+  !*** ./resources/js/router.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_GearListComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/GearListComponent.vue */ "./resources/js/components/GearListComponent.vue");
+/* harmony import */ var _components_GearCreateComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/GearCreateComponent.vue */ "./resources/js/components/GearCreateComponent.vue");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  mode: 'history',
+  routes: [{
+    path: '/gears',
+    name: 'home',
+    component: _components_GearListComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }, {
+    path: '/gears/create',
+    name: 'create',
+    component: _components_GearCreateComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }]
+}));
 
 /***/ }),
 

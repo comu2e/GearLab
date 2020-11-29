@@ -19,9 +19,9 @@
                             <!--                                class="badge">{{gear.likes_count }}</span></a>-->
 
                             <div>
-                                <router-link v-bind:to="{name: 'gear.show', params: {gearId: gear.id }}">
-                                    <button class="btn btn-primary">Show</button>
-                                </router-link>
+<!--                                <router-link v-bind:to="{name: 'gear.show', params: {gearId: gear.id }}">-->
+<!--                                    <button class="btn btn-primary">Show</button>-->
+<!--                                </router-link>-->
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
 
                             </div>

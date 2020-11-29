@@ -5,12 +5,10 @@
         <form v-on:submit.prevent="submit" >
             <div class="content">
                 <h1>File Upload</h1>
-                <p><input type="file" v-on:change="fileSelected"></p>
-                <button v-on:click="fileUpload">アップロード</button>
+                <p><input type="file" v-on:change="fileSelected"name="image_url"></p>
                 <p v-show="showUserImage"><img v-bind:src="user.file_path"></p>
             </div>
             <div>
-
 
                 <label>カテゴリー</label>
 
@@ -39,7 +37,8 @@
 
             <!--                </div>-->
             <div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+<!--                <button class="btn btn-primary" type="submit">Submit</button>-->
+                <button   class="btn btn-primary" v-on:click="fileUpload">投稿</button>
 
             </div>
 
@@ -79,10 +78,8 @@ export default {
             formData.append('file',this.fileInfo)
 
             axios.post('/api/file_upload',formData).then(response =>{
-                this.user = response.data
-                console.log(this.user)
-                console.log(this.gear)
-                // this.gear['image_url'] = response.data.file_path
+                this.gear = response.data
+                // console.log(this.gear)
                 if(response.data.file_path) this.showUserImage = true
             });
         }

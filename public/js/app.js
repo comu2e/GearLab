@@ -2134,13 +2134,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'GearCreateComponent',
   data: function data() {
     return {
-      gear: {}
+      gear: {},
+      isDrag: null
     };
   },
+  props: {},
   methods: {
     submit: function submit() {
       var _this = this;
@@ -38050,119 +38082,161 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.submit($event)
-        }
-      }
-    },
-    [
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          { staticClass: "col-sm-3 col-form-label", attrs: { for: "id" } },
-          [_vm._v("Title")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.gear.id,
-              expression: "gear.id"
-            }
-          ],
-          staticClass: "col-sm-9 form-control",
-          attrs: { id: "id", type: "text" },
-          domProps: { value: _vm.gear.id },
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { attrs: { align: "center" } }, [
+      _c(
+        "form",
+        {
           on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.gear, "id", $event.target.value)
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.submit($event)
             }
           }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          { staticClass: "col-sm-3 col-form-label", attrs: { for: "content" } },
-          [_vm._v("Content")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.gear.content,
-              expression: "gear.content"
-            }
-          ],
-          staticClass: "col-sm-9 form-control",
-          attrs: { id: "content", type: "text" },
-          domProps: { value: _vm.gear.content },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        },
+        [
+          _c("div", [
+            _c("label", [_vm._v("カテゴリー")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selected,
+                    expression: "selected"
+                  }
+                ],
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.selected = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", [_vm._v("BackPack")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Cut")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Shelter")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kitchen")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Bonfire")])
+              ]
+            ),
+            _vm._v(
+              "\n                " + _vm._s(_vm.selected) + "\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("ギアの名前")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.gear.gear_name,
+                  expression: "gear.gear_name"
+                }
+              ],
+              attrs: { id: "gear_name", type: "text" },
+              domProps: { value: _vm.gear.gear_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.gear, "gear_name", $event.target.value)
+                }
               }
-              _vm.$set(_vm.gear, "content", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-sm-3 col-form-label",
-            attrs: { for: "maker_name" }
-          },
-          [_vm._v("maker_name")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.gear.maker_name,
-              expression: "gear.maker_name"
-            }
-          ],
-          staticClass: "col-sm-9 form-control",
-          attrs: { id: "maker_name", type: "text" },
-          domProps: { value: _vm.gear.maker_name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("内容")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.gear.content,
+                  expression: "gear.content"
+                }
+              ],
+              attrs: { id: "content", type: "text" },
+              domProps: { value: _vm.gear.content },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.gear, "content", $event.target.value)
+                }
               }
-              _vm.$set(_vm.gear, "maker_name", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("メーカー名")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.gear.maker_name,
+                  expression: "gear.maker_name"
+                }
+              ],
+              attrs: { id: "maker_name", type: "text" },
+              domProps: { value: _vm.gear.maker_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.gear, "maker_name", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
         [_vm._v("Submit")]
       )
-    ]
-  )
-}
-var staticRenderFns = []
+    ])
+  }
+]
 render._withStripped = true
 
 

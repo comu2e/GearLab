@@ -2,7 +2,6 @@
 
 @section('content')
     <div id="app">
-        <example-component></example-component>
 
     </div>
     <div class="d-flex justify-content-center">

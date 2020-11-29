@@ -28,7 +28,7 @@ Route::get('/user_detail/{id?}', function () {
 Auth::routes();
 
 Route::resource('users','App\Http\Controllers\UserController');
-Route::resource('gears','App\Http\Controllers\GearController');
+Route::resource('gears','App\Http\Controllers\GearController',['except' => ['create']]);
 
 Route::get('users/{user_id}/gear_category={gear_category}','App\Http\Controllers\GearController@category_index')->name('gear_category');
 

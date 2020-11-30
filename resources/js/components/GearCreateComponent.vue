@@ -1,96 +1,107 @@
 <template>
+    <div>
+        <p>gear_name：<input type="text" v-model="gear_name" /></p>
+        <p>maker_name：<input type="text" v-model="maker_name" /></p>
+        <p>content：<input type="text" v-model="content" /></p>
 
-<div class="container">
-    <div align="center">
-        <form v-on:submit.prevent="submit" >
-            <div class="content">
-                <h1>File Upload</h1>
-                <p><input type="file" v-on:change="fileSelected"name="image_url"></p>
-                <p v-show="showUserImage"><img v-bind:src="user.file_path"></p>
-            </div>
-            <div>
+        <p><input type="file" @change="confirmImage" v-if="view" /></p>
 
-                <label>カテゴリー</label>
+        <!-- 確認用画像 -->
+        <p v-if="confirmedImage">
+            <img class="img" :src="confirmedImage" />
+        </p>
 
-                <select id="gear_category" v-model="gear.gear_category">
+        <p>{{ message }}</p>
 
-                    <option>BackPack</option>
-                    <option>Cut</option>
-                    <option>Shelter</option>
-                    <option>Kitchen</option>
-                    <option>Bonfire</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>ギアの名前</label>
-                <input id="gear_name" v-model="gear.gear_name"  type="text">
-            </div>
-            <div class="form-group"><label>内容</label>
-                <input id="content" v-model="gear.content"  type="text">
-            </div>
-            <div class="form-group"><label>メーカー名</label>
-                <input id="maker_name" v-model="gear.maker_name"  type="text">
-            </div>
-
-            <!--                <div>-->
-            <!--                    <input type="file"  v-model="gear.image_url"  name="image_url">-->
-
-            <!--                </div>-->
-            <div>
-<!--                <button class="btn btn-primary" type="submit">Submit</button>-->
-                <button   class="btn btn-primary" v-on:click="fileUpload">投稿</button>
-
-            </div>
+        <p>
+            <button @click="uploadImage">アップロード</button>
+        </p>
 
 
-        </form>
     </div>
-
-</div>
-
 </template>
 
 <script>
-
 export default {
-    name: 'GearCreateComponent',
-    data: function () {
+    data() {
         return {
-            gear: {},
-            fileInfo: '',
-            user: '',
-            showUserImage: false        }
+            message: "",
+            file: "",
+            maker_name: "",
+            gear_name: "",
+            user_id: "",
+
+            view: true,
+            gears: {},
+            confirmedImage: ""
+        };
     },
-    props: {},
+    created: function() {
+        this.getImage();
+    },
     methods: {
-        submit() {
-            axios.post('/api/gears', this.gear)
-                .then((res) => {
-                    this.$router.push({name: 'gear.list'});
+        getImage() {
+            axios
+                .get("/api/gears/")
+                .then(response => {
+                    this.gears = response.data;
+                })
+                .catch(err => {
+                    this.message = err;
                 });
         },
-        fileSelected(event){
-            this.fileInfo = event.target.files[0]
+        confirmImage(e) {
+            this.message = "";
+            this.file = e.target.files[0];
+            if (!this.file.type.match("image.*")) {
+                this.message = "画像ファイルを選択して下さい";
+                this.confirmedImage = "";
+                return;
+            }
+            this.createImage(this.file);
         },
-        fileUpload(){
-            const formData = new FormData()
+        createImage(file) {
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = e => {
+                this.confirmedImage = e.target.result;
+            };
+        },
+        uploadImage() {
+            let data = new FormData();
+            data.append("file", this.file);
+            data.append("maker_name", this.maker_name);
+            data.append("gear_name", this.gear_name);
+            data.append("content", this.content);
+            data.append("user", this.user_id);
 
-            formData.append('file',this.fileInfo)
+            axios
+                .post("/api/gears/", data)
+                .then(response => {
+                    this.getImage();
+                    this.message = response.data.success;
+                    this.confirmedImage = "";
+                    this.maker_name = "";
+                    this.gear_name = "";
+                    this.content = "";
+                    this.file = "";
 
-            axios.post('/api/file_upload',formData).then(response =>{
-                this.gear = response.data
-                // console.log(this.gear)
-                if(response.data.file_path) this.showUserImage = true
-            });
+                    //ファイルを選択のクリア
+                    this.view = false;
+                    this.$nextTick(function() {
+                        this.view = true;
+                    });
+                })
+                .catch(err => {
+                    this.message = err.response.data.errors;
+                });
         }
-    },
-
-
-
-}
-
+    }
+};
 </script>
 
-<style scoped>
-
+<style>
+.img {
+    width: 100px;
+}
 </style>

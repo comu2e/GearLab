@@ -38,16 +38,29 @@ class GearApiController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(GearRequest $request)
+    public function store(Request $request)
     {
-        $gear = Gear::create($request->all());
-        return response()->json([
-            'message' => 'Gear created successfully',
-            'data' => $gear,
-        ],
-            201, [],
-            JSON_UNESCAPED_UNICODE
-        );
+        $this->validate($request, [
+            'file' => 'required|image'
+        ], [
+            'file.required' => '画像が選択されていません',
+            'file.image' => '画像ファイルではありません',
+        ]);
+
+        if (request()->file) {
+            $image = $request->file('file');
+            $image_url = Storage::disk('s3')->put('/myprefix', $image, 'public');
+
+
+            $gear = new Gear();
+            $gear->image_url = Storage::disk('s3')->url($image_url);            $gear->gear_name = $request->gear_name;
+            $gear->maker_name = $request->maker_name;
+            $gear->content = $request->content;
+            $gear->user_id = Auth::id();
+            $gear->save();
+
+            return ['success' => '登録しました!'];
+        }
     }
 
     /**

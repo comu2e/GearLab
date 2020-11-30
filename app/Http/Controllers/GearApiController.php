@@ -53,10 +53,14 @@ class GearApiController extends Controller
 
 
             $gear = new Gear();
-            $gear->image_url = Storage::disk('s3')->url($image_url);            $gear->gear_name = $request->gear_name;
+            $gear->image_url = Storage::disk('s3')->url($image_url);
+            $gear->gear_name = $request->gear_name;
             $gear->maker_name = $request->maker_name;
             $gear->content = $request->content;
-            $gear->user_id = Auth::id();
+            $gear->gear_category = $request->gear_category;
+            $gear -> updated_at = date('Y/m/d H:i:s');
+            $gear->gear_category = $request->gear_category;
+            $gear->user_id = 100;
             $gear->save();
 
             return ['success' => '登録しました!'];

@@ -14,6 +14,18 @@
                         <p v-if="confirmedImage">
                             <img class="img" :src="confirmedImage"/>
                         </p>
+                        <label class="col-md-4 col-form-label text-md-right">カテゴリ
+                            <div class="col-xs-3">
+                                <select class="form-control" v-model="gear_category">
+                                    <option value="BonFire" selected="selected">Bonfire</option>
+                                    <option value="BackPack" selected="selected">BackPack</option>
+                                    <option value="Cutting">Cutting</option>
+                                    <option value="Shelter" selected="selected">Shelter</option>
+                                    <option value="Kitchen" selected="selected">Kitchen</option>
+                                </select>
+                            </div>
+                        </label>
+
 
                         <label class="col-md-4 col-form-label text-md-right">ギアの名前
                             <input class="form-control" type="text" v-model="gear_name"/>
@@ -49,6 +61,7 @@ export default {
             file: "",
             maker_name: "",
             gear_name: "",
+            gear_category: "",
             user_id: "",
             content: "",
             view: true,
@@ -92,6 +105,7 @@ export default {
             data.append("file", this.file);
             data.append("maker_name", this.maker_name);
             data.append("gear_name", this.gear_name);
+            data.append("gear_category", this.gear_category);
             data.append("content", this.content);
             data.append("user", this.user_id);
 
@@ -103,6 +117,7 @@ export default {
                     this.confirmedImage = "";
                     this.maker_name = "";
                     this.gear_name = "";
+                    this.gear_category = "";
                     this.content = "";
                     this.file = "";
 

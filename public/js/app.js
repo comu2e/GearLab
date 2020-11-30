@@ -2158,6 +2158,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2165,6 +2177,7 @@ __webpack_require__.r(__webpack_exports__);
       file: "",
       maker_name: "",
       gear_name: "",
+      gear_category: "",
       user_id: "",
       content: "",
       view: true,
@@ -2214,6 +2227,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append("file", this.file);
       data.append("maker_name", this.maker_name);
       data.append("gear_name", this.gear_name);
+      data.append("gear_category", this.gear_category);
       data.append("content", this.content);
       data.append("user", this.user_id);
       axios.post("/api/gears/", data).then(function (response) {
@@ -2223,6 +2237,7 @@ __webpack_require__.r(__webpack_exports__);
         _this3.confirmedImage = "";
         _this3.maker_name = "";
         _this3.gear_name = "";
+        _this3.gear_category = "";
         _this3.content = "";
         _this3.file = ""; //ファイルを選択のクリア
 
@@ -2249,6 +2264,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -38811,6 +38828,74 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
+                _vm._v("カテゴリ\n                        "),
+                _c("div", { staticClass: "col-xs-3" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gear_category,
+                          expression: "gear_category"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.gear_category = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { value: "BonFire", selected: "selected" } },
+                        [_vm._v("Bonfire")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "BackPack", selected: "selected" } },
+                        [_vm._v("BackPack")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cutting" } }, [
+                        _vm._v("Cutting")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Shelter", selected: "selected" } },
+                        [_vm._v("Shelter")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Kitchen", selected: "selected" } },
+                        [_vm._v("Kitchen")]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
                 _vm._v("ギアの名前\n                        "),
                 _c("input", {
                   directives: [
@@ -38936,7 +39021,13 @@ var render = function() {
               _c("div", { attrs: { align: "right" } }, [
                 _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_id))]),
                 _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("GearContent : " + gear.content))]),
+                _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                ]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
                 _vm._v(" "),

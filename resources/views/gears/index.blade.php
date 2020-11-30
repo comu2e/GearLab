@@ -3,12 +3,14 @@
 @section('content')
 
     <div id="app">
+        <div>
+            <router-link to="/gears/create" >
+                <button class="btn btn-primary" align="right">Create</button>
 
-                <router-link to="/gears/create" >
-                    <button class="btn btn-primary" align="right">Create</button>
-
-                </router-link>
+            </router-link>
             <router-view/>
+
+        </div>
 
 
         <gear-list-component></gear-list-component>

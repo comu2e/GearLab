@@ -2138,6 +2138,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2146,6 +2166,7 @@ __webpack_require__.r(__webpack_exports__);
       maker_name: "",
       gear_name: "",
       user_id: "",
+      content: "",
       view: true,
       gears: {},
       confirmedImage: ""
@@ -38758,102 +38779,127 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("p", [
-      _vm._v("gear_name："),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.gear_name,
-            expression: "gear_name"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.gear_name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.gear_name = $event.target.value
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("maker_name："),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.maker_name,
-            expression: "maker_name"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.maker_name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.maker_name = $event.target.value
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v("content："),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.content,
-            expression: "content"
-          }
-        ],
-        attrs: { type: "text" },
-        domProps: { value: _vm.content },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.content = $event.target.value
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("p", [
-      _vm.view
-        ? _c("input", {
-            attrs: { type: "file" },
-            on: { change: _vm.confirmImage }
-          })
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _vm.confirmedImage
-      ? _c("p", [
-          _c("img", { staticClass: "img", attrs: { src: _vm.confirmedImage } })
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [_vm._v(" ギアの写真")]
+            ),
+            _vm._v(" "),
+            _vm.view
+              ? _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "file" },
+                  on: { change: _vm.confirmImage }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.confirmedImage
+              ? _c("p", [
+                  _c("img", {
+                    staticClass: "img",
+                    attrs: { src: _vm.confirmedImage }
+                  })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
+                _vm._v("ギアの名前\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gear_name,
+                      expression: "gear_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.gear_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.gear_name = $event.target.value
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
+                _vm._v("メーカー名\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.maker_name,
+                      expression: "maker_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.maker_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.maker_name = $event.target.value
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.message))]),
+            _vm._v(" "),
+            _c("p", [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: { click: _vm.uploadImage }
+                },
+                [_vm._v("道具を登録する")]
+              )
+            ])
+          ])
         ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.message))]),
-    _vm._v(" "),
-    _c("p", [
-      _c("button", { on: { click: _vm.uploadImage } }, [_vm._v("アップロード")])
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-md-4 col-form-label text-md-right" },
+      [
+        _vm._v("ギアのお気に入りポイント：\n                        "),
+        _c("input", { staticClass: "form-control" })
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 

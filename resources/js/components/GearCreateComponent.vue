@@ -1,22 +1,42 @@
 <template>
-    <div>
-        <p>gear_name：<input type="text" v-model="gear_name" /></p>
-        <p>maker_name：<input type="text" v-model="maker_name" /></p>
-        <p>content：<input type="text" v-model="content" /></p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
 
-        <p><input type="file" @change="confirmImage" v-if="view" /></p>
+                    <div class="card-body">
 
-        <!-- 確認用画像 -->
-        <p v-if="confirmedImage">
-            <img class="img" :src="confirmedImage" />
-        </p>
+                        <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
+                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>
 
-        <p>{{ message }}</p>
 
-        <p>
-            <button @click="uploadImage">アップロード</button>
-        </p>
+                        <!-- 確認用画像 -->
+                        <p v-if="confirmedImage">
+                            <img class="img" :src="confirmedImage"/>
+                        </p>
 
+                        <label class="col-md-4 col-form-label text-md-right">ギアの名前
+                            <input class="form-control" type="text" v-model="gear_name"/>
+                        </label>
+
+
+                        <label class="col-md-4 col-form-label text-md-right">メーカー名
+                            <input class="form-control" type="text" v-model="maker_name"/>
+                        </label>
+                        <label class="col-md-4 col-form-label text-md-right">ギアのお気に入りポイント：
+                            <input class="form-control">
+                        </label>
+
+
+                        <p>{{ message }}</p>
+
+                        <p>
+                            <button @click="uploadImage" class="btn btn-primary">道具を登録する</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -30,13 +50,13 @@ export default {
             maker_name: "",
             gear_name: "",
             user_id: "",
-
+            content: "",
             view: true,
             gears: {},
             confirmedImage: ""
         };
     },
-    created: function() {
+    created: function () {
         this.getImage();
     },
     methods: {
@@ -88,7 +108,7 @@ export default {
 
                     //ファイルを選択のクリア
                     this.view = false;
-                    this.$nextTick(function() {
+                    this.$nextTick(function () {
                         this.view = true;
                     });
                 })

@@ -117,7 +117,7 @@
 </div>
 
 </body>
-<footer>
+<footer  class="fixed-bottom" >
     @yield('footer')
 </footer>
 </html>

@@ -10,8 +10,10 @@
                         <div align="right">
 
                             <div>{{'投稿者 : '+gear.user_id }}</div>
+                            <div>{{'カテゴリ: ' + gear.gear_category }}</div>
 
-                            <div>{{'GearContent : ' +gear.content }}</div>
+                            <div>{{'お気にいりポイント : ' +gear.content }}</div>
+                            <div>{{' 投稿日: ' +gear.updated_at }}</div>
                             <div>{{'メーカー名 : ' + gear.maker_name }}</div>
                             <div  class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
 

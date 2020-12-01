@@ -58,3 +58,8 @@ Route::post('file_upload',function(\App\Http\Requests\GearRequest $request){
 
 
 });
+Route::get('/get_token', function(Request $request){
+    $user = App\Models\User::find($request->id);
+    $token = $user->createToken('token_for_user1')->accessToken;
+    return response()->json(['token' => $token]);
+});

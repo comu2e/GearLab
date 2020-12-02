@@ -66,3 +66,4 @@ Route::get('profile', function() {
     // 認証済みのユーザーのみが入れる
 })->middleware('auth');
 
+Route::get('/favorite','App\Http\Controllers\GearController@favorite_gear');

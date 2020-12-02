@@ -52,7 +52,7 @@ class GearController extends Controller
         }
 
 
-            $gears = $query->paginate(10);
+            $gears = $query->orderBy('updated_at', 'desc')->paginate(10);
         return view('gears/index',compact('gears'));
 
     }

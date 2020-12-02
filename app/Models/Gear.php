@@ -23,6 +23,17 @@ class Gear extends Model
     {
         return $this->hasMany(Like::class, 'gear_id');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    public function getUser($user_id)
+    {
+        return $this->find($user_id)
+            ->gears()
+            ->get();
+    }
+
 //postにLikeあるか判定
     public function is_liked_by_auth_user()
     {

@@ -53,10 +53,16 @@
 
                                 </div>
                                 <div align="right">
+                                    <div>
+                                        <div class="btn-primary btn" href="{{ url('users/'.$gear->user_id)}}">
+                                            {{'投稿者名: ' . $gear->user['name']}}
+                                        </div>
+                                    </div>
 
                                     <div>
                                         {{ 'ギア名: '.$gear->gear_name }}
                                     </div>
+
                                     <div>
                                         {{ 'ギアカテゴリ: '.$gear->gear_category }}
                                     </div>

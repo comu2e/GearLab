@@ -39019,7 +39019,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_id))]),
+                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
                 _vm._v(" "),

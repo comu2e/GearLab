@@ -24,7 +24,7 @@
 
     <form  class="form-inline my-2 my-lg-0 ml-2">
         <select class="form-control"name="category">
-           <option>All</option>
+           <option :value="All">All</option>
 
             @foreach($categories as $category)
 
@@ -54,9 +54,9 @@
                                 </div>
                                 <div align="right">
                                     <div>
-                                        <div class="btn-primary btn" href="{{ url('users/'.$gear->user_id)}}">
+                                        <a class="btn-primary btn" href="{{ url('users/'.$gear->user_id)}}">
                                             {{'投稿者名: ' . $gear->user['name']}}
-                                        </div>
+                                        </a>
                                     </div>
 
                                     <div>

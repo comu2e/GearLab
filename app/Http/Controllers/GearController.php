@@ -56,7 +56,18 @@ class GearController extends Controller
         return view('gears/index',compact('gears'));
 
     }
+    public function favorite_gear()
+    {
+//テーブルをlikesテーブルとgearsテーブルをLeft結合
+        $gears = DB::table('gears')
+            ->join('likes', 'likes.user_id', '=', 'gears.user_id')
+            ->where('likes.user_id','=',Auth::id())->get();
+//        user_idカラムで認証しているユーザーIDのテーブルを取得
 
+//        $gears=Gear::all();
+        return view('gears/favorite',compact('gears'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *

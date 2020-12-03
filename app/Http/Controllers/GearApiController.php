@@ -58,7 +58,7 @@ class GearApiController extends Controller
             $gear->maker_name = $request->maker_name;
             $gear->content = $request->content;
             $gear->gear_category = $request->gear_category;
-            $gear -> updated_at = date('Y/m/d H:i:s');
+            $gear->updated_at = date('Y/m/d H:i:s');
             $gear->gear_category = $request->gear_category;
             $gear->user_id = 100;
             $gear->save();

@@ -67,3 +67,4 @@ Route::get('profile', function() {
 })->middleware('auth');
 
 Route::get('/favorite','App\Http\Controllers\GearController@favorite_gear');
+Route::post('/admin/user/{id}','App\Http\Controllers\GearController@delete');

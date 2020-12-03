@@ -10,19 +10,15 @@
                     @foreach ($user_list as $user)
                         <li class="list-group-item">
                             <a href="{{ url('admin/user/' . $user->id) }}">
-{{--                                {{ $user->name }}--}}
+                                {{ $user->name }}
                             </a>
                         </li>
                     @endforeach
+
                 </ul>
-
-
 
 
             </div>
         </div>
     </div>
-
-
 @endsection
-

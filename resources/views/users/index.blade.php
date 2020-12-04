@@ -22,6 +22,8 @@
                     </div>
                     </a>
 
+                @include('follow.follow_button', ['user' => $user])
+
             @endforeach
 
         </ul>

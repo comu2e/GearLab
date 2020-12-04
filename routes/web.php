@@ -54,6 +54,9 @@ Route::group(['prefix' => 'users/{id}'], function () {
 });
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
+    Auth::routes();
+
+
     Route::put('users', 'App\Http\Controllers\UserController@rename')->name('rename');
 
     Route::get('/user_detail/{id?}', function () {
@@ -73,8 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');
     //管理側
     Route::group(['prefix' => 'users/{id}'], function () {
-        Route::post('follow', 'UserFollowController@store')->name('follow');
-        Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
+        Route::post('follow', 'App\Http\Controllers\UserFollowController@store')->name('follow');
+        Route::delete('unfollow', 'App\Http\Controllers\UserFollowController@destroy')->name('unfollow');
     });
 
 });

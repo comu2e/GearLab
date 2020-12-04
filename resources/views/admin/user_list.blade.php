@@ -11,12 +11,12 @@
                         <li class="list-group-item">
                             <a href="{{ url('admin/user/' . $user->id) }}">
                                 {{ $user->name }}
+
                             </a>
                         </li>
                     @endforeach
 
                 </ul>
-
 
             </div>
         </div>

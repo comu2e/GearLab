@@ -16,12 +16,13 @@ class UserController extends Controller
         $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
         $this->middleware('auth');
     }
+
     public function index()
     {
 //        $users =User::all();
         $users = User::paginate(10);
 
-        return view('users/index',compact('users'));
+        return view('users/index', compact('users'));
 
     }
 
@@ -36,28 +37,28 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-{
+    {
         //
-     }
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $categories = array('Cutting Gear','Shelter','Fire gear','Container','Comfort Gear ');
+        $categories = array('Cutting Gear', 'Shelter', 'Fire gear', 'Container', 'Comfort Gear ');
 
         $user = User::find($id);
-        return view('users.show', compact('user','categories'));
+        return view('users.show', compact('user', 'categories'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -69,8 +70,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -81,7 +82,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

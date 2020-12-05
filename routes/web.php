@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
 //管理側ログイン
 Route::get('/admin/login', 'App\Http\Controllers\admin\AdminLoginController@showLoginform');
 Route::post('/admin/login', 'App\Http\Controllers\admin\AdminLoginController@login');
+Auth::routes();
 
 
 //ルートの保護
@@ -54,7 +55,6 @@ Route::group(['prefix' => 'users/{id}'], function () {
 });
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
-    Auth::routes();
 
 
     Route::put('users', 'App\Http\Controllers\UserController@rename')->name('rename');

@@ -5,21 +5,21 @@
     <div id="app">
         <div class="nav nav-tabs">
             <router-link to="/gears" >
-                <li class="btn btn-primary" align="right">ギア　一覧</li>
+                <li class="btn btn-primary" align="right">ギアタイムライン</li>
 
             </router-link>
 
-            <router-link to=api"/gears/create" >
-                <button class="btn btn-primary" align="right">ユーザ　一覧</button>
+            <router-link to="/gears/create" >
+                <button class="btn btn-primary" align="right">Create</button>
 
             </router-link>
 
-            <router-link to="/gears/like" >
+            <router-link to="/likes" >
                 <button class="btn btn-primary" align="right">いいねしたギア</button>
 
             </router-link>
 
-            <router-link to="/gears/" >
+            <router-link to="/follows" >
                 <button class="btn btn-primary" align="right">フォローしている人</button>
 
             </router-link>

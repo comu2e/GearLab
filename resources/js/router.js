@@ -2,6 +2,8 @@
 import Router from 'vue-router'
 import Home from './components/GearListComponent.vue'
 import Create from './components/GearCreateComponent.vue'
+import Liked from './components/LikeListComponent.vue'
+import Follow from './components/FollowListComponent.vue'
 
 
 export default new Router({
@@ -16,6 +18,11 @@ export default new Router({
             path: '/gears/create',
             name: 'create',
             component:Create
+        },
+        {
+            path: '/likes',
+            name: 'likes',
+            component:Liked
         },
     ]
 });

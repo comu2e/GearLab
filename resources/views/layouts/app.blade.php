@@ -21,7 +21,6 @@
 </head>
 <body>
 <div id="app">
-
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
 
@@ -33,9 +32,9 @@
                     aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
 
-            <button onclick="history.back()" class="btn btn-primary">戻る</button>
+                <button onclick="history.back()" class="btn btn-primary">戻る</button>
             </div>
 
 
@@ -67,7 +66,7 @@
                             ユーザ一覧
                             </a>
                         </div>
-                    <span>
+                        <span>
 
                     </span>
                         <div class="d-flex justify-content-center">
@@ -115,7 +114,10 @@
 
 
     </nav>
+
     @yield('nav')
+
+</div>
 
     <main class="py-4">
 

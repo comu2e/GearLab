@@ -1933,6 +1933,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App"
 });
@@ -2404,6 +2405,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
@@ -2425,6 +2430,13 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
       axios["delete"]('/api/gears/' + id).then(function (res) {
         _this2.getGears();
+      });
+    },
+    UpdateGear: function UpdateGear(id) {
+      var _this3 = this;
+
+      axios.put('/api/gears/' + id).then(function (res) {
+        _this3.getGears();
       });
     }
   },
@@ -39472,6 +39484,21 @@ var render = function() {
                       on: {
                         click: function($event) {
                           return _vm.deleteGear(gear.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          gear.id
                         }
                       }
                     },

@@ -1,5 +1,6 @@
 <template>
     <div class="container" >
+
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark"position="fixed">
             <ul class="navbar-nav">
                 <li class="nav-item">

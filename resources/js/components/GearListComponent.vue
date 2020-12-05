@@ -21,6 +21,10 @@
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
 
                             </div>
+                            <div>
+                                <button class="btn btn-danger" v-on:click="(gear.id)">Delete</button>
+
+                            </div>
 
                         </div>
 
@@ -50,6 +54,12 @@ export default {
         },
         deleteGear(id) {
             axios.delete('/api/gears/' + id)
+                .then((res) => {
+                    this.getGears();
+                });
+        },
+        UpdateGear(id) {
+            axios.put('/api/gears/' + id)
                 .then((res) => {
                     this.getGears();
                 });

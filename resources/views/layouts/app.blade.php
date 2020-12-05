@@ -128,9 +128,3 @@
     @yield('footer')
 </footer>
 </html>
-<script>
-    import HeaderComponent from "../../js/components/HeaderComponent";
-    export default {
-        components: {HeaderComponent}
-    }
-</script>

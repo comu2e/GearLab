@@ -9,18 +9,18 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+<div id="app" >
 
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
@@ -33,15 +33,16 @@
                     aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
 
-            <button onclick="history.back()" class="btn btn-primary">戻る</button>
+                <button onclick="history.back()" class="btn btn-primary">戻る</button>
             </div>
 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
+
 
                 </ul>
 
@@ -67,7 +68,7 @@
                             ユーザ一覧
                             </a>
                         </div>
-                    <span>
+                        <span>
 
                     </span>
                         <div class="d-flex justify-content-center">
@@ -116,6 +117,9 @@
 
 
     </nav>
+    <app class="class='fixed-top'"></app>
+
+
     <main class="py-4">
 
         @yield('content')
@@ -123,7 +127,7 @@
 </div>
 
 </body>
-<footer  class="fixed-bottom" >
+<footer class="fixed-bottom">
     @yield('footer')
 </footer>
 </html>

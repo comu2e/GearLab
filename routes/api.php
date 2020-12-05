@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::post('/login','App\Http\Controllers\LoginController@login');
 Route::apiResource('/gears', 'App\Http\Controllers\GearApiController',['except' => ['update']]);
 
 Route::post('file_upload',function(\App\Http\Requests\GearRequest $request){

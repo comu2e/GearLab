@@ -8,7 +8,6 @@ use App\Models\User;
 class UsersController extends Controller
 {
 
-    //(中略)
 
     public function followings($id)
     {

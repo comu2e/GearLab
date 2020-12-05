@@ -11,15 +11,15 @@ import router from "./router";
  */
 
 require('./bootstrap');
-require('./holder');
-require('./ie-emulation-modes-warning');
-require('./ie10-viewport-bug-workaround');
-require('./jquery.magnific-popup.min');
-require('./masonry');
-require('./odometer');
-require('./pushy.min');
-require('./scripts');
-require('./wow.min');
+// require('./holder');
+// require('./ie-emulation-modes-warning');
+// require('./ie10-viewport-bug-workaround');
+// require('./jquery.magnific-popup.min');
+// require('./masonry');
+// require('./odometer');
+// require('./pushy.min');
+// require('./scripts');
+// require('./wow.min');
 
 window.Vue = require('vue');
 

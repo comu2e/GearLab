@@ -60,7 +60,11 @@ class GearApiController extends Controller
             $gear->gear_category = $request->gear_category;
             $gear->updated_at = date('Y/m/d H:i:s');
             $gear->gear_category = $request->gear_category;
-            $gear->user_id = 100;
+
+//            ここに投稿者のuser_idを代入するようにする。
+//            https://stackoverflow.com/questions/50603064/current-users-id-in-laravel-api/50603185
+//
+            $gear->user_id = auth()->user()->id;
             $gear->save();
 
             return ['success' => '登録しました!'];

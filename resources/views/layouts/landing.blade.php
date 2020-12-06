@@ -14,7 +14,6 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-        <script src="{{ asset('js/app.js') }}" defer></script>
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -187,25 +186,6 @@
     </section>
 
 
-    <section id="news" class="blog wow fadeInUp" data-wow-delay="300ms">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-7">
-                    <h1>技術説明</h1>
-                    <h2>使用言語/FW : PHP/Laravel</h2>
-                    <h2>インフラ : AWS S3,VPC,EC2/Docker/</h2>
-                    <a class="btn btn-danger btn-lg" href="#">GitHubでコードを見る<i class="fa fa-arrow-circle-o-right"></i>
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <a href="#">
-                        <img src="https://unsplash.it/1200/1200?image=839" alt="" class="img-responsive">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 <footer>
     <div class="container">

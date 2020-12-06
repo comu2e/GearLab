@@ -55149,7 +55149,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
+/* harmony import */ var _resume_scripts_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./resume_scripts.js */ "./resources/js/resume_scripts.js");
+/* harmony import */ var _resume_scripts_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_resume_scripts_js__WEBPACK_IMPORTED_MODULE_3__);
 // vueとvue-routerの定義
+
 
 
 
@@ -55159,7 +55162,9 @@ __webpack_require__.r(__webpack_exports__);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./holder');
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./resume_scripts */ "./resources/js/resume_scripts.js"); // require('./holder');
 // require('./ie-emulation-modes-warning');
 // require('./ie10-viewport-bug-workaround');
 // require('./jquery.magnific-popup.min');
@@ -56054,6 +56059,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegisterdGearComponent_vue_vue_type_template_id_7e7f1538_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/resume_scripts.js":
+/*!****************************************!*\
+  !*** ./resources/js/resume_scripts.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+    * Start Bootstrap - Resume v6.0.2 (https://startbootstrap.com/theme/resume)
+    * Copyright 2013-2020 Start Bootstrap
+    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+    */
+(function ($) {
+  "use strict"; // Start of use strict
+  // Smooth scrolling using jQuery easing
+
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+    if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+
+      if (target.length) {
+        $("html, body").animate({
+          scrollTop: target.offset().top
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
+    }
+  }); // Closes responsive menu when a scroll trigger link is clicked
+
+  $(".js-scroll-trigger").click(function () {
+    $(".navbar-collapse").collapse("hide");
+  }); // Activate scrollspy to add active class to navbar items on scroll
+
+  $("body").scrollspy({
+    target: "#sideNav"
+  });
+})(jQuery); // End of use strict
 
 /***/ }),
 

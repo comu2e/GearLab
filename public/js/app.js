@@ -2421,6 +2421,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
@@ -40321,9 +40322,9 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
-                _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
                 _vm._v(" "),
                 _c("div", [
                   _vm._v(_vm._s("お気にいりポイント : " + gear.content))

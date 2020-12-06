@@ -50,8 +50,6 @@ class GearApiController extends Controller
         if (request()->file) {
             $image = $request->file('file');
             $image_url = Storage::disk('s3')->put('/myprefix', $image, 'public');
-
-
             $gear = new Gear();
             $gear->image_url = Storage::disk('s3')->url($image_url);
             $gear->gear_name = $request->gear_name;
@@ -64,7 +62,7 @@ class GearApiController extends Controller
 //            ここに投稿者のuser_idを代入するようにする。
 //            https://stackoverflow.com/questions/50603064/current-users-id-in-laravel-api/50603185
 //
-            $gear->user_id = auth()->user()->id;
+            $gear->user_id = 1;
             $gear->save();
 
             return ['success' => '登録しました!'];

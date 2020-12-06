@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
 
-Route::apiResource('/gears', 'App\Http\Controllers\GearApiController', ['except' => ['update']]);
+Route::apiResource('/gears', 'App\Http\Controllers\GearApiController');
 Route::apiResource('/likes', 'App\Http\Controllers\LikeApiController', ['only' => ['show_index']]);
 
 Route::group(['middleware' => 'web'], function () {

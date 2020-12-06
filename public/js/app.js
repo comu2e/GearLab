@@ -2285,6 +2285,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2344,7 +2348,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append("gear_name", this.gear_name);
       data.append("gear_category", this.gear_category);
       data.append("content", this.content);
-      data.append("user", this.user_id);
+      data.append("user_id", this.user_id);
       axios.post("/api/gears/", data).then(function (response) {
         _this3.getImage();
 
@@ -40091,178 +40095,178 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
+          _c("div", { staticClass: "card-body" }, [
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [_vm._v(" ギアの写真")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c("img-inputer", {
+                  attrs: {
+                    theme: "light",
+                    size: "large",
+                    placeholder: "ギア写真をここにドラッグする",
+                    "bottom-text":
+                      "ファイルをドロップするかここをクリックしてください",
+                    "auto-update": "true"
+                  },
+                  model: {
+                    value: _vm.file,
+                    callback: function($$v) {
+                      _vm.file = $$v
+                    },
+                    expression: "file"
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
+                _vm._v("カテゴリ\n                        "),
+                _c("div", { staticClass: "col-xs-3" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gear_category,
+                          expression: "gear_category"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.gear_category = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { value: "BonFire", selected: "selected" } },
+                        [_vm._v("Bonfire")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "BackPack", selected: "selected" } },
+                        [_vm._v("BackPack")]
+                      ),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Cutting" } }, [
+                        _vm._v("Cutting")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Shelter", selected: "selected" } },
+                        [_vm._v("Shelter")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { attrs: { value: "Kitchen", selected: "selected" } },
+                        [_vm._v("Kitchen")]
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
+                _vm._v("ギアの名前\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gear_name,
+                      expression: "gear_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.gear_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.gear_name = $event.target.value
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
+                _vm._v("メーカー名\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.maker_name,
+                      expression: "maker_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.maker_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.maker_name = $event.target.value
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.message))]),
+            _vm._v(" "),
+            _c("p", [
               _c(
-                "label",
-                { staticClass: "col-md-4 col-form-label text-md-right" },
-                [_vm._v(" ギアの写真")]
-              ),
-              _vm._v(" "),
-              _c("img-inputer", {
-                attrs: {
-                  theme: "light",
-                  size: "large",
-                  placeholder: "ファイルをここにドラッグする",
-                  "bottom-text":
-                    "ファイルをドロップするかここをクリックしてください"
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: { click: _vm.uploadImage }
                 },
-                model: {
-                  value: _vm.file,
-                  callback: function($$v) {
-                    _vm.file = $$v
-                  },
-                  expression: "file"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "col-md-4 col-form-label text-md-right" },
-                [
-                  _vm._v("カテゴリ\n                            "),
-                  _c("div", { staticClass: "col-xs-3" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gear_category,
-                            expression: "gear_category"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.gear_category = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
-                        }
-                      },
-                      [
-                        _c(
-                          "option",
-                          { attrs: { value: "BonFire", selected: "selected" } },
-                          [_vm._v("Bonfire")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          {
-                            attrs: { value: "BackPack", selected: "selected" }
-                          },
-                          [_vm._v("BackPack")]
-                        ),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "Cutting" } }, [
-                          _vm._v("Cutting")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { value: "Shelter", selected: "selected" } },
-                          [_vm._v("Shelter")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "option",
-                          { attrs: { value: "Kitchen", selected: "selected" } },
-                          [_vm._v("Kitchen")]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "col-md-4 col-form-label text-md-right" },
-                [
-                  _vm._v("ギアの名前\n                            "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.gear_name,
-                        expression: "gear_name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.gear_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.gear_name = $event.target.value
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "col-md-4 col-form-label text-md-right" },
-                [
-                  _vm._v("メーカー名\n                            "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.maker_name,
-                        expression: "maker_name"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text" },
-                    domProps: { value: _vm.maker_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.maker_name = $event.target.value
-                      }
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(0),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.message))]),
-              _vm._v(" "),
-              _c("p", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    on: { click: _vm.uploadImage }
-                  },
-                  [_vm._v("道具を登録する")]
-                )
-              ])
-            ],
-            1
-          )
+                [_vm._v("道具を登録する")]
+              )
+            ])
+          ])
         ])
       ])
     ])
@@ -40277,7 +40281,7 @@ var staticRenderFns = [
       "label",
       { staticClass: "col-md-4 col-form-label text-md-right" },
       [
-        _vm._v("ギアのお気に入りポイント：\n                            "),
+        _vm._v("ギアのお気に入りポイント：\n                        "),
         _c("input", { staticClass: "form-control" })
       ]
     )

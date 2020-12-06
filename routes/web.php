@@ -18,6 +18,9 @@ Route::get('/layouts.landing', [App\Http\Controllers\HomeController::class, 'ind
 Route::get('/', function () {
     return view('/layouts.landing');
 });
+Route::get('/resume', function () {
+    return view('/layouts.resume.resume');
+});
 
 Auth::routes();
 

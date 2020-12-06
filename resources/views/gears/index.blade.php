@@ -2,5 +2,4 @@
 
 @section('nav')
     <app></app>
-
 @endsection

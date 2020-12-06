@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import router from "./router";
-
+import "./resume_scripts.js"
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -11,6 +11,7 @@ import router from "./router";
  */
 
 require('./bootstrap');
+require('./resume_scripts');
 // require('./holder');
 // require('./ie-emulation-modes-warning');
 // require('./ie10-viewport-bug-workaround');

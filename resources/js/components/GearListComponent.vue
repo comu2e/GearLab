@@ -9,7 +9,7 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-<!--                            <div>{{// '投稿者 : '+gear.user_name }}</div>-->
+                            <!--                            <div>{{// '投稿者 : '+gear.user_name }}</div>-->
                             <div>{{'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{'ギア名: ' + gear.gear_name }}</div>
 
@@ -19,11 +19,13 @@
                             <div class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
 
                             <div>
-<!--                                削除する POST-->
+                                <!--                                削除する POST-->
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
-<!--                                Edit画面に飛ぶようにする-->
+                                <!--                                Edit画面に飛ぶようにする-->
                                 <button class="btn btn-primary" v-on:click="getGearById(gear.id)">Edit</button>
-
+                                <router-link v-bind:to="{name: 'gear.edit', params: {gearId: gear.id }}">
+                                    <button class="btn btn-success">Edit</button>
+                                </router-link>
                             </div>
 
 
@@ -54,7 +56,7 @@ export default {
                 });
         },
         getGearById(id) {
-            axios.get('/api/gears/'+id)
+            axios.get('/api/gears/' + id)
                 .then((res) => {
                     this.gears = res.data['data'];
                 });

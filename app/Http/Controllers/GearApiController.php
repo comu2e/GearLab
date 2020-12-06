@@ -97,14 +97,10 @@ class GearApiController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Gear $gear)
     {
-        $gear = Gear::find($id);
-        $gear->gear_name = $request->gear_name;
-        $gear->maker_name = $request->maker_name;
-        $gear->content = $request->content;
-        $gear->save();
-        return redirect("api/gears/".$id);
+        $gear->update($request->all());
+        return $gear; //更新したデータを返す。
     }
 
     /**

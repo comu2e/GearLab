@@ -41,6 +41,7 @@ Vue.component('gear-list-component', require('./components/GearListComponent.vue
 Vue.component('gear-show-component', require('./components/GearShowComponent.vue').default);
 Vue.component('gear-create-component', require('./components/GearCreateComponent.vue').default);
 Vue.component('app', require('./components/App.vue').default);
+Vue.component('landing-pp', require('./components/LandingApp.vue').default);
 
 /*
  * Next, we will create a fresh Vue application instance and attach it to

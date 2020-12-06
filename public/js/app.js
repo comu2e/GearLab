@@ -55166,16 +55166,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./resume_scripts */ "./resources/js/resume_scripts.js"); // require('./holder');
-// require('./ie-emulation-modes-warning');
-// require('./ie10-viewport-bug-workaround');
-// require('./jquery.magnific-popup.min');
-// require('./masonry');
-// require('./odometer');
-// require('./pushy.min');
-// require('./scripts');
-// require('./wow.min');
-
+__webpack_require__(/*! ./resume_scripts */ "./resources/js/resume_scripts.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**

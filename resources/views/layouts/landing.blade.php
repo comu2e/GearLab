@@ -106,11 +106,7 @@
                             <img src="{{asset('img/your_logo.png')}}" alt="" class="img-responsive">
                         </a>
                     </div>
-                    {{--                    <div class="col-md-1 col-md-offset-8 col-xs-2 text-center">--}}
-                    {{--                        <div class="menu-btn"><span class="hamburger">&#9776;</span>--}}
 
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
                 </div>
                 <div class="jumbotron">
                     <h1><small>キャンプを追求しよう</small>

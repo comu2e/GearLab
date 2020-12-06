@@ -7,13 +7,17 @@
                     <div class="card-body">
 
                         <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
-                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>
-
+<!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
+                        <img-inputer v-model="file"
+                                          theme="light"
+                                          size="large"
+                                          placeholder="ファイルをここにドラッグする"
+                                          bottom-text="ファイルをドロップするかここをクリックしてください" />
 
                         <!-- 確認用画像 -->
-                        <p v-if="confirmedImage">
-                            <img class="img" :src="confirmedImage"/>
-                        </p>
+<!--                        <p v-if="confirmedImage">-->
+<!--                            <img class="img" :src="confirmedImage"/>-->
+<!--                        </p>-->
                         <label class="col-md-4 col-form-label text-md-right">カテゴリ
                             <div class="col-xs-3">
                                 <select class="form-control" v-model="gear_category">

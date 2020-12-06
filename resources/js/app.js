@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import router from "./router";
+import ImgInputer from 'vue-img-inputer'
+import 'vue-img-inputer/dist/index.css'
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -35,6 +38,7 @@ Vue.component('gear-create-component', require('./components/GearCreateComponent
 Vue.component('app', require('./components/App.vue').default);
 Vue.component('landing-pp', require('./components/LandingApp.vue').default);
 
+Vue.component('ImgInputer', ImgInputer)
 /*
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

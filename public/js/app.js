@@ -2438,18 +2438,25 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
         _this.gears = res.data['data'];
       });
     },
-    deleteGear: function deleteGear(id) {
+    getGearById: function getGearById(id) {
       var _this2 = this;
 
+      axios.get('/api/gears' + id).then(function (res) {
+        _this2.gears = res.data['data'];
+      });
+    },
+    deleteGear: function deleteGear(id) {
+      var _this3 = this;
+
       axios["delete"]('/api/gears/' + id).then(function (res) {
-        _this2.getGears();
+        _this3.getGears();
       });
     },
     UpdateGear: function UpdateGear(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.put('/api/gears/' + id).then(function (res) {
-        _this3.getGears();
+        _this4.getGears();
       });
     }
   },
@@ -40350,21 +40357,19 @@ var render = function() {
                       }
                     },
                     [_vm._v("Delete")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", [
+                  ),
+                  _vm._v(" "),
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-danger",
+                      staticClass: "btn btn-primary",
                       on: {
                         click: function($event) {
-                          gear.id
+                          return _vm.getGearById(gear.id)
                         }
                       }
                     },
-                    [_vm._v("Delete")]
+                    [_vm._v("Edit")]
                   )
                 ])
               ])

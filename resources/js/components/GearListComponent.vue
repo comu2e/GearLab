@@ -19,13 +19,13 @@
                             <div class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
 
                             <div>
+<!--                                削除する POST-->
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
+<!--                                Edit画面に飛ぶようにする-->
+                                <button class="btn btn-primary" v-on:click="getGearById(gear.id)">Edit</button>
 
                             </div>
-                            <div>
-                                <button class="btn btn-danger" v-on:click="(gear.id)">Delete</button>
-
-                            </div>
+                         
 
                         </div>
 
@@ -49,6 +49,12 @@ export default {
     methods: {
         getGears() {
             axios.get('/api/gears')
+                .then((res) => {
+                    this.gears = res.data['data'];
+                });
+        },
+        getGearById(id) {
+            axios.get('/api/gears'+id)
                 .then((res) => {
                     this.gears = res.data['data'];
                 });

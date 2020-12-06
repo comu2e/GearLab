@@ -5,6 +5,7 @@ import Create from './components/GearCreateComponent.vue'
 import Liked from './components/LikeListComponent.vue'
 import Registerd from './components/RegisterdGearComponent.vue'
 import Follow from './components/FollowListComponent.vue'
+import EditGear from "./components/EditGear";
 
 
 export default new Router({
@@ -34,6 +35,13 @@ export default new Router({
             path: '/registerd',
             name: 'registerd',
             component:Registerd
+        },
+
+        {
+            path: '/gear/edit/:gearId',
+            name: 'gear.edit',
+            component:EditGear,
+            props:true
         },
     ]
 });

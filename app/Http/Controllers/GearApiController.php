@@ -97,27 +97,15 @@ class GearApiController extends Controller
      * @param int $id
      * @return Response
      */
-//    public function update(GearRequest $request,$id)
-//    {
-//        $update = [
-//            'gear_name' => $request-> gear_name,
-//            'user_id' => Auth::id(),
-//            'maker_name' => $request-> maker_name,
-//            'content' => $request-> content,
-//            'updated_at' => date('Y/m/d H:i:s'),
-//            'gear_name' => date('Y/m/d H:i:s'),
-//        ];
-//        $gear = Gear::where('id', $id)->update($update);
-//        if ($gear) {
-//            return response()->json([
-//                'message' => 'Book updated successfully',
-//            ], 200);
-//        } else {
-//            return response()->json([
-//                'message' => 'Book not found',
-//            ], 404);
-//        }
-//    }
+    public function update(Request $request, $id)
+    {
+        $gear = Gear::find($id);
+        $gear->gear_name = $request->gear_name;
+        $gear->maker_name = $request->maker_name;
+        $gear->content = $request->content;
+        $gear->save();
+        return redirect("api/gears/".$id);
+    }
 
     /**
      * Remove the specified resource from storage.

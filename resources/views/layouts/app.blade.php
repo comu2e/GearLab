@@ -123,7 +123,6 @@
 
         @yield('content')
     </main>
-</div>
 
 </body>
 <footer  class="fixed-bottom" >

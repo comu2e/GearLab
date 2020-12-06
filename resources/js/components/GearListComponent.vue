@@ -25,7 +25,7 @@
                                 <button class="btn btn-primary" v-on:click="getGearById(gear.id)">Edit</button>
 
                             </div>
-                         
+
 
                         </div>
 
@@ -54,7 +54,7 @@ export default {
                 });
         },
         getGearById(id) {
-            axios.get('/api/gears'+id)
+            axios.get('/api/gears/'+id)
                 .then((res) => {
                     this.gears = res.data['data'];
                 });

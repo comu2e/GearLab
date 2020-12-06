@@ -20,7 +20,7 @@
                 </li>
             </ul>
         </nav>
-        <transition mode=”out-in”>
+        <transition name="fade" mode="out-in">
         <router-view>
 
         </router-view>

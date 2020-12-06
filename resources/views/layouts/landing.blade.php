@@ -240,11 +240,6 @@
 {{--<script src="wow.min.js"></script>--}}
 {{--<script src="scripts.js"></script>--}}
 {{--<script src="odometer.js"></script>--}}
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/jquery.min.js')}}"></script>
+
 <script src="{{asset('js/odometer.js')}}"></script>
 </html>

@@ -2441,7 +2441,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     getGearById: function getGearById(id) {
       var _this2 = this;
 
-      axios.get('/api/gears' + id).then(function (res) {
+      axios.get('/api/gears/' + id).then(function (res) {
         _this2.gears = res.data['data'];
       });
     },

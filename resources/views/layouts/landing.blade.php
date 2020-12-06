@@ -179,6 +179,8 @@
                 <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="500ms">
                     <img src={{asset('/img/follow.svg')  }} width=15% alt="">
                     <h4>フォロー機能</h4>
+                    <p>気になるギアを上げているキャンパーをフォローできます。</p>
+
                     <p></p>
                 </div>
             </div>
@@ -209,17 +211,6 @@
 </body>
 
 
-{{--<script src="bootstrap/js/bootstrap.min.js"></script>--}}
-{{--<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap-scrollspy.js"></script>--}}
-{{--<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->--}}
-{{--<script src="./ie10-viewport-bug-workaround.js"></script>--}}
-{{--<script src="http://masonry.desandro.com/masonry.pkgd.js"></script>--}}
-{{--<script src="masonry.js"></script>--}}
-{{--<script src="pushy.min.js"></script>--}}
-{{--<script src="jquery.magnific-popup.min.js"></script>--}}
-{{--<script src="wow.min.js"></script>--}}
-{{--<script src="scripts.js"></script>--}}
-{{--<script src="odometer.js"></script>--}}
 
 <script src="{{asset('js/odometer.js')}}"></script>
 </html>

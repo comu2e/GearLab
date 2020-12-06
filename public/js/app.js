@@ -39049,7 +39049,12 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("transition", { attrs: { mode: "”out-in”" } }, [_c("router-view")], 1)
+      _c(
+        "transition",
+        { attrs: { name: "fade", mode: "out-in" } },
+        [_c("router-view")],
+        1
+      )
     ],
     1
   )

@@ -2414,6 +2414,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.confirmedImage = e.target.result;
       };
     },
+    //画像、コメント投稿用のvue側のaxios通信
     uploadImage: function uploadImage() {
       var _this3 = this;
 
@@ -2443,7 +2444,8 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         _this3.message = err.response.data.errors;
       });
-    }
+    } //    ここまで
+
   }
 });
 

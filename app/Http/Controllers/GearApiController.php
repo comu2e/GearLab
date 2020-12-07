@@ -62,7 +62,15 @@ class GearApiController extends Controller
 //            ここに投稿者のuser_idを代入するようにする。
 //            https://stackoverflow.com/questions/50603064/current-users-id-in-laravel-api/50603185
 //
-            $gear->user_id = 1;
+//            こちら側のエラーは。
+//            class: "Illuminate\Foundation\Bootstrap\HandleExceptions"
+//file: "/Users/eijitakahashi/PhpstormProjects/GearLab/app/Http/Controllers/GearApiController.php"
+//function: "handleError"
+//line: 65
+//type: "->"になるかと思います。
+
+//            chromeで確認しました。
+            $gear->user_id = auth('api')->user()->id;
             $gear->save();
 
             return ['success' => '登録しました!'];

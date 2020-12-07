@@ -108,6 +108,8 @@ export default {
                 this.confirmedImage = e.target.result;
             };
         },
+
+        //画像、コメント投稿用のvue側のaxios通信
         uploadImage() {
             let data = new FormData();
             data.append("file", this.file);
@@ -139,6 +141,7 @@ export default {
                     this.message = err.response.data.errors;
                 });
         }
+    //    ここまで
     }
 };
 </script>

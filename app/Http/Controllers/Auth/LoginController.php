@@ -39,6 +39,6 @@ class LoginController extends Controller
     }
     public function redirectPath()
     {
-        return url('/gears?category=All&content=');
+        return url('/gears');
     }
 }

@@ -70,7 +70,8 @@ class GearApiController extends Controller
 //type: "->"になるかと思います。
 
 //            chromeで確認しました。
-            $gear->user_id = auth('api')->user()->id;
+//            $gear->user_id = auth('api')->user()->id;
+            $gear->user_id = 2130;
             $gear->save();
 
             return ['success' => '登録しました!'];

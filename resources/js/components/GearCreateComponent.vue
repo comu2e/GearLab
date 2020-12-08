@@ -44,7 +44,7 @@
                             <input class="form-control" type="text" v-model="maker_name"/>
                         </label>
                         <label class="col-md-4 col-form-label text-md-right">ギアのお気に入りポイント：
-                            <input class="form-control">
+                            <input class="form-control"type="text" v-model="content">
                         </label>
 
 
@@ -130,6 +130,7 @@ export default {
                     this.gear_category = "";
                     this.content = "";
                     this.file = "";
+                    this.user_id = "";
 
                     //ファイルを選択のクリア
                     this.view = false;

@@ -2434,7 +2434,8 @@ __webpack_require__.r(__webpack_exports__);
         _this3.gear_name = "";
         _this3.gear_category = "";
         _this3.content = "";
-        _this3.file = ""; //ファイルを選択のクリア
+        _this3.file = "";
+        _this3.user_id = ""; //ファイルを選択のクリア
 
         _this3.view = false;
 
@@ -2460,6 +2461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -40558,7 +40560,34 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(0),
+            _c(
+              "label",
+              { staticClass: "col-md-4 col-form-label text-md-right" },
+              [
+                _vm._v("ギアのお気に入りポイント：\n                        "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.content,
+                      expression: "content"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.content },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.content = $event.target.value
+                    }
+                  }
+                })
+              ]
+            ),
             _vm._v(" "),
             _c("p", [_vm._v(_vm._s(_vm.message))]),
             _vm._v(" "),
@@ -40578,21 +40607,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "col-md-4 col-form-label text-md-right" },
-      [
-        _vm._v("ギアのお気に入りポイント：\n                        "),
-        _c("input", { staticClass: "form-control" })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -40630,6 +40645,8 @@ var render = function() {
                 _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
+                _vm._v(" "),
+                _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
                 _vm._v(" "),
                 _c("div", [
                   _vm._v(_vm._s("お気にいりポイント : " + gear.content))

@@ -1939,7 +1939,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "App"
+  name: "App",
+  props: ['user_id']
 });
 
 /***/ }),
@@ -39866,7 +39867,12 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/gears/create" } },
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      to: { name: "create", params: { value: _vm.user_id } }
+                    }
+                  },
                   [_vm._v("Gear+")]
                 )
               ],
@@ -39915,12 +39921,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "transition",
-        { attrs: { name: "fade", mode: "out-in" } },
-        [_c("router-view")],
-        1
-      )
+      _c("transition", { attrs: { mode: "out-in" } }, [_c("router-view")], 1)
     ],
     1
   )
@@ -40403,6 +40404,10 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
+          _c("div", [
+            _vm._v("User_id is " + _vm._s(_vm.$route.params.value) + " ")
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
               "label",
@@ -40438,7 +40443,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("カテゴリ\n                        "),
+                _vm._v("カテゴリ\n                            "),
                 _c("div", { staticClass: "col-xs-3" }, [
                   _c(
                     "select",
@@ -40506,7 +40511,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("ギアの名前\n                        "),
+                _vm._v("ギアの名前\n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -40535,7 +40540,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("メーカー名\n                        "),
+                _vm._v("メーカー名\n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -40564,7 +40569,9 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("ギアのお気に入りポイント：\n                        "),
+                _vm._v(
+                  "ギアのお気に入りポイント：\n                            "
+                ),
                 _c("input", {
                   directives: [
                     {

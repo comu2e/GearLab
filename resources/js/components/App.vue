@@ -1,13 +1,13 @@
 <template>
-    <div class="container" >
+    <div class="container">
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark"position="fixed">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" position="fixed">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <router-link to="/gears" class="nav-link">ギアタイムライン</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/gears/create" class="nav-link">Gear+</router-link>
+                    <router-link :to="{ name: 'create', params: { value: user_id}}" class="nav-link">Gear+</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/likes" class="nav-link">いいねしたギア</router-link>
@@ -20,18 +20,18 @@
                 </li>
             </ul>
         </nav>
-        <transition name="fade" mode="out-in">
-        <router-view>
+        <transition mode="out-in">
+            <router-view>
 
-        </router-view>
+            </router-view>
         </transition>
     </div>
 </template>
 
 <script>
 export default {
-    name: "App"
-
+    name: "App",
+    props: ['user_id'],
 }
 </script>
 
@@ -39,6 +39,7 @@ export default {
 .v-enter-active, .v-leave-active {
     transition: opacity .5s;
 }
+
 .v-enter, .v-leave-to {
     opacity: 0;
 }

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-
+<div>User_id is {{ $route.params.value }} </div>
                     <div class="card-body">
 
                         <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>

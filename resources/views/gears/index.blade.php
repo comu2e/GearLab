@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('nav')
-    <app></app>
+    <app :user_id={{Auth::id()}}></app>
 @endsection

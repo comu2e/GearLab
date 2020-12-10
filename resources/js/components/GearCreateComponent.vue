@@ -3,7 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-<div>User_id is {{ $route.params.value }} </div>
+                    <div>User_id is {{ $route.params.value }}</div>
+                    <div>User_id is {{ $route.params }}</div>
                     <div class="card-body">
 
                         <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
@@ -44,7 +45,7 @@
                             <input class="form-control" type="text" v-model="maker_name"/>
                         </label>
                         <label class="col-md-4 col-form-label text-md-right">ギアのお気に入りポイント：
-                            <input class="form-control"type="text" v-model="content">
+                            <input class="form-control" type="text" v-model="content">
                         </label>
 
 
@@ -63,6 +64,8 @@
 
 <script>
 export default {
+    user_id: Number,
+
     data() {
         return {
             message: "",
@@ -77,9 +80,12 @@ export default {
             confirmedImage: ""
         };
     },
-    created: function () {
+    created:function () {
+        this.user_id = this.$route.params.value;
+
         this.getImage();
     },
+
     methods: {
         getImage() {
             axios
@@ -130,7 +136,7 @@ export default {
                     this.gear_category = "";
                     this.content = "";
                     this.file = "";
-                    this.user_id = "";
+                    // this.user_id = $route.params;
 
                     //ファイルを選択のクリア
                     this.view = false;
@@ -142,7 +148,7 @@ export default {
                     this.message = err.response.data.errors;
                 });
         }
-    //    ここまで
+        //    ここまで
     }
 };
 </script>

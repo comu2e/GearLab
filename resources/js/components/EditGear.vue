@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-<div>編集画面</div>
+                    <div>編集画面</div>
                     <div class="card-body">
 
                         <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
@@ -17,7 +17,7 @@
                                          auto-update="true"/>
 
                         </div>
-
+                        <div>{{gear}}</div>
                         <label class="col-md-4 col-form-label text-md-right">カテゴリ
                             <div class="col-xs-3">
                                 <select class="form-control" v-model="gear_category">
@@ -32,7 +32,7 @@
 
 
                         <label class="col-md-4 col-form-label text-md-right">ギアの名前
-                            <input class="form-control" type="text" v-model="gear_name"placeholder="gear.gear_name"/>
+                            <input class="form-control" type="text" v-model="gear_name" :placeholder="gear.gear_name"/>
                         </label>
 
 
@@ -56,10 +56,28 @@
 
     </div>
 </template>
- <script>
-     export default {
-         props: {
-                 gearId:Number
-             }
-     }
- </script>
+<script>
+export default {
+    gearId: Number,
+
+    created() {
+        this.gearId = this.$route.params.value;
+        this.getGearById(this.gearId);
+    },
+    data() {
+        return {
+            gear: {},
+        };
+    },
+    methods: {
+        getGearById(id) {
+            axios.get('/api/gears/' + id)
+                .then((res) => {
+                    this.gear = res.data['data'];
+
+                });
+        },
+    }
+}
+
+</script>

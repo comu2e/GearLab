@@ -1940,7 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
-  props: ['user_id']
+  props: ['user']
 });
 
 /***/ }),
@@ -2367,7 +2367,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  user_id: Number,
+  user: Number,
   data: function data() {
     return {
       message: "",
@@ -2383,7 +2383,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.user_id = this.$route.params.value;
+    this.user = this.$route.params.value;
     this.getImage();
   },
   methods: {
@@ -2428,7 +2428,7 @@ __webpack_require__.r(__webpack_exports__);
       data.append("gear_name", this.gear_name);
       data.append("gear_category", this.gear_category);
       data.append("content", this.content);
-      data.append("user_id", this.user_id);
+      data.append("user_id", this.user.id);
       axios.post("/api/gears/", data).then(function (response) {
         _this3.getImage();
 
@@ -39873,7 +39873,7 @@ var render = function() {
                   {
                     staticClass: "nav-link",
                     attrs: {
-                      to: { name: "create", params: { value: _vm.user_id } }
+                      to: { name: "create", params: { value: _vm.user } }
                     }
                   },
                   [_vm._v("Gear+")]
@@ -40407,7 +40407,9 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", [_vm._v("User_id is " + _vm._s(_vm.$route.params.value))]),
+          _c("div", [
+            _vm._v("User_id is " + _vm._s(_vm.$route.params.value.id))
+          ]),
           _vm._v(" "),
           _c("div", [_vm._v("User_id is " + _vm._s(_vm.$route.params))]),
           _vm._v(" "),

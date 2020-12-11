@@ -38,8 +38,8 @@ export default new Router({
         },
 
         {
-            path: '/gear/edit/:gearId',
-            name: 'gear.edit',
+            path: '/gears/:gearId',
+            name: 'edit',
             component:EditGear,
             props:true
         },

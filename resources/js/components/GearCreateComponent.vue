@@ -82,7 +82,6 @@ export default {
     },
     created:function () {
         this.user = this.$route.params.value;
-
         this.getImage();
     },
 

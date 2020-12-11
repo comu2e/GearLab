@@ -2013,8 +2013,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    gearId: Number
+  gearId: Number,
+  created: function created() {
+    this.gearId = this.$route.params.value;
+    this.getGearById(this.gearId);
+  },
+  data: function data() {
+    return {
+      gear: {}
+    };
+  },
+  methods: {
+    getGearById: function getGearById(id) {
+      var _this = this;
+
+      axios.get('/api/gears/' + id).then(function (res) {
+        _this.gear = res.data['data'];
+      });
+    }
   }
 });
 
@@ -2506,13 +2522,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
   data: function data() {
     return {
-      gears: []
+      gears: [],
+      gear: []
     };
   },
   methods: {
@@ -2523,25 +2539,11 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
         _this.gears = res.data['data'];
       });
     },
-    getGearById: function getGearById(id) {
+    deleteGear: function deleteGear(id) {
       var _this2 = this;
 
-      axios.get('/api/gears/' + id).then(function (res) {
-        _this2.gears = res.data['data'];
-      });
-    },
-    deleteGear: function deleteGear(id) {
-      var _this3 = this;
-
       axios["delete"]('/api/gears/' + id).then(function (res) {
-        _this3.getGears();
-      });
-    },
-    UpdateGear: function UpdateGear(id) {
-      var _this4 = this;
-
-      axios.put('/api/gears/' + id).then(function (res) {
-        _this4.getGears();
+        _this2.getGears();
       });
     }
   },
@@ -39988,11 +39990,13 @@ var render = function() {
               1
             ),
             _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(_vm.gear))]),
+            _vm._v(" "),
             _c(
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("カテゴリ\n                            "),
+                _vm._v("カテゴリ\n                        "),
                 _c("div", { staticClass: "col-xs-3" }, [
                   _c(
                     "select",
@@ -40060,7 +40064,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("ギアの名前\n                            "),
+                _vm._v("ギアの名前\n                        "),
                 _c("input", {
                   directives: [
                     {
@@ -40071,7 +40075,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "gear.gear_name" },
+                  attrs: { type: "text", placeholder: _vm.gear.gear_name },
                   domProps: { value: _vm.gear_name },
                   on: {
                     input: function($event) {
@@ -40089,7 +40093,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("メーカー名\n                            "),
+                _vm._v("メーカー名\n                        "),
                 _c("input", {
                   directives: [
                     {
@@ -40143,7 +40147,7 @@ var staticRenderFns = [
       "label",
       { staticClass: "col-md-4 col-form-label text-md-right" },
       [
-        _vm._v("ギアのお気に入りポイント：\n                            "),
+        _vm._v("ギアのお気に入りポイント：\n                        "),
         _c("input", { staticClass: "form-control" })
       ]
     )
@@ -40687,27 +40691,14 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        on: {
-                          click: function($event) {
-                            return _vm.getGearById(gear.id)
-                          }
-                        }
-                      },
-                      [_vm._v("Edit")]
-                    ),
-                    _vm._v(" "),
-                    _c(
                       "router-link",
                       {
                         attrs: {
-                          to: { name: "gear.edit", params: { gearId: gear.id } }
+                          to: { name: "edit", params: { value: gear.id } }
                         }
                       },
                       [
-                        _c("button", { staticClass: "btn btn-success" }, [
+                        _c("button", { staticClass: "btn btn-primary" }, [
                           _vm._v("Edit")
                         ])
                       ]
@@ -57351,8 +57342,8 @@ __webpack_require__.r(__webpack_exports__);
     name: 'registerd',
     component: _components_RegisterdGearComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/gear/edit/:gearId',
-    name: 'gear.edit',
+    path: '/gears/:gearId',
+    name: 'edit',
     component: _components_EditGear__WEBPACK_IMPORTED_MODULE_6__["default"],
     props: true
   }]

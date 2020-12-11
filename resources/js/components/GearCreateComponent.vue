@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div>User_id is {{ $route.params.value }}</div>
+                    <div>User_id is {{ $route.params.value.id }}</div>
                     <div>User_id is {{ $route.params }}</div>
                     <div class="card-body">
 
@@ -64,7 +64,7 @@
 
 <script>
 export default {
-    user_id: Number,
+    user: Number,
 
     data() {
         return {
@@ -81,7 +81,7 @@ export default {
         };
     },
     created:function () {
-        this.user_id = this.$route.params.value;
+        this.user = this.$route.params.value;
 
         this.getImage();
     },
@@ -123,10 +123,9 @@ export default {
             data.append("gear_name", this.gear_name);
             data.append("gear_category", this.gear_category);
             data.append("content", this.content);
-            data.append("user_id", this.user_id);
+            data.append("user_id", this.user.id);
 
-            axios
-                .post("/api/gears/", data)
+            axios.post("/api/gears/", data)
                 .then(response => {
                     this.getImage();
                     this.message = response.data.success;

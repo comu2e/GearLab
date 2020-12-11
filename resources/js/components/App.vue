@@ -7,7 +7,7 @@
                     <router-link to="/gears" class="nav-link">ギアタイムライン</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link :to="{ name: 'create', params: { value: user_id}}" class="nav-link">Gear+</router-link>
+                    <router-link :to="{ name: 'create', params: { value: user}}" class="nav-link">Gear+</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/likes" class="nav-link">いいねしたギア</router-link>
@@ -31,7 +31,7 @@
 <script>
 export default {
     name: "App",
-    props: ['user_id'],
+    props: ['user'],
 }
 </script>
 

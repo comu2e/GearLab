@@ -16,7 +16,7 @@ require('./bootstrap');
 require('./resume_scripts');
 
 
-window.Vue = require('vue');
+window.Vue = require('vue').default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -38,6 +38,7 @@ Vue.component('gear-create-component', require('./components/GearCreateComponent
 Vue.component('app', require('./components/App.vue').default);
 Vue.component('landing-app', require('./components/LandingApp.vue').default);
 Vue.component('edit-component', require('./components/EditGear.vue').default);
+Vue.component('follow-component', require('./components/FollowButtonComponent.vue').default);
 
 Vue.component('ImgInputer', ImgInputer)
 /*

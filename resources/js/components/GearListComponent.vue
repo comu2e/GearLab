@@ -2,7 +2,19 @@
     <div class="container">
         <div align="center">
 
-            <ul v-for="gear in gears" class="list-group">
+            <div class="form-group">
+                <label for="select1a">気になるギアのカテゴリを選んでみましょう</label>
+                <select id="select1a" class="form-control" v-model="category">
+                    <option selected>All</option>
+                    <option>BackPack</option>
+                    <option>Cutting</option>
+                    <option>Shelter</option>
+                    <option>Bonfire</option>
+                    <option>Kitchen</option>
+                </select>
+            </div>
+            <div>{{category}}</div>
+            <ul v-for="gear in categorizeGears" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
@@ -36,6 +48,8 @@ export default {
     name: "GearListComponent",
     data: function () {
         return {
+            keyword: '',
+            category: '',
             gears: [],
             gear: []
         }
@@ -55,6 +69,46 @@ export default {
                 });
         },
 
+    },
+    computed: {
+        filteredGears: function() {
+
+            var gears = [];
+
+            for(var i in this.gears) {
+
+                var gear = this.gears[i];
+
+                if(gear.gear_name.indexOf(this.keyword) !== -1) {
+
+                    gears.push(gear);
+
+
+                }
+
+            }
+
+            return gears;
+        },
+        categorizeGears: function() {
+
+            var gears = [];
+
+            for(var i in this.gears) {
+
+                var gear = this.gears[i];
+
+                if(gear.gear_category.indexOf(this.category) !== -1) {
+
+                    gears.push(gear);
+
+
+                }
+
+            }
+
+            return gears;
+        }
     },
     mounted() {
         this.getGears();

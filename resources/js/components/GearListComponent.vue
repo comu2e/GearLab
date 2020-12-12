@@ -1,7 +1,9 @@
 <template>
     <div class="container">
+        <div></div>
         <div align="center">
-<!--            <div>User_id is {{ $route.params.value.id }}</div>-->
+            <div>{{ auth_user }}</div>
+            <!--            <div>User_id is {{ $route.params.value.id }}</div>-->
             <div>User_id is {{ $route.params }}</div>
             <div class="form-group">
                 <label for="category">気になるギアのカテゴリを選んでみましょう</label>
@@ -29,7 +31,8 @@
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
-                            <follow-button-component :id="gear.user_id" :followable_user="$route.params.value"></follow-button-component>
+                            <follow-button-component :id="gear.user_id"
+                                                     :followable_user="$route.params.value"></follow-button-component>
 
                         </div>
 
@@ -77,6 +80,9 @@ export default {
 
     },
     computed: {
+        auth_user(){
+            return this.$store.state.auth_user;
+        },
         filteredGears: function () {
             var gears = [];
             if (this.category !== "All") {

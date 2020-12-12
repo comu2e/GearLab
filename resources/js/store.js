@@ -3,8 +3,8 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-export default new Vuex.store({
-    state:{
-        auth_user:"Vuex State"
+export default new Vuex.Store({
+    state: {
+        auth_user: "Vuex State"
     }
 })

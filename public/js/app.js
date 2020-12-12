@@ -2553,11 +2553,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
   data: function data() {
     return {
+      keyword: '',
+      category: '',
       gears: [],
       gear: []
     };
@@ -2576,6 +2590,34 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       axios.get('/api/category=' + category).then(function (res) {
         _this2.gears = res.data['data'];
       });
+    }
+  },
+  computed: {
+    filteredGears: function filteredGears() {
+      var gears = [];
+
+      for (var i in this.gears) {
+        var gear = this.gears[i];
+
+        if (gear.gear_name.indexOf(this.keyword) !== -1) {
+          gears.push(gear);
+        }
+      }
+
+      return gears;
+    },
+    categorizeGears: function categorizeGears() {
+      var gears = [];
+
+      for (var i in this.gears) {
+        var gear = this.gears[i];
+
+        if (gear.gear_category.indexOf(this.category) !== -1) {
+          gears.push(gear);
+        }
+      }
+
+      return gears;
     }
   },
   mounted: function mounted() {
@@ -40719,38 +40761,96 @@ var render = function() {
     _c(
       "div",
       { attrs: { align: "center" } },
-      _vm._l(_vm.gears, function(gear) {
-        return _c("ul", { staticClass: "list-group" }, [
-          _c("li", { staticClass: "list-group-item" }, [
-            _c("div", { attrs: { align: "center", scope: "row" } }, [
-              _c("img", {
-                attrs: { alt: "", src: gear.image_url, width: "30%" }
-              }),
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "select1a" } }, [
+            _vm._v("気になるギアのカテゴリを選んでみましょう")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.category,
+                  expression: "category"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { id: "select1a" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.category = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { selected: "" } }, [_vm._v("All")]),
               _vm._v(" "),
-              _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
+              _c("option", [_vm._v("BackPack")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Cutting")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Shelter")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Bonfire")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Kitchen")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", [_vm._v(_vm._s(_vm.category))]),
+        _vm._v(" "),
+        _vm._l(_vm.categorizeGears, function(gear) {
+          return _c("ul", { staticClass: "list-group" }, [
+            _c("li", { staticClass: "list-group-item" }, [
+              _c("div", { attrs: { align: "center", scope: "row" } }, [
+                _c("img", {
+                  attrs: { alt: "", src: gear.image_url, width: "30%" }
+                }),
                 _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "btn btn-success btn-sm" }, [
-                  _vm._v(_vm._s("いいね数 : " + gear.likes_count))
+                _c("div", { attrs: { align: "right" } }, [
+                  _c("div", [
+                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "btn btn-success btn-sm" }, [
+                    _vm._v(_vm._s("いいね数 : " + gear.likes_count))
+                  ])
                 ])
               ])
             ])
           ])
-        ])
-      }),
-      0
+        })
+      ],
+      2
     )
   ])
 }

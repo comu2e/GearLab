@@ -1,12 +1,13 @@
 <template>
     <div>
-        <button v-if="currentFollowing" type="button" class="btn btn-point btn-raised" @click="unfollow">
+
+        <button v-if="currentFollowing" type="button" class="btn btn-danger" @click="unfollow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
             <div v-else>フォロー中</div>
         </button>
-        <button v-else type="button" class="btn btn-default btn-raised" @click="follow">
+        <button v-else type="button" class="btn btn-primary" @click="follow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
@@ -22,35 +23,40 @@
 export default {
     props: {
         'id': "",
-        'following': false
+        'followable_user':"",
     },
     data() {
         return {
-            currentFollowing : '',
-            sending : '',
+            currentFollowing: '',
+            sending: '',
+            following: false,
         }
     },
+    methods: {
+        follow: function () {
+            if (this.sending) {
+                return
+            }
+            this.sending = true
+            const data = {id: this.id}
+            axios.post('/api/follow-users/'+this.id, data)
+            this.currentFollowing = true
+            this.sending = false
+        },
 
-    async follow() {
-        if (this.sending) {
-            return
-        }
-        this.sending = true
-        const data = {id: this.id}
-        await axios.post('/follow-users', data)
-        this.currentFollowing = true
-        this.sending = false
-    },
+        unfollow: function () {
+            if (this.sending) {
+                return
+            }
+            const data = {user: this.followable_user}
 
-    async unfollow() {
-        if (this.sending) {
-            return
+            this.sending = true
+            axios.delete(`/api/follow-users/${this.id}`)
+            this.currentFollowing = false
+            this.sending = false
         }
-        this.sending = true
-        await axios.delete(`/follow-users/${this.id}`)
-        this.currentFollowing = false
-        this.sending = false
     }
+
 }
 
 </script>

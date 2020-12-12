@@ -36,9 +36,13 @@
 const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "LikeListComponent",
+    created: function () {
+        this.user = this.$route.params.value;
+    },
     data: function () {
         return {
-            gears: []
+            gears: [],
+            user:''
         }
     },
     methods: {

@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <div align="center">
-
+<!--            <div>User_id is {{ $route.params.value.id }}</div>-->
+            <div>User_id is {{ $route.params }}</div>
             <div class="form-group">
                 <label for="category">気になるギアのカテゴリを選んでみましょう</label>
                 <select id="category" class="form-control" v-model="category">
@@ -28,7 +29,7 @@
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
-                            <follow-button-component></follow-button-component>
+                            <follow-button-component :id="gear.user_id" :followable_user="$route.params.value"></follow-button-component>
 
                         </div>
 
@@ -47,6 +48,9 @@ const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "GearListComponent",
     components: {FollowButtonComponent},
+    created() {
+        this.user = this.$route.params.value;
+    },
     data: function () {
         return {
             keyword: '',

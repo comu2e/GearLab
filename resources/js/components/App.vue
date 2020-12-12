@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" position="fixed">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <router-link to="/gears" class="nav-link">ギアタイムライン</router-link>
+                    <router-link :to="{ name: 'home', params: { value: user}}" class="nav-link">ギアタイムライン</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link :to="{ name: 'create', params: { value: user}}" class="nav-link">Gear+</router-link>
@@ -16,7 +16,8 @@
                     <router-link to="/follows" class="nav-link">フォローしているユーザー</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link :to="{ name: 'registerd', params: { value: user}}" class="nav-link">登録したギア</router-link>
+                    <router-link :to="{ name: 'registerd', params: { value: user}}" class="nav-link">登録したギア
+                    </router-link>
                 </li>
             </ul>
         </nav>

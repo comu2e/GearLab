@@ -13,16 +13,20 @@ class FollowUserController extends Controller
     {
         $followedUser = User::findOrFail($request->input('id'));
         FollowUser::firstOrCreate([
-            'user_id' => Auth::id(),
+//            'user_id' => Auth::id(),
+            'user_id' => $request ->user_id,
             'followed_user_id' => $followedUser->id,
         ]);
         return response()->json(['result' => true]);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         $followedUser = User::findOrFail($id);
-        $user = Auth::user();
+//        $user = Auth::user();
+        $user = $request->user;
+//        'user_id' => $request->user_id(),
+
         $user->followUsers()->detach($followedUser->id);
         return response()->json(['result' => true]);
     }

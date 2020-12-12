@@ -80,7 +80,7 @@ export default {
             confirmedImage: ""
         };
     },
-    created:function () {
+    created: function () {
         this.user = this.$route.params.value;
         this.getGears();
     },

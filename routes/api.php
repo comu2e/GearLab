@@ -24,6 +24,8 @@ Route::post('/login', 'App\Http\Controllers\LoginController@login');
 Route::apiResource('/gears', 'App\Http\Controllers\GearApiController');
 Route::apiResource('/likes', 'App\Http\Controllers\LikeApiController', ['only' => ['show_index']]);
 Route::get('/user_id={user_id}','App\Http\Controllers\GearApiController@user_index');
+Route::post('/follow-users/{user_id}','App\Http\Controllers\FollowUserController@store');
+Route::delete('/follow-users/{user_id}','App\Http\Controllers\FollowUserController@destroy');
 
 Route::group(['middleware' => 'web'], function () {
     Route::apiResource('/follows', 'App\Http\Controllers\FollowUserController', ['only' => ['show']]);

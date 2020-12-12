@@ -33,6 +33,21 @@ class GearApiController extends Controller
     }
 
     /**
+     * Display a listing of the user Gear.
+     *
+     * @return Response
+     */
+    public function user_index($user_id)
+    {
+        $gears = Gear::where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
+
+        return response()->json([
+            'message' => 'ok',
+            'data' => $gears
+        ], 200, [], JSON_UNESCAPED_UNICODE);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -95,11 +110,11 @@ class GearApiController extends Controller
      * @return Response
      */
     public function update(Request $request, Gear $gear)
- {
-     $gear->update($request->all());
+    {
+        $gear->update($request->all());
 
-     return $gear;
- }
+        return $gear;
+    }
 
     /**
      * Remove the specified resource from storage.

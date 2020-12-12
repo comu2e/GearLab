@@ -2423,7 +2423,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  user: Number,
+  // user: Number,
   data: function data() {
     return {
       message: "",
@@ -2521,14 +2521,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2797,19 +2789,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RegisterdGearComponent",
+  created: function created() {
+    this.user = this.$route.params.value;
+  },
   data: function data() {
     return {
       gears: []
     };
   },
   methods: {
-    getGears: function getGears() {
+    getUserGears: function getUserGears(user_id) {
       var _this = this;
 
-      axios.get('/api/gears').then(function (res) {
+      axios.get('/api/user_id=' + user_id).then(function (res) {
         _this.gears = res.data['data'];
       });
     },
@@ -2822,7 +2822,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     }
   },
   mounted: function mounted() {
-    this.getGears();
+    this.getUserGears(this.user.id);
+    console.log(this.user);
   }
 });
 
@@ -39956,7 +39957,12 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/registerd" } },
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      to: { name: "registerd", params: { value: _vm.user } }
+                    }
+                  },
                   [_vm._v("登録したギア")]
                 )
               ],
@@ -40739,40 +40745,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "btn btn-success btn-sm" }, [
                   _vm._v(_vm._s("いいね数 : " + gear.likes_count))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger",
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteGear(gear.id)
-                          }
-                        }
-                      },
-                      [_vm._v("Delete")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        attrs: {
-                          to: { name: "edit", params: { gearId: gear.id } }
-                        }
-                      },
-                      [
-                        _c("button", { staticClass: "btn btn-primary" }, [
-                          _vm._v("Edit")
-                        ])
-                      ]
-                    )
-                  ],
-                  1
-                )
+                ])
               ])
             ])
           ])
@@ -41061,20 +41034,38 @@ var render = function() {
                   _vm._v(_vm._s("いいね数 : " + gear.likes_count))
                 ]),
                 _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function($event) {
-                          return _vm.deleteGear(gear.id)
+                _c(
+                  "div",
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteGear(gear.id)
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                ])
+                      },
+                      [_vm._v("Delete")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: { name: "edit", params: { gearId: gear.id } }
+                        }
+                      },
+                      [
+                        _c("button", { staticClass: "btn btn-primary" }, [
+                          _vm._v("Edit")
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                )
               ])
             ])
           ])
@@ -57407,7 +57398,8 @@ __webpack_require__.r(__webpack_exports__);
   }, {
     path: '/registerd',
     name: 'registerd',
-    component: _components_RegisterdGearComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_RegisterdGearComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    props: true
   }, {
     path: '/gears/:gearId',
     name: 'edit',

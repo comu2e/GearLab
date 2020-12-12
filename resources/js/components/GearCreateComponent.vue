@@ -64,7 +64,7 @@
 
 <script>
 export default {
-    user: Number,
+    // user: Number,
 
     data() {
         return {

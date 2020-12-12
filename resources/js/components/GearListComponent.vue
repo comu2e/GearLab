@@ -19,14 +19,6 @@
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
 
-                            <div>
-                                <!--                                削除する POST-->
-                                <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
-                                <!--                                Edit画面に飛ぶようにする-->
-                                <router-link :to="{ name: 'edit', params: { gearId: gear.id}}">
-                                    <button class="btn btn-primary">Edit</button>
-                                </router-link>
-                            </div>
 
 
                         </div>

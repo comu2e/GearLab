@@ -23,6 +23,7 @@ Route::post('/login', 'App\Http\Controllers\LoginController@login');
 //GearのAPI
 Route::apiResource('/gears', 'App\Http\Controllers\GearApiController');
 Route::apiResource('/likes', 'App\Http\Controllers\LikeApiController', ['only' => ['show_index']]);
+Route::get('/user_id={user_id}','App\Http\Controllers\GearApiController@user_index');
 
 Route::group(['middleware' => 'web'], function () {
     Route::apiResource('/follows', 'App\Http\Controllers\FollowApiController', ['only' => ['show']]);

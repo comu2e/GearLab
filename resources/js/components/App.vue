@@ -16,7 +16,7 @@
                     <router-link to="/follows" class="nav-link">フォローしているユーザー</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/registerd" class="nav-link">登録したギア</router-link>
+                    <router-link :to="{ name: 'registerd', params: { value: user}}" class="nav-link">登録したギア</router-link>
                 </li>
             </ul>
         </nav>

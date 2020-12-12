@@ -2553,7 +2553,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
@@ -2571,11 +2570,11 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
         _this.gears = res.data['data'];
       });
     },
-    deleteGear: function deleteGear(id) {
+    searchGear: function searchGear(category) {
       var _this2 = this;
 
-      axios["delete"]('/api/gears/' + id).then(function (res) {
-        _this2.getGears();
+      axios.get('/api/category=' + category).then(function (res) {
+        _this2.gears = res.data['data'];
       });
     }
   },

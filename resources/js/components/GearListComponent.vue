@@ -20,7 +20,6 @@
                             <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
 
 
-
                         </div>
 
                     </div>
@@ -49,10 +48,10 @@ export default {
                 });
         },
 
-        deleteGear(id) {
-            axios.delete('/api/gears/' + id)
+        searchGear(category) {
+            axios.get('/api/category=' + category)
                 .then((res) => {
-                    this.getGears();
+                    this.gears = res.data['data'];
                 });
         },
 

@@ -46,6 +46,20 @@ class GearApiController extends Controller
             'data' => $gears
         ], 200, [], JSON_UNESCAPED_UNICODE);
     }
+    /**
+     * Display a listing of the user Gear.
+     *
+     * @return Response
+     */
+    public function categorize_gear($category)
+    {
+        $gears = Gear::where('gear_category', $category)->orderby('updated_at', 'desc')->get();
+
+        return response()->json([
+            'message' => 'ok',
+            'data' => $gears
+        ], 200, [], JSON_UNESCAPED_UNICODE);
+    }
 
     /**
      * Store a newly created resource in storage.

@@ -23,7 +23,7 @@
                                 <!--                                削除する POST-->
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
                                 <!--                                Edit画面に飛ぶようにする-->
-                                <router-link :to="{ name: 'edit', params: { value: gear.id}}">
+                                <router-link :to="{ name: 'edit', params: { gearId: gear.id}}">
                                     <button class="btn btn-primary">Edit</button>
                                 </router-link>
                             </div>

@@ -2563,8 +2563,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GearListComponent",
@@ -2573,7 +2571,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       keyword: '',
       category: '',
       gears: [],
-      gear: []
+      gear: [],
+      gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"]
     };
   },
   methods: {
@@ -2596,26 +2595,36 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     filteredGears: function filteredGears() {
       var gears = [];
 
-      for (var i in this.gears) {
-        var gear = this.gears[i];
+      if (this.category !== "All") {
+        for (var i in this.gears) {
+          var gear = this.gears[i];
 
-        if (gear.gear_name.indexOf(this.keyword) !== -1) {
-          gears.push(gear);
+          if (gear.gear_name.indexOf(this.keyword) !== -1) {
+            gears.push(gear);
+            return gears;
+          }
         }
+      } else {
+        this.getGears();
+        return gears;
       }
-
-      return gears;
     },
     categorizeGears: function categorizeGears() {
       var gears = [];
 
-      for (var i in this.gears) {
-        var gear = this.gears[i];
+      if (this.category !== 'All') {
+        for (var i in this.gears) {
+          var gear = this.gears[i];
 
-        if (gear.gear_category.indexOf(this.category) !== -1) {
-          gears.push(gear);
+          if (gear.gear_category.indexOf(this.category) !== -1) {
+            gears.push(gear);
+          }
         }
-      }
+      } // if(this.category ==='All'){
+      //     this.getGears();
+      //     console.log(this.gears);
+      // }
+
 
       return gears;
     }
@@ -40763,7 +40772,7 @@ var render = function() {
       { attrs: { align: "center" } },
       [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "select1a" } }, [
+          _c("label", { attrs: { for: "category" } }, [
             _vm._v("気になるギアのカテゴリを選んでみましょう")
           ]),
           _vm._v(" "),
@@ -40779,7 +40788,7 @@ var render = function() {
                 }
               ],
               staticClass: "form-control",
-              attrs: { id: "select1a" },
+              attrs: { id: "category" },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -40797,18 +40806,23 @@ var render = function() {
               }
             },
             [
-              _c("option", { attrs: { selected: "" } }, [_vm._v("All")]),
+              _c(
+                "option",
+                { attrs: { disabled: "" }, domProps: { value: null } },
+                [_vm._v("Gearのカテゴリを選択してください。")]
+              ),
               _vm._v(" "),
-              _c("option", [_vm._v("BackPack")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("Cutting")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("Shelter")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("Bonfire")]),
-              _vm._v(" "),
-              _c("option", [_vm._v("Kitchen")])
-            ]
+              _vm._l(_vm.gear_category, function(category) {
+                return _c("option", { domProps: { value: category } }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(category) +
+                      "\n                "
+                  )
+                ])
+              })
+            ],
+            2
           )
         ]),
         _vm._v(" "),

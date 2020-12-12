@@ -1,37 +1,46 @@
 <template>
-
+    <div>
+        <button v-if="currentFollowing" type="button" class="btn btn-point btn-raised" @click="unfollow">
+            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Sending...</span>
+            </div>
+            <div v-else>フォロー中</div>
+        </button>
+        <button v-else type="button" class="btn btn-default btn-raised" @click="follow">
+            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Sending...</span>
+            </div>
+            <div v-else>
+                フォローする
+                <i class="material-icons">add</i>
+            </div>
+        </button>
+    </div>
 </template>
-
 <script>
-import { Vue, Component, Prop } from 'vue-property-decorator'
-import axios from 'axios'
 
-@Component
-export default class UserFollow extends Vue {
-    @Prop({
-        type: String,
-        required: true
-    })
-    id!: string
+export default {
+    props: {
+        'id': "",
+        'following': false
+    },
+    data() {
+        return {
+            currentFollowing : '',
+            sending : '',
+        }
+    },
 
-    @Prop({
-        type: Boolean,
-        default: false
-    })
-    following!: boolean
-
-    currentFollowing = this.following
-    sending = false
     async follow() {
         if (this.sending) {
             return
         }
         this.sending = true
-        const data = { id: this.id }
+        const data = {id: this.id}
         await axios.post('/follow-users', data)
         this.currentFollowing = true
         this.sending = false
-    }
+    },
 
     async unfollow() {
         if (this.sending) {

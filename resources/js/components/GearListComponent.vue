@@ -3,17 +3,15 @@
         <div align="center">
 
             <div class="form-group">
-                <label for="select1a">気になるギアのカテゴリを選んでみましょう</label>
-                <select id="select1a" class="form-control" v-model="category">
-                    <option selected>All</option>
-                    <option>BackPack</option>
-                    <option>Cutting</option>
-                    <option>Shelter</option>
-                    <option>Bonfire</option>
-                    <option>Kitchen</option>
+                <label for="category">気になるギアのカテゴリを選んでみましょう</label>
+                <select id="category" class="form-control" v-model="category">
+                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>
+                    <option v-for="category in gear_category" :value="category" >
+                        {{ category }}
+                    </option>
                 </select>
             </div>
-            <div>{{category}}</div>
+            <div>{{ category }}</div>
             <ul v-for="gear in categorizeGears" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
@@ -51,7 +49,8 @@ export default {
             keyword: '',
             category: '',
             gears: [],
-            gear: []
+            gear: [],
+            gear_category:['All',"Kitchen","Cutting","BackPack","Shelter","Bonfire"],
         }
     },
     methods: {
@@ -71,41 +70,47 @@ export default {
 
     },
     computed: {
-        filteredGears: function() {
-
+        filteredGears: function () {
             var gears = [];
+            if (this.category !== "All") {
+                for (var i in this.gears) {
+                    var gear = this.gears[i];
+                    if (gear.gear_name.indexOf(this.keyword) !== -1) {
+                        gears.push(gear);
+                        return gears;
 
-            for(var i in this.gears) {
-
-                var gear = this.gears[i];
-
-                if(gear.gear_name.indexOf(this.keyword) !== -1) {
-
-                    gears.push(gear);
-
-
+                    }
                 }
+            }
+            else {
+                this.getGears();
+                return gears;
 
             }
-
-            return gears;
         },
-        categorizeGears: function() {
+        categorizeGears: function () {
 
             var gears = [];
 
-            for(var i in this.gears) {
+            if (this.category !=='All'){
 
-                var gear = this.gears[i];
+                for (var i in this.gears) {
 
-                if(gear.gear_category.indexOf(this.category) !== -1) {
+                    var gear = this.gears[i];
 
-                    gears.push(gear);
+                    if (gear.gear_category.indexOf(this.category) !== -1) {
+
+                        gears.push(gear);
+                    }
 
 
                 }
-
             }
+            // if(this.category ==='All'){
+            //     this.getGears();
+            //     console.log(this.gears);
+            // }
+
 
             return gears;
         }

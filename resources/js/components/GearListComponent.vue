@@ -6,7 +6,7 @@
                 <label for="category">気になるギアのカテゴリを選んでみましょう</label>
                 <select id="category" class="form-control" v-model="category">
                     <option :value="null" disabled>Gearのカテゴリを選択してください。</option>
-                    <option v-for="category in gear_category" :value="category" >
+                    <option v-for="category in gear_category" :value="category">
                         {{ category }}
                     </option>
                 </select>
@@ -28,7 +28,7 @@
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
-
+                            <follow-button-component></follow-button-component>
 
                         </div>
 
@@ -41,16 +41,19 @@
 </template>
 
 <script>
+import FollowButtonComponent from "./FollowButtonComponent";
+
 const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "GearListComponent",
+    components: {FollowButtonComponent},
     data: function () {
         return {
             keyword: '',
             category: '',
             gears: [],
             gear: [],
-            gear_category:['All',"Kitchen","Cutting","BackPack","Shelter","Bonfire"],
+            gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"],
         }
     },
     methods: {
@@ -81,8 +84,7 @@ export default {
 
                     }
                 }
-            }
-            else {
+            } else {
                 this.getGears();
                 return gears;
 
@@ -92,7 +94,7 @@ export default {
 
             var gears = [];
 
-            if (this.category !=='All'){
+            if (this.category !== 'All') {
 
                 for (var i in this.gears) {
 

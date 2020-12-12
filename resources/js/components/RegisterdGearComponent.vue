@@ -9,18 +9,23 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <div>{{'投稿者 : '+gear.user_name }}</div>
-                            <div>{{'カテゴリ: ' + gear.gear_category }}</div>
+                            <div>{{ '投稿者 : ' + gear.user_name }}</div>
+                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
 
-                            <div>{{'お気にいりポイント : ' +gear.content }}</div>
-                            <div>{{' 投稿日: ' +gear.updated_at }}</div>
-                            <div>{{'メーカー名 : ' + gear.maker_name }}</div>
-                            <div class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
+                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
+                            <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
+                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
+                            <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
 
                             <div>
+                                <!--                                削除する POST-->
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
-
+                                <!--                                Edit画面に飛ぶようにする-->
+                                <router-link :to="{ name: 'edit', params: { gearId: gear.id}}">
+                                    <button class="btn btn-primary">Edit</button>
+                                </router-link>
                             </div>
+
 
                         </div>
 
@@ -36,14 +41,17 @@
 const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "RegisterdGearComponent",
+    created() {
+        this.user = this.$route.params.value;
+    },
     data: function () {
         return {
             gears: []
         }
     },
     methods: {
-        getGears() {
-            axios.get('/api/gears')
+        getUserGears(user_id) {
+            axios.get('/api/user_id=' + user_id)
                 .then((res) => {
                     this.gears = res.data['data'];
                 });
@@ -56,7 +64,8 @@ export default {
         }
     },
     mounted() {
-        this.getGears();
+        this.getUserGears(this.user.id);
+        console.log(this.user);
     }
 }
 </script>

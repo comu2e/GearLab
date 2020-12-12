@@ -34,7 +34,9 @@ export default new Router({
         {
             path: '/registerd',
             name: 'registerd',
-            component:Registerd
+            component:Registerd,
+            props:true
+
         },
 
         {

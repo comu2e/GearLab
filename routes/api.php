@@ -26,7 +26,7 @@ Route::apiResource('/likes', 'App\Http\Controllers\LikeApiController', ['only' =
 Route::get('/user_id={user_id}','App\Http\Controllers\GearApiController@user_index');
 
 Route::group(['middleware' => 'web'], function () {
-    Route::apiResource('/follows', 'App\Http\Controllers\FollowApiController', ['only' => ['show']]);
+    Route::apiResource('/follows', 'App\Http\Controllers\FollowUserController', ['only' => ['show']]);
 });
 
 

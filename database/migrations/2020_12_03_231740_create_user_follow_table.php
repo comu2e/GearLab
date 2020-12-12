@@ -13,18 +13,14 @@ class CreateUserFollowTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_follow', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('follow_id')->unsigned()->index();
-            $table->timestamps();
+        Schema::create('follow_users', function (Blueprint $table) {
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('followed_user_id')->index();
 
-            // 外部キー制約
+            $table->unique(['user_id', 'followed_user_id']);
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('follow_id')->references('id')->on('users')->onDelete('cascade');
-
-            // 組み合わせのダブりを禁止
-            $table->unique(['user_id', 'follow_id']);
+            $table->foreign('followed_user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -15,6 +15,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Gear::class);
     }
+//リレーションの設定
+//ユーザー（User） 中間テーブル（FollowUser) フォローされるユーザー（User）
+
+    public function followUsers()
+    {
+        return $this->belongsToMany(self::class, 'follow_users', 'user_id', 'followed_user_id')
+            ->using(FollowUser::class);
+    }
+
+
 
     public function followings()
     {

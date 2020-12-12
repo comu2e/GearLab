@@ -2109,6 +2109,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/eijitakahashi/PhpstormProjects/GearLab/resources/js/components/FollowButtonComponent.vue: Support for the experimental syntax 'decorators-legacy' isn't currently enabled (9:1):\n\n\u001b[0m \u001b[90m  7 | \u001b[39m\u001b[36mimport\u001b[39m axios from \u001b[32m'axios'\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 | \u001b[39m\u001b[33m@\u001b[39m\u001b[33mComponent\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[36mclass\u001b[39m \u001b[33mUserFollow\u001b[39m \u001b[36mextends\u001b[39m \u001b[33mVue\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39m    \u001b[33m@\u001b[39m\u001b[33mProp\u001b[39m({\u001b[0m\n\u001b[0m \u001b[90m 12 | \u001b[39m        type\u001b[33m:\u001b[39m \u001b[33mString\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n    at Parser._raise (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:790:17)\n    at Parser.raiseWithData (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:783:17)\n    at Parser.expectOnePlugin (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:9110:18)\n    at Parser.parseDecorator (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:11823:10)\n    at Parser.parseDecorators (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:11805:30)\n    at Parser.parseStatement (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:11636:12)\n    at Parser.parseBlockOrModuleBlockBody (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:12221:25)\n    at Parser.parseBlockBody (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:12207:10)\n    at Parser.parseTopLevel (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:11570:10)\n    at Parser.parse (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:13381:10)\n    at parse (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/parser/lib/index.js:13434:38)\n    at parser (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/core/lib/transformation/normalize-file.js:99:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/gensync/index.js:261:32)\n    at /Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/Users/eijitakahashi/PhpstormProjects/GearLab/node_modules/gensync/index.js:223:11)");
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowListComponent.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FollowListComponent.vue?vue&type=script&lang=js& ***!
@@ -40329,6 +40340,30 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowListComponent.vue?vue&type=template&id=db653e9a&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FollowListComponent.vue?vue&type=template&id=db653e9a&scoped=true& ***!
@@ -56468,7 +56503,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./resume_scripts */ "./resources/js/resume_scripts.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js")["default"];
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -56488,6 +56523,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('gear-create-component', __
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('app', __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('landing-app', __webpack_require__(/*! ./components/LandingApp.vue */ "./resources/js/components/LandingApp.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('edit-component', __webpack_require__(/*! ./components/EditGear.vue */ "./resources/js/components/EditGear.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('follow-component', __webpack_require__(/*! ./components/FollowButtonComponent.vue */ "./resources/js/components/FollowButtonComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ImgInputer', vue_img_inputer__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /*
  * Next, we will create a fresh Vue application instance and attach it to
@@ -56769,6 +56805,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FollowButtonComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/FollowButtonComponent.vue ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&");
+/* harmony import */ var _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "122a78c2",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FollowButtonComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FollowButtonComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& ***!
+  \******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

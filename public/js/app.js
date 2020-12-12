@@ -2639,6 +2639,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2675,6 +2678,9 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     }
   },
   computed: {
+    auth_user: function auth_user() {
+      return this.$store.state.auth_user;
+    },
     filteredGears: function filteredGears() {
       var gears = [];
 
@@ -40934,10 +40940,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c("div"),
+    _vm._v(" "),
     _c(
       "div",
       { attrs: { align: "center" } },
       [
+        _c("div", [_vm._v(_vm._s(_vm.auth_user))]),
+        _vm._v(" "),
         _c("div", [_vm._v("User_id is " + _vm._s(_vm.$route.params))]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
@@ -40984,9 +40994,9 @@ var render = function() {
               _vm._l(_vm.gear_category, function(category) {
                 return _c("option", { domProps: { value: category } }, [
                   _vm._v(
-                    "\n                        " +
+                    "\n                    " +
                       _vm._s(category) +
-                      "\n                    "
+                      "\n                "
                   )
                 ])
               })
@@ -59058,7 +59068,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].store({
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     auth_user: "Vuex State"
   }

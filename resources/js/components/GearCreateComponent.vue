@@ -12,7 +12,7 @@
                         <div>
                             <img-inputer v-model="file"
                                          theme="light"
-                                         size="large"
+                                         size="middle"
                                          placeholder="ギア写真をここにドラッグする"
                                          bottom-text="ファイルをドロップするかここをクリックしてください"
                                          auto-update="true"/>
@@ -82,13 +82,12 @@ export default {
     },
     created:function () {
         this.user = this.$route.params.value;
-        this.getImage();
+        this.getGears();
     },
 
     methods: {
-        getImage() {
-            axios
-                .get("/api/gears/")
+        getGears() {
+            axios.get("/api/gears/")
                 .then(response => {
                     this.gears = response.data;
                 })
@@ -126,7 +125,7 @@ export default {
 
             axios.post("/api/gears/", data)
                 .then(response => {
-                    this.getImage();
+                    this.getGears();
                     this.message = response.data.success;
                     this.confirmedImage = "";
                     this.maker_name = "";

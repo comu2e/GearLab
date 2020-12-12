@@ -59,18 +59,6 @@ class GearApiController extends Controller
             $gear->updated_at = date('Y/m/d H:i:s');
             $gear->gear_category = $request->gear_category;
 
-//            ここに投稿者のuser_idを代入するようにする。
-//            https://stackoverflow.com/questions/50603064/current-users-id-in-laravel-api/50603185
-//
-//            こちら側のエラーは。
-//            class: "Illuminate\Foundation\Bootstrap\HandleExceptions"
-//file: "/Users/eijitakahashi/PhpstormProjects/GearLab/app/Http/Controllers/GearApiController.php"
-//function: "handleError"
-//line: 65
-//type: "->"になるかと思います。
-
-//            chromeで確認しました。
-//            $gear->user_id = auth('api')->user()->id;
             $gear->user_id = $request->user_id;
             $gear->save();
 
@@ -107,10 +95,11 @@ class GearApiController extends Controller
      * @return Response
      */
     public function update(Request $request, Gear $gear)
-    {
-        $gear->update($request->all());
-        return $gear; //更新したデータを返す。
-    }
+ {
+     $gear->update($request->all());
+
+     return $gear;
+ }
 
     /**
      * Remove the specified resource from storage.

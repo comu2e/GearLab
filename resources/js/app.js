@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import router from "./router";
 import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
-
+import store from "./store";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -51,5 +51,6 @@ Vue.component('ImgInputer', ImgInputer)
 Vue.use(VueRouter);
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

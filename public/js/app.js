@@ -2661,6 +2661,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -41024,38 +41027,41 @@ var render = function() {
                   attrs: { alt: "", src: gear.image_url, width: "30%" }
                 }),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { attrs: { align: "right" } },
-                  [
-                    _c("div", [
-                      _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "btn btn-success btn-sm" }, [
-                      _vm._v(_vm._s("いいね数 : " + gear.likes_count))
-                    ]),
-                    _vm._v(" "),
-                    _c("follow-button-component", {
-                      attrs: { id: gear.user_id }
-                    })
-                  ],
-                  1
-                )
+                _c("div", { attrs: { align: "right" } }, [
+                  _c("div", [
+                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "btn btn-success btn-sm" }, [
+                    _vm._v(_vm._s("いいね数 : " + gear.likes_count))
+                  ]),
+                  _vm._v(" "),
+                  gear.user_id != _vm.auth_user.id
+                    ? _c(
+                        "div",
+                        [
+                          _c("follow-button-component", {
+                            attrs: { id: gear.user_id }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ])
               ])
             ])
           ])

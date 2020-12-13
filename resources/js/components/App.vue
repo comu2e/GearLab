@@ -36,6 +36,8 @@ export default {
     mounted() {
         console.log('App is called')
         console.log(this.$props.user)
+        this.$store.commit("setter",this.$props.user);
+        console.log(this.$store.state.auth_user);
     }
 }
 </script>

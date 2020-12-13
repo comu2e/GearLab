@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 class Gear extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = [
         'gear_name',
         'gear_category',
@@ -25,7 +27,7 @@ class Gear extends Model
     }
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
     public function getUser($user_id)
     {

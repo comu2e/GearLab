@@ -74,9 +74,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('edit/{id}', 'App\Http\Controllers\GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'App\Http\Controllers\GearController@update_gear')->name('gear_update');
 
+
+    Route::get('gears/{gear}/favorites', 'App\Http\Controllers\FavoriteController@store');
+    Route::get('gears/{gear}/unfavorites', 'App\Http\Controllers\FavoriteController@destroy');
+    Route::get('gears/{gear}/countfavorites', 'App\Http\Controllers\FavoriteController@count');
+    Route::get('gears/{gear}/hasfavorites', 'App\Http\Controllers\FavoriteController@hasfavorite');
     //いいね
     Route::get('/gear/like/{id}', 'App\Http\Controllers\GearController@like')->name('gear.like');
     Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');
+
+
     //管理側
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'App\Http\Controllers\UserFollowController@store')->name('follow');

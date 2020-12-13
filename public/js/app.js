@@ -1941,7 +1941,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
-  props: ['user']
+  props: ['user'],
+  mounted: function mounted() {
+    console.log('App is called');
+    console.log(this.$props.user);
+  }
 });
 
 /***/ }),

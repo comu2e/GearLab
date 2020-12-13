@@ -11,5 +11,10 @@ export default new Vuex.Store({
         setter(state,user){
             state.auth_user = user;
         }
+    },
+    computed:{
+        auth_user(){
+            return this.$store.state.auth_user;
+        }
     }
 })

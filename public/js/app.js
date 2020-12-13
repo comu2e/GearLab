@@ -1942,6 +1942,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   props: ['user'],
+  computed: {
+    auth_user: function auth_user() {
+      return this.$store.state.auth_user;
+    }
+  },
   mounted: function mounted() {
     console.log('App is called');
     console.log(this.$props.user);
@@ -2147,8 +2152,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    'id': "",
-    'followable_user': ""
+    'id': "" // 'followable_user':"",
+
   },
   data: function data() {
     return {
@@ -2177,7 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var data = {
-        user: this.followable_user
+        user: this.$store.state.auth_user
       };
       this.sending = true;
       axios["delete"]("/api/follow-users/".concat(this.id));
@@ -2504,6 +2509,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   // user: Number,
+  mounted: function mounted() {
+    console.log('Create Component is mouted'), console.log(this.$store.state.auth_user);
+  },
   data: function data() {
     return {
       message: "",
@@ -2519,9 +2527,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.user = this.$route.params.value;
     this.getGears();
   },
+  // computed: {
+  //     auth_user(){
+  //         return this.$store.state.auth_user;
+  //     }
+  // },
   methods: {
     getGears: function getGears() {
       var _this = this;
@@ -2563,8 +2575,9 @@ __webpack_require__.r(__webpack_exports__);
       data.append("maker_name", this.maker_name);
       data.append("gear_name", this.gear_name);
       data.append("gear_category", this.gear_category);
-      data.append("content", this.content);
-      data.append("user_id", this.user.id);
+      data.append("content", this.content); //Vuexのstoreからauth_user情報を呼び出す
+
+      data.append("user_id", this.$store.state.auth_user.id);
       axios.post("/api/gears/", data).then(function (response) {
         _this3.getGears();
 
@@ -2647,7 +2660,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2655,9 +2667,9 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   components: {
     FollowButtonComponent: _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  created: function created() {
-    this.user = this.$route.params.value;
-  },
+  // created() {
+  //     this.user = this.$route.params.value;
+  // },
   data: function data() {
     return {
       keyword: '',
@@ -2946,9 +2958,9 @@ __webpack_require__.r(__webpack_exports__);
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RegisterdGearComponent",
-  created: function created() {
-    this.user = this.$route.params.value;
-  },
+  // created() {
+  //     this.user = this.$route.params.value;
+  // },
   data: function data() {
     return {
       gears: []
@@ -2971,8 +2983,9 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     }
   },
   mounted: function mounted() {
-    this.getUserGears(this.user.id);
-    console.log(this.user);
+    console.log('Register component is mounted');
+    this.getUserGears(this.$store.state.auth_user.id);
+    console.log(this.$store.state.auth_user.id);
   }
 });
 
@@ -40049,10 +40062,7 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: { name: "home", params: { value: _vm.user } } }
-                  },
+                  { staticClass: "nav-link", attrs: { to: { name: "home" } } },
                   [_vm._v("ギアタイムライン")]
                 )
               ],
@@ -40067,9 +40077,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "nav-link",
-                    attrs: {
-                      to: { name: "create", params: { value: _vm.user } }
-                    }
+                    attrs: { to: { name: "create" } }
                   },
                   [_vm._v("Gear+")]
                 )
@@ -40111,9 +40119,7 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "nav-link",
-                    attrs: {
-                      to: { name: "registerd", params: { value: _vm.user } }
-                    }
+                    attrs: { to: { name: "registerd" } }
                   },
                   [_vm._v("登録したギア\n                ")]
                 )
@@ -40713,12 +40719,6 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", [
-            _vm._v("User_id is " + _vm._s(_vm.$route.params.value.id))
-          ]),
-          _vm._v(" "),
-          _c("div", [_vm._v("User_id is " + _vm._s(_vm.$route.params))]),
-          _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
               "label",
@@ -40754,7 +40754,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("カテゴリ\n                        "),
+                _vm._v("カテゴリ\n                            "),
                 _c("div", { staticClass: "col-xs-3" }, [
                   _c(
                     "select",
@@ -40822,7 +40822,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("ギアの名前\n                        "),
+                _vm._v("ギアの名前\n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -40851,7 +40851,7 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("メーカー名\n                        "),
+                _vm._v("メーカー名\n                            "),
                 _c("input", {
                   directives: [
                     {
@@ -40880,7 +40880,9 @@ var render = function() {
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
               [
-                _vm._v("ギアのお気に入りポイント：\n                        "),
+                _vm._v(
+                  "ギアのお気に入りポイント：\n                            "
+                ),
                 _c("input", {
                   directives: [
                     {
@@ -41048,10 +41050,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("follow-button-component", {
-                      attrs: {
-                        id: gear.user_id,
-                        followable_user: _vm.$route.params.value
-                      }
+                      attrs: { id: gear.user_id }
                     })
                   ],
                   1
@@ -59081,6 +59080,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   mutations: {
     setter: function setter(state, user) {
       state.auth_user = user;
+    }
+  },
+  computed: {
+    auth_user: function auth_user() {
+      return this.$store.state.auth_user;
     }
   }
 }));

@@ -23,7 +23,7 @@
 export default {
     props: {
         'id': "",
-        'followable_user':"",
+        // 'followable_user':"",
     },
     data() {
         return {
@@ -39,7 +39,7 @@ export default {
             }
             this.sending = true
             const data = {id: this.id}
-            axios.post('/api/follow-users/'+this.id, data)
+            axios.post('/api/follow-users/' + this.id, data)
             this.currentFollowing = true
             this.sending = false
         },
@@ -48,7 +48,7 @@ export default {
             if (this.sending) {
                 return
             }
-            const data = {user: this.followable_user}
+            const data = {user: this.$store.state.auth_user};
 
             this.sending = true
             axios.delete(`/api/follow-users/${this.id}`)

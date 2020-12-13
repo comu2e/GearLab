@@ -41,9 +41,9 @@
 const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "RegisterdGearComponent",
-    created() {
-        this.user = this.$route.params.value;
-    },
+    // created() {
+    //     this.user = this.$route.params.value;
+    // },
     data: function () {
         return {
             gears: []
@@ -64,8 +64,9 @@ export default {
         }
     },
     mounted() {
-        this.getUserGears(this.user.id);
-        console.log(this.user);
+        console.log('Register component is mounted')
+        this.getUserGears(this.$store.state.auth_user.id);
+        console.log(this.$store.state.auth_user.id);
     }
 }
 </script>

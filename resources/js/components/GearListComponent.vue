@@ -31,8 +31,7 @@
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
-                            <follow-button-component :id="gear.user_id"
-                                                     :followable_user="$route.params.value"></follow-button-component>
+                            <follow-button-component :id="gear.user_id"></follow-button-component>
 
                         </div>
 
@@ -51,9 +50,9 @@ const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
     name: "GearListComponent",
     components: {FollowButtonComponent},
-    created() {
-        this.user = this.$route.params.value;
-    },
+    // created() {
+    //     this.user = this.$route.params.value;
+    // },
     data: function () {
         return {
             keyword: '',

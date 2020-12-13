@@ -39,7 +39,7 @@ Vue.component('app', require('./components/App.vue').default);
 Vue.component('landing-app', require('./components/LandingApp.vue').default);
 Vue.component('edit-component', require('./components/EditGear.vue').default);
 Vue.component('follow-component', require('./components/FollowButtonComponent.vue').default);
-
+Vue.component('like-component', require('./components/LikeComponent.vue').default);
 Vue.component('ImgInputer', ImgInputer)
 /*
  * Next, we will create a fresh Vue application instance and attach it to

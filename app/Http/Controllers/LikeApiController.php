@@ -18,7 +18,23 @@ use App\Http\Requests\GearRequest;
 
 class LikeApiController extends Controller
 {
+    public function like($id,$auth_id)
+    {
 
+        Like::create([
+            'gear_id' => $id,
+            'user_id' => $auth_id,
+        ]);
+
+       return "Liked";
+    }
+
+    public function unlike($id,$auth_id)
+    {
+        $like = Like::where('gear_id', $id)->where('user_id', $auth_id)->first();
+        $like->delete();
+        return "Unliked";
+    }
     /**
      * Display a listing of the resource.
      *

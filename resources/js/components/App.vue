@@ -33,6 +33,10 @@
 export default {
     name: "App",
     props: ['user'],
+    mounted() {
+        console.log('App is called')
+        console.log(this.$props.user)
+    }
 }
 </script>
 

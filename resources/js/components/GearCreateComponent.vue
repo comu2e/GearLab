@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div>User_id is {{ $route.params.value.id }}</div>
-                    <div>User_id is {{ $route.params }}</div>
+<!--                    <div>User_id is {{ $route.params.value.id }}</div>-->
+<!--                    <div>User_id is {{ $route.params }}</div>-->
                     <div class="card-body">
 
                         <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
@@ -65,7 +65,10 @@
 <script>
 export default {
     // user: Number,
-
+    mounted() {
+        console.log('Create Component is mouted'),
+        console.log(this.$store.state.auth_user)
+    },
     data() {
         return {
             message: "",
@@ -81,10 +84,13 @@ export default {
         };
     },
     created: function () {
-        this.user = this.$route.params.value;
         this.getGears();
     },
-
+    // computed: {
+    //     auth_user(){
+    //         return this.$store.state.auth_user;
+    //     }
+    // },
     methods: {
         getGears() {
             axios.get("/api/gears/")
@@ -121,7 +127,8 @@ export default {
             data.append("gear_name", this.gear_name);
             data.append("gear_category", this.gear_category);
             data.append("content", this.content);
-            data.append("user_id", this.user.id);
+            //Vuexのstoreからauth_user情報を呼び出す
+            data.append("user_id", this.$store.state.auth_user.id);
 
             axios.post("/api/gears/", data)
                 .then(response => {

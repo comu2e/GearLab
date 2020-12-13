@@ -6,5 +6,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         auth_user: "Vuex State"
+    },
+    mutations:{
+        setter(state,user){
+            state.auth_user = user;
+        }
     }
 })

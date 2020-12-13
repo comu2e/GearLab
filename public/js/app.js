@@ -1945,6 +1945,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('App is called');
     console.log(this.$props.user);
+    this.$store.commit("setter", this.$props.user);
+    console.log(this.$store.state.auth_user);
   }
 });
 
@@ -40952,7 +40954,7 @@ var render = function() {
       [
         _c("div", [_vm._v(_vm._s(_vm.auth_user))]),
         _vm._v(" "),
-        _c("div", [_vm._v("User_id is " + _vm._s(_vm.$route.params))]),
+        _c("div", [_vm._v("User_id is " + _vm._s(_vm.auth_user.id))]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "category" } }, [
@@ -59075,6 +59077,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     auth_user: "Vuex State"
+  },
+  mutations: {
+    setter: function setter(state, user) {
+      state.auth_user = user;
+    }
   }
 }));
 

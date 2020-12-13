@@ -2181,11 +2181,12 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var data = {
+      var params = {
         user: this.$store.state.auth_user
       };
       this.sending = true;
-      axios["delete"]("/api/follow-users/".concat(this.id));
+      axios["delete"]("/api/follow-users/".concat(this.id, "/").concat(this.$store.state.auth_user.id)); // alert("「" + params.user.id + "」は"+this.id+"をアンフォローしました");
+
       this.currentFollowing = false;
       this.sending = false;
     }

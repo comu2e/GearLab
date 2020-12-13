@@ -48,10 +48,12 @@ export default {
             if (this.sending) {
                 return
             }
-            const data = {user: this.$store.state.auth_user};
+            const params = {user: this.$store.state.auth_user};
 
             this.sending = true
-            axios.delete(`/api/follow-users/${this.id}`)
+            axios.delete(`/api/follow-users/${this.id}/${this.$store.state.auth_user.id}`)
+            // alert("「" + params.user.id + "」は"+this.id+"をアンフォローしました");
+
             this.currentFollowing = false
             this.sending = false
         }

@@ -6,6 +6,8 @@ use App\Models\Gear;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\FollowUser;
+use Illuminate\Support\Facades\Auth;
+
 class FollowUserController extends Controller
 {
 //    フォローとフォロー解除用のメソッドを追加します。
@@ -20,13 +22,13 @@ class FollowUserController extends Controller
         return response()->json(['result' => true]);
     }
 
-    public function destroy(Request $request,$id)
+    public function destroy($id,$auth_id)
     {
+//
         $followedUser = User::findOrFail($id);
-//        $user = Auth::user();
-        $user = $request->user;
-//        'user_id' => $request->user_id(),
-
+//認証されているユーザーを取得
+        $user = User::where('id',$auth_id)->first();
+//
         $user->followUsers()->detach($followedUser->id);
         return response()->json(['result' => true]);
     }

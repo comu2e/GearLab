@@ -2954,9 +2954,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "LikeListComponent",
@@ -2973,20 +2970,14 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     getLikedGear: function getLikedGear() {
       var _this = this;
 
-      axios.get('/api/likes').then(function (res) {
+      axios.get('/gears/' + this.$store.state.auth_user.id + '/favorited').then(function (res) {
         _this.gears = res.data['data'];
-      });
-    },
-    deleteLikeGear: function deleteLikeGear(id) {
-      var _this2 = this;
-
-      axios["delete"]('/api/likes' + id).then(function (res) {
-        _this2.getLikedGear();
       });
     }
   },
   mounted: function mounted() {
     this.getLikedGear();
+    console.log(this.gears);
   }
 });
 
@@ -40176,7 +40167,15 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/likes" } },
+                  {
+                    staticClass: "nav-link",
+                    attrs: {
+                      to: {
+                        name: "likes",
+                        param: { value: this.$store.state.auth_user }
+                      }
+                    }
+                  },
                   [_vm._v("いいねしたギア")]
                 )
               ],
@@ -41397,7 +41396,7 @@ var render = function() {
     _c(
       "div",
       { attrs: { align: "center" } },
-      _vm._l(_vm.likes, function(gear) {
+      _vm._l(this.gears, function(gear) {
         return _c("ul", { staticClass: "list-group" }, [
           _c("li", { staticClass: "list-group-item" }, [
             _c("div", { attrs: { align: "center", scope: "row" } }, [
@@ -41420,21 +41419,6 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "btn btn-success btn-sm" }, [
                   _vm._v(_vm._s("いいね数 : " + gear.likes_count))
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function($event) {
-                          return _vm.deleteGear(gear.id)
-                        }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
                 ])
               ])
             ])

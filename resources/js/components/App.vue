@@ -10,7 +10,7 @@
                     <router-link :to="{ name: 'create'}" class="nav-link">Gear+</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/likes" class="nav-link">いいねしたギア</router-link>
+                    <router-link :to="{ name: 'likes',param:{value:this.$store.state.auth_user}}" class="nav-link">いいねしたギア</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/follows" class="nav-link">フォローしているユーザー</router-link>

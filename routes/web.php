@@ -75,6 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('edit/{id}', 'App\Http\Controllers\GearController@update_gear')->name('gear_update');
 
 
+    Route::get('gears/{user_id}/favorited', 'App\Http\Controllers\FavoriteController@index');
     Route::get('gears/{gear}/favorites', 'App\Http\Controllers\FavoriteController@store');
     Route::get('gears/{gear}/unfavorites', 'App\Http\Controllers\FavoriteController@destroy');
     Route::get('gears/{gear}/countfavorites', 'App\Http\Controllers\FavoriteController@count');

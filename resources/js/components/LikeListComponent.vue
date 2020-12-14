@@ -2,7 +2,7 @@
     <div class="container">
         <div align="center">
 
-            <ul v-for="gear in likes" class="list-group">
+            <ul v-for="gear in this.gears" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
@@ -17,10 +17,7 @@
                             <div>{{'メーカー名 : ' + gear.maker_name }}</div>
                             <div class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
 
-                            <div>
-                                <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
 
-                            </div>
 
                         </div>
 
@@ -40,6 +37,7 @@ export default {
         this.user = this.$route.params.value;
     },
     data: function () {
+
         return {
             gears: [],
             user:''
@@ -47,20 +45,15 @@ export default {
     },
     methods: {
         getLikedGear() {
-            axios.get('/api/likes')
+            axios.get('/gears/'+this.$store.state.auth_user.id+'/favorited')
                 .then((res) => {
                     this.gears = res.data['data'];
                 });
         },
-        deleteLikeGear(id) {
-            axios.delete('/api/likes' + id)
-                .then((res) => {
-                    this.getLikedGear();
-                });
-        }
     },
     mounted() {
         this.getLikedGear();
+        console.log(this.gears);
     }
 }
 </script>

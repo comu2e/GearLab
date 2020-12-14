@@ -2151,15 +2151,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    'id': "" // 'followable_user':"",
-
-  },
+  props: ['id', 'following'],
   data: function data() {
     return {
-      currentFollowing: '',
-      sending: '',
-      following: false
+      currentFollowing: this.following,
+      sending: false
     };
   },
   methods: {
@@ -2172,7 +2168,7 @@ __webpack_require__.r(__webpack_exports__);
       var data = {
         id: this.id
       };
-      axios.post('/api/follow-users/' + this.id, data);
+      axios.post('/follow-users', data);
       this.currentFollowing = true;
       this.sending = false;
     },
@@ -2181,12 +2177,8 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      var params = {
-        user: this.$store.state.auth_user
-      };
       this.sending = true;
-      axios["delete"]("/api/follow-users/".concat(this.id, "/").concat(this.$store.state.auth_user.id)); // alert("「" + params.user.id + "」は"+this.id+"をアンフォローしました");
-
+      axios["delete"]("/follow-users/".concat(this.id));
       this.currentFollowing = false;
       this.sending = false;
     }
@@ -40521,10 +40513,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2& ***!
+  \************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -40541,7 +40533,7 @@ var render = function() {
       ? _c(
           "button",
           {
-            staticClass: "btn btn-danger",
+            staticClass: "btn btn-primary",
             attrs: { type: "button" },
             on: { click: _vm.unfollow }
           },
@@ -40565,7 +40557,7 @@ var render = function() {
       : _c(
           "button",
           {
-            staticClass: "btn btn-primary",
+            staticClass: "btn btn-default btn-raised",
             attrs: { type: "button" },
             on: { click: _vm.follow }
           },
@@ -58386,7 +58378,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&");
+/* harmony import */ var _FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=template&id=122a78c2& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&");
 /* harmony import */ var _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js&");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
@@ -58399,11 +58391,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "122a78c2",
+  null,
   null
   
 )
@@ -58429,19 +58421,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&":
-/*!******************************************************************************************************!*\
-  !*** ./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& ***!
-  \******************************************************************************************************/
+/***/ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2& ***!
+  \******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FollowButtonComponent.vue?vue&type=template&id=122a78c2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

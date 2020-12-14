@@ -33,12 +33,21 @@ class User extends Authenticatable
 
     public function followings()
     {
-        return $this->belongsToMany(User::class, 'follow_users', 'user_id', 'followed_user_id')->get();
+        return $this->belongsToMany(User::class, 'follow_users', 'user_id', 'followed_user_id')->withTimestamps();
     }
 
     public function followers()
     {
-        return $this->belongsToMany(User::class, 'follow_users', 'follow_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'follow_users', 'followed_user_id', 'user_id')->withTimestamps();
+    }
+    public function get_followings()
+    {
+        return $this->belongsToMany(User::class, 'follow_users', 'user_id', 'followed_user_id')->get();
+    }
+
+    public function get_followers()
+    {
+        return $this->belongsToMany(User::class, 'follow_users', 'followed_user_id', 'user_id')->get();
     }
 
     public function is_following($userId)
@@ -72,6 +81,17 @@ class User extends Authenticatable
         }
     }
 
+    /***
+     * @return array
+     */
+    public function follow_each(){
+        //ユーザがフォロー中のユーザを取得
+        $userIds = $this->followings()->pluck('users.id')->toArray();
+        //相互フォロー中のユーザを取得
+        $follow_each = $this->followers()->whereIn('users.id', $userIds)->pluck('users.id')->toArray();
+        //相互フォロー中のユーザを返す
+        return $follow_each;
+    }
     /**
      * The attributes that are mass assignable.
      *

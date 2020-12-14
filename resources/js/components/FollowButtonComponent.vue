@@ -1,13 +1,12 @@
 <template>
     <div>
-
-        <button v-if="currentFollowing" type="button" class="btn btn-danger" @click="unfollow">
+        <button v-if="currentFollowing" type="button" class="btn btn-primary" @click="unfollow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
             <div v-else>フォロー中</div>
         </button>
-        <button v-else type="button" class="btn btn-primary" @click="follow">
+        <button v-else type="button" class="btn btn-default btn-raised" @click="follow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
@@ -18,51 +17,36 @@
         </button>
     </div>
 </template>
-<script>
 
+<script>
 export default {
-    props: {
-        'id': "",
-        // 'followable_user':"",
-    },
-    data() {
+    props: ['id', 'following'],
+    data: function () {
         return {
-            currentFollowing: '',
-            sending: '',
-            following: false,
+            currentFollowing: this.following,
+            sending: false,
         }
     },
     methods: {
-        follow: function () {
+        follow() {
             if (this.sending) {
                 return
             }
             this.sending = true
             const data = {id: this.id}
-            axios.post('/api/follow-users/' + this.id, data)
+            axios.post('/follow-users', data)
             this.currentFollowing = true
             this.sending = false
         },
-
-        unfollow: function () {
+        unfollow() {
             if (this.sending) {
                 return
             }
-            const params = {user: this.$store.state.auth_user};
-
             this.sending = true
-            axios.delete(`/api/follow-users/${this.id}/${this.$store.state.auth_user.id}`)
-            // alert("「" + params.user.id + "」は"+this.id+"をアンフォローしました");
-
+            axios.delete(`/follow-users/${this.id}`)
             this.currentFollowing = false
             this.sending = false
         }
     }
-
 }
-
 </script>
-
-<style scoped>
-
-</style>

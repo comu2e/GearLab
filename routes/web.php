@@ -80,11 +80,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('gears/{gear}/unfavorites', 'App\Http\Controllers\FavoriteController@destroy');
     Route::get('gears/{gear}/countfavorites', 'App\Http\Controllers\FavoriteController@count');
     Route::get('gears/{gear}/hasfavorites', 'App\Http\Controllers\FavoriteController@hasfavorite');
+
     //いいね
     Route::get('/gear/like/{id}', 'App\Http\Controllers\GearController@like')->name('gear.like');
     Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');
 
-
+//フォロー
+    Route::get('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@index')->name('follow.index');
+    Route::get('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@show')->name('follow.show');
     Route::post('/follow-users', 'App\Http\Controllers\FollowUserController@store')->name('follow');
     Route::delete('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@destroy')->name('unfollow');
 

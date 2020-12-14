@@ -9,6 +9,26 @@ use App\Models\User;
 
 class FollowUserController extends Controller
 {
+    public function show($user_id)
+    {
+        $user = User::find($user_id);
+
+        return response()->json([
+            'data' => $user,
+        ]);
+    }
+    public function index($user_id)
+    {
+        $users  = User::find($user_id)->followngs()->toArray();
+        $following_array = array();
+        foreach ($users as $user){
+            array_push($following_array,$user['user_id']);
+        }
+        return response()->json([
+            'data' => $following_array,
+        ]);
+    }
+
     public function store(Request $request)
     {
         $followedUser = User::findOrFail($request->input('id'));

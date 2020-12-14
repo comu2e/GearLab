@@ -2200,54 +2200,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FollowListComponent",
   data: function data() {
     return {
-      followed: []
+      follows: []
     };
   },
   methods: {
-    getFollow: function getFollow() {
+    // getFollow() {
+    //     axios.get('/follow-users/'+this.$store.state.auth_user.id)
+    //         .then((res) => {
+    //             this.follows = res.data['data'];
+    //         });
+    // },
+    getAllFollow: function getAllFollow() {
       var _this = this;
 
-      axios.get('/api/follows').then(function (res) {
+      axios.get('/follow-users/' + this.$store.state.auth_user.id).then(function (res) {
         _this.follows = res.data['data'];
       });
     }
   },
   mounted: function mounted() {
-    this.getFollow();
+    this.getAllFollow();
   }
 });
 
@@ -40605,57 +40581,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { attrs: { align: "center" } },
-      _vm._l(_vm.likes, function(gear) {
-        return _c("ul", { staticClass: "list-group" }, [
-          _c("li", { staticClass: "list-group-item" }, [
-            _c("div", { attrs: { align: "center", scope: "row" } }, [
-              _c("img", {
-                attrs: { alt: "", src: gear.image_url, width: "30%" }
-              }),
-              _vm._v(" "),
-              _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "btn btn-success btn-sm" }, [
-                  _vm._v(_vm._s("いいね数 : " + gear.likes_count))
-                ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      on: {
-                        click: function($event) {
-                          return _vm.deleteGear(gear.id)
-                        }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      }),
-      0
-    )
-  ])
+  return _c("div", [_vm._v(_vm._s(_vm.follows))])
 }
 var staticRenderFns = []
 render._withStripped = true

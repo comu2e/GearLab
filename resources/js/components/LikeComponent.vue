@@ -3,10 +3,10 @@
         <div class="row justify-content-center mt-1">
             <div class="col-md-12">
                 <div>
-                    <button @click="unfavorite()" class="btn btn-danger" v-if="result">
+                    <button @click="unfavorite()" class="btn btn-danger">
                         いいね解除
                     </button>
-                    <button @click="favorite()" class="btn btn-success" v-else>
+                    <button @click="favorite()" class="btn btn-success">
                         いいね
                     </button>
                     <p>いいね数：{{ count }}</p>
@@ -15,6 +15,7 @@
         </div>
     </div>
 </template>
+
 <script>
 export default {
     props: ['post'],

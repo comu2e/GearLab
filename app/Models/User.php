@@ -15,6 +15,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Gear::class);
     }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(Gear::class)->withTimestamps();
+    }
 //リレーションの設定
 //ユーザー（User） 中間テーブル（FollowUser) フォローされるユーザー（User）
 

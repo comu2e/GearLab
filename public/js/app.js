@@ -2858,6 +2858,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['post'],
   data: function data() {
@@ -41338,31 +41339,31 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center mt-1" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", [
-          _vm.result
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  on: {
-                    click: function($event) {
-                      return _vm.unfavorite()
-                    }
-                  }
-                },
-                [_vm._v("\n                    いいね解除\n                ")]
-              )
-            : _c(
-                "button",
-                {
-                  staticClass: "btn btn-success",
-                  on: {
-                    click: function($event) {
-                      return _vm.favorite()
-                    }
-                  }
-                },
-                [_vm._v("\n                    いいね\n                ")]
-              ),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              on: {
+                click: function($event) {
+                  return _vm.unfavorite()
+                }
+              }
+            },
+            [_vm._v("\n                    いいね解除\n                ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              on: {
+                click: function($event) {
+                  return _vm.favorite()
+                }
+              }
+            },
+            [_vm._v("\n                    いいね\n                ")]
+          ),
           _vm._v(" "),
           _c("p", [_vm._v("いいね数：" + _vm._s(_vm.count))])
         ])

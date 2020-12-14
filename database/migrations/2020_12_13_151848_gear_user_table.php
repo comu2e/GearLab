@@ -20,7 +20,7 @@ class GearUserTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('gear_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->foreign('gear_id')->references('id')->on('gears')->onDelete('cascade');
 
             $table->unique(['user_id', 'gear_id']);
         });

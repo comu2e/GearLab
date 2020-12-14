@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 class Gear extends Model
 {
-    public $timestamps = false;
 
     protected $fillable = [
         'gear_name',
@@ -27,7 +26,7 @@ class Gear extends Model
     }
     public function user()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class);
     }
     public function getUser($user_id)
     {
@@ -36,7 +35,6 @@ class Gear extends Model
             ->get();
     }
 
-//postにLikeあるか判定
     public function is_liked_by_auth_user()
     {
         $id = Auth::id();

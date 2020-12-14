@@ -15,7 +15,7 @@ class FavoriteController extends Controller
     {
         $gear = Gear::find($id);
         $gear->user()->attach(Auth::id());
-        $count = $gear->users()->count(); //以下追加
+        $count = $gear->user()->count(); //以下追加
         return response()->json([
             'count' => $count,
         ]);
@@ -26,7 +26,7 @@ class FavoriteController extends Controller
     {
         $gear = Gear::find($id);
         $gear->user()->detach(Auth::id());
-        $count = $gear->users()->count(); //以下追加
+        $count = $gear->user()->count(); //以下追加
         return response()->json([
             'count' => $count,
         ]);

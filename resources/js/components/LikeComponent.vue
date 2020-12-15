@@ -3,10 +3,10 @@
         <div class="row justify-content-center mt-1">
             <div class="col-md-12">
                 <div>
-                    <button @click="unfavorite()" class="btn btn-danger">
+                    <button @click="unfavorite()" class="btn btn-danger btn-sm">
                         いいね解除
                     </button>
-                    <button @click="favorite()" class="btn btn-success">
+                    <button @click="favorite()" class="btn btn-success btn-sm">
                         {{ 'いいね数 : ' + count }}
                     </button>
 

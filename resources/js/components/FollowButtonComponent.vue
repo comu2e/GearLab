@@ -6,13 +6,12 @@
             </div>
             <div v-else>フォロー中</div>
         </button>
-        <button v-else type="button" class="btn btn-default btn-raised" @click="follow">
+        <button v-else type="button" class="btn btn-secondary btn-raised" @click="follow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
             <div v-else>
                 フォローする
-                <i class="material-icons">add</i>
             </div>
         </button>
     </div>

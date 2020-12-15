@@ -15,8 +15,7 @@
                             <div>{{'お気にいりポイント : ' +gear.content }}</div>
                             <div>{{' 投稿日: ' +gear.updated_at }}</div>
                             <div>{{'メーカー名 : ' + gear.maker_name }}</div>
-                            <div class="btn btn-success btn-sm">{{'いいね数 : '+gear.likes_count }}</div>
-
+                            <like-component :post="gear"></like-component>
 
 
                         </div>

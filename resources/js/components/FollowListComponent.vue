@@ -13,12 +13,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{follow.name}}</h5>
                                     <p class="card-text">User情報</p>
-                                    <li class="nav-item">
                                         <router-link :to="{ name: 'user_gears',params:{value:follow.id}}" class="nav-link">
-                                            <button class="btn btn-primary">{{follow.name}} </button>
+                                            <button class="btn btn-primary btn-sm">{{follow.name}}のGear Labへ </button>
                                         </router-link>
-                                    </li>
-<!--                                    <button @click="getUserGears(follow.id)" class='btn btn-primary'>Show Users gears</button>-->
                                 </div>
                             </div>
                         </div>

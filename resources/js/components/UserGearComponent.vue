@@ -1,16 +1,17 @@
 <template>
     <div class="container">
-        <div></div>
         <div align="center">
-            <div class="form-group">
-                <label for="category">気になるギアのカテゴリを選んでみましょう</label>
-                <select id="category" class="form-control" v-model="category">
-<!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
-                    <option v-for="category in gear_category" :value="category">
-                        {{ category }}
-                    </option>
-                </select>
-            </div>
+
+                <div class="form-group">
+                    <label for="category">気になるギアのカテゴリを選んでみましょう</label>
+                    <select id="category" class="form-control" v-model="category">
+                        <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
+                        <option v-for="category in gear_category" :value="category">
+                            {{ category }}
+                        </option>
+                    </select>
+                </div>
+
             <div>{{ category }}</div>
             <ul v-for="gear in categorizeGears" class="list-group">
                 <li class="list-group-item">
@@ -26,7 +27,7 @@
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
-<!--                            <div class="btn btn-success btn-sm">{{  // 'いいね数 : ' + gear.likes_count }}</div>-->
+                            <!--                            <div class="btn btn-success btn-sm">{{  // 'いいね数 : ' + gear.likes_count }}</div>-->
                             <div v-if="gear.user_id != auth_user.id">
                                 <follow-button-component :id="gear.user_id"></follow-button-component>
 

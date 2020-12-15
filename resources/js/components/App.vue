@@ -7,9 +7,7 @@
                     <li class="nav-item">
                         <router-link :to="{ name: 'home'}" class="nav-link">ギアタイムライン</router-link>
                     </li>
-                    <li class="nav-item">
-                        <router-link :to="{ name: 'create'}" class="nav-link">Gear+</router-link>
-                    </li>
+
                     <li class="nav-item">
                         <router-link :to="{ name: 'likes',param:{value:this.$store.state.auth_user}}" class="nav-link">
                             いいねしたギア
@@ -31,6 +29,15 @@
             </router-view>
         </transition>
 
+
+        <div class="add_button">
+            <router-link :to="{ name: 'create'}" class="nav-link">
+
+                <button type="button" class="btn btn-primary rounded-circle p-4" style="width:2rem;height:2rem;">
+                    <div text-align="center">+</div>
+                </button>
+            </router-link>
+        </div>
 
     </div>
 </template>

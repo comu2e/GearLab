@@ -1,0 +1,6 @@
+.add_button {
+    position: absolute;/*←絶対位置*/
+    bottom: 15px; /*下に固定*/
+    opacity: 0.6;
+    border-radius: 50%;
+}

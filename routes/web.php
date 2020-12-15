@@ -86,8 +86,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');
 
 //フォロー
-    Route::get('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@index')->name('follow.index');
-    Route::get('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@show')->name('follow.show');
+    Route::get('/following/{user_id}', 'App\Http\Controllers\FollowUserController@index')->name('follow.index');
+//    Route::get('/users_show/{user_id}/}', 'App\Http\Controllers\FollowUserController@show')->name('follow.show');
     Route::post('/follow-users', 'App\Http\Controllers\FollowUserController@store')->name('follow');
     Route::delete('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@destroy')->name('unfollow');
 

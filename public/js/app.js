@@ -2200,6 +2200,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FollowListComponent",
   data: function data() {
@@ -2208,17 +2216,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    // getFollow() {
-    //     axios.get('/follow-users/'+this.$store.state.auth_user.id)
-    //         .then((res) => {
-    //             this.follows = res.data['data'];
-    //         });
-    // },
     getAllFollow: function getAllFollow() {
       var _this = this;
 
-      axios.get('/follow-users/' + this.$store.state.auth_user.id).then(function (res) {
-        _this.follows = res.data['data'];
+      axios.get('/following/' + this.$store.state.auth_user.id).then(function (res) {
+        _this.follows = res.data;
+      });
+    },
+
+    /**
+     * ユーザーのギアタイムラインを出す
+     */
+    getUserGears: function getUserGears($user_id) {
+      var _this2 = this;
+
+      axios.get('/api/user_id=' + $user_id).then(function (res) {
+        _this2.gears = res.data['data'];
       });
     }
   },
@@ -2629,8 +2642,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2638,9 +2649,6 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   components: {
     FollowButtonComponent: _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  // created() {
-  //     this.user = this.$route.params.value;
-  // },
   data: function data() {
     return {
       keyword: '',
@@ -40581,7 +40589,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v(_vm._s(_vm.follows))])
+  return _c(
+    "div",
+    _vm._l(_vm.follows, function(follow_list) {
+      return _c(
+        "div",
+        _vm._l(follow_list, function(follow) {
+          return _c("div", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    return _vm.getUserGears(follow.id)
+                  }
+                }
+              },
+              [_vm._v("Show Users gears")]
+            )
+          ])
+        }),
+        0
+      )
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40956,10 +40989,6 @@ var render = function() {
       "div",
       { attrs: { align: "center" } },
       [
-        _c("div", [_vm._v(_vm._s(_vm.auth_user))]),
-        _vm._v(" "),
-        _c("div", [_vm._v("User_id is " + _vm._s(_vm.auth_user.id))]),
-        _vm._v(" "),
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "category" } }, [
             _vm._v("気になるギアのカテゴリを選んでみましょう")

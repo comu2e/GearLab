@@ -1939,6 +1939,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   props: ['user'],
@@ -3043,6 +3049,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -40230,95 +40237,104 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c(
-        "nav",
-        {
-          staticClass: "navbar navbar-expand-sm bg-dark navbar-dark",
-          attrs: { position: "fixed" }
-        },
-        [
-          _c("ul", { staticClass: "navbar-nav" }, [
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link", attrs: { to: { name: "home" } } },
-                  [_vm._v("ギアタイムライン")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: { name: "create" } }
-                  },
-                  [_vm._v("Gear+")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: {
-                      to: {
-                        name: "likes",
-                        param: { value: this.$store.state.auth_user }
+      _c("div", { staticClass: "sticky-top" }, [
+        _c(
+          "nav",
+          {
+            staticClass: "navbar navbar-expand-sm bg-dark navbar-dark",
+            attrs: { position: "fixed" }
+          },
+          [
+            _c("ul", { staticClass: "navbar-nav" }, [
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "home" } }
+                    },
+                    [_vm._v("ギアタイムライン")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "create" } }
+                    },
+                    [_vm._v("Gear+")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: {
+                        to: {
+                          name: "likes",
+                          param: { value: this.$store.state.auth_user }
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("いいねしたギア")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/follows" } },
-                  [_vm._v("フォローしているユーザー")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "li",
-              { staticClass: "nav-item" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-link",
-                    attrs: { to: { name: "registerd" } }
-                  },
-                  [_vm._v("登録したギア\n                ")]
-                )
-              ],
-              1
-            )
-          ])
-        ]
-      ),
+                    },
+                    [
+                      _vm._v(
+                        "\n                        いいねしたギア\n                    "
+                      )
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    { staticClass: "nav-link", attrs: { to: "/follows" } },
+                    [_vm._v("フォローしているユーザー")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "registerd" } }
+                    },
+                    [_vm._v("登録したギア\n                    ")]
+                  )
+                ],
+                1
+              )
+            ])
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c("transition", { attrs: { mode: "out-in" } }, [_c("router-view")], 1)
     ],
@@ -41674,8 +41690,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div"),
-    _vm._v(" "),
     _c(
       "div",
       { attrs: { align: "center" } },

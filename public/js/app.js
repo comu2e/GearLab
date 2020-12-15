@@ -2149,7 +2149,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id', 'following'],
   data: function data() {
@@ -2196,9 +2195,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -2895,7 +2891,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -40676,7 +40671,7 @@ var render = function() {
       : _c(
           "button",
           {
-            staticClass: "btn btn-default btn-raised",
+            staticClass: "btn btn-secondary btn-raised",
             attrs: { type: "button" },
             on: { click: _vm.follow }
           },
@@ -40694,10 +40689,7 @@ var render = function() {
                     ])
                   ]
                 )
-              : _c("div", [
-                  _vm._v("\n            フォローする\n            "),
-                  _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-                ])
+              : _c("div", [_vm._v("\n            フォローする\n        ")])
           ]
         )
   ])
@@ -40748,42 +40740,44 @@ var render = function() {
                       _c("div", { staticClass: "col-md-4" }),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-md-8" }, [
-                        _c("div", { staticClass: "card-body" }, [
-                          _c("h5", { staticClass: "card-title" }, [
-                            _vm._v(_vm._s(follow.name))
-                          ]),
-                          _vm._v(" "),
-                          _c("p", { staticClass: "card-text" }, [
-                            _vm._v("User情報")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "li",
-                            { staticClass: "nav-item" },
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "nav-link",
-                                  attrs: {
-                                    to: {
-                                      name: "user_gears",
-                                      params: { value: follow.id }
-                                    }
+                        _c(
+                          "div",
+                          { staticClass: "card-body" },
+                          [
+                            _c("h5", { staticClass: "card-title" }, [
+                              _vm._v(_vm._s(follow.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "card-text" }, [
+                              _vm._v("User情報")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "nav-link",
+                                attrs: {
+                                  to: {
+                                    name: "user_gears",
+                                    params: { value: follow.id }
                                   }
-                                },
-                                [
-                                  _c(
-                                    "button",
-                                    { staticClass: "btn btn-primary" },
-                                    [_vm._v(_vm._s(follow.name) + " ")]
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ])
+                                }
+                              },
+                              [
+                                _c(
+                                  "button",
+                                  { staticClass: "btn btn-primary btn-sm" },
+                                  [
+                                    _vm._v(
+                                      _vm._s(follow.name) + "のGear Labへ "
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
                       ])
                     ])
                   ]
@@ -41466,7 +41460,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-danger",
+              staticClass: "btn btn-danger btn-sm",
               on: {
                 click: function($event) {
                   return _vm.unfavorite()
@@ -41479,7 +41473,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "btn btn-success",
+              staticClass: "btn btn-success btn-sm",
               on: {
                 click: function($event) {
                   return _vm.favorite()
@@ -41533,23 +41527,30 @@ var render = function() {
                 attrs: { alt: "", src: gear.image_url, width: "30%" }
               }),
               _vm._v(" "),
-              _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
-                _vm._v(" "),
-                _c("div", { staticClass: "btn btn-success btn-sm" }, [
-                  _vm._v(_vm._s("いいね数 : " + gear.likes_count))
-                ])
-              ])
+              _c(
+                "div",
+                { attrs: { align: "right" } },
+                [
+                  _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("like-component", { attrs: { post: gear } })
+                ],
+                1
+              )
             ])
           ])
         ])

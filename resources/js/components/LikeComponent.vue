@@ -7,9 +7,9 @@
                         いいね解除
                     </button>
                     <button @click="favorite()" class="btn btn-success">
-                        いいね
+                        {{ 'いいね数 : ' + count }}
                     </button>
-                    <p>いいね数：{{ count }}</p>
+
                 </div>
             </div>
         </div>

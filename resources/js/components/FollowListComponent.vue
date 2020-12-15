@@ -2,11 +2,36 @@
     <div>
         <div v-for="follow_list in follows">
             <div v-for="follow in follow_list">
-                    <button @click="getUserGears(follow.id)" class='btn btn-primary'>Show Users gears</button>
+                <div class="form-group row justify-content-center">
+                    <span></span>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{follow.name}}</h5>
+                                    <p class="card-text">User情報</p>
+                                    <li class="nav-item">
+                                        <router-link :to="{ name: 'user_gears',params:{value:follow.id}}" class="nav-link">
+                                            <button class="btn btn-primary">{{follow.name}} </button>
+                                        </router-link>
+                                    </li>
+<!--                                    <button @click="getUserGears(follow.id)" class='btn btn-primary'>Show Users gears</button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
 
             </div>
-        </div>
+
+
     </div>
+
 
 </template>
 
@@ -26,15 +51,7 @@ export default {
                     this.follows = res.data;
                 });
         },
-        /**
-         * ユーザーのギアタイムラインを出す
-         */
-        getUserGears($user_id) {
-            axios.get('/api/user_id=' + $user_id)
-                .then((res) => {
-                    this.gears = res.data['data'];
-                });
-        },
+
 
     },
     mounted() {

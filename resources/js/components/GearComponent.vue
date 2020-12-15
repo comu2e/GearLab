@@ -100,34 +100,7 @@ export default {
                     this.message = err;
                 });
         },
-        // displayUpdate(id, image, content) {
-        //     this.isPush = true;
-        //     this.updateForm = true;
-        //     this.message = "";
-        //     this.updateId = id;
-        //     this.updateTitle = title;
-        //     this.updateAuthor = author;
-        // },
-        // updateCancel() {
-        //     this.isPush = false;
-        //     this.updateForm = false;
-        //     this.message = "";
-        // },
-        // updateBook(updateId, updateContent) {
-        //     axios
-        //         .put("/api/gears/" + updateId, {
-        //             title: this.updateContent,
-        //         })
-        //         .then(response => {
-        //             this.getGear();
-        //             this.isPush = false;
-        //             this.updateForm = false;
-        //             this.message = "";
-        //         })
-        //         .catch(err => {
-        //             this.message = err;
-        //         });
-        // },
+
         deleteGear(id) {
             axios
                 .delete("/api/gears/" + id)

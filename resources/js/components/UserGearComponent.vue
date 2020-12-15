@@ -2,11 +2,10 @@
     <div class="container">
         <div></div>
         <div align="center">
-            <!--            <div>User_id is {{ $route.params.value.id }}</div>-->
             <div class="form-group">
                 <label for="category">気になるギアのカテゴリを選んでみましょう</label>
                 <select id="category" class="form-control" v-model="category">
-                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>
+<!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
                     <option v-for="category in gear_category" :value="category">
                         {{ category }}
                     </option>
@@ -20,7 +19,6 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <!--                            <div>{{// '投稿者 : '+gear.user_name }}</div>-->
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
                             <div>{{ 'ユーザーID: ' + gear.user_id }}</div>
@@ -28,6 +26,7 @@
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
+<!--                            <div class="btn btn-success btn-sm">{{  // 'いいね数 : ' + gear.likes_count }}</div>-->
                             <div v-if="gear.user_id != auth_user.id">
                                 <follow-button-component :id="gear.user_id"></follow-button-component>
 
@@ -43,13 +42,13 @@
 </template>
 
 <script>
-import FollowButtonComponent from "./FollowButtonComponent";
 
 const category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack']
 export default {
-    name: "GearListComponent",
-    components: {FollowButtonComponent},
-
+    name: "UserGearComponent",
+    created() {
+        this.getUserGears(this.$route.params.value);
+    },
     data: function () {
         return {
             keyword: '',
@@ -132,9 +131,7 @@ export default {
             return gears;
         }
     },
-    mounted() {
-        this.getGears();
-    }
+
 }
 </script>
 

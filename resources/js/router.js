@@ -6,6 +6,7 @@ import Liked from './components/LikeListComponent.vue'
 import Registerd from './components/RegisterdGearComponent.vue'
 import Follow from './components/FollowListComponent.vue'
 import EditGear from "./components/EditGear";
+import UserGear from "./components/UserGearComponent";
 
 
 export default new Router({
@@ -15,6 +16,11 @@ export default new Router({
             path: '/gears',
             name: 'home',
             component:Home
+        },
+        {
+            path: '/user_gears',
+            name: 'user_gears',
+            component:UserGear
         },
         {
             path: '/gears/create',

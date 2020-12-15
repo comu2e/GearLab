@@ -61,22 +61,7 @@
                             </li>
                         @endif
                     @else
-                        <div class="d-flex justify-content-center">
-                            <a href={{ url('/users') }} class="btn btn-primary">
-                            ユーザ一覧
-                            </a>
-                        </div>
-                        <span>
 
-                    </span>
-                        <div class="d-flex justify-content-center">
-
-                            <a href={{ url('gears/create') }} class="btn btn-primary"> Gear <strong> + </strong></a>
-                        </div>
-                        <div class="d-flex justify-content-center">
-
-                            <a href={{ url('favorite') }} class="btn btn-primary"> Favorite </a>
-                        </div>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

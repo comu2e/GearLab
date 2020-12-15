@@ -1945,6 +1945,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   props: ['user'],
@@ -40270,22 +40277,6 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "nav-link",
-                      attrs: { to: { name: "create" } }
-                    },
-                    [_vm._v("Gear+")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
                       attrs: {
                         to: {
                           name: "likes",
@@ -40336,7 +40327,34 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("transition", { attrs: { mode: "out-in" } }, [_c("router-view")], 1)
+      _c("transition", { attrs: { mode: "out-in" } }, [_c("router-view")], 1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "add_button" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "nav-link", attrs: { to: { name: "create" } } },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary rounded-circle p-4",
+                  staticStyle: { width: "2rem", height: "2rem" },
+                  attrs: { type: "button" }
+                },
+                [
+                  _c("div", { attrs: { "text-align": "center" } }, [
+                    _vm._v("+")
+                  ])
+                ]
+              )
+            ]
+          )
+        ],
+        1
+      )
     ],
     1
   )

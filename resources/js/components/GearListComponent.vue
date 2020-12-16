@@ -53,7 +53,7 @@ export default {
     data: function () {
         return {
             keyword: '',
-            category: '',
+            category: 'All',
             gears: [],
             gear: [],
             gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"],
@@ -106,10 +106,17 @@ export default {
             }
         },
         categorizeGears: function () {
-
-            var gears = [];
+            /*
+            temp_gearにはカテゴリ選択したギアを入れていく
+             */
+            var temp_gear = [];
 
             if (this.category !== 'All') {
+                 /*
+                 temp_gearを初期化
+                  */
+
+                 temp_gear = [];
 
                 for (var i in this.gears) {
 
@@ -117,19 +124,20 @@ export default {
 
                     if (gear.gear_category.indexOf(this.category) !== -1) {
 
-                        gears.push(gear);
+                        temp_gear.push(gear);
                     }
 
 
                 }
             }
-            // if(this.category ==='All'){
-            //     this.getGears();
-            //     console.log(this.gears);
-            // }
+            if(this.category =='All'){
+                console.log("all 呼び出し")
+                temp_gear = this.gears;
+                console.log(temp_gear);
+            }
 
 
-            return gears;
+            return temp_gear;
         }
     },
     mounted() {

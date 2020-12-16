@@ -10,7 +10,7 @@ import UserGear from "./components/UserGearComponent";
 
 
 export default new Router({
-    mode: 'history',
+    // mode: 'history',
     routes: [
         {
             path: '/gears',

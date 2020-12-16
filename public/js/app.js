@@ -59561,7 +59561,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_GearListComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/GearListComponent.vue */ "./resources/js/components/GearListComponent.vue");
 /* harmony import */ var _components_GearCreateComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/GearCreateComponent.vue */ "./resources/js/components/GearCreateComponent.vue");
 /* harmony import */ var _components_LikeListComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LikeListComponent.vue */ "./resources/js/components/LikeListComponent.vue");
@@ -59578,7 +59578,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  // mode: 'history',
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes: [{
     path: '/gears',
     name: 'home',
@@ -59611,6 +59612,7 @@ __webpack_require__.r(__webpack_exports__);
     props: true
   }]
 }));
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 

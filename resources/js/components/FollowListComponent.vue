@@ -6,15 +6,11 @@
                     <span></span>
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
-                            <div class="col-md-4">
-
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{follow.name}}</h5>
-                                    <p class="card-text">User情報</p>
+                            <div class="col-md-8 m-2">
+                                <div class="card-body mt-1">
+                                    <h5 class="card-title mt-2">{{follow.name}}</h5>
                                         <router-link :to="{ name: 'user_gears',params:{value:follow.id}}" class="nav-link">
-                                            <button class="btn btn-primary btn-sm">{{follow.name}}のGear Labへ </button>
+                                            <button class="btn btn-primary">{{follow.name}}のGear Labへ </button>
                                         </router-link>
                                 </div>
                             </div>

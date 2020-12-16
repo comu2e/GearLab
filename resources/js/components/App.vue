@@ -31,7 +31,7 @@
         <div class="fixed-bottom">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
                 <router-link :to="{ name: 'create'}" class="nav-link pull-right">
-                        Gear+
+                        <h2>Gear+ </h2>
                 </router-link>
 
             </nav>

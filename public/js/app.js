@@ -1952,6 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   props: ['user'],
@@ -40242,11 +40243,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
+    { staticClass: "container mt-5" },
     [
       _c(
         "nav",
-        { staticClass: "navbar navbar-expand-sm bg-dark navbar-dark" },
+        {
+          staticClass:
+            "navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top w-90 "
+        },
         [
           _c("ul", { staticClass: "navbar-nav" }, [
             _c(
@@ -40279,7 +40283,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                        いいねしたギア\n                    "
+                      "\n                    いいねしたギア\n                "
                     )
                   ]
                 )
@@ -40310,7 +40314,7 @@ var render = function() {
                     staticClass: "nav-link",
                     attrs: { to: { name: "registerd" } }
                   },
-                  [_vm._v("登録したギア\n                    ")]
+                  [_vm._v("登録したギア\n                ")]
                 )
               ],
               1
@@ -40321,32 +40325,24 @@ var render = function() {
       _vm._v(" "),
       _c("transition", { attrs: { mode: "out-in" } }, [_c("router-view")], 1),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "add_button" },
-        [
-          _c(
-            "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "create" } } },
-            [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary rounded-circle p-4",
-                  staticStyle: { width: "2rem", height: "2rem" },
-                  attrs: { type: "button" }
-                },
-                [
-                  _c("div", { attrs: { "text-align": "center" } }, [
-                    _vm._v("+")
-                  ])
-                ]
-              )
-            ]
-          )
-        ],
-        1
-      )
+      _c("div", { staticClass: "fixed-bottom" }, [
+        _c(
+          "nav",
+          { staticClass: "navbar navbar-expand-sm bg-dark navbar-dark " },
+          [
+            _c(
+              "router-link",
+              { staticClass: "nav-link", attrs: { to: { name: "create" } } },
+              [
+                _c("div", { staticClass: "pull-right" }, [
+                  _c("div", [_vm._v("Gear+ ")])
+                ])
+              ]
+            )
+          ],
+          1
+        )
+      ])
     ],
     1
   )

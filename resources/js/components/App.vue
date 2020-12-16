@@ -1,43 +1,44 @@
 <template>
 
-    <div class="container">
+    <div class="container mt-5">
+        <nav class="navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top w-90 ">
 
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <router-link :to="{ name: 'home'}" class="nav-link">ギアタイムライン</router-link>
+                </li>
 
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <router-link :to="{ name: 'home'}" class="nav-link">ギアタイムライン</router-link>
-                    </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'likes',param:{value:this.$store.state.auth_user}}" class="nav-link">
+                        いいねしたギア
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/follows" class="nav-link">フォローしているユーザー</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'registerd'}" class="nav-link">登録したギア
+                    </router-link>
+                </li>
+            </ul>
+        </nav>
 
-                    <li class="nav-item">
-                        <router-link :to="{ name: 'likes',param:{value:this.$store.state.auth_user}}" class="nav-link">
-                            いいねしたギア
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/follows" class="nav-link">フォローしているユーザー</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link :to="{ name: 'registerd'}" class="nav-link">登録したギア
-                        </router-link>
-                    </li>
-                </ul>
-            </nav>
         <transition mode="out-in">
             <router-view>
 
             </router-view>
         </transition>
+        <div class="fixed-bottom">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+                <router-link :to="{ name: 'create'}" class="nav-link">
+                    <div class="pull-right">
+                        <div>Gear+ </div>
+                    </div>
+                </router-link>
 
-
-        <div class="add_button">
-            <router-link :to="{ name: 'create'}" class="nav-link">
-
-                <button type="button" class="btn btn-primary rounded-circle p-4" style="width:2rem;height:2rem;">
-                    <div text-align="center">+</div>
-                </button>
-            </router-link>
+            </nav>
         </div>
+
 
     </div>
 </template>

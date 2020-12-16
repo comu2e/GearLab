@@ -22,7 +22,8 @@
 </head>
 <body>
 <div id="app">
-    <div class="sticky-top">
+
+    <div >
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -108,7 +109,6 @@
 
 </div>
 
-</div>
 
 <main class="py-4">
 

@@ -30,10 +30,8 @@
         </transition>
         <div class="fixed-bottom">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
-                <router-link :to="{ name: 'create'}" class="nav-link">
-                    <div class="pull-right">
-                        <div>Gear+ </div>
-                    </div>
+                <router-link :to="{ name: 'create'}" class="nav-link pull-right">
+                        Gear+
                 </router-link>
 
             </nav>

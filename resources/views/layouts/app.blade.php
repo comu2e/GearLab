@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'GearLab') }}</title>
+    <title>{{'GearLab'}}</title>
 
 
     <!-- Fonts -->

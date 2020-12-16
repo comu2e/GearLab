@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label for="category">気になるギアのカテゴリを選んでみましょう</label>
                 <select id="category" class="form-control" v-model="category">
-                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>
+<!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
                     <option v-for="category in gear_category" :value="category">
                         {{ category }}
                     </option>

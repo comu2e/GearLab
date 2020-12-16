@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-3">
         <nav class="navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top w-90 ">
 
             <ul class="navbar-nav">
@@ -29,9 +29,9 @@
             </router-view>
         </transition>
         <div class="fixed-bottom">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+            <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark w-40">
                 <router-link :to="{ name: 'create'}" class="nav-link pull-right">
-                        <h2>Gear+ </h2>
+                        <h3>Gear+ </h3>
                 </router-link>
 
             </nav>

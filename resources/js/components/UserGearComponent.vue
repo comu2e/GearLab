@@ -53,7 +53,7 @@ export default {
     data: function () {
         return {
             keyword: '',
-            category: '',
+            category: 'All',
             gears: [],
             gear: [],
             gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"],
@@ -107,10 +107,14 @@ export default {
         },
         categorizeGears: function () {
 
-            var gears = [];
+            var temp_gear = [];
 
             if (this.category !== 'All') {
+                /*
+                                temp_gearを初期化
+                                 */
 
+                temp_gear = [];
                 for (var i in this.gears) {
 
                     var gear = this.gears[i];
@@ -123,13 +127,12 @@ export default {
 
                 }
             }
-            // if(this.category ==='All'){
-            //     this.getGears();
-            //     console.log(this.gears);
-            // }
+            if(this.category =='All'){
+                temp_gear = this.gears;
+                console.log(temp_gear);
+            }
 
-
-            return gears;
+            return temp_gear;
         }
     },
 

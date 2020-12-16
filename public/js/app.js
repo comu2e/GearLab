@@ -2236,6 +2236,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "FollowListComponent",
   data: function data() {
@@ -3113,7 +3114,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   data: function data() {
     return {
       keyword: '',
-      category: '',
+      category: 'All',
       gears: [],
       gear: [],
       gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"]
@@ -3168,9 +3169,14 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       }
     },
     categorizeGears: function categorizeGears() {
-      var gears = [];
+      var temp_gear = [];
 
       if (this.category !== 'All') {
+        /*
+                        temp_gearを初期化
+                         */
+        temp_gear = [];
+
         for (var i in this.gears) {
           var gear = this.gears[i];
 
@@ -3178,13 +3184,14 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
             gears.push(gear);
           }
         }
-      } // if(this.category ==='All'){
-      //     this.getGears();
-      //     console.log(this.gears);
-      // }
+      }
 
+      if (this.category == 'All') {
+        temp_gear = this.gears;
+        console.log(temp_gear);
+      }
 
-      return gears;
+      return temp_gear;
     }
   }
 });
@@ -40246,7 +40253,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container mt-5" },
+    { staticClass: "container mt-5 mb-3" },
     [
       _c(
         "nav",
@@ -40331,7 +40338,10 @@ var render = function() {
       _c("div", { staticClass: "fixed-bottom" }, [
         _c(
           "nav",
-          { staticClass: "navbar navbar-expand-sm bg-dark navbar-dark " },
+          {
+            staticClass:
+              "navbar navbar-expand-sm justify-content-center bg-dark navbar-dark w-40"
+          },
           [
             _c(
               "router-link",
@@ -40339,7 +40349,7 @@ var render = function() {
                 staticClass: "nav-link pull-right",
                 attrs: { to: { name: "create" } }
               },
-              [_c("h2", [_vm._v("Gear+ ")])]
+              [_c("h3", [_vm._v("Gear+ ")])]
             )
           ],
           1
@@ -40751,53 +40761,46 @@ var render = function() {
               [
                 _c("span"),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "card mb-3",
-                    staticStyle: { "max-width": "540px" }
-                  },
-                  [
-                    _c("div", { staticClass: "row no-gutters" }, [
-                      _c("div", { staticClass: "col-md-8 m-2" }, [
-                        _c(
-                          "div",
-                          { staticClass: "card-body mt-1" },
-                          [
-                            _c("h5", { staticClass: "card-title mt-2" }, [
-                              _vm._v(_vm._s(follow.name))
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "nav-link",
-                                attrs: {
-                                  to: {
-                                    name: "user_gears",
-                                    params: { value: follow.id }
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "button",
-                                  { staticClass: "btn btn-primary" },
-                                  [
-                                    _vm._v(
-                                      _vm._s(follow.name) + "のGear Labへ "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ],
-                          1
+                _c("div", { staticClass: "card w-75" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card-body" },
+                    [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(follow.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(
+                          "登録日:" +
+                            _vm._s(follow.created_at) +
+                            "\n                            content."
                         )
-                      ])
-                    ])
-                  ]
-                )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link btn-primary",
+                          attrs: {
+                            to: {
+                              name: "user_gears",
+                              params: { value: follow.id }
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                " +
+                              _vm._s(follow.name) +
+                              "のGear Labへ\n                            "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
               ]
             )
           ])
@@ -40946,7 +40949,7 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "card-body " }, [
             _c(
               "label",
               { staticClass: "col-md-4 col-form-label text-md-right" },
@@ -40955,6 +40958,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
+              { staticClass: "justify-content-center" },
               [
                 _c("img-inputer", {
                   attrs: {
@@ -41215,24 +41219,16 @@ var render = function() {
                 }
               }
             },
-            [
-              _c(
-                "option",
-                { attrs: { disabled: "" }, domProps: { value: null } },
-                [_vm._v("Gearのカテゴリを選択してください。")]
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.gear_category, function(category) {
-                return _c("option", { domProps: { value: category } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(category) +
-                      "\n                "
-                  )
-                ])
-              })
-            ],
-            2
+            _vm._l(_vm.gear_category, function(category) {
+              return _c("option", { domProps: { value: category } }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(category) +
+                    "\n                    "
+                )
+              ])
+            }),
+            0
           )
         ]),
         _vm._v(" "),

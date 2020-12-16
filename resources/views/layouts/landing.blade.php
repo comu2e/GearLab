@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    {{--   favicon--}}
+    <link rel="shortcut icon" href="{{ asset('/favicon.png') }}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,17 +102,17 @@
         <div class="container-fluid">
             <!-- change the image in style.css to the class header .container-fluid [approximately row 50] -->
             <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-xs-10">
-                        <a href="#" class="thumbnail logo">
-                            <img src="{{asset('img/your_logo.png')}}" alt="" class="img-responsive">
-                        </a>
-                    </div>
 
-                </div>
                 <div class="jumbotron">
-                    <h1><small>キャンプを追求しよう</small>
-                        <h1>Gear Lab</h1></h1>
+                        <div class="col-md-3 col-xs-10">
+                            <a href="#" class="thumbnail logo">
+                                <img src="{{asset('/landingLogo.png')}}" width="200%" alt="" class="img-responsive">
+                            </a>
+
+                    </div>
+                    <h1>
+
+                    </h1>
                     <p>
                         <a class="btn btn-success btn-lg" href="{{url('/resume')}}" role="button" >
                             Resume

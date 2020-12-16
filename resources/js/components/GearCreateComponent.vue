@@ -5,11 +5,11 @@
                 <div class="card">
 <!--                    <div>User_id is {{ $route.params.value.id }}</div>-->
 <!--                    <div>User_id is {{ $route.params }}</div>-->
-                    <div class="card-body">
+                    <div class="card-body ">
 
                         <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
                         <!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
-                        <div>
+                        <div class="justify-content-center">
                             <img-inputer v-model="file"
                                          theme="light"
                                          size="middle"

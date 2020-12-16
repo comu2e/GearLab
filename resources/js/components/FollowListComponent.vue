@@ -4,23 +4,24 @@
             <div v-for="follow in follow_list">
                 <div class="form-group row justify-content-center">
                     <span></span>
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-8 m-2">
-                                <div class="card-body mt-1">
-                                    <h5 class="card-title mt-2">{{follow.name}}</h5>
-                                        <router-link :to="{ name: 'user_gears',params:{value:follow.id}}" class="nav-link">
-                                            <button class="btn btn-primary">{{follow.name}}のGear Labへ </button>
-                                        </router-link>
-                                </div>
-                            </div>
+
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <h5 class="card-title">{{follow.name}}</h5>
+                            <p class="card-text">登録日:{{follow.created_at}}
+                                content.</p>
+                                <router-link :to="{ name: 'user_gears',params:{value:follow.id}}" class="nav-link btn-primary">
+                                    {{follow.name}}のGear Labへ
+                                </router-link>
                         </div>
+
                     </div>
                 </div>
-                </div>
-
-
             </div>
+        </div>
+
+
+    </div>
 
 
     </div>

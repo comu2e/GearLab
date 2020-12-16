@@ -59578,7 +59578,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  mode: 'history',
+  // mode: 'history',
   routes: [{
     path: '/gears',
     name: 'home',

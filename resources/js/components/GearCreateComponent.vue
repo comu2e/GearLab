@@ -52,7 +52,7 @@
                         <p>{{ message }}</p>
 
                         <p>
-                            <button @click="uploadImage" class="btn btn-primary">道具を登録する</button>
+                            <button @click="uploadImage" class="btn btn-primary">Gear+</button>
                         </p>
                     </div>
                 </div>

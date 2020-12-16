@@ -19,7 +19,6 @@
                                 />
 
                             </div>
-                            <div>{{ gear.id }}</div>
                             <label class="col-md-4 col-form-label text-md-right">カテゴリ
                                 <div class="col-xs-3">
                                     <select class="form-control" v-model="gear.gear_category">

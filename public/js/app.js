@@ -2039,7 +2039,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.gearId = this.$route.params.gearId;
@@ -2207,10 +2206,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -40344,7 +40339,7 @@ var render = function() {
                 staticClass: "nav-link pull-right",
                 attrs: { to: { name: "create" } }
               },
-              [_vm._v("\n                    Gear+\n            ")]
+              [_c("h2", [_vm._v("Gear+ ")])]
             )
           ],
           1
@@ -40423,8 +40418,6 @@ var render = function() {
                   ],
                   1
                 ),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s(_vm.gear.id))]),
                 _vm._v(" "),
                 _c(
                   "label",
@@ -40766,19 +40759,13 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "row no-gutters" }, [
-                      _c("div", { staticClass: "col-md-4" }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "col-md-8 m-2" }, [
                         _c(
                           "div",
-                          { staticClass: "card-body" },
+                          { staticClass: "card-body mt-1" },
                           [
-                            _c("h5", { staticClass: "card-title" }, [
+                            _c("h5", { staticClass: "card-title mt-2" }, [
                               _vm._v(_vm._s(follow.name))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v("User情報")
                             ]),
                             _vm._v(" "),
                             _c(
@@ -40795,7 +40782,7 @@ var render = function() {
                               [
                                 _c(
                                   "button",
-                                  { staticClass: "btn btn-primary btn-sm" },
+                                  { staticClass: "btn btn-primary" },
                                   [
                                     _vm._v(
                                       _vm._s(follow.name) + "のGear Labへ "
@@ -41156,7 +41143,7 @@ var render = function() {
                   staticClass: "btn btn-primary",
                   on: { click: _vm.uploadImage }
                 },
-                [_vm._v("道具を登録する")]
+                [_vm._v("Gear+")]
               )
             ])
           ])

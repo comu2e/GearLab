@@ -1,8 +1,9 @@
 <template>
-    <div class="container">
-        <div class="sticky-top">
 
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" position="fixed">
+    <div class="container">
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <router-link :to="{ name: 'home'}" class="nav-link">ギアタイムライン</router-link>
@@ -22,7 +23,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
         <transition mode="out-in">
             <router-view>
 

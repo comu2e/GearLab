@@ -3,56 +3,70 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-<!--                    <div>User_id is {{ $route.params.value.id }}</div>-->
-<!--                    <div>User_id is {{ $route.params }}</div>-->
-                    <div class="card-body ">
+                    <!--                    <div>User_id is {{ $route.params.value.id }}</div>-->
+                    <!--                    <div>User_id is {{ $route.params }}</div>-->
+                    <div class="card-body　d-flex justify-content-center">
+                        <div class="justify-content-xl-center">
+                            <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
+                            <!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
+                            <div class="justify-content-center">
+                                <img-inputer v-model="file"
+                                             theme="light"
+                                             size="middle"
+                                             placeholder="ギア写真をここにドラッグする"
+                                             bottom-text="ファイルをドロップするかここをクリックしてください"
+                                             auto-update="true"/>
 
-                        <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
-                        <!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
-                        <div class="justify-content-center">
-                            <img-inputer v-model="file"
-                                         theme="light"
-                                         size="middle"
-                                         placeholder="ギア写真をここにドラッグする"
-                                         bottom-text="ファイルをドロップするかここをクリックしてください"
-                                         auto-update="true"/>
-
+                            </div>
                         </div>
+
 
                         <!-- 確認用画像 -->
                         <!--                        <p v-if="confirmedImage">-->
                         <!--                            <img class="img" :src="confirmedImage"/>-->
                         <!--                        </p>-->
-                        <label class="col-md-4 col-form-label text-md-right">カテゴリ
-                            <div class="col-xs-3">
-                                <select class="form-control" v-model="gear_category">
-                                    <option value="BonFire" selected="selected">Bonfire</option>
-                                    <option value="BackPack" selected="selected">BackPack</option>
-                                    <option value="Cutting">Cutting</option>
-                                    <option value="Shelter" selected="selected">Shelter</option>
-                                    <option value="Kitchen" selected="selected">Kitchen</option>
-                                </select>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">ギアカテゴリ</label>
                             </div>
-                        </label>
+                            <select class="form-control" v-model="gear_category">
+                                <option value="BonFire" selected="selected">焚き火ーBonfire</option>
+
+                                <option value="BackPack" selected="selected">バックパック-BackPack-</option>
+                                <option value="Cutting">ナイフ -Cutting-</option>
+                                <option value="Shelter" selected="selected">シェルタ -Shelter-</option>
+                                <option value="Kitchen" selected="selected">料理 -Kitchen-</option>
+                            </select>
+                        </div>
 
 
-                        <label class="col-md-4 col-form-label text-md-right">ギアの名前
-                            <input class="form-control" type="text" v-model="gear_name"/>
-                        </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">ギアメーカー</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="gear_maker" v-model="maker_name">
 
+                        </div>
 
-                        <label class="col-md-4 col-form-label text-md-right">メーカー名
-                            <input class="form-control" type="text" v-model="maker_name"/>
-                        </label>
-                        <label class="col-md-4 col-form-label text-md-right">ギアのお気に入りポイント：
-                            <input class="form-control" type="text" v-model="content">
-                        </label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">ギア名</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="gear_name" v-model="gear_name">
 
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">お気に入りポイント</span>
+                            </div>
+                            <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="content"></textarea>
+                        </div>
 
                         <p>{{ message }}</p>
 
                         <p>
-                            <button @click="uploadImage" class="btn btn-primary">Gear+</button>
+                            <button @click="uploadImage" class="btn btn-primary btn-lg ">Gear+</button>
                         </p>
                     </div>
                 </div>
@@ -67,7 +81,7 @@ export default {
     // user: Number,
     mounted() {
         console.log('Create Component is mouted'),
-        console.log(this.$store.state.auth_user)
+            console.log(this.$store.state.auth_user)
     },
     data() {
         return {

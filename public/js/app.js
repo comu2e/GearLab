@@ -2039,6 +2039,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.gearId = this.$route.params.gearId;
@@ -2415,6 +2429,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2977,6 +3005,9 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -40398,135 +40429,116 @@ var render = function() {
             _c("div", { staticClass: "card" }, [
               _c("div", [_vm._v("編集画面")]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-4 col-form-label text-md-right" },
-                  [_vm._v(" ギアの写真")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  [
-                    _c("img-inputer", {
-                      attrs: {
-                        theme: "light",
-                        size: "middle",
-                        placeholder: "ギア写真をここにドラッグする",
-                        "bottom-text":
-                          "ファイルをドロップするかここをクリックしてください",
-                        imgSrc: _vm.gear.image_url
-                      },
-                      model: {
-                        value: _vm.file,
-                        callback: function($$v) {
-                          _vm.file = $$v
-                        },
-                        expression: "file"
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "col-md-4 col-form-label text-md-right" },
-                  [
-                    _vm._v("カテゴリ\n                            "),
-                    _c("div", { staticClass: "col-xs-3" }, [
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.gear.gear_category,
-                              expression: "gear.gear_category"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.gear,
-                                "gear_category",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
+              _c(
+                "div",
+                { staticClass: "card-body　d-flex justify-content-center" },
+                [
+                  _c("div", { staticClass: "justify-content-xl-center" }, [
+                    _c(
+                      "label",
+                      { staticClass: "col-md-4 col-form-label text-md-right" },
+                      [_vm._v(" ギアの写真")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "justify-content-center" },
+                      [
+                        _c("img-inputer", {
+                          attrs: {
+                            theme: "light",
+                            size: "middle",
+                            placeholder: "ギア写真をここにドラッグする",
+                            "bottom-text":
+                              "ファイルをドロップするかここをクリックしてください",
+                            "auto-update": "true",
+                            imgSrc: _vm.gear.image_url
+                          },
+                          model: {
+                            value: _vm.file,
+                            callback: function($$v) {
+                              _vm.file = $$v
+                            },
+                            expression: "file"
                           }
-                        },
-                        [
-                          _c("option", { attrs: { value: "BonFire" } }, [
-                            _vm._v("Bonfire")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "BackPack" } }, [
-                            _vm._v("BackPack")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "Cutting" } }, [
-                            _vm._v("Cutting")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "Shelter" } }, [
-                            _vm._v("Shelter")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "Kitchen" } }, [
-                            _vm._v("Kitchen")
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "col-md-4 col-form-label text-md-right" },
-                  [
-                    _vm._v("ギアの名前\n                            "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.gear.gear_name,
-                          expression: "gear.gear_name"
-                        }
+                        })
                       ],
-                      staticClass: "form-control",
-                      attrs: { type: "text" },
-                      domProps: { value: _vm.gear.gear_name },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.gear.gear_category,
+                            expression: "gear.gear_category"
                           }
-                          _vm.$set(_vm.gear, "gear_name", $event.target.value)
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.gear,
+                              "gear_category",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
                         }
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "col-md-4 col-form-label text-md-right" },
-                  [
-                    _vm._v("メーカー名\n                            "),
+                      },
+                      [
+                        _c(
+                          "option",
+                          { attrs: { value: "BonFire", selected: "selected" } },
+                          [_vm._v("焚き火ーBonfire")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          {
+                            attrs: { value: "BackPack", selected: "selected" }
+                          },
+                          [_vm._v("バックパック-BackPack-")]
+                        ),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "Cutting" } }, [
+                          _vm._v("ナイフ -Cutting-")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          { attrs: { value: "Shelter", selected: "selected" } },
+                          [_vm._v("シェルタ -Shelter-")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          { attrs: { value: "Kitchen", selected: "selected" } },
+                          [_vm._v("料理 -Kitchen-")]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -40537,7 +40549,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text" },
+                      attrs: { type: "text", "aria-label": "gear_maker" },
                       domProps: { value: _vm.gear.maker_name },
                       on: {
                         input: function($event) {
@@ -40548,17 +40560,38 @@ var render = function() {
                         }
                       }
                     })
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "col-md-4 col-form-label text-md-right" },
-                  [
-                    _vm._v(
-                      "ギアのお気に入りポイント：\n                            "
-                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gear.gear_name,
+                          expression: "gear.gear_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", "aria-label": "gear_name" },
+                      domProps: { value: _vm.gear.gear_name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.gear, "gear_name", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("textarea", {
                       directives: [
                         {
                           name: "model",
@@ -40568,6 +40601,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
+                      attrs: { "aria-label": "ギアのお気に入りポイント" },
                       domProps: { value: _vm.gear.content },
                       on: {
                         input: function($event) {
@@ -40578,13 +40612,22 @@ var render = function() {
                         }
                       }
                     })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(_vm.message))]),
-                _vm._v(" "),
-                _vm._m(0)
-              ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.message))]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary btn-lg ",
+                        on: { click: _vm.submit }
+                      },
+                      [_vm._v("編集内容を登録する")]
+                    )
+                  ])
+                ]
+              )
             ])
           ])
         ])
@@ -40597,12 +40640,41 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
+    return _c("div", { staticClass: "input-group-prepend" }, [
       _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("道具を登録する")]
+        "label",
+        {
+          staticClass: "input-group-text",
+          attrs: { for: "inputGroupSelect01" }
+        },
+        [_vm._v("ギアカテゴリ")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("ギアメーカー")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("ギア名")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _vm._v("お気に入りポイント")
+      ])
     ])
   }
 ]
@@ -40949,140 +41021,109 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body " }, [
-            _c(
-              "label",
-              { staticClass: "col-md-4 col-form-label text-md-right" },
-              [_vm._v(" ギアの写真")]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "justify-content-center" },
-              [
-                _c("img-inputer", {
-                  attrs: {
-                    theme: "light",
-                    size: "middle",
-                    placeholder: "ギア写真をここにドラッグする",
-                    "bottom-text":
-                      "ファイルをドロップするかここをクリックしてください",
-                    "auto-update": "true"
-                  },
-                  model: {
-                    value: _vm.file,
-                    callback: function($$v) {
-                      _vm.file = $$v
-                    },
-                    expression: "file"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-md-4 col-form-label text-md-right" },
-              [
-                _vm._v("カテゴリ\n                            "),
-                _c("div", { staticClass: "col-xs-3" }, [
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.gear_category,
-                          expression: "gear_category"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.gear_category = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
+          _c(
+            "div",
+            { staticClass: "card-body　d-flex justify-content-center" },
+            [
+              _c("div", { staticClass: "justify-content-xl-center" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-md-4 col-form-label text-md-right" },
+                  [_vm._v(" ギアの写真")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "justify-content-center" },
+                  [
+                    _c("img-inputer", {
+                      attrs: {
+                        theme: "light",
+                        size: "middle",
+                        placeholder: "ギア写真をここにドラッグする",
+                        "bottom-text":
+                          "ファイルをドロップするかここをクリックしてください",
+                        "auto-update": "true"
+                      },
+                      model: {
+                        value: _vm.file,
+                        callback: function($$v) {
+                          _vm.file = $$v
+                        },
+                        expression: "file"
                       }
-                    },
-                    [
-                      _c(
-                        "option",
-                        { attrs: { value: "BonFire", selected: "selected" } },
-                        [_vm._v("Bonfire")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "BackPack", selected: "selected" } },
-                        [_vm._v("BackPack")]
-                      ),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "Cutting" } }, [
-                        _vm._v("Cutting")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "Shelter", selected: "selected" } },
-                        [_vm._v("Shelter")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "option",
-                        { attrs: { value: "Kitchen", selected: "selected" } },
-                        [_vm._v("Kitchen")]
-                      )
-                    ]
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-md-4 col-form-label text-md-right" },
-              [
-                _vm._v("ギアの名前\n                            "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.gear_name,
-                      expression: "gear_name"
-                    }
+                    })
                   ],
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.gear_name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.gear_category,
+                        expression: "gear_category"
                       }
-                      _vm.gear_name = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.gear_category = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
                     }
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-md-4 col-form-label text-md-right" },
-              [
-                _vm._v("メーカー名\n                            "),
+                  },
+                  [
+                    _c(
+                      "option",
+                      { attrs: { value: "BonFire", selected: "selected" } },
+                      [_vm._v("焚き火ーBonfire")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "BackPack", selected: "selected" } },
+                      [_vm._v("バックパック-BackPack-")]
+                    ),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "Cutting" } }, [
+                      _vm._v("ナイフ -Cutting-")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Shelter", selected: "selected" } },
+                      [_vm._v("シェルタ -Shelter-")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "option",
+                      { attrs: { value: "Kitchen", selected: "selected" } },
+                      [_vm._v("料理 -Kitchen-")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _vm._m(1),
+                _vm._v(" "),
                 _c("input", {
                   directives: [
                     {
@@ -41093,7 +41134,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text" },
+                  attrs: { type: "text", "aria-label": "gear_maker" },
                   domProps: { value: _vm.maker_name },
                   on: {
                     input: function($event) {
@@ -41104,17 +41145,38 @@ var render = function() {
                     }
                   }
                 })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-md-4 col-form-label text-md-right" },
-              [
-                _vm._v(
-                  "ギアのお気に入りポイント：\n                            "
-                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _vm._m(2),
+                _vm._v(" "),
                 _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.gear_name,
+                      expression: "gear_name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", "aria-label": "gear_name" },
+                  domProps: { value: _vm.gear_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.gear_name = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
@@ -41124,7 +41186,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text" },
+                  attrs: { "aria-label": "ギアのお気に入りポイント" },
                   domProps: { value: _vm.content },
                   on: {
                     input: function($event) {
@@ -41135,28 +41197,70 @@ var render = function() {
                     }
                   }
                 })
-              ]
-            ),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.message))]),
-            _vm._v(" "),
-            _c("p", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  on: { click: _vm.uploadImage }
-                },
-                [_vm._v("Gear+")]
-              )
-            ])
-          ])
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.message))]),
+              _vm._v(" "),
+              _c("p", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-lg ",
+                    on: { click: _vm.uploadImage }
+                  },
+                  [_vm._v("Gear+")]
+                )
+              ])
+            ]
+          )
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c(
+        "label",
+        {
+          staticClass: "input-group-text",
+          attrs: { for: "inputGroupSelect01" }
+        },
+        [_vm._v("ギアカテゴリ")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("ギアメーカー")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("ギア名")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _vm._v("お気に入りポイント")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -41618,12 +41722,15 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
                 _vm._v(" "),
-                _c("div", { staticClass: "btn btn-success btn-sm" }, [
-                  _vm._v(_vm._s("いいね数 : " + gear.likes_count))
+                _c("div", { staticClass: "m-1" }, [
+                  _c("div", { staticClass: "btn btn-success btn-sm" }, [
+                    _vm._v(_vm._s("いいね数 : " + gear.likes_count))
+                  ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
+                  { staticClass: "mt-2 ml-1" },
                   [
                     _c(
                       "button",
@@ -58655,15 +58762,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************!*\
   !*** ./resources/js/components/FollowButtonComponent.vue ***!
   \***********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FollowButtonComponent_vue_vue_type_template_id_122a78c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=template&id=122a78c2& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=template&id=122a78c2&");
 /* harmony import */ var _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FollowButtonComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _FollowButtonComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -58693,7 +58799,7 @@ component.options.__file = "resources/js/components/FollowButtonComponent.vue"
 /*!************************************************************************************!*\
   !*** ./resources/js/components/FollowButtonComponent.vue?vue&type=script&lang=js& ***!
   \************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -5,52 +5,66 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div>編集画面</div>
-                        <div class="card-body">
+                        <div class="card-body　d-flex justify-content-center">
+                            <div class="justify-content-xl-center">
+                                <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
+                                <!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
+                                <div class="justify-content-center">
+                                    <img-inputer v-model="file"
+                                                 theme="light"
+                                                 size="middle"
+                                                 placeholder="ギア写真をここにドラッグする"
+                                                 bottom-text="ファイルをドロップするかここをクリックしてください"
+                                                 auto-update="true"
+                                                 :imgSrc="gear.image_url"/>
 
-                            <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
-                            <!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
-                            <div>
-                                <img-inputer v-model="file"
-                                             theme="light"
-                                             size="middle"
-                                             placeholder="ギア写真をここにドラッグする"
-                                             bottom-text="ファイルをドロップするかここをクリックしてください"
-                                             :imgSrc="gear.image_url"
-                                />
+                                </div>
+                            </div>
+
+
+                            <!-- 確認用画像 -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01">ギアカテゴリ</label>
+                                </div>
+                                <select class="form-control" v-model="gear.gear_category">
+                                    <option value="BonFire" selected="selected">焚き火ーBonfire</option>
+
+                                    <option value="BackPack" selected="selected">バックパック-BackPack-</option>
+                                    <option value="Cutting">ナイフ -Cutting-</option>
+                                    <option value="Shelter" selected="selected">シェルタ -Shelter-</option>
+                                    <option value="Kitchen" selected="selected">料理 -Kitchen-</option>
+                                </select>
+                            </div>
+
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">ギアメーカー</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="gear_maker" v-model="gear.maker_name">
 
                             </div>
-                            <label class="col-md-4 col-form-label text-md-right">カテゴリ
-                                <div class="col-xs-3">
-                                    <select class="form-control" v-model="gear.gear_category">
-                                        <option value="BonFire">Bonfire</option>
-                                        <option value="BackPack">BackPack</option>
-                                        <option value="Cutting">Cutting</option>
-                                        <option value="Shelter">Shelter</option>
-                                        <option value="Kitchen">Kitchen</option>
-                                    </select>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">ギア名</span>
                                 </div>
-                            </label>
+                                <input type="text" class="form-control" aria-label="gear_name" v-model="gear.gear_name">
 
+                            </div>
 
-                            <label class="col-md-4 col-form-label text-md-right">ギアの名前
-                                <input class="form-control" type="text" v-model="gear.gear_name"/>
-                            </label>
-
-
-                            <label class="col-md-4 col-form-label text-md-right">メーカー名
-                                <input class="form-control" type="text" v-model="gear.maker_name"/>
-
-                            </label>
-                            <label class="col-md-4 col-form-label text-md-right">ギアのお気に入りポイント：
-                                <input class="form-control" v-model="gear.content">
-
-                            </label>
-
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">お気に入りポイント</span>
+                                </div>
+                                <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="gear.content"></textarea>
+                            </div>
 
                             <p>{{ message }}</p>
 
                             <p>
-                                <button type="submit" class="btn btn-primary">道具を登録する</button>
+                                <button @click="submit" class="btn btn-primary btn-lg ">編集内容を登録する</button>
                             </p>
                         </div>
                     </div>

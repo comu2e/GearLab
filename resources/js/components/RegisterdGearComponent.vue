@@ -15,9 +15,12 @@
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
-                            <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
+                            <div class="m-1">
+                                <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
 
-                            <div>
+                            </div>
+
+                            <div class="mt-2 ml-1">
                                 <!--                                削除する POST-->
                                 <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
                                 <!--                                Edit画面に飛ぶようにする-->

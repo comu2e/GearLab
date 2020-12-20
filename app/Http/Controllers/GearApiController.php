@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers;
 
-//use http\Env\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Auth;
@@ -16,8 +15,25 @@ use Illuminate\Support\Facades\DB;
 use Storage;
 use App\Http\Requests\GearRequest;
 
+//Repositoryパターンの追加
+use App\Repositories\Gear\GearDataAccessRepositoryInterface AS GearDataAccess;
+
+
 class GearApiController extends Controller
 {
+
+    protected $Gear;
+
+    /**
+     * GearApiController constructor.
+     * @param GearDataAccess $GearDataAccess
+     */
+
+    public function __construct(GearDataAccess $GearDataAccess)
+    {
+        $this -> Gear = $GearDataAccess;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +41,10 @@ class GearApiController extends Controller
      */
     public function index()
     {
-        $gear = Gear::all();
+//        $gear = Gear::all();
+
+        $gear = $this -> Gear -> getAll();
+
         return response()->json([
             'message' => 'ok',
             'data' => $gear
@@ -39,7 +58,8 @@ class GearApiController extends Controller
      */
     public function user_index($user_id)
     {
-        $gears = Gear::where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
+//        $gears = Gear::where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
+        $gears = $this -> Gear -> getUser($user_id);
 
         return response()->json([
             'message' => 'ok',
@@ -47,14 +67,14 @@ class GearApiController extends Controller
         ], 200, [], JSON_UNESCAPED_UNICODE);
     }
     /**
-     * Display a listing of the user Gear.
+     * Display a listing of the categorized Gear.
      *
      * @return Response
      */
     public function categorize_gear($category)
     {
-        $gears = Gear::where('gear_category', $category)->orderby('updated_at', 'desc')->get();
-
+//        $gears = Gear::where('gear_category', $category)->orderby('updated_at', 'desc')->get();
+        $gears = $this -> Gear -> getCategorizedGear($category);
         return response()->json([
             'message' => 'ok',
             'data' => $gears
@@ -103,7 +123,9 @@ class GearApiController extends Controller
      */
     public function show($id)
     {
-        $gear = Gear::find($id);
+//        $gear = Gear::find($id);
+        $gear = $this -> Gear ->findAll($id);
+
         if ($gear) {
             return response()->json([
                 'message' => 'ok',
@@ -125,7 +147,8 @@ class GearApiController extends Controller
      */
     public function update(Request $request, Gear $gear)
     {
-        $gear->update($request->all());
+//        $gear->update($request->all());
+        $gear = $this -> Gear ->updateGear($request,$gear);
 
         return $gear;
     }
@@ -138,7 +161,10 @@ class GearApiController extends Controller
      */
     public function destroy($id)
     {
-        $gear = Gear::where('id', $id)->delete();
+//        $gear = Gear::where('id', $id)->delete();
+        $gear = $this -> Gear ->deleteSelect($id);
+
+
         if ($gear) {
             return response()->json([
                 'message' => 'Gear deleted successfully',

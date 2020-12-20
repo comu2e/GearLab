@@ -5,7 +5,7 @@ namespace App\Repositories\Gear;
 
 use App\Models\Gear;
 use Illuminate\Http\Request;
-
+//EloquentORM
 class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
 {
     /**

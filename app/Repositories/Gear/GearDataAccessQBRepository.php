@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories\Gear;
-use App\Models\Gear;
 use DB;
+use App\Models\Gear;
 use Illuminate\Http\Request;
 
 class GearDataAccessQBRepository implements GearDataAccessRepositoryInterface

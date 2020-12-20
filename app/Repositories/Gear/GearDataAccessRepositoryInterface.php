@@ -3,7 +3,6 @@
 namespace App\Repositories\Gear;
 
 use App\Models\Gear;
-use DB;
 use Illuminate\Http\Request;
 
 interface GearDataAccessRepositoryInterface

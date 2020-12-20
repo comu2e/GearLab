@@ -177,6 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\MessageServiceProvider::class,
 
+//        レポジトリーパターン
+        App\Providers\RepositoryServiceProvider::class,
+
     ],
 
     /*

@@ -12,7 +12,7 @@
                                 <div class="justify-content-center">
                                     <img-inputer v-model="file"
                                                  theme="light"
-                                                 size="middle"
+                                                 size="large"
                                                  placeholder="ギア写真をここにドラッグする"
                                                  bottom-text="ファイルをドロップするかここをクリックしてください"
                                                  auto-update="true"

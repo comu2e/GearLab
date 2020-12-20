@@ -40447,7 +40447,7 @@ var render = function() {
                         _c("img-inputer", {
                           attrs: {
                             theme: "light",
-                            size: "middle",
+                            size: "large",
                             placeholder: "ギア写真をここにドラッグする",
                             "bottom-text":
                               "ファイルをドロップするかここをクリックしてください",
@@ -41039,7 +41039,7 @@ var render = function() {
                     _c("img-inputer", {
                       attrs: {
                         theme: "light",
-                        size: "middle",
+                        size: "large",
                         placeholder: "ギア写真をここにドラッグする",
                         "bottom-text":
                           "ファイルをドロップするかここをクリックしてください",

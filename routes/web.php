@@ -18,6 +18,10 @@ Route::get('/layouts.landing', [App\Http\Controllers\HomeController::class, 'ind
 Route::get('/', function () {
     return view('/layouts.landing');
 });
+
+Route::get('/home', function () {
+    return redirect('/gears');
+});
 Route::get('/resume', function () {
     return view('/layouts.resume.resume');
 });

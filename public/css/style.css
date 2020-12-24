@@ -62,6 +62,11 @@ header .container-fluid
     color: #000;
 }
 
+.btn-round
+{
+    border-radius: 100px
+}
+
 .hamburger:hover
 {
   color: #FFF;

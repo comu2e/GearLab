@@ -110,13 +110,13 @@
                         <h1>Gear Lab</h1></h1>
 
                     <p>
-                        <a class="btn btn-success btn-lg" href="{{url('/resume')}}" role="button">
+                        <a class="btn btn-success btn-lg  btn-round" href="{{url('/resume')}}" role="button">
                             Resume
-                            <i class="fa fa-arrow-circle-o-right"></i> </a>
-                        <a target="_blank" href="#concept" target="_blank" class="btn btn-lg btn-primary" role="button">
+                            <i class="fa fa-arrow-circle-o-right "></i> </a>
+                        <a  class="btn btn-primary btn-lg  btn-round" target="_blank" href="#concept" target="_blank" class="btn btn-lg btn-primary" role="button">
                             Concept
                         </a>
-                        <a class="btn btn-danger btn-lg" href="{{url('/gears')}}" role="button">Experience <i
+                        <a class="btn btn-danger btn-lg btn-round" href="{{url('/gears')}}" role="button">Experience <i
                                 class="fa fa-arrow-circle-o-right"></i> </a>
 
                         {{--                        <a target="_blank"  href="{{ route('register') }}"  target="_blank" class="btn btn-lg btn-success" role="button">--}}

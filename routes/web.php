@@ -71,25 +71,28 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::resource('users', 'UserController');
-    Route::resource('gears', 'GearController',['except' => ['create','update']]);
+    Route::resource('gears', 'GearController', ['except' => ['create', 'update']]);
 
 //    Route::get('users/{use_id}/gear_category={gear_category}', 'GearController@category_index')->name('gear_category');
 
     Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');
 
+    Route::prefix('gears')->name('gears.')->group(function () {
 
-    Route::get('gears/{user_id}/favorited', 'FavoriteController@index');
-    Route::get('gears/{gear}/favorites', 'FavoriteController@store');
-    Route::get('gears/{gear}/unfavorites', 'FavoriteController@destroy');
-    Route::get('gears/{gear}/countfavorites', 'FavoriteController@count');
-    Route::get('gears/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
+        Route::get('/{user_id}/favorited', 'FavoriteController@index');
+        Route::get('/{gear}/favorites', 'FavoriteController@store');
+        Route::get('/{gear}/unfavorites', 'FavoriteController@destroy');
+        Route::get('/{gear}/countfavorites', 'FavoriteController@count');
+        Route::get('/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
 
-    //いいね
-    Route::get('/gear/like/{id}', 'GearController@like')->name('gear.like');
-    Route::get('/gear/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
+        //いいね
+        Route::get('/like/{id}', 'GearController@like')->name('gear.like');
+        Route::get('/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
+    });
 
-//フォロー
+
+//フォロー]
     Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
 //    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
     Route::post('/follow-users', 'FollowUserController@store')->name('follow');

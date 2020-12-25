@@ -19,21 +19,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', 'App\Http\Controllers\LoginController@login');
+Route::post('/login', 'LoginController@login');
 //GearのAPI
-Route::apiResource('/gears', 'App\Http\Controllers\GearApiController');
-Route::apiResource('/likes', 'App\Http\Controllers\LikeApiController', ['only' => ['show_index']]);
+Route::apiResource('/gears', 'GearApiController');
+Route::apiResource('/likes', 'LikeApiController', ['only' => ['show_index']]);
 
 //いいね
-Route::get('/likes/{gear_id}/{user_id}', 'App\Http\Controllers\LikeApiController@like');
-Route::get('/unlikes/{gear_id}/{user_id}', 'App\Http\Controllers\LikeApiController@unlike');
+Route::get('/likes/{gear_id}/{user_id}', 'LikeApiController@like');
+Route::get('/unlikes/{gear_id}/{user_id}', 'LikeApiController@unlike');
 
-Route::get('/user_id={user_id}','App\Http\Controllers\GearApiController@user_index');
-Route::post('/follow-users/{user_id}','App\Http\Controllers\FollowUserController@store');
-Route::delete('/follow-users/{user_id}/{auth_id}','App\Http\Controllers\FollowUserController@destroy');
+Route::get('/user_id={user_id}','GearApiController@user_index');
+Route::post('/follow-users/{user_id}','FollowUserController@store');
+Route::delete('/follow-users/{user_id}/{auth_id}','FollowUserController@destroy');
 
 Route::group(['middleware' => 'web'], function () {
-    Route::apiResource('/follows', 'App\Http\Controllers\FollowUserController', ['only' => ['show']]);
+    Route::apiResource('/follows', 'FollowUserController', ['only' => ['show']]);
 });
 
 

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/layouts.landing', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/layouts.landing', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('/layouts.landing');
@@ -31,19 +31,19 @@ Auth::routes();
 Route::group(['middleware' => ['auth.admin']], function () {
 
     //管理側トップ
-    Route::get('/admin', 'App\Http\Controllers\admin\AdminTopController@show');
+    Route::get('/admin', 'admin\AdminTopController@show');
     //ログアウト実行
-    Route::post('/admin/logout', 'App\Http\Controllers\admin\AdminLogoutController@logout');
+    Route::post('/admin/logout', 'admin\AdminLogoutController@logout');
     //ユーザー一覧
-    Route::get('/admin/user_list', 'App\Http\Controllers\admin\ManageUserController@showUserList');
+    Route::get('/admin/user_list', 'admin\ManageUserController@showUserList');
     //ユーザー詳細
-    Route::get('/admin/user/{id}', 'App\Http\Controllers\admin\ManageUserController@showUserDetail');
+    Route::get('/admin/user/{id}', 'admin\ManageUserController@showUserDetail');
 
 });
 
 //管理側ログイン
-Route::get('/admin/login', 'App\Http\Controllers\admin\AdminLoginController@showLoginform');
-Route::post('/admin/login', 'App\Http\Controllers\admin\AdminLoginController@login');
+Route::get('/admin/login', 'admin\AdminLoginController@showLoginform');
+Route::post('/admin/login', 'admin\AdminLoginController@login');
 Auth::routes();
 
 
@@ -52,47 +52,47 @@ Route::get('profile', function () {
     // 認証済みのユーザーのみが入れる
 })->middleware('auth');
 
-Route::get('/favorite', 'App\Http\Controllers\GearController@favorite_gear');
-Route::post('/admin/user/{id}', 'App\Http\Controllers\GearController@delete');
+Route::get('/favorite', 'GearController@favorite_gear');
+Route::post('/admin/user/{id}', 'GearController@delete');
 //フォロー機能
 //ログインしていないユーザーにもフォロー関係を表示できるようにする
 Route::group(['prefix' => 'users/{id}'], function () {
-    Route::get('followings', 'App\Http\Controllers\UserController@followings')->name('followings');
-    Route::get('followers', 'App\Http\Controllers\UsersController@followers')->name('followers');
+    Route::get('followings', 'UserController@followings')->name('followings');
+    Route::get('followers', 'UsersController@followers')->name('followers');
 });
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
 
 
-    Route::put('users', 'App\Http\Controllers\UserController@rename')->name('rename');
+    Route::put('users', 'UserController@rename')->name('rename');
 
     Route::get('/user_detail/{id?}', function () {
         return view('user_detail_view')->name('user_detail');
     });
 
-    Route::resource('users', 'App\Http\Controllers\UserController');
-    Route::resource('gears', 'App\Http\Controllers\GearController',['except' => ['create','update']]);
+    Route::resource('users', 'UserController');
+    Route::resource('gears', 'GearController',['except' => ['create','update']]);
 
-//    Route::get('users/{use_id}/gear_category={gear_category}', 'App\Http\Controllers\GearController@category_index')->name('gear_category');
+//    Route::get('users/{use_id}/gear_category={gear_category}', 'GearController@category_index')->name('gear_category');
 
-    Route::get('edit/{id}', 'App\Http\Controllers\GearController@edit_gear')->name('gear_edit');
-    Route::post('edit/{id}', 'App\Http\Controllers\GearController@update_gear')->name('gear_update');
+    Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
+    Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');
 
 
-    Route::get('gears/{user_id}/favorited', 'App\Http\Controllers\FavoriteController@index');
-    Route::get('gears/{gear}/favorites', 'App\Http\Controllers\FavoriteController@store');
-    Route::get('gears/{gear}/unfavorites', 'App\Http\Controllers\FavoriteController@destroy');
-    Route::get('gears/{gear}/countfavorites', 'App\Http\Controllers\FavoriteController@count');
-    Route::get('gears/{gear}/hasfavorites', 'App\Http\Controllers\FavoriteController@hasfavorite');
+    Route::get('gears/{user_id}/favorited', 'FavoriteController@index');
+    Route::get('gears/{gear}/favorites', 'FavoriteController@store');
+    Route::get('gears/{gear}/unfavorites', 'FavoriteController@destroy');
+    Route::get('gears/{gear}/countfavorites', 'FavoriteController@count');
+    Route::get('gears/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
 
     //いいね
-    Route::get('/gear/like/{id}', 'App\Http\Controllers\GearController@like')->name('gear.like');
-    Route::get('/gear/unlike/{id}', 'App\Http\Controllers\GearController@unlike')->name('gear.unlike');
+    Route::get('/gear/like/{id}', 'GearController@like')->name('gear.like');
+    Route::get('/gear/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
 
 //フォロー
-    Route::get('/following/{user_id}', 'App\Http\Controllers\FollowUserController@index')->name('follow.index');
-//    Route::get('/users_show/{user_id}/}', 'App\Http\Controllers\FollowUserController@show')->name('follow.show');
-    Route::post('/follow-users', 'App\Http\Controllers\FollowUserController@store')->name('follow');
-    Route::delete('/follow-users/{user_id}', 'App\Http\Controllers\FollowUserController@destroy')->name('unfollow');
+    Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
+//    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
+    Route::post('/follow-users', 'FollowUserController@store')->name('follow');
+    Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
 
 });

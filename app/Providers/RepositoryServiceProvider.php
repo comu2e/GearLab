@@ -14,7 +14,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             \App\Repositories\Gear\GearDataAccessRepositoryInterface::class,
-            \App\Repositories\Gear\GearDataAccessQBRepository::class
+            \App\Repositories\Gear\GearDataAccessEQRepository::class
         );
     }
 

@@ -4,10 +4,10 @@
             <div class="col-md-12">
                 <div>
                     <button @click="unfavorite()" class="btn btn-danger btn-sm">
-                        いいね解除
+                    使ってみたい　解除
                     </button>
                     <button @click="favorite()" class="btn btn-success btn-sm">
-                        {{ 'いいね数 : ' + count }}
+                        {{ ' 使ってみたい人の数: ' + count }}
                     </button>
 
                 </div>

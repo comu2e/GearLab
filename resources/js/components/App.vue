@@ -10,7 +10,7 @@
 
                 <li class="nav-item">
                     <router-link :to="{ name: 'likes',param:{value:this.$store.state.auth_user}}" class="nav-link">
-                        いいねしたギア
+                        使ってみたいギア
                     </router-link>
                 </li>
                 <li class="nav-item">

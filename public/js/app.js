@@ -40324,7 +40324,7 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    いいねしたギア\n                "
+                      "\n                    使ってみたいギア\n                "
                     )
                   ]
                 )
@@ -41583,7 +41583,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("\n                    いいね解除\n                ")]
+            [_vm._v("\n                使ってみたい　解除\n                ")]
           ),
           _vm._v(" "),
           _c(
@@ -41599,7 +41599,7 @@ var render = function() {
             [
               _vm._v(
                 "\n                    " +
-                  _vm._s("いいね数 : " + _vm.count) +
+                  _vm._s(" 使ってみたい人の数: " + _vm.count) +
                   "\n                "
               )
             ]

@@ -13,9 +13,9 @@ class CreateLikeTable extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('gear_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->bigIncrements('id')->unsigned();
+            $table->bigInteger('gear_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 //           https://qiita.com/dai_designing/items/67a48e31d50899c6543f
             $table->foreign('user_id')

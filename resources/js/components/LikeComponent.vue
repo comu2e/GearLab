@@ -35,7 +35,6 @@ export default {
                 .then(res => {
                     this.count = res.data.count;
                 }).catch(function (error) {
-                console.log(error);
             });
         },
         unfavorite() {
@@ -43,7 +42,6 @@ export default {
                 .then(res => {
                     this.count = res.data.count;
                 }).catch(function (error) {
-                console.log(error);
             });
         },
         countfavorites() {
@@ -51,7 +49,6 @@ export default {
                 .then(res => {
                     this.count = res.data;
                 }).catch(function (error) {
-                console.log(error);
             });
         },
         hasfavorites() {
@@ -59,7 +56,6 @@ export default {
                 .then(res => {
                     this.result = res.data;
                 }).catch(function (error) {
-                console.log(error);
             });
         }
     }

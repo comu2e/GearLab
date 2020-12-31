@@ -19,7 +19,7 @@
 
 <script>
 export default {
-    props: ['id', 'following'],
+    props: ['id'],
     data: function () {
         return {
             currentFollowing: this.following,

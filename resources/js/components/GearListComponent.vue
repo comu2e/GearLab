@@ -20,10 +20,10 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <!--                            <div>{{// '投稿者 : '+gear.user_name }}</div>-->
+                            <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
-                            <div>{{ 'ユーザーID: ' + gear.user_id }}</div>
+                            <div>{{ '登録者: ' + gear.user.name }}</div>
 
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
@@ -64,6 +64,7 @@ export default {
             axios.get('/api/gears')
                 .then((res) => {
                     this.gears = res.data['data'];
+
                 });
         },
 
@@ -133,7 +134,6 @@ export default {
             if(this.category =='All'){
                 console.log("all 呼び出し")
                 temp_gear = this.gears;
-                console.log(temp_gear);
             }
 
 

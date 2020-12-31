@@ -22,7 +22,7 @@ class Gear extends Model
     const CREATED_AT = null;
     public function likes()
     {
-        return $this->hasMany(Like::class, 'gear_id');
+        return $this->hasMany(Like::class);
     }
     public function user()
     {

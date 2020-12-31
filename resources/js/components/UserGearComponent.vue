@@ -28,10 +28,10 @@
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <!--                            <div class="btn btn-success btn-sm">{{  // 'いいね数 : ' + gear.likes_count }}</div>-->
-                            <div v-if="gear.user_id != auth_user.id">
-                                <follow-button-component :id="gear.user_id"></follow-button-component>
+<!--                            <div v-if="gear.user_id != auth_user.id">-->
+<!--                                <follow-button-component :id="gear.user_id"></follow-button-component>-->
 
-                            </div>
+<!--                            </div>-->
                             <like-component :post="gear"></like-component>
                         </div>
                     </div>

@@ -10,12 +10,12 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
 {
     /**
      * Gearテーブルからデータをすべて取得
-     * @return Gear[]|\Illuminate\Database\Eloquent\Collection
      *
      */
     public function getAll()
     {
-        return Gear::all();
+        $gears = Gear::with('user')->get();
+        return $gears;
     }
 
     /**

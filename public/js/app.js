@@ -2175,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['id', 'following'],
+  props: ['id'],
   data: function data() {
     return {
       currentFollowing: this.following,
@@ -2220,7 +2220,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -2747,7 +2746,6 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       if (this.category == 'All') {
         console.log("all 呼び出し");
         temp_gear = this.gears;
-        console.log(temp_gear);
       }
 
       return temp_gear;
@@ -2892,36 +2890,28 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/gears/' + this.post.id + '/favorites').then(function (res) {
         _this.count = res.data.count;
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      })["catch"](function (error) {});
     },
     unfavorite: function unfavorite() {
       var _this2 = this;
 
       axios.get('/gears/' + this.post.id + '/unfavorites').then(function (res) {
         _this2.count = res.data.count;
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      })["catch"](function (error) {});
     },
     countfavorites: function countfavorites() {
       var _this3 = this;
 
       axios.get('/gears/' + this.post.id + '/countfavorites').then(function (res) {
         _this3.count = res.data;
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      })["catch"](function (error) {});
     },
     hasfavorites: function hasfavorites() {
       var _this4 = this;
 
       axios.get('/gears/' + this.post.id + '/hasfavorites').then(function (res) {
         _this4.result = res.data;
-      })["catch"](function (error) {
-        console.log(error);
-      });
+      })["catch"](function (error) {});
     }
   }
 });
@@ -41356,7 +41346,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
                     _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
+                    _c("div", [_vm._v(_vm._s("登録者: " + gear.user.name))]),
                     _vm._v(" "),
                     _c("div", [
                       _vm._v(_vm._s("お気にいりポイント : " + gear.content))
@@ -41834,9 +41824,9 @@ var render = function() {
             _vm._l(_vm.gear_category, function(category) {
               return _c("option", { domProps: { value: category } }, [
                 _vm._v(
-                  "\n                        " +
+                  "\n                            " +
                     _vm._s(category) +
-                    "\n                    "
+                    "\n                        "
                 )
               ])
             }),
@@ -41875,18 +41865,6 @@ var render = function() {
                     _c("div", [
                       _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
                     ]),
-                    _vm._v(" "),
-                    gear.user_id != _vm.auth_user.id
-                      ? _c(
-                          "div",
-                          [
-                            _c("follow-button-component", {
-                              attrs: { id: gear.user_id }
-                            })
-                          ],
-                          1
-                        )
-                      : _vm._e(),
                     _vm._v(" "),
                     _c("like-component", { attrs: { post: gear } })
                   ],

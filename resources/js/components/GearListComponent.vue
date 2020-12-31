@@ -132,7 +132,6 @@ export default {
                 }
             }
             if(this.category =='All'){
-                console.log("all 呼び出し")
                 temp_gear = this.gears;
             }
 

@@ -63,8 +63,10 @@
                             <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="content"></textarea>
                         </div>
 
-                        <p>{{ message }}</p>
+                        <div v-for="err in this.message" class="alert alert-warning" role="alert">
+                            <p>{{ err[0] }}</p>
 
+                        </div>
                         <p>
                             <button @click="uploadImage" class="btn btn-primary btn-lg ">Gear+</button>
                         </p>

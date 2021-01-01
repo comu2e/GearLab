@@ -2504,6 +2504,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // user: Number,
   mounted: function mounted() {
@@ -41190,7 +41192,16 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.message))]),
+              _vm._l(this.message, function(err) {
+                return _c(
+                  "div",
+                  {
+                    staticClass: "alert alert-warning",
+                    attrs: { role: "alert" }
+                  },
+                  [_c("p", [_vm._v(_vm._s(err[0]))])]
+                )
+              }),
               _vm._v(" "),
               _c("p", [
                 _c(
@@ -41202,7 +41213,8 @@ var render = function() {
                   [_vm._v("Gear+")]
                 )
               ])
-            ]
+            ],
+            2
           )
         ])
       ])

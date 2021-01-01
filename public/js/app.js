@@ -2050,6 +2050,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.gearId = this.$route.params.gearId;
@@ -2063,6 +2072,7 @@ __webpack_require__.r(__webpack_exports__);
       maker_name: "",
       gear_name: "",
       gear_category: "",
+      is_post_success: null,
       user_id: "",
       content: "",
       view: true,
@@ -2100,6 +2110,11 @@ __webpack_require__.r(__webpack_exports__);
         _this4.$router.push({
           name: 'home'
         });
+
+        _this4.is_post_success = true;
+      })["catch"](function (err) {
+        _this4.message = err.response.data.errors;
+        _this4.is_post_success = false;
       });
     }
   },
@@ -40612,7 +40627,33 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.message))]),
+                  _vm._l(_vm.message, function(err) {
+                    return _vm.is_post_success == false
+                      ? _c("div", { attrs: { role: "alert" } }, [
+                          _c("p", { staticClass: "alert alert-warning" }, [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(err) +
+                                "\n                            "
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  }),
+                  _vm._v(" "),
+                  _vm._l(1, function(n) {
+                    return _vm.is_post_success == true
+                      ? _c("div", { attrs: { role: "alert" } }, [
+                          _c("p", { staticClass: "alert alert-success" }, [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s("ギアを登録できました！") +
+                                "\n                            "
+                            )
+                          ])
+                        ])
+                      : _vm._e()
+                  }),
                   _vm._v(" "),
                   _c("p", [
                     _c(
@@ -40624,7 +40665,8 @@ var render = function() {
                       [_vm._v("編集内容を登録する")]
                     )
                   ])
-                ]
+                ],
+                2
               )
             ])
           ])

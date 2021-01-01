@@ -61,8 +61,17 @@
                                 <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="gear.content"></textarea>
                             </div>
 
-                            <p>{{ message }}</p>
+                            <div v-for="err in message" role="alert" v-if="is_post_success == false ">
+                                <p class="alert alert-warning">
+                                    {{ err }}
+                                </p>
 
+                            </div>
+                            <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
+                                <p class="alert alert-success" >
+                                    {{ 'ギアを登録できました！' }}
+                                </p>
+                            </div>
                             <p>
                                 <button @click="submit" class="btn btn-primary btn-lg ">編集内容を登録する</button>
                             </p>
@@ -89,6 +98,7 @@ export default {
             maker_name: "",
             gear_name: "",
             gear_category: "",
+            is_post_success:null,
             user_id: "",
             content: "",
             view: true,
@@ -127,7 +137,12 @@ export default {
             axios.put('/api/gears/' + this.$route.params.gearId, this.gear)
                 .then((res) => {
                     this.$router.push({name: 'home'});
-                });
+                    this.is_post_success = true;
+
+                }) .catch(err => {
+                this.message = err.response.data.errors;
+                this.is_post_success = false;
+            });
         }
     },
     mounted() {

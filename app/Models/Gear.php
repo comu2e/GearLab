@@ -18,8 +18,7 @@ class Gear extends Model
     ];
     use HasFactory;
     //    一体他のリレーション
-    const UPDATED_AT = null;
-    const CREATED_AT = null;
+   
     public function likes()
     {
         return $this->hasMany(Like::class);

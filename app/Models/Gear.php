@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 class Gear extends Model
 {
+    protected $table = "gears";
 
     protected $fillable = [
         'gear_name',
@@ -18,14 +19,14 @@ class Gear extends Model
     ];
     use HasFactory;
     //    一体他のリレーション
-   
+
     public function likes()
     {
         return $this->hasMany(Like::class);
     }
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
     public function getUser($user_id)
     {

@@ -21,9 +21,10 @@
                         <div align="right">
 
                             <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
+                            <div>{{ '登録者: ' + gear.user.name }}</div>
+
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
-<!--                            <div>{{ // '登録者: ' + gear['user'].name }}</div>-->
 
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>

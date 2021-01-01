@@ -13,7 +13,7 @@
                             <div>{{'カテゴリ: ' + gear.gear_category }}</div>
 
                             <div>{{'お気にいりポイント : ' +gear.content }}</div>
-                            <div>{{' 投稿日: ' +gear.updated_at }}</div>
+                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
                             <div>{{'メーカー名 : ' + gear.maker_name }}</div>
                             <like-component :post="gear"></like-component>
 

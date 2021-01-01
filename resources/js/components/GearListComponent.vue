@@ -26,7 +26,7 @@
 <!--                            <div>{{ // '登録者: ' + gear['user'].name }}</div>-->
 
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
-                            <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
+                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
                             <div v-if="gear.user_id != auth_user.id">
                                 <follow-button-component :id="gear.user_id"></follow-button-component>
@@ -57,6 +57,8 @@ export default {
             gears: [],
             gear: [],
             gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"],
+            date: this.$moment().format(),
+
         }
     },
     methods: {

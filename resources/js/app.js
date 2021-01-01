@@ -46,6 +46,7 @@ Vue.component('ImgInputer', ImgInputer)
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.use(require('vue-moment'));
 
 // vue-routerを使う宣言
 Vue.use(VueRouter);

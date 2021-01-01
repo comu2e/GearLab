@@ -62,11 +62,20 @@
                             </div>
                             <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="content"></textarea>
                         </div>
-
-                        <div v-for="err in this.message" class="alert alert-warning" role="alert">
-                            <p>{{ err[0] }}</p>
+                        <div v-for="err in message" role="alert" v-if="is_post_success == false ">
+                            <p class="alert alert-warning">
+                                {{ err }}
+                            </p>
 
                         </div>
+                        <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
+                            <p class="alert alert-success" >
+                                {{ 'ギアを登録できました！' }}
+                            </p>
+
+                        </div>
+
+
                         <p>
                             <button @click="uploadImage" class="btn btn-primary btn-lg ">Gear+</button>
                         </p>
@@ -93,6 +102,7 @@ export default {
             gear_name: "",
             gear_category: "",
             user_id: "",
+            is_post_success:null,
             content: "",
             view: true,
             gears: {},
@@ -102,11 +112,7 @@ export default {
     created: function () {
         this.getGears();
     },
-    // computed: {
-    //     auth_user(){
-    //         return this.$store.state.auth_user;
-    //     }
-    // },
+
     methods: {
         getGears() {
             axios.get("/api/gears/")
@@ -157,15 +163,17 @@ export default {
                     this.content = "";
                     this.file = "";
                     // this.user_id = $route.params;
-
-                    //ファイルを選択のクリア
+                    this.message = 'success'
+                        //ファイルを選択のクリア
                     this.view = false;
+                    this.is_post_success = true;
                     this.$nextTick(function () {
                         this.view = true;
                     });
                 })
                 .catch(err => {
                     this.message = err.response.data.errors;
+                    this.is_post_success = false;
                 });
         }
         //    ここまで

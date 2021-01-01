@@ -23,7 +23,7 @@
                             <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
-                            <div>{{ '登録者: ' + gear.user.name }}</div>
+<!--                            <div>{{ // '登録者: ' + gear['user'].name }}</div>-->
 
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{ ' 投稿日: ' + gear.updated_at }}</div>
@@ -64,7 +64,6 @@ export default {
             axios.get('/api/gears')
                 .then((res) => {
                     this.gears = res.data['data'];
-
                 });
         },
 

@@ -2506,6 +2506,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // user: Number,
   mounted: function mounted() {
@@ -2519,6 +2528,7 @@ __webpack_require__.r(__webpack_exports__);
       gear_name: "",
       gear_category: "",
       user_id: "",
+      is_post_success: null,
       content: "",
       view: true,
       gears: {},
@@ -2528,11 +2538,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.getGears();
   },
-  // computed: {
-  //     auth_user(){
-  //         return this.$store.state.auth_user;
-  //     }
-  // },
   methods: {
     getGears: function getGears() {
       var _this = this;
@@ -2587,15 +2592,18 @@ __webpack_require__.r(__webpack_exports__);
         _this3.gear_category = "";
         _this3.content = "";
         _this3.file = ""; // this.user_id = $route.params;
-        //ファイルを選択のクリア
+
+        _this3.message = 'success'; //ファイルを選択のクリア
 
         _this3.view = false;
+        _this3.is_post_success = true;
 
         _this3.$nextTick(function () {
           this.view = true;
         });
       })["catch"](function (err) {
         _this3.message = err.response.data.errors;
+        _this3.is_post_success = false;
       });
     } //    ここまで
 
@@ -41192,15 +41200,32 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _vm._l(this.message, function(err) {
-                return _c(
-                  "div",
-                  {
-                    staticClass: "alert alert-warning",
-                    attrs: { role: "alert" }
-                  },
-                  [_c("p", [_vm._v(_vm._s(err[0]))])]
-                )
+              _vm._l(_vm.message, function(err) {
+                return _vm.is_post_success == false
+                  ? _c("div", { attrs: { role: "alert" } }, [
+                      _c("p", { staticClass: "alert alert-warning" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(err) +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e()
+              }),
+              _vm._v(" "),
+              _vm._l(1, function(n) {
+                return _vm.is_post_success == true
+                  ? _c("div", { attrs: { role: "alert" } }, [
+                      _c("p", { staticClass: "alert alert-success" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s("ギアを登録できました！") +
+                            "\n                        "
+                        )
+                      ])
+                    ])
+                  : _vm._e()
               }),
               _vm._v(" "),
               _c("p", [

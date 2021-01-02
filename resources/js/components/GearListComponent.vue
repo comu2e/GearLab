@@ -21,7 +21,7 @@
                         <div align="right">
 
                             <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
-                            <div>{{ '登録者: ' + gear.user.name }}</div>
+                            <div>{{ '登録者: ' + gear.user[0].name }}</div>
 
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>

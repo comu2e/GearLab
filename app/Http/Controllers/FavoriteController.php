@@ -15,9 +15,11 @@ class FavoriteController extends Controller
     public function index($user_id)
     {
         $user = User::find($user_id);
+
         $favorites_gear = $user->favorites;
         return response()->json([
             'data' => $favorites_gear,
+            'user'=>$user->name
         ]);
     }
 

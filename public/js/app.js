@@ -2999,6 +2999,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
       axios.get('/gears/' + this.$store.state.auth_user.id + '/favorited').then(function (res) {
         _this.gears = res.data['data'];
+        _this.user = res.data['user'];
       });
     }
   },
@@ -41421,7 +41422,7 @@ var render = function() {
                   "div",
                   { attrs: { align: "right" } },
                   [
-                    _c("div", [_vm._v(_vm._s("登録者: " + gear.user.name))]),
+                    _c("div", [_vm._v(_vm._s("登録者: " + gear.user[0].name))]),
                     _vm._v(" "),
                     _c("div", [
                       _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
@@ -41727,7 +41728,7 @@ var render = function() {
                 "div",
                 { attrs: { align: "right" } },
                 [
-                  _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
+                  _c("div", [_vm._v(_vm._s("投稿者 : " + _vm.user))]),
                   _vm._v(" "),
                   _c("div", [
                     _vm._v(_vm._s("カテゴリ: " + gear.gear_category))

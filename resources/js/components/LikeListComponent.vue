@@ -9,7 +9,7 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <div>{{'投稿者 : '+gear.user_name }}</div>
+                            <div>{{'投稿者 : '+user }}</div>
                             <div>{{'カテゴリ: ' + gear.gear_category }}</div>
 
                             <div>{{'お気にいりポイント : ' +gear.content }}</div>
@@ -47,6 +47,7 @@ export default {
             axios.get('/gears/'+this.$store.state.auth_user.id+'/favorited')
                 .then((res) => {
                     this.gears = res.data['data'];
+                    this.user = res.data['user'];
                 });
         },
     },

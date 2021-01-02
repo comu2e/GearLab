@@ -226,7 +226,6 @@
         <div class="resume-section-content">
             <h2 class="mb-5">ポートフォリオ</h2>
             <h2 class="mb-10">GearLab </h2>
-            <h>コンセプト</h>
         </div>
     </section>
     <hr class="m-0"/>

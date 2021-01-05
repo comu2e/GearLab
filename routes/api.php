@@ -3,7 +3,10 @@
 use App\Models\Gear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+if(config('app.env') === 'production'){
+    // asset()やurl()がhttpsで生成される
+    URL::forceScheme('https');
+}
 /*
 |--------------------------------------------------------------------------
 | API Routes

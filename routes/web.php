@@ -80,6 +80,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');
+//フォロー]
+    Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
+//    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
+    Route::post('/follow-users', 'FollowUserController@store')->name('follow');
+    Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
 
     Route::prefix('gears')->name('gears.')->group(function () {
 
@@ -99,11 +104,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     });
-//フォロー]
-    Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
-//    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
-    Route::post('/follow-users', 'FollowUserController@store')->name('follow');
-    Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
 
 
 

@@ -2186,6 +2186,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   data: function data() {
@@ -2202,7 +2205,7 @@ __webpack_require__.r(__webpack_exports__);
     follow_check: function follow_check() {
       var _this = this;
 
-      var id = this.gear_id;
+      var id = this.id;
       var array = ["/users/", id, "/check"];
       var path = array.join('');
       axios.get(path).then(function (res) {
@@ -2216,28 +2219,37 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     follow: function follow() {
-      if (this.sending) {
-        return;
-      }
+      var _this2 = this;
 
-      this.sending = true;
-      var data = {
-        id: this.id
-      };
-      axios.post('/follow-users', data);
-      this.currentFollowing = true;
-      this.sending = false;
-    },
-    unfollow: function unfollow() {
-      if (this.sending) {
-        return;
-      }
+      // if (this.sending) {
+      //     return
+      // }
+      // this.sending = true
+      // const data = {id: this.id}
+      // axios.post('/follow-users', data)
+      // this.currentFollowing = true
+      // this.sending = false
+      //
+      var id = this.id;
+      var array = ["/users/", id, "/follow"];
+      var path = array.join('');
+      axios.post(path).then(function (res) {
+        _this2.follow_check();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    } // unfollow() {
+    //
+    //     this.sending = true
+    //     axios.delete(`/follow-users/${this.id}`)
+    //     this.currentFollowing = false
+    //     this.sending = false
+    //
+    //
+    //
+    //
+    // }
 
-      this.sending = true;
-      axios["delete"]("/follow-users/".concat(this.id));
-      this.currentFollowing = false;
-      this.sending = false;
-    }
   }
 });
 
@@ -2657,6 +2669,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent */ "./resources/js/components/FollowButtonComponent.vue");
+//
 //
 //
 //
@@ -40902,55 +40915,37 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.status == false
-      ? _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { type: "button" },
-            on: { click: _vm.unfollow }
-          },
-          [
-            _vm.sending
-              ? _c(
-                  "div",
-                  {
-                    staticClass: "spinner-border spinner-border-sm",
-                    attrs: { role: "status" }
-                  },
-                  [
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("Sending...")
-                    ])
-                  ]
-                )
-              : _c("div", [_vm._v("フォロー中")])
-          ]
-        )
-      : _c(
-          "button",
-          {
-            staticClass: "btn btn-secondary btn-raised",
-            attrs: { type: "button" },
-            on: { click: _vm.follow }
-          },
-          [
-            _vm.sending
-              ? _c(
-                  "div",
-                  {
-                    staticClass: "spinner-border spinner-border-sm",
-                    attrs: { role: "status" }
-                  },
-                  [
-                    _c("span", { staticClass: "sr-only" }, [
-                      _vm._v("Sending...")
-                    ])
-                  ]
-                )
-              : _c("div", [_vm._v("\n            フォローする\n        ")])
-          ]
-        )
+    _c("div", [
+      _vm.status == false
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-success",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.follow($event)
+                }
+              }
+            },
+            [_vm._v("フォローする")]
+          )
+        : _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.follow($event)
+                }
+              }
+            },
+            [_vm._v("フォロー済み")]
+          )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -41559,7 +41554,7 @@ var render = function() {
                     _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
                   ]),
                   _vm._v(" "),
-                  gear.user_id != _vm.auth_user.id
+                  gear.user_id !== _vm.auth_user.id
                     ? _c(
                         "div",
                         [

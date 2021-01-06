@@ -29,8 +29,9 @@
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
-                            <div v-if="gear.user_id != auth_user.id">
-                                <follow-button-component :id="gear.user_id"></follow-button-component>
+
+                            <div v-if="gear.user_id !== auth_user.id">
+                                <follow-button-component :id=gear.user_id></follow-button-component>
 
                             </div>
                            <div v-if="gear.user_id !== auth_user.id">

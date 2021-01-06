@@ -14,19 +14,9 @@ class CreateLikeTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->bigInteger('gear_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('gear_id')->constrained('gears')->onDelete('cascade');
             $table->timestamps();
-//           https://qiita.com/dai_designing/items/67a48e31d50899c6543f
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade'); // userが削除されたとき、それに関連するlikeも一気に削除される
-
-            $table->foreign('gear_id')
-                ->references('id')
-                ->on('gears')
-                ->onDelete('cascade'); // gearが削除されたとき、それに関連するlikeも一気に削除される
         });
     }
 }

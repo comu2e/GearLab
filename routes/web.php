@@ -16,7 +16,7 @@ if(config('app.env') === 'production'){
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/layouts.landing', [HomeController::class, 'index'])->name('home');
+//Route::get('/layouts.landing', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('/layouts.landing');
@@ -83,15 +83,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('gears')->name('gears.')->group(function () {
 
-        Route::get('/{user_id}/favorited', 'FavoriteController@index');
         Route::get('/{gear}/favorites', 'FavoriteController@store');
         Route::get('/{gear}/unfavorites', 'FavoriteController@destroy');
         Route::get('/{gear}/countfavorites', 'FavoriteController@count');
         Route::get('/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
 
-        //いいね
-        Route::get('/like/{id}', 'GearController@like')->name('gear.like');
-        Route::get('/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
+//        //いいね
+//        Route::get('/like/{id}', 'GearController@like')->name('gear.like');
+//        Route::get('/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
+        Route::get('/{gear}/check', 'LikeController@check')->name('like.check');
+        Route::get('/{gear}/liked', 'LikeController@index')->name('like.index');
+        Route::resource('/{gear}/likes', 'LikeController', [
+            'only' => ['store'],
+        ]);
 
 //フォロー]
         Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');

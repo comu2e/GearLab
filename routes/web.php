@@ -88,10 +88,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::prefix('gears')->name('gears.')->group(function () {
 
-        Route::get('/{gear}/favorites', 'FavoriteController@store');
-        Route::get('/{gear}/unfavorites', 'FavoriteController@destroy');
-        Route::get('/{gear}/countfavorites', 'FavoriteController@count');
-        Route::get('/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
+//        Route::get('/{gear}/favorites', 'FavoriteController@store');
+//        Route::get('/{gear}/unfavorites', 'FavoriteController@destroy');
+//        Route::get('/{gear}/countfavorites', 'FavoriteController@count');
+//        Route::get('/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
 
 //        //いいね
 //        Route::get('/like/{id}', 'GearController@like')->name('gear.like');

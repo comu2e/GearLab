@@ -41755,7 +41755,7 @@ var render = function() {
       ? _c(
           "button",
           {
-            staticClass: "btn btn-outline-warning",
+            staticClass: "btn btn-outline-success",
             attrs: { type: "button" },
             on: {
               click: function($event) {
@@ -41769,7 +41769,7 @@ var render = function() {
       : _c(
           "button",
           {
-            staticClass: "btn btn-warning",
+            staticClass: "btn btn-primary",
             attrs: { type: "button" },
             on: {
               click: function($event) {

@@ -22,11 +22,17 @@
 
                             <div class="mt-2 ml-1">
                                 <!--                                削除する POST-->
-                                <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">Delete</button>
+                                <button class="btn btn-danger" v-on:click="deleteGear(gear.id)">ギアの登録を解除する</button>
                                 <!--                                Edit画面に飛ぶようにする-->
                                 <router-link :to="{ name: 'edit', params: { gearId: gear.id}}">
-                                    <button class="btn btn-primary">Edit</button>
+                                    <button class="btn btn-primary">ギアの説明を編集する</button>
                                 </router-link>
+                            </div>
+                            <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
+                                <p class="alert alert-success" >
+                                    {{ 'ギアの登録を解除しました！' }}
+                                </p>
+
                             </div>
 
 
@@ -49,7 +55,8 @@ export default {
     // },
     data: function () {
         return {
-            gears: []
+            gears: [],
+            is_post_success:null,
         }
     },
     methods: {
@@ -62,7 +69,10 @@ export default {
         deleteGear(id) {
             axios.delete('/api/gears/' + id)
                 .then((res) => {
-                    this.getGears();
+                    this.is_post_success = true;
+
+                    this.getUserGears(this.$store.state.auth_user.id);
+
                 });
         }
     },

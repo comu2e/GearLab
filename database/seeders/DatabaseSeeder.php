@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'User@mailaddress.com',
             'password' => bcrypt('password'),
         ]);
+
     }
+
 }

@@ -16,12 +16,27 @@ class GearTest extends TestCase
      *
      * @return void
      */
-    public function testIndex()
+    use RefreshDatabase;
+
+    public function testIsLikedByNull()
     {
+        $gear = Gear::factory()->create();
+        $user= User::factory()->create();
+        $gear->like_ing()->attach($user);
 
-        $response = $this->get('/');
+        $result = $gear->isLiked(null);
 
-        $response->assertStatus(200);
+        $this->assertFalse($result);
     }
+    public function testIsLikedByAnother()
+    {
+        $gear = Gear::factory()->create();
+        $user= User::factory()->create();
+        $another= User::factory()->create();
+        $gear->like_ing()->attach($another);
 
+        $result = $gear->isLiked($user);
+
+        $this->assertFalse($result);
+    }
 }

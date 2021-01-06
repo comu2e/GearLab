@@ -27,7 +27,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
     public function getUser($user_id)
     {
 
-        return Gear::with('user')->where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
+        return Gear::with(['user','likes'])->where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
 
     }
 
@@ -38,7 +38,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
 
     public function getCategorizedGear($category)
     {
-        return Gear::where('gear_category', $category)->orderby('updated_at', 'desc')->get();
+        return Gear::with(['user','likes'])->where('gear_category', $category)->orderby('updated_at', 'desc')->get();
 
     }
 
@@ -61,7 +61,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
     public function UpdateSelect($id, $key, $value)
     {
         //すでにwhere　idで指定ししたtaskを更新する。
-        return Gear::where("id", $id)->update([$key => $value]);
+        return Gear::with(['user','likes'])->where("id", $id)->update([$key => $value]);
 
     }
 

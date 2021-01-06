@@ -97,14 +97,14 @@ Route::group(['middleware' => 'auth'], function () {
             'only' => ['store'],
         ]);
 
-//フォロー]
-        Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
-//    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
-        Route::post('/follow-users', 'FollowUserController@store')->name('follow');
-        Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
-
 
     });
+//フォロー]
+    Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
+//    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
+    Route::post('/follow-users', 'FollowUserController@store')->name('follow');
+    Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
+
 
 
 });

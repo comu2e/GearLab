@@ -10,7 +10,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
 {
     /**
      * Gearテーブルからデータをすべて取得
-     *
+     *::
      */
     public function getAll()
     {
@@ -27,7 +27,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
     public function getUser($user_id)
     {
 
-        return Gear::where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
+        return Gear::with('user')->where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
 
     }
 

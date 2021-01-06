@@ -9,7 +9,7 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <div>{{ '投稿者 : ' + gear.user_name }}</div>
+                            <div>{{ '投稿者 : ' + gear.user.name }}</div>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
 
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>

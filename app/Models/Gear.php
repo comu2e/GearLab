@@ -29,6 +29,15 @@ class Gear extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function isLiked($user_id)
+    {
+        return $this->likes()->where('user_id', $user_id)->exists();
+    }
+    public function getLike($user_id,$gear_id)
+    {
+        return $this->where('user_id', $user_id)->where('id',$gear_id);
+    }
+
     public function getUser($user_id)
     {
         return $this->find($user_id)

@@ -39,6 +39,7 @@ Vue.component('landing-app', require('./components/LandingApp.vue').default);
 Vue.component('edit-component', require('./components/EditGear.vue').default);
 Vue.component('follow-component', require('./components/FollowButtonComponent.vue').default);
 Vue.component('like-component', require('./components/LikeComponent.vue').default);
+Vue.component('like', require('./components/Like.vue').default);
 Vue.component('user-gear-component', require('./components/UserGearComponent.vue').default);
 Vue.component('ImgInputer', ImgInputer)
 /*

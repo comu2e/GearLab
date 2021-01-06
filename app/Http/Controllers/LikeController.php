@@ -39,6 +39,7 @@ class LikeController extends Controller
             }
         }
     }
+//    認証しているユーザが対象のギアをいいねしているかを確認するためのメソッド
 
     public function check(Gear $gear)
     {
@@ -49,7 +50,7 @@ class LikeController extends Controller
                 $data = 1;
             }
             else{
-                $data=1;
+                $data=0;
             }
 
         }

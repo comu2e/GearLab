@@ -41422,7 +41422,7 @@ var render = function() {
                   "div",
                   { attrs: { align: "right" } },
                   [
-                    _c("div", [_vm._v(_vm._s("登録者: " + gear.user[0].name))]),
+                    _c("div", [_vm._v(_vm._s("登録者: " + gear.user.name))]),
                     _vm._v(" "),
                     _c("div", [
                       _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
@@ -41800,7 +41800,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user_name))]),
+                _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user.name))]),
                 _vm._v(" "),
                 _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
                 _vm._v(" "),

@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\Gear;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -13,10 +15,19 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testIsFollowedByAnother()
     {
-        $response = $this->get('/');
+        // フォローするユーザーの作成
 
-        $response->assertStatus(200);
+        $user= User::factory()->create();
+        //フォローされるユーザーの作成
+
+        $another= User::factory()->create();
+//      フォローする
+        $user -> follow($another->id);
+//        userがanotherをフォローしているか
+        $result = $user->is_following($another->id);
+
+        $this->assertTrue($result);
     }
 }

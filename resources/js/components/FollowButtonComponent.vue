@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-if="currentFollowing" type="button" class="btn btn-primary" @click="unfollow">
+        <button v-if="status == false" type="button" class="btn btn-primary" @click="unfollow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
@@ -24,9 +24,29 @@ export default {
         return {
             currentFollowing: this.following,
             sending: false,
+            status: false,
+
         }
     },
+    created() {
+        this.follow_check()
+    },
     methods: {
+
+        follow_check() {
+            const id = this.gear_id
+            const array = ["/users/",id,"/check"];
+            const path = array.join('')
+            axios.get(path).then(res => {
+                if(res.data == 1) {
+                    this.status = true
+                } else {
+                    this.status = false
+                }
+            }).catch(function(err) {
+                console.log(err)
+            })
+        },
         follow() {
             if (this.sending) {
                 return

@@ -2191,10 +2191,30 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       currentFollowing: this.following,
-      sending: false
+      sending: false,
+      status: false
     };
   },
+  created: function created() {
+    this.follow_check();
+  },
   methods: {
+    follow_check: function follow_check() {
+      var _this = this;
+
+      var id = this.gear_id;
+      var array = ["/users/", id, "/check"];
+      var path = array.join('');
+      axios.get(path).then(function (res) {
+        if (res.data == 1) {
+          _this.status = true;
+        } else {
+          _this.status = false;
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     follow: function follow() {
       if (this.sending) {
         return;
@@ -40882,7 +40902,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.currentFollowing
+    _vm.status == false
       ? _c(
           "button",
           {

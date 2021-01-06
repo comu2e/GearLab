@@ -25,6 +25,10 @@ class Gear extends Model
     {
         return $this->hasMany(Like::class);
     }
+    public function like_ing()
+    {
+        return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

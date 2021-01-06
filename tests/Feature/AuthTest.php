@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class AuthTest extends TestCase
 {
@@ -13,10 +14,17 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    use RefreshDatabase;
+
+    public function testAuth()
     {
-        $response = $this->get('/');
+
+        $user = User::factory()->create();
+
+        $response = $this->actingAs($user)
+            ->get('/');
 
         $response->assertStatus(200);
+
     }
 }

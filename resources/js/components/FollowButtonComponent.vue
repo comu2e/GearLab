@@ -1,19 +1,22 @@
 <template>
     <div>
-        <button v-if="status == false" type="button" class="btn btn-primary" @click="unfollow">
-            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
-                <span class="sr-only">Sending...</span>
+<!--        <button v-if="status == false" type="button" class="btn btn-primary" @click="unfollow">-->
+<!--            フォロー中-->
+<!--        </button>-->
+<!--        <button v-else type="button" class="btn btn-secondary btn-raised" @click="follow">-->
+<!--            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">-->
+<!--                <span class="sr-only">Sending...</span>-->
+<!--            </div>-->
+<!--            <div v-else>-->
+<!--                フォローする-->
+<!--            </div>-->
+
+            <div>
+                <button v-if="status == false" type="button" @click.prevent="follow" class="btn btn-outline-success">フォローする</button>
+                <button v-else type="button" @click.prevent="follow" class="btn btn-primary">フォロー済み</button>
             </div>
-            <div v-else>フォロー中</div>
-        </button>
-        <button v-else type="button" class="btn btn-secondary btn-raised" @click="follow">
-            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
-                <span class="sr-only">Sending...</span>
-            </div>
-            <div v-else>
-                フォローする
-            </div>
-        </button>
+
+<!--        </button>-->
     </div>
 </template>
 
@@ -34,7 +37,7 @@ export default {
     methods: {
 
         follow_check() {
-            const id = this.gear_id
+            const id = this.id
             const array = ["/users/",id,"/check"];
             const path = array.join('')
             axios.get(path).then(res => {
@@ -48,24 +51,37 @@ export default {
             })
         },
         follow() {
-            if (this.sending) {
-                return
-            }
-            this.sending = true
-            const data = {id: this.id}
-            axios.post('/follow-users', data)
-            this.currentFollowing = true
-            this.sending = false
+            // if (this.sending) {
+            //     return
+            // }
+            // this.sending = true
+            // const data = {id: this.id}
+            // axios.post('/follow-users', data)
+            // this.currentFollowing = true
+            // this.sending = false
+            //
+
+            const id = this.id
+            const array = ["/users/",id,"/follow"];
+            const path = array.join('')
+            axios.post(path).then(res => {
+                this.follow_check()
+            }).catch(function(err) {
+                console.log(err)
+            })
+
         },
-        unfollow() {
-            if (this.sending) {
-                return
-            }
-            this.sending = true
-            axios.delete(`/follow-users/${this.id}`)
-            this.currentFollowing = false
-            this.sending = false
-        }
+        // unfollow() {
+        //
+        //     this.sending = true
+        //     axios.delete(`/follow-users/${this.id}`)
+        //     this.currentFollowing = false
+        //     this.sending = false
+        //
+        //
+        //
+        //
+        // }
     }
 }
 </script>

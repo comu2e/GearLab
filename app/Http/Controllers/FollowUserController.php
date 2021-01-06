@@ -30,10 +30,10 @@ class FollowUserController extends Controller
     public function check(User $user)
     {
 //        認証しているユーザーの情報
-        $auth_user = Auth::user();
+        $auth_id = Auth::id();
         $data = '';
-        if ($auth_user->id != $user->id) {
-            if ($user->is_following(Auth::id())) {
+        if ($auth_id != $user->id) {
+            if ($user->is_following($auth_id)) {
                 $data = 1;
             }
             else{

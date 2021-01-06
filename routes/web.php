@@ -92,13 +92,15 @@ Route::group(['middleware' => 'auth'], function () {
         //いいね
         Route::get('/like/{id}', 'GearController@like')->name('gear.like');
         Route::get('/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
-    });
-
 
 //フォロー]
-    Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
+        Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
 //    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
-    Route::post('/follow-users', 'FollowUserController@store')->name('follow');
-    Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
+        Route::post('/follow-users', 'FollowUserController@store')->name('follow');
+        Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
+
+
+    });
+
 
 });

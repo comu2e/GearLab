@@ -1,8 +1,8 @@
 
 <template>
     <div>
-          <button v-if="status == false" type="button" @click.prevent="like" class="btn btn-outline-warning">使ってみたい！</button>
-        <button v-else type="button" @click.prevent="like" class="btn btn-warning">登録済み</button>
+          <button v-if="status == false" type="button" @click.prevent="like" class="btn btn-outline-success">使ってみたい！</button>
+        <button v-else type="button" @click.prevent="like" class="btn btn-primary">登録済み</button>
     </div>
 </template>
 

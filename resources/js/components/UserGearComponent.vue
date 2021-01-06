@@ -32,7 +32,13 @@
 <!--                                <follow-button-component :id="gear.user_id"></follow-button-component>-->
 
 <!--                            </div>-->
-                            <like-component :post="gear"></like-component>
+<!--                            <like-component :post="gear"></like-component>-->
+                            <div v-if="gear.user_id !== auth_user.id">
+                                <like :gear_id=gear.id></like>
+
+                            </div>
+                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>
+
                         </div>
                     </div>
                 </li>

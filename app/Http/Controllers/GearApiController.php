@@ -178,7 +178,7 @@ class GearApiController extends Controller
 
         if ($gear) {
             return response()->json([
-                'message' => 'Gear deleted successfully',
+                'message' => 'ギアの登録解除しました！',
             ], 200);
         } else {
             return response()->json([

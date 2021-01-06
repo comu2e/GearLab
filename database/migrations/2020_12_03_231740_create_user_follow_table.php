@@ -21,6 +21,10 @@ class CreateUserFollowTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('followed_user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('edited_at')->nullable();
         });
     }
 

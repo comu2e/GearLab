@@ -65,7 +65,7 @@ export default {
             category: 'All',
             gears: [],
             gear: [],
-            gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Bonfire"],
+            gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Fire"],
             date: this.$moment().format(),
 
         }

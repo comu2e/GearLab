@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
 //    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
     Route::post('/follow-users', 'FollowUserController@store')->name('follow');
     Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
-    Route::get('/users/{user_id}/check', 'FollowUserController@check')->name('check');
+    Route::get('/users/{user_id}/isFollowingcheck', 'FollowUserController@isFollowingcheck')->name('isFollowingcheck');
     Route::resource('users/{user_id}/follow', 'FollowUserController', [
         'only' => ['store'],
     ]);

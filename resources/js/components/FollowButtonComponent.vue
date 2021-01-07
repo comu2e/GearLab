@@ -1,90 +1,76 @@
 <template>
     <div>
-<!--        <button v-if="status == false" type="button" class="btn btn-primary" @click="unfollow">-->
-<!--            フォロー中-->
-<!--        </button>-->
-<!--        <button v-else type="button" class="btn btn-secondary btn-raised" @click="follow">-->
-<!--            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">-->
-<!--                <span class="sr-only">Sending...</span>-->
-<!--            </div>-->
-<!--            <div v-else>-->
-<!--                フォローする-->
-<!--            </div>-->
-
-            <div>
-                <button v-if="status == false" type="button" @click.prevent="follow" class="btn btn-outline-success">フォローする</button>
-                <button v-else type="button" @click.prevent="follow" class="btn btn-primary">フォロー済み</button>
+        <button v-if="currentFollowing"   type="submit" class="btn btn-point btn-primary" @click="unfollow">
+            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Sending...</span>
             </div>
-
-<!--        </button>-->
+            <div v-else>フォロー中</div>
+        </button>
+        <button v-else type="submit"class="btn btn-default btn-danger" @click="follow">
+            <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Sending...</span>
+            </div>
+            <div v-else>
+                フォローする
+                <i class="material-icons">add</i>
+            </div>
+        </button>
     </div>
 </template>
 
 <script>
-export default {
-    props: ['id'],
-    data: function () {
-        return {
-            currentFollowing: this.following,
-            sending: false,
-            status: false,
-
+export default{
+    props: {
+        id: {
+            type:Number,
+            required:true
+        },
+        following:{
+            type:Boolean,
+            default:false
         }
     },
-    created() {
-        this.follow_check()
+
+    data(){
+        return {
+            currentFollowing : this.following,
+            sending : false
+        }
     },
-    methods: {
 
-        follow_check() {
-            const id = this.id
-            const array = ["/users/",id,"/isFollowingcheck"];
-            const path = array.join('')
-            axios.get(path).then(res => {
-                if(res.data == 1) {
-                    console.log(res.data)
-                    this.status = true
-                } else {
-                    console.log(res.data)
+    methods:{
+        follow(){
+            if (this.sending) {
+                return
+            }
+            var params = new URLSearchParams()
 
-                    this.status = false
-                }
-            }).catch(function(err) {
+            this.sending = true
+            axios.post(`/follow-users/${this.id}`,params).then(res=>{
+                console.log(res);
+            }).catch(function (err){
                 console.log(err)
             })
+            this.currentFollowing = true
+            this.sending = false
         },
-        follow() {
-            // if (this.sending) {
-            //     return
-            // }
-            // this.sending = true
-            // const data = {id: this.id}
-            // axios.post('/follow-users', data)
-            // this.currentFollowing = true
-            // this.sending = false
-            //
+        unfollow() {
+            if (this.sending) {
+                return
+            }
+            this.sending = true
+            // const data = { id: this.id }
 
-            const id = this.id
-            const array = ["/users/",id,"/follow"];
-            const path = array.join('')
-            axios.post(path).then(res => {
-                this.follow_check()
-            }).catch(function(err) {
+            axios.delete(`/follow-users/${this.id}`).then(res=>{
+                console.log(res);
+            }).catch(function (err){
                 console.log(err)
             })
 
-        },
-        // unfollow() {
-        //
-        //     this.sending = true
-        //     axios.delete(`/follow-users/${this.id}`)
-        //     this.currentFollowing = false
-        //     this.sending = false
-        //
-        //
-        //
-        //
-        // }
+            this.currentFollowing = false
+            this.sending = false
+        }
     }
+
 }
 </script>

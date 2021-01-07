@@ -27,7 +27,7 @@ class FollowUserController extends Controller
     }
 
 //    認証しているユーザが対象のユーザーをフォローしているかを確認するためのメソッド
-    public function check(User $user)
+    public function isFollowingcheck(User $user)
     {
 //        認証しているユーザーの情報
         $auth_id = Auth::id();

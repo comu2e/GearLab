@@ -38,12 +38,15 @@ export default {
 
         follow_check() {
             const id = this.id
-            const array = ["/users/",id,"/check"];
+            const array = ["/users/",id,"/isFollowingcheck"];
             const path = array.join('')
             axios.get(path).then(res => {
                 if(res.data == 1) {
+                    console.log(res.data)
                     this.status = true
                 } else {
+                    console.log(res.data)
+
                     this.status = false
                 }
             }).catch(function(err) {

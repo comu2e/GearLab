@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-if(config('app.env') === 'production'){
+
+if (config('app.env') === 'production') {
     // asset()やurl()がhttpsで生成される
     URL::forceScheme('http');
 }
@@ -55,19 +56,14 @@ Route::get('profile', function () {
     // 認証済みのユーザーのみが入れる
 })->middleware('auth');
 
-Route::get('/favorite', 'GearController@favorite_gear');
 Route::post('/admin/user/{id}', 'GearController@delete');
-//フォロー機能
-//ログインしていないユーザーにもフォロー関係を表示できるようにする
-Route::group(['prefix' => 'users/{id}'], function () {
-    Route::get('followings', 'UserController@followings')->name('followings');
-    Route::get('followers', 'UsersController@followers')->name('followers');
-});
+
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
 
+//フォロー機能
 
-    Route::put('users', 'UserController@rename')->name('rename');
+
 
     Route::get('/user_detail/{id?}', function () {
         return view('user_detail_view')->name('user_detail');
@@ -76,29 +72,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UserController');
     Route::resource('gears', 'GearController', ['except' => ['create', 'update']]);
 
-//    Route::get('users/{use_id}/gear_category={gear_category}', 'GearController@category_index')->name('gear_category');
-
     Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');
 //フォロー]
-    Route::get('/following/{user_id}', 'FollowUserController@index')->name('follow.index');
-//    Route::get('/users_show/{user_id}/}', 'FollowUserController@show')->name('follow.show');
-    Route::post('/follow-users', 'FollowUserController@store')->name('follow');
-    Route::delete('/follow-users/{user_id}', 'FollowUserController@destroy')->name('unfollow');
-    Route::get('/users/{user_id}/isFollowingcheck', 'FollowUserController@isFollowingcheck')->name('isFollowingcheck');
-    Route::resource('users/{user_id}/follow', 'FollowUserController', [
-        'only' => ['store'],
-    ]);
+
     Route::prefix('gears')->name('gears.')->group(function () {
 
-//        Route::get('/{gear}/favorites', 'FavoriteController@store');
-//        Route::get('/{gear}/unfavorites', 'FavoriteController@destroy');
-//        Route::get('/{gear}/countfavorites', 'FavoriteController@count');
-//        Route::get('/{gear}/hasfavorites', 'FavoriteController@hasfavorite');
-
-//        //いいね
-//        Route::get('/like/{id}', 'GearController@like')->name('gear.like');
-//        Route::get('/unlike/{id}', 'GearController@unlike')->name('gear.unlike');
         Route::get('/{gear}/check', 'LikeController@check')->name('like.check');
         Route::get('/{gear}/liked', 'LikeController@index')->name('like.index');
         Route::resource('/{gear}/likes', 'LikeController', [
@@ -107,7 +86,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     });
-
 
 
 });

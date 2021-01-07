@@ -28,7 +28,7 @@
                                     <label class="input-group-text" for="inputGroupSelect01">ギアカテゴリ</label>
                                 </div>
                                 <select class="form-control" v-model="gear.gear_category">
-                                    <option value="BonFire" selected="selected">焚き火ーBonfire</option>
+                                    <option value="Fire" selected="selected">焚き火ーFire</option>
 
                                     <option value="BackPack" selected="selected">バックパック-BackPack-</option>
                                     <option value="Cutting">ナイフ -Cutting-</option>

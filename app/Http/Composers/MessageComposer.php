@@ -8,6 +8,6 @@ class MessageComposer
 {
     public function compose(View $view)
     {
-        $view->with('categories', ['Cutting'=> 'Cutting', 'Shelter'=> 'Shelter', 'BonFire'=> 'BonFire','BackPack'=> 'BackPack','Kitchen'=>'Kitchen']);
+        $view->with('categories', ['Cutting'=> 'Cutting', 'Shelter'=> 'Shelter', 'Fire'=> 'Fire','BackPack'=> 'BackPack','Kitchen'=>'Kitchen']);
     }
 }

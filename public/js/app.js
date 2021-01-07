@@ -2187,71 +2187,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['id'],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    },
+    following: {
+      type: Boolean,
+      "default": false
+    }
+  },
   data: function data() {
     return {
       currentFollowing: this.following,
-      sending: false,
-      status: false
+      sending: false
     };
   },
-  created: function created() {
-    this.follow_check();
-  },
   methods: {
-    follow_check: function follow_check() {
-      var _this = this;
-
-      var id = this.id;
-      var array = ["/users/", id, "/isFollowingcheck"];
-      var path = array.join('');
-      axios.get(path).then(function (res) {
-        if (res.data == 1) {
-          console.log(res.data);
-          _this.status = true;
-        } else {
-          console.log(res.data);
-          _this.status = false;
-        }
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
     follow: function follow() {
-      var _this2 = this;
+      if (this.sending) {
+        return;
+      }
 
-      // if (this.sending) {
-      //     return
-      // }
-      // this.sending = true
-      // const data = {id: this.id}
-      // axios.post('/follow-users', data)
-      // this.currentFollowing = true
-      // this.sending = false
-      //
-      var id = this.id;
-      var array = ["/users/", id, "/follow"];
-      var path = array.join('');
-      axios.post(path).then(function (res) {
-        _this2.follow_check();
+      var params = new URLSearchParams();
+      this.sending = true;
+      axios.post("/follow-users/".concat(this.id), params).then(function (res) {
+        console.log(res);
       })["catch"](function (err) {
         console.log(err);
       });
-    } // unfollow() {
-    //
-    //     this.sending = true
-    //     axios.delete(`/follow-users/${this.id}`)
-    //     this.currentFollowing = false
-    //     this.sending = false
-    //
-    //
-    //
-    //
-    // }
+      this.currentFollowing = true;
+      this.sending = false;
+    },
+    unfollow: function unfollow() {
+      if (this.sending) {
+        return;
+      }
 
+      this.sending = true; // const data = { id: this.id }
+
+      axios["delete"]("/follow-users/".concat(this.id)).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+      this.currentFollowing = false;
+      this.sending = false;
+    }
   }
 });
 
@@ -40917,37 +40900,58 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", [
-      _vm.status == false
-        ? _c(
-            "button",
-            {
-              staticClass: "btn btn-outline-success",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.follow($event)
-                }
-              }
-            },
-            [_vm._v("フォローする")]
-          )
-        : _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { type: "button" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.follow($event)
-                }
-              }
-            },
-            [_vm._v("フォロー済み")]
-          )
-    ])
+    _vm.currentFollowing
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-point btn-primary",
+            attrs: { type: "submit" },
+            on: { click: _vm.unfollow }
+          },
+          [
+            _vm.sending
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "spinner-border spinner-border-sm",
+                    attrs: { role: "status" }
+                  },
+                  [
+                    _c("span", { staticClass: "sr-only" }, [
+                      _vm._v("Sending...")
+                    ])
+                  ]
+                )
+              : _c("div", [_vm._v("フォロー中")])
+          ]
+        )
+      : _c(
+          "button",
+          {
+            staticClass: "btn btn-default btn-danger",
+            attrs: { type: "submit" },
+            on: { click: _vm.follow }
+          },
+          [
+            _vm.sending
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "spinner-border spinner-border-sm",
+                    attrs: { role: "status" }
+                  },
+                  [
+                    _c("span", { staticClass: "sr-only" }, [
+                      _vm._v("Sending...")
+                    ])
+                  ]
+                )
+              : _c("div", [
+                  _vm._v("\n            フォローする\n            "),
+                  _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+                ])
+          ]
+        )
   ])
 }
 var staticRenderFns = []

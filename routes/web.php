@@ -58,11 +58,12 @@ Route::get('profile', function () {
 
 Route::post('/admin/user/{id}', 'GearController@delete');
 
+
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
-
 //フォロー機能
-
+    Route::post('/follow-users/{user_id}','FollowUserController@store');
+    Route::delete('/follow-users/{user_id}','FollowUserController@destory');
 
 
     Route::get('/user_detail/{id?}', function () {

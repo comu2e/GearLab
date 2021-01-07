@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     use HasApiTokens;
+
     public function gears()
     {
         return $this->hasMany(Gear::class);
@@ -20,7 +22,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Gear::class)->withTimestamps();
     }
-
+//ユーザー（User）-> 中間テーブル（FollowUser)<-フォローされるユーザー（User followed_user_id）
+    public function followUsers()
+    {
+        return $this->belongsToMany(self::class, 'follow_users', 'user_id', 'followed_user_id')
+            ->using(FollowUser::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

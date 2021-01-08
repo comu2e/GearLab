@@ -2,10 +2,12 @@
 
 namespace Tests\Feature;
 
+use App\Models\FollowUser;
 use App\Models\Gear;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -24,10 +26,18 @@ class UserTest extends TestCase
 
         $another= User::factory()->create();
 //      フォローする
-        $user -> follow($another->id);
+
+        FollowUser::firstOrCreate([
+            'user_id' => $user->id,
+            'followed_user_id' => $another->id,
+        ]);
+
+
 //        userがanotherをフォローしているか
-        $result = $user->is_following($another->id);
+        $result = $user->isFollowedBy($another);
 
         $this->assertTrue($result);
     }
+
+
 }

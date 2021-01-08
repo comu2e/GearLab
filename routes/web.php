@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
 //フォロー機能
     Route::post('/follow-users/{user_id}','FollowUserController@store');
     Route::delete('/follow-users/{user_id}','FollowUserController@destroy');
+    Route::get('users/{user_id}/following_check', 'FollowUserController@following_check')->name('follow.check');
 
 
     Route::get('/user_detail/{id?}', function () {

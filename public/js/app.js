@@ -2192,20 +2192,45 @@ __webpack_require__.r(__webpack_exports__);
     id: {
       type: Number,
       required: true
-    },
-    following: {
-      type: Boolean,
-      "default": false
-    }
+    } // following:{
+    //     type:Boolean,
+    //     default:false
+    // }
+
   },
   data: function data() {
     return {
-      currentFollowing: this.following,
-      sending: false
+      currentFollowing: this.status,
+      sending: false,
+      status: false
     };
   },
+  created: function created() {
+    this.following_check();
+  },
   methods: {
+    following_check: function following_check() {
+      var _this = this;
+
+      var id = this.id;
+      var array = ["/users/", id, "/following_check"];
+      var path = array.join('');
+      axios.get(path).then(function (res) {
+        console.log(res.data);
+
+        if (res.data == true) {
+          _this.status = true;
+        } else {
+          _this.status = false;
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+      console.log(this.status);
+    },
     follow: function follow() {
+      var _this2 = this;
+
       if (this.sending) {
         return;
       }
@@ -2213,14 +2238,15 @@ __webpack_require__.r(__webpack_exports__);
       var params = new URLSearchParams();
       this.sending = true;
       axios.post("/follow-users/".concat(this.id), params).then(function (res) {
-        console.log(res);
-      })["catch"](function (err) {
-        console.log(err);
+        _this2.following_check();
+      })["catch"](function (err) {// console.log(err)
       });
       this.currentFollowing = true;
       this.sending = false;
     },
     unfollow: function unfollow() {
+      var _this3 = this;
+
       if (this.sending) {
         return;
       }
@@ -2228,9 +2254,8 @@ __webpack_require__.r(__webpack_exports__);
       this.sending = true; // const data = { id: this.id }
 
       axios["delete"]("/follow-users/".concat(this.id)).then(function (res) {
-        console.log(res);
-      })["catch"](function (err) {
-        console.log(err);
+        _this3.following_check();
+      })["catch"](function (err) {// console.log(err)
       });
       this.currentFollowing = false;
       this.sending = false;
@@ -2654,7 +2679,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent */ "./resources/js/components/FollowButtonComponent.vue");
-//
 //
 //
 //
@@ -40900,7 +40924,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.currentFollowing
+    _vm.currentFollowing == false
       ? _c(
           "button",
           {

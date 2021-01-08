@@ -28,9 +28,25 @@ class FollowUserController extends Controller
         $followedUser = User::findOrFail($id);
         $user = Auth::user();
         $user->followUsers()->detach($followedUser->id);
-        return response()->json(['result' => true]);
+        return response()->json(['result' => false]);
     }
 
+    public function following_check(User $user)
+    {
+        $auth_id = Auth::id();
+        $data = '';
+        if ($auth_id != $user->id) {
+            if ($user->isFollowedBy($user)) {
+                $data = true;
+            }
+            else{
+                $data=false;
+            }
 
+        }
+        return $data;
+
+
+    }
 
 }

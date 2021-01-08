@@ -32,7 +32,6 @@
 
                             <div v-if="gear.user_id !== auth_user.id">
                                 <follow-button-component :id=gear.user_id></follow-button-component>
-
                             </div>
                            <div v-if="gear.user_id !== auth_user.id">
                                <like :gear_id=gear.id></like>

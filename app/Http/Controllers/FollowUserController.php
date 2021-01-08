@@ -12,9 +12,10 @@ use Illuminate\Support\Facades\Auth;
 class FollowUserController extends Controller
 {
 
-    public function store(Request $request)
+    public function store($id)
     {
-        $followedUser = User::findOrFail($request->input('id'));
+//        $followedUser = User::findOrFail($request->input('user_id'));
+        $followedUser = User::findOrFail($id);
         FollowUser::firstOrCreate([
             'user_id' => Auth::id(),
             'followed_user_id' => $followedUser->id,

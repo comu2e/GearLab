@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-if (config('app.env') === 'production') {
     // asset()やurl()がhttpsで生成される
     URL::forceScheme('http');
-}
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +61,7 @@ Route::post('/admin/user/{id}', 'GearController@delete');
 Route::group(['middleware' => 'auth'], function () {
 //フォロー機能
     Route::post('/follow-users/{user_id}','FollowUserController@store');
-    Route::delete('/follow-users/{user_id}','FollowUserController@destory');
+    Route::delete('/follow-users/{user_id}','FollowUserController@destroy');
 
 
     Route::get('/user_detail/{id?}', function () {

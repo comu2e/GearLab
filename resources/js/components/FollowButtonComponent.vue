@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-if="currentFollowing == false"   type="submit" class="btn btn-point btn-primary" @click="unfollow">
+        <button v-if="status == 0"   type="submit" class="btn btn-point btn-primary" @click="unfollow">
             <div v-if="sending" class="spinner-border spinner-border-sm" role="status">
                 <span class="sr-only">Sending...</span>
             </div>
@@ -33,9 +33,8 @@ export default{
 
     data(){
         return {
-            currentFollowing : this.status,
-            sending : false,
-            status: false,
+            sending : 0,
+            status: 0,
 
         }
     },
@@ -45,26 +44,37 @@ export default{
     },
     methods:{
         following_check() {
-            const id = this.id
-            const array = ["/users/",id,"/following_check"];
-            const path = array.join('')
+            // const id = this.id
+            // const array = ["/users/",id,"/following_check"];
+            // const path = array.join('')
             console.log("===")
             console.log(this.following)
             console.log("+++")
 
-            axios.get(path).then(res => {
-                console.log(res.data)
+            if (this.following ==1){
+                console.log('フォローしています')
+                this.status = this.following
+            }else{
+                console.log('フォローしていません')
+                this.status = this.following
 
-                if(res.data == true) {
-                    this.status = true
-                } else {
-                    this.status = false
-                }
-            }).catch(function(err) {
-                console.log(err)
-            })
-            console.log(this.status)
+            }
+
         },
+
+        //     axios.get(path).then(res => {
+        //         console.log(res.data)
+        //
+        //         if(res.data == 1) {
+        //             this.status = 1
+        //         } else {
+        //             this.status = 0
+        //         }
+        //     }).catch(function(err) {
+        //         console.log(err)
+        //     })
+        //     console.log(this.status)
+        // },
 
 
         follow(){
@@ -75,7 +85,10 @@ export default{
 
             this.sending = true
             axios.post(`/follow-users/${this.id}`,params).then(res=>{
+
                 this.following_check()
+                this.status = 0
+
             }).catch(function (err){
                 // console.log(err)
             })
@@ -90,7 +103,10 @@ export default{
             // const data = { id: this.id }
 
             axios.delete(`/follow-users/${this.id}`).then(res=>{
+
                 this.following_check()
+                this.status = 1
+
             }).catch(function (err){
                 // console.log(err)
             })

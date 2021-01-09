@@ -55,6 +55,7 @@ Route::get('profile', function () {
 })->middleware('auth');
 
 Route::post('/admin/user/{id}', 'GearController@delete');
+Route::get('/following/{user_id}','FollowUserController@index');
 
 
 //ログインしたときに表示

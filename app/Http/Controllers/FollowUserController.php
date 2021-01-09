@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class FollowUserController extends Controller
 {
-
+    public function index($id)
+    {
+      $user = User::find($id);
+      $following_user = $user ->followers;
+       return response()->json(['data'=>$following_user]);
+    }
     public function store($id)
     {
 //        $followedUser = User::findOrFail($request->input('user_id'));

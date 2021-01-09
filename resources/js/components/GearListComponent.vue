@@ -31,7 +31,7 @@
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
 
                             <div v-if="gear.user_id !== auth_user.id">
-                                <follow-button-component :id=gear.user_id></follow-button-component>
+                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>
                             </div>
                            <div v-if="gear.user_id !== auth_user.id">
                                <like :gear_id=gear.id></like>

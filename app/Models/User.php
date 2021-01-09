@@ -35,8 +35,6 @@ class User extends Authenticatable
 
     public function isFollowedBy(?User $user): bool
     {
-        $user = User::find(8);
-        var_dump($user->followers->where('id', 7));
         return $user
             ? (bool)$this->followers->where('id', $user->id)->count()
             : false;

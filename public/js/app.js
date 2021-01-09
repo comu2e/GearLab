@@ -2199,9 +2199,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentFollowing: this.status,
-      sending: false,
-      status: false
+      sending: 0,
+      status: 0
     };
   },
   created: function created() {
@@ -2209,29 +2208,36 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     following_check: function following_check() {
-      var _this = this;
-
-      var id = this.id;
-      var array = ["/users/", id, "/following_check"];
-      var path = array.join('');
+      // const id = this.id
+      // const array = ["/users/",id,"/following_check"];
+      // const path = array.join('')
       console.log("===");
       console.log(this.following);
       console.log("+++");
-      axios.get(path).then(function (res) {
-        console.log(res.data);
 
-        if (res.data == true) {
-          _this.status = true;
-        } else {
-          _this.status = false;
-        }
-      })["catch"](function (err) {
-        console.log(err);
-      });
-      console.log(this.status);
+      if (this.following == 1) {
+        console.log('フォローしています');
+        this.status = this.following;
+      } else {
+        console.log('フォローしていません');
+        this.status = this.following;
+      }
     },
+    //     axios.get(path).then(res => {
+    //         console.log(res.data)
+    //
+    //         if(res.data == 1) {
+    //             this.status = 1
+    //         } else {
+    //             this.status = 0
+    //         }
+    //     }).catch(function(err) {
+    //         console.log(err)
+    //     })
+    //     console.log(this.status)
+    // },
     follow: function follow() {
-      var _this2 = this;
+      var _this = this;
 
       if (this.sending) {
         return;
@@ -2240,14 +2246,16 @@ __webpack_require__.r(__webpack_exports__);
       var params = new URLSearchParams();
       this.sending = true;
       axios.post("/follow-users/".concat(this.id), params).then(function (res) {
-        _this2.following_check();
+        _this.following_check();
+
+        _this.status = 0;
       })["catch"](function (err) {// console.log(err)
       });
       this.currentFollowing = true;
       this.sending = false;
     },
     unfollow: function unfollow() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (this.sending) {
         return;
@@ -2256,7 +2264,9 @@ __webpack_require__.r(__webpack_exports__);
       this.sending = true; // const data = { id: this.id }
 
       axios["delete"]("/follow-users/".concat(this.id)).then(function (res) {
-        _this3.following_check();
+        _this2.following_check();
+
+        _this2.status = 1;
       })["catch"](function (err) {// console.log(err)
       });
       this.currentFollowing = false;
@@ -40926,7 +40936,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.currentFollowing == false
+    _vm.status == 0
       ? _c(
           "button",
           {

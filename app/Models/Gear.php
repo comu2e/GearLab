@@ -29,6 +29,10 @@ class Gear extends Model
     {
         return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
     }
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follow_users', 'user_id', 'followed_user_id')->withTimestamps();
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

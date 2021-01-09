@@ -33,10 +33,10 @@ class FollowUserController extends Controller
 
     public function following_check(User $user)
     {
-        $auth_id = Auth::id();
+        $auth = Auth::user();
         $data = '';
-        if ($auth_id != $user->id) {
-            if ($user->isFollowedBy($user)) {
+        if (Auth::id() != $user->id) {
+            if ($auth->isFollowedBy($user)) {
                 $data = true;
             }
             else{

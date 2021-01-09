@@ -25,10 +25,10 @@ export default{
             type:Number,
             required:true
         },
-        // following:{
-        //     type:Boolean,
-        //     default:false
-        // }
+        following:{
+            // type:Boolean,
+            // default:false
+        }
     },
 
     data(){
@@ -48,6 +48,10 @@ export default{
             const id = this.id
             const array = ["/users/",id,"/following_check"];
             const path = array.join('')
+            console.log("===")
+            console.log(this.following)
+            console.log("+++")
+
             axios.get(path).then(res => {
                 console.log(res.data)
 

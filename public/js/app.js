@@ -2192,11 +2192,10 @@ __webpack_require__.r(__webpack_exports__);
     id: {
       type: Number,
       required: true
-    } // following:{
-    //     type:Boolean,
-    //     default:false
-    // }
-
+    },
+    following: {// type:Boolean,
+      // default:false
+    }
   },
   data: function data() {
     return {
@@ -2215,6 +2214,9 @@ __webpack_require__.r(__webpack_exports__);
       var id = this.id;
       var array = ["/users/", id, "/following_check"];
       var path = array.join('');
+      console.log("===");
+      console.log(this.following);
+      console.log("+++");
       axios.get(path).then(function (res) {
         console.log(res.data);
 
@@ -41589,7 +41591,10 @@ var render = function() {
                         "div",
                         [
                           _c("follow-button-component", {
-                            attrs: { id: gear.user_id }
+                            attrs: {
+                              id: gear.user_id,
+                              following: gear.followers.length
+                            }
                           })
                         ],
                         1

@@ -13,40 +13,47 @@
                 </select>
             </div>
             <div>{{ category }}</div>
-            <ul v-for="gear in categorizeGears" class="list-group">
-                <li class="list-group-item">
-                    <div align="center" scope="row">
+<!--            <ul v-for="gear in categorizeGears" class="list-group">-->
+<!--                <li class="list-group-item">-->
+<!--                    <div align="center" scope="row">-->
 
-                        <img alt="" v-bind:src='gear.image_url' width="30%">
-                        <div align="right">
+<!--                        <img alt="" v-bind:src='gear.image_url' width="30%">-->
+<!--                        <div align="right">-->
 
-                            <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
-                            <div>{{ '登録者: ' + gear.user.name }}</div>
+<!--                            &lt;!&ndash;                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>&ndash;&gt;-->
+<!--                            <div>{{ '登録者: ' + gear.user.name }}</div>-->
 
-                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
-                            <div>{{ 'ギア名: ' + gear.gear_name }}</div>
+<!--                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>-->
+<!--                            <div>{{ 'ギア名: ' + gear.gear_name }}</div>-->
 
-                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
-                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
-                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
+<!--                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>-->
+<!--                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>-->
+<!--                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>-->
 
-                            <div v-if="gear.user_id !== auth_user.id">
-                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>
-                            </div>
-                           <div v-if="gear.user_id !== auth_user.id">
-                               <like :gear_id=gear.id></like>
+<!--                            <div v-if="gear.user_id !== auth_user.id">-->
+<!--                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>-->
+<!--                            </div>-->
+<!--                           <div v-if="gear.user_id !== auth_user.id">-->
+<!--                               <like :gear_id=gear.id></like>-->
 
-                           </div>
-                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>
+<!--                           </div>-->
+<!--                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>-->
+<!--                          -->
+<!--&lt;!&ndash;                            <like-component :post="gear"></like-component>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+
+<!--            </ul>-->
 
 
-<!--                            <like-component :post="gear"></like-component>-->
-                        </div>
-                    </div>
-                </li>
-
-            </ul>
         </div>
+        <ul>
+            <li v-for="post in gears.data" :key="post.id">{{ post.maker_name }}</li>
+        </ul>
+
+        <pagination :data="gears" @pagination-change-page="getResults"></pagination>
+
     </div>
 </template>
 
@@ -62,22 +69,30 @@ export default {
         return {
             keyword: '',
             category: 'All',
-            gears: [],
+            gears: {},
             gear: [],
             gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Fire"],
             date: this.$moment().format(),
 
+
         }
     },
     methods: {
-        getGears() {
-            axios.get('/api/gears')
-                .then((res) => {
-                    this.gears = res.data['data'];
+        getResults(page = 1) {
+            axios.get('/api/gears/?page=' + page)
+                .then(response => {
+                    this.gears = response.data.data;
                 });
         },
+        // getGears() {
+        //     axios.get('/api/gears')
+        //         .then((res) => {
+        //             this.gears = res.data['data'];
+        //         });
+        // },
 
         searchGear(category) {
+
             axios.get('/api/category=' + category)
                 .then((res) => {
                     this.gears = res.data['data'];
@@ -149,7 +164,9 @@ export default {
         }
     },
     mounted() {
-        this.getGears();
+        this.getResults();
+
+        // this.getGears();
     }
 }
 </script>

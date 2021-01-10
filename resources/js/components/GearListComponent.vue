@@ -13,46 +13,42 @@
                 </select>
             </div>
             <div>{{ category }}</div>
-<!--            <ul v-for="gear in categorizeGears" class="list-group">-->
-<!--                <li class="list-group-item">-->
-<!--                    <div align="center" scope="row">-->
+            <ul v-for="gear in gears.data"  :key="gear.id" class="list-group">
+                <li class="list-group-item">
+                    <div align="center" scope="row">
 
-<!--                        <img alt="" v-bind:src='gear.image_url' width="30%">-->
-<!--                        <div align="right">-->
+                        <img alt="" v-bind:src='gear.image_url' width="30%">
+                        <div align="right">
 
-<!--                            &lt;!&ndash;                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>&ndash;&gt;-->
-<!--                            <div>{{ '登録者: ' + gear.user.name }}</div>-->
+                            <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
+                            <div>{{ '登録者: ' + gear.user.name }}</div>
 
-<!--                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>-->
-<!--                            <div>{{ 'ギア名: ' + gear.gear_name }}</div>-->
+                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
+                            <div>{{ 'ギア名: ' + gear.gear_name }}</div>
 
-<!--                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>-->
-<!--                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>-->
-<!--                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>-->
+                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
+                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
+                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
 
-<!--                            <div v-if="gear.user_id !== auth_user.id">-->
-<!--                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>-->
-<!--                            </div>-->
-<!--                           <div v-if="gear.user_id !== auth_user.id">-->
-<!--                               <like :gear_id=gear.id></like>-->
+                            <div v-if="gear.user_id !== auth_user.id">
+                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>
+                            </div>
+                           <div v-if="gear.user_id !== auth_user.id">
+                               <like :gear_id=gear.id></like>
 
-<!--                           </div>-->
-<!--                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>-->
-<!--                          -->
-<!--&lt;!&ndash;                            <like-component :post="gear"></like-component>&ndash;&gt;-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </li>-->
+                           </div>
+                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>
 
-<!--            </ul>-->
+<!--                            <like-component :post="gear"></like-component>-->
+                        </div>
+                    </div>
+                </li>
 
+            </ul>
+
+            <pagination :data="gears" @pagination-change-page="getResults"></pagination>
 
         </div>
-        <ul>
-            <li v-for="post in gears.data" :key="post.id">{{ post.maker_name }}</li>
-        </ul>
-
-        <pagination :data="gears" @pagination-change-page="getResults"></pagination>
 
     </div>
 </template>

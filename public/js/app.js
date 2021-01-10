@@ -2746,10 +2746,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42111,13 +42107,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("div"),
-      _vm._v(" "),
-      _c("div", { attrs: { align: "center" } }, [
+  return _c("div", { staticClass: "container" }, [
+    _c("div"),
+    _vm._v(" "),
+    _c(
+      "div",
+      { attrs: { align: "center" } },
+      [
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "category" } }, [
             _vm._v("気になるギアのカテゴリを選んでみましょう")
@@ -42165,24 +42161,86 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", [_vm._v(_vm._s(_vm.category))])
-      ]),
-      _vm._v(" "),
-      _c(
-        "ul",
-        _vm._l(_vm.gears.data, function(post) {
-          return _c("li", { key: post.id }, [_vm._v(_vm._s(post.maker_name))])
+        _c("div", [_vm._v(_vm._s(_vm.category))]),
+        _vm._v(" "),
+        _vm._l(_vm.gears.data, function(gear) {
+          return _c("ul", { key: gear.id, staticClass: "list-group" }, [
+            _c("li", { staticClass: "list-group-item" }, [
+              _c("div", { attrs: { align: "center", scope: "row" } }, [
+                _c("img", {
+                  attrs: { alt: "", src: gear.image_url, width: "30%" }
+                }),
+                _vm._v(" "),
+                _c("div", { attrs: { align: "right" } }, [
+                  _c("div", [_vm._v(_vm._s("登録者: " + gear.user.name))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(
+                      _vm._s(
+                        _vm._f("moment")(
+                          gear.updated_at,
+                          " 投稿日: YYYY年MM月DD日HH時mm分"
+                        )
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                  ]),
+                  _vm._v(" "),
+                  gear.user_id !== _vm.auth_user.id
+                    ? _c(
+                        "div",
+                        [
+                          _c("follow-button-component", {
+                            attrs: {
+                              id: gear.user_id,
+                              following: gear.followers.length
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  gear.user_id !== _vm.auth_user.id
+                    ? _c(
+                        "div",
+                        [_c("like", { attrs: { gear_id: gear.id } })],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text mb-0" }, [
+                    _c("small", { staticClass: "text-muted" }, [
+                      _vm._v("いいね数 " + _vm._s(gear.likes.length))
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         }),
-        0
-      ),
-      _vm._v(" "),
-      _c("pagination", {
-        attrs: { data: _vm.gears },
-        on: { "pagination-change-page": _vm.getResults }
-      })
-    ],
-    1
-  )
+        _vm._v(" "),
+        _c("pagination", {
+          attrs: { data: _vm.gears },
+          on: { "pagination-change-page": _vm.getResults }
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

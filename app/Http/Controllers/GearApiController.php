@@ -73,11 +73,17 @@ class GearApiController extends Controller
      */
     public function categorize_gear($category)
     {
-//        $gears = Gear::where('gear_category', $category)->orderby('updated_at', 'desc')->get();
-        $gears = $this -> Gear -> getCategorizedGear($category);
+       if ($category === 'All'){
+           $gear = $this -> Gear -> getAll();
+
+       }
+       else{
+           $gear = $this -> Gear -> getCategorizedGear($category);
+
+       }
         return response()->json([
-            'message' => 'ok',
-            'data' => $gears
+            'message' => 'ok categorize',
+            'data' => $gear
         ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 

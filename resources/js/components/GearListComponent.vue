@@ -13,6 +13,8 @@
                 </select>
             </div>
             <div>{{ category }}</div>
+            <pagination :data="gears" @pagination-change-page="getResults" align="center"></pagination>
+
             <ul v-for="gear in gears.data"  :key="gear.id" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
@@ -46,7 +48,6 @@
 
             </ul>
 
-            <pagination :data="gears" @pagination-change-page="getResults"></pagination>
 
         </div>
 

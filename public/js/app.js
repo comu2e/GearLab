@@ -2746,6 +2746,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42150,6 +42151,11 @@ var render = function() {
         _vm._v(" "),
         _c("div", [_vm._v(_vm._s(_vm.category))]),
         _vm._v(" "),
+        _c("pagination", {
+          attrs: { data: _vm.gears, align: "center" },
+          on: { "pagination-change-page": _vm.getResults }
+        }),
+        _vm._v(" "),
         _vm._l(_vm.gears.data, function(gear) {
           return _c("ul", { key: gear.id, staticClass: "list-group" }, [
             _c("li", { staticClass: "list-group-item" }, [
@@ -42199,11 +42205,6 @@ var render = function() {
               ])
             ])
           ])
-        }),
-        _vm._v(" "),
-        _c("pagination", {
-          attrs: { data: _vm.gears },
-          on: { "pagination-change-page": _vm.getResults }
         })
       ],
       2

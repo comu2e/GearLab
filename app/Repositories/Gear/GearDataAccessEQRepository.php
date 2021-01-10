@@ -38,7 +38,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
 
     public function getCategorizedGear($category)
     {
-        return Gear::with(['user','likes'])->where('gear_category', $category)->orderby('updated_at', 'desc')->get();
+        return Gear::with(['user','likes'])->where('gear_category', $category)->orderby('updated_at', 'desc')->paginate(2);
 
     }
 

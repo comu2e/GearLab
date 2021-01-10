@@ -84,7 +84,7 @@ export default {
 
         searchGear(category) {
 
-            axios.get('/api/gears/category=' + category)
+            axios.get('/api/gears/?category=' + category)
                 .then((res) => {
                     this.gears = res.data['data'];
                 });

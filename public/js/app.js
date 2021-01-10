@@ -2775,7 +2775,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     searchGear: function searchGear(category) {
       var _this2 = this;
 
-      axios.get('/api/gears/category=' + category).then(function (res) {
+      axios.get('/api/gears/?category=' + category).then(function (res) {
         _this2.gears = res.data['data'];
       });
     },

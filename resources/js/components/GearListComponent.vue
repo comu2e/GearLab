@@ -5,7 +5,7 @@
             <!--            <div>User_id is {{ $route.params.value.id }}</div>-->
             <div class="form-group">
                 <label for="category">気になるギアのカテゴリを選んでみましょう</label>
-                <select id="category" class="form-control" v-model="category">
+                <select id="category" class="form-control" v-model="category"@change="searchGear(category)">
 <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
                     <option v-for="category in gear_category" :value="category">
                         {{ category }}
@@ -31,13 +31,13 @@
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
 
                             <div v-if="gear.user_id !== auth_user.id">
-                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>
+<!--                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>-->
                             </div>
                            <div v-if="gear.user_id !== auth_user.id">
                                <like :gear_id=gear.id></like>
 
                            </div>
-                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>
+<!--                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>-->
 
 <!--                            <like-component :post="gear"></like-component>-->
                         </div>
@@ -84,9 +84,9 @@ export default {
 
         searchGear(category) {
 
-            axios.get('/api/gears/?category=' + category)
+            axios.get('/api/gears/category/' + category)
                 .then((res) => {
-                    this.gears = res.data['data'];
+                    this.gears = res.data.data;
                 });
         },
         /**
@@ -105,38 +105,38 @@ export default {
             return this.$store.state.auth_user;
         },
 
-        categorizeGears: function () {
-            /*
-            temp_gearにはカテゴリ選択したギアを入れていく
-             */
-            var temp_gear = [];
-
-            if (this.category !== 'All') {
-                 /*
-                 temp_gearを初期化
-                  */
-
-                 temp_gear = [];
-
-                for (var i in this.gears) {
-
-                    var gear = this.gears[i];
-
-                    if (gear.gear_category.indexOf(this.category) !== -1) {
-
-                        temp_gear.push(gear);
-                    }
-
-
-                }
-            }
-            if(this.category =='All'){
-                temp_gear = this.gears;
-            }
-
-
-            return temp_gear;
-        }
+    //     categorizeGears: function () {
+    //         /*
+    //         temp_gearにはカテゴリ選択したギアを入れていく
+    //          */
+    //         var temp_gear = [];
+    //
+    //         if (this.category !== 'All') {
+    //              /*
+    //              temp_gearを初期化
+    //               */
+    //
+    //              temp_gear = [];
+    //
+    //             for (var i in this.gears) {
+    //
+    //                 var gear = this.gears[i];
+    //
+    //                 if (gear.gear_category.indexOf(this.category) !== -1) {
+    //
+    //                     temp_gear.push(gear);
+    //                 }
+    //
+    //
+    //             }
+    //         }
+    //         if(this.category =='All'){
+    //             temp_gear = this.gears;
+    //         }
+    //
+    //
+    //         return temp_gear;
+    //     }
     },
     mounted() {
         this.getResults();

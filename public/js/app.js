@@ -2775,8 +2775,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     searchGear: function searchGear(category) {
       var _this2 = this;
 
-      axios.get('/api/gears/?category=' + category).then(function (res) {
-        _this2.gears = res.data['data'];
+      axios.get('/api/gears/category/' + category).then(function (res) {
+        _this2.gears = res.data.data;
       });
     },
 
@@ -2794,34 +2794,39 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   computed: {
     auth_user: function auth_user() {
       return this.$store.state.auth_user;
-    },
-    categorizeGears: function categorizeGears() {
-      /*
-      temp_gearにはカテゴリ選択したギアを入れていく
-       */
-      var temp_gear = [];
+    } //     categorizeGears: function () {
+    //         /*
+    //         temp_gearにはカテゴリ選択したギアを入れていく
+    //          */
+    //         var temp_gear = [];
+    //
+    //         if (this.category !== 'All') {
+    //              /*
+    //              temp_gearを初期化
+    //               */
+    //
+    //              temp_gear = [];
+    //
+    //             for (var i in this.gears) {
+    //
+    //                 var gear = this.gears[i];
+    //
+    //                 if (gear.gear_category.indexOf(this.category) !== -1) {
+    //
+    //                     temp_gear.push(gear);
+    //                 }
+    //
+    //
+    //             }
+    //         }
+    //         if(this.category =='All'){
+    //             temp_gear = this.gears;
+    //         }
+    //
+    //
+    //         return temp_gear;
+    //     }
 
-      if (this.category !== 'All') {
-        /*
-        temp_gearを初期化
-         */
-        temp_gear = [];
-
-        for (var i in this.gears) {
-          var gear = this.gears[i];
-
-          if (gear.gear_category.indexOf(this.category) !== -1) {
-            temp_gear.push(gear);
-          }
-        }
-      }
-
-      if (this.category == 'All') {
-        temp_gear = this.gears;
-      }
-
-      return temp_gear;
-    }
   },
   mounted: function mounted() {
     this.getResults(); // this.getGears();
@@ -42110,19 +42115,24 @@ var render = function() {
               staticClass: "form-control",
               attrs: { id: "category" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.category = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.category = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  function($event) {
+                    return _vm.searchGear(_vm.category)
+                  }
+                ]
               }
             },
             _vm._l(_vm.gear_category, function(category) {
@@ -42176,20 +42186,7 @@ var render = function() {
                     _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
                   ]),
                   _vm._v(" "),
-                  gear.user_id !== _vm.auth_user.id
-                    ? _c(
-                        "div",
-                        [
-                          _c("follow-button-component", {
-                            attrs: {
-                              id: gear.user_id,
-                              following: gear.followers.length
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e(),
+                  gear.user_id !== _vm.auth_user.id ? _c("div") : _vm._e(),
                   _vm._v(" "),
                   gear.user_id !== _vm.auth_user.id
                     ? _c(
@@ -42197,13 +42194,7 @@ var render = function() {
                         [_c("like", { attrs: { gear_id: gear.id } })],
                         1
                       )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text mb-0" }, [
-                    _c("small", { staticClass: "text-muted" }, [
-                      _vm._v("いいね数 " + _vm._s(gear.likes.length))
-                    ])
-                  ])
+                    : _vm._e()
                 ])
               ])
             ])

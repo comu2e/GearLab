@@ -42,6 +42,8 @@ Vue.component('like-component', require('./components/LikeComponent.vue').defaul
 Vue.component('like', require('./components/Like.vue').default);
 Vue.component('user-gear-component', require('./components/UserGearComponent.vue').default);
 Vue.component('ImgInputer', ImgInputer)
+Vue.component('pagination', require('laravel-vue-pagination'));
+
 /*
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -14,7 +14,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
      */
     public function getAll()
     {
-        $gears = Gear::with(['user','likes','followers'])->get();
+        $gears = Gear::with(['user','likes','followers'])->paginate(2);
         return $gears;
     }
 

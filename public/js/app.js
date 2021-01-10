@@ -2772,16 +2772,10 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
         _this.gears = response.data.data;
       });
     },
-    // getGears() {
-    //     axios.get('/api/gears')
-    //         .then((res) => {
-    //             this.gears = res.data['data'];
-    //         });
-    // },
     searchGear: function searchGear(category) {
       var _this2 = this;
 
-      axios.get('/api/category=' + category).then(function (res) {
+      axios.get('/api/gears/category=' + category).then(function (res) {
         _this2.gears = res.data['data'];
       });
     },
@@ -2800,23 +2794,6 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   computed: {
     auth_user: function auth_user() {
       return this.$store.state.auth_user;
-    },
-    filteredGears: function filteredGears() {
-      var gears = [];
-
-      if (this.category !== "All") {
-        for (var i in this.gears) {
-          var gear = this.gears[i];
-
-          if (gear.gear_name.indexOf(this.keyword) !== -1) {
-            gears.push(gear);
-            return gears;
-          }
-        }
-      } else {
-        this.getGears();
-        return gears;
-      }
     },
     categorizeGears: function categorizeGears() {
       /*

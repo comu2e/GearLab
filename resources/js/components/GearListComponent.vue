@@ -80,16 +80,11 @@ export default {
                     this.gears = response.data.data;
                 });
         },
-        // getGears() {
-        //     axios.get('/api/gears')
-        //         .then((res) => {
-        //             this.gears = res.data['data'];
-        //         });
-        // },
+
 
         searchGear(category) {
 
-            axios.get('/api/category=' + category)
+            axios.get('/api/gears/category=' + category)
                 .then((res) => {
                     this.gears = res.data['data'];
                 });
@@ -109,23 +104,7 @@ export default {
         auth_user() {
             return this.$store.state.auth_user;
         },
-        filteredGears: function () {
-            var gears = [];
-            if (this.category !== "All") {
-                for (var i in this.gears) {
-                    var gear = this.gears[i];
-                    if (gear.gear_name.indexOf(this.keyword) !== -1) {
-                        gears.push(gear);
-                        return gears;
 
-                    }
-                }
-            } else {
-                this.getGears();
-                return gears;
-
-            }
-        },
         categorizeGears: function () {
             /*
             temp_gearにはカテゴリ選択したギアを入れていく

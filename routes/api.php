@@ -22,6 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/login', 'LoginController@login');
 //GearのAPI
 Route::apiResource('/gears', 'GearApiController');
+Route::get('/gears/category/{category}', 'GearApiController@categorize_gear');
 Route::apiResource('/likes', 'LikeApiController', ['only' => ['show_index']]);
 
 //いいね

@@ -25,7 +25,7 @@
 
 
                             <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
-                                <div>{{ '登録者: ' + gear.user.name }}</div>
+                                <div>{{ '投稿者: ' + gear.user.name }}</div>
                             </router-link>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>

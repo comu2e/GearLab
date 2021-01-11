@@ -42183,7 +42183,26 @@ var render = function() {
                           }
                         }
                       },
-                      [_c("div", [_vm._v(_vm._s("投稿者: " + gear.user.name))])]
+                      [
+                        _c("div", [
+                          _vm._v(_vm._s("投稿者: " + gear.user.name))
+                        ]),
+                        _vm._v(" "),
+                        gear.user_id !== _vm.auth_user.id
+                          ? _c(
+                              "div",
+                              [
+                                _c("follow-button-component", {
+                                  attrs: {
+                                    id: gear.user_id,
+                                    following: gear.followers
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ]
                     ),
                     _vm._v(" "),
                     _c("div", [
@@ -42210,8 +42229,6 @@ var render = function() {
                     _c("div", [
                       _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
                     ]),
-                    _vm._v(" "),
-                    gear.user_id !== _vm.auth_user.id ? _c("div") : _vm._e(),
                     _vm._v(" "),
                     gear.user_id !== _vm.auth_user.id
                       ? _c(

@@ -21,11 +21,13 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
 
 
                             <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
                                 <div>{{ '投稿者: ' + gear.user.name }}</div>
+                                <div v-if="gear.user_id !== auth_user.id">
+                                    <follow-button-component :id=gear.user_id :following="gear.followers"></follow-button-component>
+                                </div>
                             </router-link>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
@@ -34,9 +36,7 @@
                             <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
 
-                            <div v-if="gear.user_id !== auth_user.id">
-<!--                                <follow-button-component :id=gear.user_id :following="gear.followers.length"></follow-button-component>-->
-                            </div>
+
                            <div v-if="gear.user_id !== auth_user.id">
                                <like :gear_id=gear.id></like>
 

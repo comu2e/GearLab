@@ -1,24 +1,26 @@
 <template>
     <div class="container">
         <div align="center">
+            <pagination :data="gears" @pagination-change-page="getUserGears(this.$store.state.auth_user)" align="center"></pagination>
 
-            <ul v-for="gear in gears" class="list-group">
+            <ul v-for="gear in gears.data" class="list-group">
+
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <div>{{ '投稿者 : ' + gear.user.name }}</div>
+                            <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
+                                <div>{{ '投稿者: ' + gear.user.name }}</div>
+
+                            </router-link>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
 
                             <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
                             <div>{{gear.updated_at| moment(" 投稿日: YYYY年MM月DD日HH時mm分")   }}</div>
                             <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
-                            <div class="m-1">
-                                <div class="btn btn-success btn-sm">{{ 'いいね数 : ' + gear.likes_count }}</div>
 
-                            </div>
 
                             <div class="mt-2 ml-1">
                                 <!--                                削除する POST-->
@@ -55,7 +57,7 @@ export default {
     // },
     data: function () {
         return {
-            gears: [],
+            gears: {},
             is_post_success:null,
         }
     },
@@ -63,7 +65,8 @@ export default {
         getUserGears(user_id) {
             axios.get('/api/user_id=' + user_id)
                 .then((res) => {
-                    this.gears = res.data['data'];
+                    this.gears = res.data.data;
+                    console.log(this.gears);
                 });
         },
         deleteGear(id) {

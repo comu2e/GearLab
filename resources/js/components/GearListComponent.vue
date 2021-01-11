@@ -80,8 +80,8 @@ export default {
     methods: {
         getResults(page = 1) {
             axios.get('/api/gears/?page=' + page)
-                .then(response => {
-                    this.gears = response.data.data;
+                .then(res => {
+                    this.gears = res.data.data;
                 });
         },
 
@@ -99,7 +99,7 @@ export default {
         getUserGears($user_id) {
             axios.get('/api/user_id=' + $user_id)
                 .then((res) => {
-                    this.gears = res.data['data'];
+                    this.gears = res.data.data;
                 });
         },
 
@@ -109,43 +109,11 @@ export default {
             return this.$store.state.auth_user;
         },
 
-    //     categorizeGears: function () {
-    //         /*
-    //         temp_gearにはカテゴリ選択したギアを入れていく
-    //          */
-    //         var temp_gear = [];
-    //
-    //         if (this.category !== 'All') {
-    //              /*
-    //              temp_gearを初期化
-    //               */
-    //
-    //              temp_gear = [];
-    //
-    //             for (var i in this.gears) {
-    //
-    //                 var gear = this.gears[i];
-    //
-    //                 if (gear.gear_category.indexOf(this.category) !== -1) {
-    //
-    //                     temp_gear.push(gear);
-    //                 }
-    //
-    //
-    //             }
-    //         }
-    //         if(this.category =='All'){
-    //             temp_gear = this.gears;
-    //         }
-    //
-    //
-    //         return temp_gear;
-    //     }
+
     },
     mounted() {
         this.getResults();
 
-        // this.getGears();
     }
 }
 </script>

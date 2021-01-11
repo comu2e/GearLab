@@ -2718,8 +2718,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('/api/gears/?page=' + page).then(function (response) {
-        _this.gears = response.data.data;
+      axios.get('/api/gears/?page=' + page).then(function (res) {
+        _this.gears = res.data.data;
       });
     },
     searchGear: function searchGear(category) {
@@ -2737,49 +2737,17 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       var _this3 = this;
 
       axios.get('/api/user_id=' + $user_id).then(function (res) {
-        _this3.gears = res.data['data'];
+        _this3.gears = res.data.data;
       });
     }
   },
   computed: {
     auth_user: function auth_user() {
       return this.$store.state.auth_user;
-    } //     categorizeGears: function () {
-    //         /*
-    //         temp_gearにはカテゴリ選択したギアを入れていく
-    //          */
-    //         var temp_gear = [];
-    //
-    //         if (this.category !== 'All') {
-    //              /*
-    //              temp_gearを初期化
-    //               */
-    //
-    //              temp_gear = [];
-    //
-    //             for (var i in this.gears) {
-    //
-    //                 var gear = this.gears[i];
-    //
-    //                 if (gear.gear_category.indexOf(this.category) !== -1) {
-    //
-    //                     temp_gear.push(gear);
-    //                 }
-    //
-    //
-    //             }
-    //         }
-    //         if(this.category =='All'){
-    //             temp_gear = this.gears;
-    //         }
-    //
-    //
-    //         return temp_gear;
-    //     }
-
+    }
   },
   mounted: function mounted() {
-    this.getResults(); // this.getGears();
+    this.getResults();
   }
 });
 
@@ -3142,6 +3110,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "RegisterdGearComponent",
@@ -3150,7 +3120,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   // },
   data: function data() {
     return {
-      gears: [],
+      gears: {},
       is_post_success: null
     };
   },
@@ -3159,7 +3129,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       var _this = this;
 
       axios.get('/api/user_id=' + user_id).then(function (res) {
-        _this.gears = res.data['data'];
+        _this.gears = res.data.data;
+        console.log(_this.gears);
       });
     },
     deleteGear: function deleteGear(id) {
@@ -42530,104 +42501,121 @@ var render = function() {
     _c(
       "div",
       { attrs: { align: "center" } },
-      _vm._l(_vm.gears, function(gear) {
-        return _c("ul", { staticClass: "list-group" }, [
-          _c("li", { staticClass: "list-group-item" }, [
-            _c("div", { attrs: { align: "center", scope: "row" } }, [
-              _c("img", {
-                attrs: { alt: "", src: gear.image_url, width: "30%" }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                { attrs: { align: "right" } },
-                [
-                  _c("div", [_vm._v(_vm._s("投稿者 : " + gear.user.name))]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(
-                      _vm._s(
-                        _vm._f("moment")(
-                          gear.updated_at,
-                          " 投稿日: YYYY年MM月DD日HH時mm分"
+      [
+        _c("pagination", {
+          attrs: { data: _vm.gears, align: "center" },
+          on: {
+            "pagination-change-page": function($event) {
+              return _vm.getUserGears(this.$store.state.auth_user)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.gears.data, function(gear) {
+          return _c("ul", { staticClass: "list-group" }, [
+            _c("li", { staticClass: "list-group-item" }, [
+              _c("div", { attrs: { align: "center", scope: "row" } }, [
+                _c("img", {
+                  attrs: { alt: "", src: gear.image_url, width: "30%" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { attrs: { align: "right" } },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "home" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.getUserGears(gear.user.id)
+                          }
+                        }
+                      },
+                      [_c("div", [_vm._v(_vm._s("投稿者: " + gear.user.name))])]
+                    ),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        _vm._s(
+                          _vm._f("moment")(
+                            gear.updated_at,
+                            " 投稿日: YYYY年MM月DD日HH時mm分"
+                          )
                         )
                       )
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "m-1" }, [
-                    _c("div", { staticClass: "btn btn-success btn-sm" }, [
-                      _vm._v(_vm._s("いいね数 : " + gear.likes_count))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "mt-2 ml-1" },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          on: {
-                            click: function($event) {
-                              return _vm.deleteGear(gear.id)
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "mt-2 ml-1" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteGear(gear.id)
+                              }
                             }
-                          }
-                        },
-                        [_vm._v("ギアの登録を解除する")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "edit", params: { gearId: gear.id } }
-                          }
-                        },
-                        [
-                          _c("button", { staticClass: "btn btn-primary" }, [
-                            _vm._v("ギアの説明を編集する")
+                          },
+                          [_vm._v("ギアの登録を解除する")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: { name: "edit", params: { gearId: gear.id } }
+                            }
+                          },
+                          [
+                            _c("button", { staticClass: "btn btn-primary" }, [
+                              _vm._v("ギアの説明を編集する")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _vm._l(1, function(n) {
+                      return _vm.is_post_success == true
+                        ? _c("div", { attrs: { role: "alert" } }, [
+                            _c("p", { staticClass: "alert alert-success" }, [
+                              _vm._v(
+                                "\n                                " +
+                                  _vm._s("ギアの登録を解除しました！") +
+                                  "\n                            "
+                              )
+                            ])
                           ])
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._l(1, function(n) {
-                    return _vm.is_post_success == true
-                      ? _c("div", { attrs: { role: "alert" } }, [
-                          _c("p", { staticClass: "alert alert-success" }, [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s("ギアの登録を解除しました！") +
-                                "\n                            "
-                            )
-                          ])
-                        ])
-                      : _vm._e()
-                  })
-                ],
-                2
-              )
+                        : _vm._e()
+                    })
+                  ],
+                  2
+                )
+              ])
             ])
           ])
-        ])
-      }),
-      0
+        })
+      ],
+      2
     )
   ])
 }

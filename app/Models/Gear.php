@@ -52,7 +52,7 @@ class Gear extends Model
     }
     public function getLike($user_id,$gear_id)
     {
-        return $this->where('user_id', $user_id)->where('id',$gear_id);
+        return $this->likes->where('user_id','=',$user_id)->where('gear_id','=',$gear_id);
     }
 
     public function getUser($user_id)

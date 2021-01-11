@@ -24,11 +24,14 @@ class LikeController extends Controller
     public function store(Gear $gear)
     {
         $user = Auth::user();
+        $data = '';
         if ($user->id != $gear->user_id) {
             if ($gear->isLiked(Auth::id())) {
                 // 対象のレコードを取得して、削除する。
-                $delete_record = $gear->getLike($user->id,$gear->id);
-                $delete_record->delete();
+                $delete_record = $gear->getLike($user->id,$gear->id)->first()->id;
+                $data = $delete_record;
+
+                Like::destroy($data);
             } else {
                 $like = Like::firstOrCreate(
                     array(
@@ -36,8 +39,11 @@ class LikeController extends Controller
                         'gear_id' => $gear->id
                     )
                 );
+                $data = $like;
+
             }
         }
+        return $data;
     }
 //    認証しているユーザが対象のギアをいいねしているかを確認するためのメソッド
 

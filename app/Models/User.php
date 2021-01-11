@@ -33,11 +33,14 @@ class User extends Authenticatable
         return $this->belongsToMany(self::class, 'follow_users', 'user_id', 'followed_user_id')->withTimestamps();
     }
 
-    public function isFollowedBy(?User $user): bool
+    public function isFollowedBy($user_id)
     {
-        return $user
-            ? (bool)$this->followers->where('id', $user->id)->count()
-            : false;
+        return $this->followers->where('user_id', $user_id)->count();
+
+    }
+    public function getFollowed($user_id,$followed_user_id)
+    {
+        return $this->followers->where('user_id','=',$user_id)->where('followed_user_id','=',$followed_user_id);
     }
     /**
      * The attributes that are mass assignable.

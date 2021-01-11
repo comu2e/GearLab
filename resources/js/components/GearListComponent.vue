@@ -25,10 +25,11 @@
 
                             <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
                                 <div>{{ '投稿者: ' + gear.user.name }}</div>
-                                <div v-if="gear.user_id !== auth_user.id">
-                                    <follow-button-component :id=gear.user_id :following="gear.followers"></follow-button-component>
-                                </div>
+
                             </router-link>
+                            <div v-if="gear.user_id !== auth_user.id">
+                                <follow-button-component :gear_id=gear.id :user_id=gear.user_id></follow-button-component>
+                            </div>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
 

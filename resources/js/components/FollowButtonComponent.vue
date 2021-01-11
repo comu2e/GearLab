@@ -2,7 +2,7 @@
 <template>
     <div>
         <button v-if="status == false" type="button" @click.prevent="follow" class="btn btn-outline-success">フォローする！</button>
-        <button v-else type="button" @click.prevent="follow" class="btn btn-primary">登録済み</button>
+        <button v-else type="button" @click.prevent="follow" class="btn btn-primary">フォローずみ！</button>
     </div>
 </template>
 

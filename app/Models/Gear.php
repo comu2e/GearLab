@@ -48,7 +48,7 @@ class Gear extends Model
     }
     public function isLiked($user_id)
     {
-        return $this->likes()->where('user_id', $user_id)->exists();
+        return $this->likes->where('user_id', $user_id)->count();
     }
     public function getLike($user_id,$gear_id)
     {

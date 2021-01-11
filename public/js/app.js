@@ -2750,7 +2750,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42180,10 +42179,10 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: {
-                          to: {
-                            name: "user_gear",
-                            param: { value: gear.user.id }
+                        attrs: { to: { name: "home" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.getUserGears(gear.user.id)
                           }
                         }
                       },

@@ -14,7 +14,6 @@
             </div>
             <div>{{ category }}</div>
             <pagination :data="gears" @pagination-change-page="getResults" align="center"></pagination>
-
             <ul v-for="gear in gears.data"  :key="gear.id" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
@@ -26,7 +25,7 @@
                             <div>{{ '登録者: ' + gear.user.name }}</div>
 
 
-                            <router-link :to="{ name: 'user_gear',param:{value:gear.user.id}}" class="nav-link">
+                            <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
                                 <div>{{ 'ID: ' + gear.user.id }}</div>
                             </router-link>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>

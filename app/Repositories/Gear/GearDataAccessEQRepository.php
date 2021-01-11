@@ -27,7 +27,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
     public function getUser($user_id)
     {
 
-        return Gear::with(['user','likes'])->where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
+        return Gear::with(['user','likes'])->where('user_id', $user_id)->orderby('updated_at', 'desc')->paginate(2);
 
     }
 

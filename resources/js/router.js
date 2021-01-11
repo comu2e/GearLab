@@ -20,7 +20,7 @@ export default new Router({
         },
         {
             path: '/user_gears',
-            name: 'user_gears',
+            name: 'user_gear',
             component:UserGear
         },
         {

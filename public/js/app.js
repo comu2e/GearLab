@@ -42539,13 +42539,7 @@ var render = function() {
                 _vm._v(" "),
                 gear.user_id !== _vm.auth_user.id
                   ? _c("div", [_c("like", { attrs: { gear_id: gear.id } })], 1)
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text mb-0" }, [
-                  _c("small", { staticClass: "text-muted" }, [
-                    _vm._v("いいね数 " + _vm._s(gear.likes.length))
-                  ])
-                ])
+                  : _vm._e()
               ])
             ])
           ])

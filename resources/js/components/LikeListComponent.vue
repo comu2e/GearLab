@@ -20,7 +20,7 @@
                                 <like :gear_id=gear.id></like>
 
                             </div>
-                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>
+<!--                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>-->
 
 
                         </div>

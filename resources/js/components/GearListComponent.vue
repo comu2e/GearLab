@@ -25,6 +25,10 @@
                             <!--                            <div>{{// '投稿者 : '+gear.user_na:e }}</div>-->
                             <div>{{ '登録者: ' + gear.user.name }}</div>
 
+
+                            <router-link :to="{ name: 'user_gear',param:{value:gear.user.id}}" class="nav-link">
+                                <div>{{ 'ID: ' + gear.user.id }}</div>
+                            </router-link>
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
                             <div>{{ 'ギア名: ' + gear.gear_name }}</div>
 

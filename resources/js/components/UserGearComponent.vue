@@ -13,7 +13,9 @@
                 </div>
 
             <div>{{ category }}</div>
-            <ul v-for="gear in categorizeGears" class="list-group">
+            <pagination :data="gears" @pagination-change-page="getResults" align="center"></pagination>
+
+            <ul v-for="gear in gears.data" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
@@ -37,7 +39,7 @@
                                 <like :gear_id=gear.id></like>
 
                             </div>
-                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>
+<!--                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>-->
 
                         </div>
                     </div>

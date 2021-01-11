@@ -75,8 +75,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');
-//フォロー]
-
+//いいね
     Route::prefix('gears')->name('gears.')->group(function () {
 
         Route::get('/{gear}/check', 'LikeController@check')->name('like.check');
@@ -87,6 +86,16 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     });
+//フォロー]
+    Route::prefix('follows')->name('follows.')->group(function () {
 
+        Route::get('/{user}/followed', 'FollowUserController@index')->name('follow.index');
+        Route::resource('/{user}/follows', 'FollowUserController', [
+            'only' => ['store'],
+        ]);
+        Route::get('/{user}/check', 'FollowUserController@check')->name('follow.check');
+
+
+    });
 
 });

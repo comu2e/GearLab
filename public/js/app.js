@@ -2749,7 +2749,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42173,8 +42172,6 @@ var render = function() {
                   "div",
                   { attrs: { align: "right" } },
                   [
-                    _c("div", [_vm._v(_vm._s("登録者: " + gear.user.name))]),
-                    _vm._v(" "),
                     _c(
                       "router-link",
                       {
@@ -42186,7 +42183,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_c("div", [_vm._v(_vm._s("ID: " + gear.user.id))])]
+                      [_c("div", [_vm._v(_vm._s("登録者: " + gear.user.name))])]
                     ),
                     _vm._v(" "),
                     _c("div", [

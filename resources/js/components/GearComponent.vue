@@ -13,7 +13,6 @@
             <ul>
                 <li v-for="gear in gears" :key="gear.id">
                     {{ gear.id }}/{{ gear.content }}/{{ gear.gear_category }}
-{{'Heee'}}
                     <button :disabled="isPush" @click="deleteGear(gear.id)">
                         削除
                     </button>

@@ -63,7 +63,6 @@ export default {
     },
     mounted() {
         this.getLikedGear();
-        console.log(this.gears);
     }
 }
 </script>

@@ -80,9 +80,7 @@ export default {
         }
     },
     mounted() {
-        console.log('Register component is mounted')
         this.getUserGears(this.$store.state.auth_user.id);
-        console.log(this.$store.state.auth_user.id);
     }
 }
 </script>

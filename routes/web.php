@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
     // asset()やurl()がhttpsで生成される
-    URL::forceScheme('https');
+    URL::forceScheme('http');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,11 +61,18 @@ Route::get('/following/{user_id}','FollowUserController@index');
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
 //フォロー機能
-    Route::post('/follow-users/{user_id}','FollowUserController@store');
-    Route::delete('/follow-users/{user_id}','FollowUserController@destroy');
-    Route::get('users/{user_id}/following_check', 'FollowUserController@following_check')->name('follow.check');
+
+//フォロー]
+    Route::prefix('follows')->name('follows.')->group(function () {
+
+        Route::get('/{user}/followed', 'FollowUserController@index')->name('follow.index');
+        Route::resource('/{user}/follows', 'FollowUserController', [
+            'only' => ['store'],
+        ]);
+        Route::get('/{user}/check', 'FollowUserController@check')->name('follow.check');
 
 
+    });
     Route::get('/user_detail/{id?}', function () {
         return view('user_detail_view')->name('user_detail');
     });
@@ -86,16 +93,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     });
-//フォロー]
-    Route::prefix('follows')->name('follows.')->group(function () {
 
-        Route::get('/{user}/followed', 'FollowUserController@index')->name('follow.index');
-        Route::resource('/{user}/follows', 'FollowUserController', [
-            'only' => ['store'],
-        ]);
-        Route::get('/{user}/check', 'FollowUserController@check')->name('follow.check');
-
-
-    });
 
 });

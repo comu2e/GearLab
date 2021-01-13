@@ -31,18 +31,21 @@
                         <img alt="" v-bind:src='gear.image_url' width="25%">
                         <div align="right">
 
-                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
-                            <div>{{ 'ギア名: ' + gear.gear_name }}</div>
+                            <div class="card-title">{{gear.gear_category }}</div>
+                            <div class="card-title">{{gear.maker_name }}</div>
 
-                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
-                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
+                            <div class="card-title">{{gear.gear_name }}</div>
+
+                            <div class="card-text text-muted" align="center">{{gear.content }}</div>
 
 
                             <div v-if="gear.user_id !== auth_user.id">
                                 <like :gear_id=gear.id></like>
 
                             </div>
-                            <div align="left">{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分") }}</div>
+                            <div class="card-footer">
+                                <small class="text-muted">{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分") }}</small>
+                            </div>
 
                         </div>
                     </div>

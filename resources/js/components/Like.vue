@@ -29,7 +29,6 @@ export default {
                     this.status = false
                 }
             }).catch(function(err) {
-                console.log(err)
             })
         },
         like() {
@@ -39,7 +38,6 @@ export default {
             axios.post(path).then(res => {
                 this.like_check()
             }).catch(function(err) {
-                console.log(err)
             })
         }
     }

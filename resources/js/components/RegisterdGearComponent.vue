@@ -66,7 +66,6 @@ export default {
             axios.get('/api/user_id=' + user_id)
                 .then((res) => {
                     this.gears = res.data.data;
-                    console.log(this.gears);
                 });
         },
         deleteGear(id) {

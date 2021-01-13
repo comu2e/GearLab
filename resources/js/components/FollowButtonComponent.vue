@@ -24,11 +24,8 @@ export default {
             const path = array.join('')
             axios.get(path).then(res => {
                 if(res.data == 1) {
-                    console.log(res)
-
                     this.status = true
                 } else {
-                    console.log(res)
 
                     this.status = false
                 }
@@ -41,7 +38,6 @@ export default {
             const array = ["/follows/",id,"/follows"];
             const path = array.join('')
             axios.post(path).then(res => {
-                console.log(res)
                 this.follow_check()
             }).catch(function(err) {
                 console.log(err)

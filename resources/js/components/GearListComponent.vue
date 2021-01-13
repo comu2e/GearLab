@@ -17,14 +17,18 @@
             <ul v-for="gear in gears.data" :key="gear.id" class="list-group">
                 <li class="list-group-item">
                     <div align="center" scope="row">
-                        <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)" class="nav-link" align="left">
-                            <div>{{ '' + gear.user.name }}</div>
+                        <div align="left">
+                            <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)" class="btn btn-primary" align="left" >
+                                <div>{{gear.user.name + 'のページへ'}}</div>
 
-                        </router-link>
-                        <div v-if="gear.user_id !== auth_user.id">
-                            <follow-button-component :gear_id=gear.id :user_id=gear.user_id></follow-button-component>
+                            </router-link>
+                            <div v-if="gear.user_id !== auth_user.id">
+                                <follow-button-component :gear_id=gear.id :user_id=gear.user_id></follow-button-component>
+                            </div>
                         </div>
-                        <img alt="" v-bind:src='gear.image_url' width="30%">
+
+
+                        <img alt="" v-bind:src='gear.image_url' width="25%">
                         <div align="right">
 
                             <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>

@@ -2686,6 +2686,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42038,77 +42042,83 @@ var render = function() {
         _vm._l(_vm.gears.data, function(gear) {
           return _c("ul", { key: gear.id, staticClass: "list-group" }, [
             _c("li", { staticClass: "list-group-item" }, [
-              _c(
-                "div",
-                { attrs: { align: "center", scope: "row" } },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { to: { name: "home" }, align: "left" },
-                      nativeOn: {
-                        click: function($event) {
-                          return _vm.getUserGears(gear.user.id)
+              _c("div", { attrs: { align: "center", scope: "row" } }, [
+                _c(
+                  "div",
+                  { attrs: { align: "left" } },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { to: { name: "home" }, align: "left" },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.getUserGears(gear.user.id)
+                          }
                         }
-                      }
-                    },
-                    [_c("div", [_vm._v(_vm._s("" + gear.user.name))])]
-                  ),
-                  _vm._v(" "),
-                  gear.user_id !== _vm.auth_user.id
-                    ? _c(
-                        "div",
-                        [
-                          _c("follow-button-component", {
-                            attrs: { gear_id: gear.id, user_id: gear.user_id }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("img", {
-                    attrs: { alt: "", src: gear.image_url, width: "30%" }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { attrs: { align: "right" } }, [
-                    _c("div", [
-                      _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
-                      _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
-                    ]),
+                      },
+                      [
+                        _c("div", [
+                          _vm._v(_vm._s(gear.user.name + "のページへ"))
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
                     gear.user_id !== _vm.auth_user.id
                       ? _c(
                           "div",
-                          [_c("like", { attrs: { gear_id: gear.id } })],
+                          [
+                            _c("follow-button-component", {
+                              attrs: { gear_id: gear.id, user_id: gear.user_id }
+                            })
+                          ],
                           1
                         )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("div", { attrs: { align: "left" } }, [
-                      _vm._v(
-                        _vm._s(
-                          _vm._f("moment")(
-                            gear.updated_at,
-                            " 投稿日: YYYY年MM月DD日HH時mm分"
-                          )
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("img", {
+                  attrs: { alt: "", src: gear.image_url, width: "25%" }
+                }),
+                _vm._v(" "),
+                _c("div", { attrs: { align: "right" } }, [
+                  _c("div", [
+                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                  ]),
+                  _vm._v(" "),
+                  gear.user_id !== _vm.auth_user.id
+                    ? _c(
+                        "div",
+                        [_c("like", { attrs: { gear_id: gear.id } })],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { attrs: { align: "left" } }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm._f("moment")(
+                          gear.updated_at,
+                          " 投稿日: YYYY年MM月DD日HH時mm分"
                         )
                       )
-                    ])
+                    )
                   ])
-                ],
-                1
-              )
+                ])
+              ])
             ])
           ])
         })

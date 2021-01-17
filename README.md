@@ -1,8 +1,8 @@
-## About GearLab 
+## GearLab について
 
 GearLabはキャンプを充実させるキャンプギアを共有できるサイトです。
 
-## Concept
+## 概要　-Concept - 
 
  自分にあったキャンプギアの準備で困ったことはないでしょうか？
  
@@ -18,7 +18,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 2020年12月からすべて**独学**で制作しています。
 
 
-##  :star: Gearlabの機能
+## :wrench:機能
 
 - ギアの投稿機能
 - ギアの編集・削除機能
@@ -30,6 +30,12 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 - フォローユーザ　一覧表示機能
 - ページネーション機能
 - 管理者機能
+
+### その他
+
+- git 2.24.3
+- Linux基礎コマンド
+- Github (Pull Request, Issues を使用)
 
 ## こだわった点
 - バックエンドではAPIの導入
@@ -47,6 +53,14 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
   - Docker  
   - AWS ECS(EC2) / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
+  **本番環境**
+ 
+     - AWS(詳細はネットワーク構成図参照)
+         - RDS for MySQL8.0
+         - Nginx 2.0.3
+
+ 
  ## :cloud:ネットワーク構成図
-           
+  ![AWS](https://user-images.githubusercontent.com/5231283/104843022-eb2c6680-590b-11eb-95b2-7077c0aafeb3.jpg)
+
 

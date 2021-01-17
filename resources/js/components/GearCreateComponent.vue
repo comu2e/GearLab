@@ -91,8 +91,8 @@
 export default {
     // user: Number,
     mounted() {
-        console.log('Create Component is mouted'),
-            console.log(this.$store.state.auth_user)
+        console.log('Create Component is mouted')
+            // console.log(this.$store.state.auth_user)
     },
     data() {
         return {
@@ -115,7 +115,7 @@ export default {
 
     methods: {
         getGears() {
-            axios.get("/api/gears/")
+            axios.get("/api/gears")
                 .then(response => {
                     this.gears = response.data;
                 })
@@ -126,6 +126,7 @@ export default {
         confirmImage(e) {
             this.message = "";
             this.file = e.target.files[0];
+
             if (!this.file.type.match("image.*")) {
                 this.message = "画像ファイルを選択して下さい";
                 this.confirmedImage = "";
@@ -145,6 +146,7 @@ export default {
         uploadImage() {
             let data = new FormData();
             data.append("file", this.file);
+            console.log(this.file);
             data.append("maker_name", this.maker_name);
             data.append("gear_name", this.gear_name);
             data.append("gear_category", this.gear_category);
@@ -152,9 +154,10 @@ export default {
             //Vuexのstoreからauth_user情報を呼び出す
             data.append("user_id", this.$store.state.auth_user.id);
 
-            axios.post("/api/gears/", data)
+            axios.post("/api/gears", data)
                 .then(response => {
-                    this.getGears();
+                    // this.getGears();
+                    console.log(response);
                     this.message = response.data.success;
                     this.confirmedImage = "";
                     this.maker_name = "";

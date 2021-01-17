@@ -2106,7 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this4 = this;
 
-      axios.put('/api/gears/' + this.$route.params.gearId, this.gear).then(function (res) {
+      axios.put('/gears' + this.$route.params.gearId, this.gear).then(function (res) {
         _this4.$router.push({
           name: 'home'
         });
@@ -2592,8 +2592,9 @@ __webpack_require__.r(__webpack_exports__);
       data.append("gear_category", this.gear_category);
       data.append("content", this.content); //Vuexのstoreからauth_user情報を呼び出す
 
-      data.append("user_id", this.$store.state.auth_user.id);
-      axios.post("/api/gears", data).then(function (response) {
+      data.append("user_id", this.$store.state.auth_user.id); // axios.post("/api/gears", data)
+
+      axios.post("/gears", data).then(function (response) {
         // this.getGears();
         console.log(response);
         _this3.message = response.data.success;

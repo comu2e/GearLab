@@ -83,31 +83,43 @@ class GearController extends Controller
 
     }
 
-    public function store(GearRequest $request)
+    public function store(Request $request)
     {
-        $gear = new Gear;
-//    $form = $request -> all();
-//    dd($form);
-//    dd($request);
-        //s3アップロード開始
-        $image = $request->file('image_url');
+        $this->validate($request, [
+            'file' => 'required|image',
+            'gear_name' => 'required',
+            'gear_category' => 'required',
+            'maker_name' => 'required',
+            'content' => ['required','min:2'],
 
-        // バケットの`myprefix`フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
-        // アップロードした画像のフルパスを取得
-        $gear->image_url = Storage::disk('s3')->url($path);
+        ], [
+            'file.required' => '画像が選択されていません',
+            'file.image' => '画像ファイルではありません',
+            'gear_category.required' => '登録するギアのカテゴリを選択してください',
 
-        $gear->gear_name = $request->gear_name;
-        $gear->user_id = Auth::id();
+            'gear_name.required' => '登録するギアの名前を入力してください',
+            'maker_name.required' => '登録するギアのメーカ名を入力してください',
+            'content.min' => 'ギアのお気に入りポイントを2文字以上入力してください',
+            'content.required' => 'ギアのお気に入りポイントを入力してください',
+        ]);
 
-        $gear->gear_category = $request->gear_category;
-        $gear->maker_name = $request->maker_name;
-        $gear->content = $request->content;
-        $gear->updated_at = date('Y/m/d H:i:s');
-        $gear->edited_at = date('Y/m/d H:i:s');
+        if (request()->file) {
+            $image = $request->file('file');
+            $image_url = Storage::disk('s3')->put('/myprefix', $image, 'public');
+            $gear = new Gear();
+            $gear->image_url = Storage::disk('s3')->url($image_url);
+            $gear->gear_name = $request->gear_name;
+            $gear->maker_name = $request->maker_name;
+            $gear->content = $request->content;
+            $gear->gear_category = $request->gear_category;
+            $gear->updated_at = date('Y/m/d H:i:s');
+            $gear->gear_category = $request->gear_category;
 
-        $gear->save();
-        return redirect()->route('gears.index');
+            $gear->user_id = $request->user_id;
+            $gear->save();
+
+            return ['success' => '登録しました!'];
+        }
     }
 
 
@@ -132,13 +144,7 @@ class GearController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit_gear($id)
-    {
-        $gear = Gear::find($id);
 
-        return view('gears.edit', compact('gear'));
-
-    }
 
     /**
      * Update the specified resource in storage.
@@ -167,9 +173,12 @@ class GearController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(GearRequest $request)
+    public function update(Request $request, Gear $gear)
     {
+//        $gear->update($request->all());
+        $gear = $this -> Gear ->updateGear($request,$gear);
 
+        return $gear;
     }
 
     /**

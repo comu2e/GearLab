@@ -102,8 +102,10 @@ class GearController extends Controller
             'content.min' => 'ギアのお気に入りポイントを2文字以上入力してください',
             'content.required' => 'ギアのお気に入りポイントを入力してください',
         ]);
+        dd($request);
 
         if (request()->file) {
+
             $image = $request->file('file');
             $image_url = Storage::disk('s3')->put('/myprefix', $image, 'public');
             $gear = new Gear();
@@ -116,6 +118,7 @@ class GearController extends Controller
             $gear->gear_category = $request->gear_category;
 
             $gear->user_id = $request->user_id;
+            dd($gear);
             $gear->save();
 
             return ['success' => '登録しました!'];

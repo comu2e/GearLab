@@ -6,7 +6,7 @@
                     <div class="card">
                         <div>編集画面</div>
                         <div class="card-body　d-flex justify-content-center">
-                            <div class="justify-content-xl-center">
+                            <div align="center">
                                 <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
                                 <!--                        <input class="form-control" type="file" @change="confirmImage" v-if="view"/>-->
                                 <div class="justify-content-center">

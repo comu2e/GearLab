@@ -134,7 +134,7 @@ export default {
 
         //画像、コメント投稿用のvue側のaxios通信
         submit() {
-            axios.put('/api/gears/' + this.$route.params.gearId, this.gear)
+            axios.put('/gears' + this.$route.params.gearId, this.gear)
                 .then((res) => {
                     this.$router.push({name: 'home'});
                     this.is_post_success = true;

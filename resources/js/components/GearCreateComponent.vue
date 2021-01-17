@@ -154,7 +154,8 @@ export default {
             //Vuexのstoreからauth_user情報を呼び出す
             data.append("user_id", this.$store.state.auth_user.id);
 
-            axios.post("/api/gears", data)
+            // axios.post("/api/gears", data)
+            axios.post("/gears", data)
                 .then(response => {
                     // this.getGears();
                     console.log(response);

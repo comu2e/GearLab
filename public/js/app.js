@@ -40951,7 +40951,7 @@ var render = function() {
         "nav",
         {
           staticClass:
-            "navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top w-90 "
+            "navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top"
         },
         [
           _c("ul", { staticClass: "navbar-nav" }, [
@@ -41094,7 +41094,7 @@ var render = function() {
                 "div",
                 { staticClass: "card-body　d-flex justify-content-center" },
                 [
-                  _c("div", { staticClass: "justify-content-xl-center" }, [
+                  _c("div", { attrs: { align: "center" } }, [
                     _c(
                       "label",
                       { staticClass: "col-md-4 col-form-label text-md-right" },
@@ -41694,12 +41694,8 @@ var render = function() {
             "div",
             { staticClass: "card-body　d-flex justify-content-center" },
             [
-              _c("div", { staticClass: "justify-content-xl-center" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-md-4 col-form-label text-md-right" },
-                  [_vm._v(" ギアの写真")]
-                ),
+              _c("div", { attrs: { align: "center" } }, [
+                _c("label", [_vm._v(" ギアの写真")]),
                 _vm._v(" "),
                 _c(
                   "div",

@@ -1,7 +1,7 @@
 <template>
 
     <div class="container mt-5 mb-3">
-        <nav class="navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top w-90 ">
+        <nav class="navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top">
 
             <ul class="navbar-nav">
                 <li class="nav-item">

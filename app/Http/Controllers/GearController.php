@@ -117,7 +117,8 @@ class GearController extends Controller
             $gear->updated_at = date('Y/m/d H:i:s');
             $gear->gear_category = $request->gear_category;
 
-            $gear->user_id = $request->user_id;
+//            $gear->user_id = $request->user_id;
+            $gear->user_id = Auth::id();
             dd($gear);
             $gear->save();
 

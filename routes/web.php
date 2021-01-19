@@ -57,10 +57,6 @@ Route::get('profile', function () {
 Route::post('/admin/user/{id}', 'GearController@delete');
 Route::get('/following/{user_id}','FollowUserController@index');
 
-Route::post('/gears','GearController@store');
-Route::put('/gears','GearController@update');
-//Route::post('gears','GearController@post');
-
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
 //フォロー機能
@@ -81,7 +77,11 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::resource('users', 'UserController');
-    Route::resource('gears', 'GearController', ['except' => ['store','create', 'update']]);
+    Route::resource('gears', 'GearController', ['except' => ['create']]);
+
+//    Route::post('/gears','GearController@store');
+//    Route::put('/gears','GearController@update');
+//Route::post('gears','GearController@post');
 
     Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');

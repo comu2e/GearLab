@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" type="text/css" rel="stylesheet"></link>
+    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>

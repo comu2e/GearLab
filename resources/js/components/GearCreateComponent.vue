@@ -123,41 +123,29 @@ export default {
                     this.message = err;
                 });
         },
-        confirmImage(e) {
-            this.message = "";
-            this.file = e.target.files[0];
 
-            if (!this.file.type.match("image.*")) {
-                this.message = "画像ファイルを選択して下さい";
-                this.confirmedImage = "";
-                return;
-            }
-            this.createImage(this.file);
-        },
-        createImage(file) {
-            let reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = e => {
-                this.confirmedImage = e.target.result;
-            };
-        },
 
         //画像、コメント投稿用のvue側のaxios通信
         uploadImage() {
             let data = new FormData();
             data.append("file", this.file);
-            console.log(this.file);
             data.append("maker_name", this.maker_name);
             data.append("gear_name", this.gear_name);
             data.append("gear_category", this.gear_category);
             data.append("content", this.content);
             //Vuexのstoreからauth_user情報を呼び出す
             data.append("user_id", this.$store.state.auth_user.id);
+            console.log('dataの表示')
+            console.log(data);
 
+            NProgress.start();
             axios.post("/api/gears", data)
             // axios.post("/gears", data)
                 .then(response => {
+                    setTimeout(()=>{
                     // this.getGears();
+                    console.log('responseの表示')
+
                     console.log(response);
                     this.message = response.data.success;
                     this.confirmedImage = "";
@@ -174,8 +162,13 @@ export default {
                     this.$nextTick(function () {
                         this.view = true;
                     });
+                    NProgress.done();
+                },3000);
                 })
                 .catch(err => {
+                    console.log('errorの表示')
+
+                    console.log(err)
                     this.message = err.response.data.errors;
                     this.is_post_success = false;
                 });

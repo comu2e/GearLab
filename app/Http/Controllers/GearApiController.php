@@ -11,12 +11,13 @@ use App\Models\User;
 use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 use Storage;
 use App\Http\Requests\GearRequest;
 
 //Repositoryパターンの追加
-use App\Repositories\Gear\GearDataAccessRepositoryInterface AS GearDataAccess;
+use App\Repositories\Gear\GearDataAccessRepositoryInterface as GearDataAccess;
 
 
 class GearApiController extends Controller
@@ -31,7 +32,7 @@ class GearApiController extends Controller
 
     public function __construct(GearDataAccess $GearDataAccess)
     {
-        $this -> Gear = $GearDataAccess;
+        $this->Gear = $GearDataAccess;
     }
 
     /**
@@ -42,8 +43,9 @@ class GearApiController extends Controller
     public function index()
     {
 //        $gear = Gear::all();
+        Log::debug('index');
 
-        $gear = $this -> Gear -> getAll();
+        $gear = $this->Gear->getAll();
 
         return response()->json([
             'message' => 'ok',
@@ -59,13 +61,14 @@ class GearApiController extends Controller
     public function user_index($user_id)
     {
 //        $gears = Gear::where('user_id', $user_id)->orderby('updated_at', 'desc')->get();
-        $gears = $this -> Gear -> getUser($user_id);
+        $gears = $this->Gear->getUser($user_id);
 
         return response()->json([
             'message' => 'ok',
             'data' => $gears
         ], 200, [], JSON_UNESCAPED_UNICODE);
     }
+
     /**
      * Display a listing of the categorized Gear.
      *
@@ -73,14 +76,13 @@ class GearApiController extends Controller
      */
     public function categorize_gear($category)
     {
-       if ($category === 'All'){
-           $gear = $this -> Gear -> getAll();
+        if ($category === 'All') {
+            $gear = $this->Gear->getAll();
 
-       }
-       else{
-           $gear = $this -> Gear -> getCategorizedGear($category);
+        } else {
+            $gear = $this->Gear->getCategorizedGear($category);
 
-       }
+        }
         return response()->json([
             'message' => 'ok categorize',
             'data' => $gear
@@ -95,12 +97,15 @@ class GearApiController extends Controller
      */
     public function store(Request $request)
     {
+        Log::debug('storeメソッドの実行');
+        Log::debug($request);
+
         $this->validate($request, [
             'file' => 'required|image',
             'gear_name' => 'required',
             'gear_category' => 'required',
             'maker_name' => 'required',
-            'content' => ['required','min:2'],
+            'content' => ['required', 'min:2'],
 
         ], [
             'file.required' => '画像が選択されていません',
@@ -114,6 +119,9 @@ class GearApiController extends Controller
         ]);
 
         if (request()->file) {
+            Log::debug('requstにfileがある時の処理');
+            Log::debug(request()->file);
+
             $image = $request->file('file');
             $image_url = Storage::disk('s3')->put('/myprefix', $image, 'public');
             $gear = new Gear();
@@ -141,7 +149,7 @@ class GearApiController extends Controller
     public function show($id)
     {
 //        $gear = Gear::find($id);
-        $gear = $this -> Gear ->findAll($id);
+        $gear = $this->Gear->findAll($id);
 
         if ($gear) {
             return response()->json([
@@ -165,7 +173,7 @@ class GearApiController extends Controller
     public function update(Request $request, Gear $gear)
     {
 //        $gear->update($request->all());
-        $gear = $this -> Gear ->updateGear($request,$gear);
+        $gear = $this->Gear->updateGear($request, $gear);
 
         return $gear;
     }
@@ -179,7 +187,7 @@ class GearApiController extends Controller
     public function destroy($id)
     {
 //        $gear = Gear::where('id', $id)->delete();
-        $gear = $this -> Gear ->deleteSelect($id);
+        $gear = $this->Gear->deleteSelect($id);
 
 
         if ($gear) {

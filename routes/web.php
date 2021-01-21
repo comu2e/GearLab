@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
     // asset()やurl()がhttpsで生成される
-    URL::forceScheme('http');
+    URL::forceScheme('https');
 /*
 |--------------------------------------------------------------------------
 | Web Route
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('/layouts.landing');
+
 });
 
 Route::get('/home', function () {

@@ -21,7 +21,7 @@
         </div>
         <form method="post" action="/admin/user/{{$user->id}}">
             {{ csrf_field() }}
-            <input type="submit" value="削除" class="btn btn-danger btn-sm" onclick='return confirm("君は本当に削除するつもりかい？");'>
+            <input type="submit" value="削除" class="btn btn-danger btn-sm" onclick='return confirm("本当にユーザーを削除しますか？");'>
         </form>
 
     </div>

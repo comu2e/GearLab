@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
     URL::forceScheme('http');
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Route
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -36,10 +36,13 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('/admin', 'admin\AdminTopController@show');
     //ログアウト実行
     Route::post('/admin/logout', 'admin\AdminLogoutController@logout');
+
+
     //ユーザー一覧
     Route::get('/admin/user_list', 'admin\ManageUserController@showUserList');
     //ユーザー詳細
     Route::get('/admin/user/{id}', 'admin\ManageUserController@showUserDetail');
+    Route::post('/admin/user/{id}', 'admin\ManageUserController@delete');
 
 });
 

@@ -3,8 +3,6 @@ RUN apk update && apk add --no-cache \
       tzdata curl \
       && apk del tzdata \
       && rm -rf /var/cache/apk/*
-#ADD nginx.conf /etc/nginx/conf.d/
-
 #COPY nginx.conf /etc/nginx/nginx.conf
 COPY . /var/www
 CMD ["--bootstrap=laravel","--static-directory=public/"]

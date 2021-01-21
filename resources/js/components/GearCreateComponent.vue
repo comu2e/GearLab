@@ -137,6 +137,9 @@ export default {
             data.append("user_id", this.$store.state.auth_user.id);
             console.log('dataの表示')
             console.log(data);
+            for (let value of data.entries()) {
+                console.log(value);
+            }
 
             NProgress.start();
             axios.post("/api/gears", data)
@@ -169,6 +172,7 @@ export default {
                     console.log('errorの表示')
 
                     console.log(err)
+                    console.log(err.response)
                     this.message = err.response.data.errors;
                     this.is_post_success = false;
                 });

@@ -4,4 +4,5 @@ RUN apk update && apk add --no-cache \
       && apk del tzdata \
       && rm -rf /var/cache/apk/*
 COPY . /var/www
+#COPY php.ini /etc/php7/php.ini
 CMD ["--bootstrap=laravel","--static-directory=public/"]

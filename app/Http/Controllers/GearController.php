@@ -12,6 +12,7 @@ use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Log;
 use Storage;
 use App\Http\Requests\GearRequest;
 
@@ -85,6 +86,8 @@ class GearController extends Controller
 
     public function store(Request $request)
     {
+        Log::debug('storeメソッドの実行');
+        Log::debug($request);
         $this->validate($request, [
             'file' => 'required|image',
             'gear_name' => 'required',
@@ -102,7 +105,6 @@ class GearController extends Controller
             'content.min' => 'ギアのお気に入りポイントを2文字以上入力してください',
             'content.required' => 'ギアのお気に入りポイントを入力してください',
         ]);
-        dd($request);
 
         if (request()->file) {
 

@@ -75,10 +75,10 @@
 
                         </div>
 
-
                         <p>
                             <button @click="uploadImage" class="btn btn-primary btn-lg ">Gear+</button>
                         </p>
+
                     </div>
                 </div>
             </div>

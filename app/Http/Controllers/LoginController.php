@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 
@@ -24,6 +25,8 @@ class LoginController extends Controller
                 'email' => ['The Provided credentials are incorrect']
             ]);
         }
+        Log::debug($user);
+        Log::debug($user->createToken('Auth Token')->accessToken);
         return $user->createToken('Auth Token')->accessToken;
 
     }

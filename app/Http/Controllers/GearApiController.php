@@ -97,8 +97,9 @@ class GearApiController extends Controller
      */
     public function store(Request $request)
     {
-        Log::debug('storeメソッドの実行');
+        Log::debug('API storeメソッドの実行');
         Log::debug($request);
+        Log::debug(request());
 
         $this->validate($request, [
             'file' => 'required|image',
@@ -117,8 +118,10 @@ class GearApiController extends Controller
             'content.min' => 'ギアのお気に入りポイントを2文字以上入力してください',
             'content.required' => 'ギアのお気に入りポイントを入力してください',
         ]);
-
-        if (request()->file) {
+        Log::debug('$image = $request->file');
+        Log::debug($image = $request->file('file'));
+        Log::debug('=====');
+        if ($request->hasFile('file')) {
             Log::debug('requstにfileがある時の処理');
             Log::debug(request()->file);
 

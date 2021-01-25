@@ -13,7 +13,7 @@
                                 <img-inputer v-model="file"
                                              theme="light"
                                              size="middle"
-                                             placeholder="ギア写真をここにドラッグする"
+                                             placeholder="ギア写真をここにドラッグしてください"
                                              bottom-text="ファイルをドロップするかここをクリックしてください"
                                              auto-update="true"/>
 
@@ -183,7 +183,7 @@ export default {
 </script>
 
 <style>
-.img {
-    width: 100px;
-}
+/*.img {*/
+/*    width: 100px;*/
+/*}*/
 </style>

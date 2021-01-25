@@ -12,8 +12,8 @@
                                 <div class="justify-content-center">
                                     <img-inputer v-model="file"
                                                  theme="light"
-                                                 size="large"
-                                                 placeholder="ギア写真をここにドラッグする"
+                                                 size="middle"
+                                                 placeholder="ギア写真をここにドラッグしてください"
                                                  bottom-text="ファイルをドロップするかここをクリックしてください"
                                                  auto-update="true"
                                                  :imgSrc="gear.image_url"/>

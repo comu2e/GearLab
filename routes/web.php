@@ -23,7 +23,6 @@ Route::get('/', function () {
 
 });
 Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
-
 Route::get('/home', function () {
     return redirect('/gears');
 });

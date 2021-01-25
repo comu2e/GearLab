@@ -2531,6 +2531,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   // user: Number,
   mounted: function mounted() {
@@ -2546,6 +2552,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       user_id: "",
       is_post_success: null,
       content: "",
+      youtube_url: "",
       view: true,
       gears: {},
       confirmedImage: ""
@@ -2573,7 +2580,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       data.append("maker_name", this.maker_name);
       data.append("gear_name", this.gear_name);
       data.append("gear_category", this.gear_category);
-      data.append("content", this.content); //Vuexのstoreからauth_user情報を呼び出す
+      data.append("content", this.content);
+      data.append("youtube_url", this.youtube_url); //Vuexのstoreからauth_user情報を呼び出す
 
       data.append("user_id", this.$store.state.auth_user.id);
       console.log('dataの表示');
@@ -2606,6 +2614,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           _this2.gear_name = "";
           _this2.gear_category = "";
           _this2.content = "";
+          _this2.youtube_url = "";
           _this2.file = ""; // this.user_id = $route.params;
 
           _this2.message = 'success'; //ファイルを選択のクリア
@@ -2620,9 +2629,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           NProgress.done();
         }, 3000);
       })["catch"](function (err) {
-        console.log('errorの表示');
-        console.log(err);
-        console.log(err.response);
         _this2.message = err.response.data.errors;
         _this2.is_post_success = false;
       });
@@ -2643,6 +2649,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent */ "./resources/js/components/FollowButtonComponent.vue");
+//
 //
 //
 //
@@ -7795,7 +7802,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.img {*/\n/*    width: 100px;*/\n/*}*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.img {*/\n/*    width: 100px;*/\n/*}*/\n", ""]);
 
 // exports
 
@@ -41932,6 +41939,32 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.youtube_url,
+                      expression: "youtube_url"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { "aria-label": "Youtube動画のURL" },
+                  domProps: { value: _vm.youtube_url },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.youtube_url = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
               _vm._l(_vm.message, function(err) {
                 return _vm.is_post_success == false
                   ? _c("div", { attrs: { role: "alert" } }, [
@@ -42017,6 +42050,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
         _vm._v("お気に入りポイント")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _vm._v("参考にしたYoutube動画")
       ])
     ])
   }

@@ -24,6 +24,7 @@ class CreateGearTable extends Migration
             $table->timestamp('edited_at')->nullable();
             $table->text('content')->nullable();
             $table->string('image_url')->nullable();
+            $table->string('youtube_url')->nullable();
         });
     }
     /**

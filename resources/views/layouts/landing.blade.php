@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('css/odometer-theme-default.css')}}">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 
     <script>
         window.odometerOptions = {
@@ -38,6 +39,21 @@
             duration: 13000, // Change how long the javascript expects the CSS animation to take
             theme: 'default'
         };
+    </script>
+
+    <script>
+        $(function(){
+            // #で始まるリンクをクリックしたら実行されます
+            $('a[href^="#"]').click(function() {
+                // スクロールの速度
+                var speed = 1000; // ミリ秒で記述
+                var href= $(this).attr("href");
+                var target = $(href == "#" || href == "" ? 'html' : href);
+                var position = target.offset().top;
+                $('body,html').animate({scrollTop:position}, speed, 'swing');
+                return false;
+            });
+        });
     </script>
 </head>
 <body>
@@ -113,24 +129,20 @@
                         <a class="btn btn-success btn-lg  btn-round" href="{{url('/resume')}}" role="button">
                             Resume
                             <i class="fa fa-arrow-circle-o-right "></i> </a>
-                        <a  class="btn btn-primary btn-lg  btn-round" target="_blank" href="#concept" target="_blank" class="btn btn-lg btn-primary" role="button">
+                        <a  class="btn btn-primary btn-lg  btn-round" target="_blank" href="#1" class="btn btn-lg btn-primary" role="button">
                             Concept
                         </a>
                         <a class="btn btn-danger btn-lg btn-round" href="{{url('/gears')}}" role="button">Experience <i
                                 class="fa fa-arrow-circle-o-right"></i> </a>
 
-                        {{--                        <a target="_blank"  href="{{ route('register') }}"  target="_blank" class="btn btn-lg btn-success" role="button">--}}
-                        {{--                           Register--}}
-                        {{--                        </a>--}}
                     </p>
                 </div>
             </div>
         </div>
     </header>
     <section id="about" class="number wow fadeInUp" data-wow-delay="300ms">
-        <!-- change the image in style.css to the class .number .container-fluid [approximately row 102] -->
 
-        <div class="container-fluid" id="concept">
+        <div class="container-fluid" id="1">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 opaline col-md-offset-6">

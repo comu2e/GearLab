@@ -225,7 +225,11 @@
     <section class="resume-section" id="portfolio">
         <div class="resume-section-content">
             <h2 class="mb-5">ポートフォリオ</h2>
-            <h2 class="mb-10">GearLab </h2>
+            <h2 class="mb-10">
+                <a href="{{url('/gears')}}" >
+                    GearLab
+                </a>
+                </h2>
         </div>
     </section>
     <hr class="m-0"/>

@@ -62,6 +62,12 @@
                             </div>
                             <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="content"></textarea>
                         </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">参考にしたYoutube動画</span>
+                            </div>
+                            <textarea class="form-control" aria-label="Youtube動画のURL" v-model="youtube_url"></textarea>
+                        </div>
                         <div v-for="err in message" role="alert" v-if="is_post_success == false ">
                             <p class="alert alert-warning">
                                 {{ err }}
@@ -104,6 +110,7 @@ export default {
             user_id: "",
             is_post_success:null,
             content: "",
+            youtube_url:"",
             view: true,
             gears: {},
             confirmedImage: ""
@@ -133,6 +140,7 @@ export default {
             data.append("gear_name", this.gear_name);
             data.append("gear_category", this.gear_category);
             data.append("content", this.content);
+            data.append("youtube_url", this.youtube_url);
             //Vuexのstoreからauth_user情報を呼び出す
             data.append("user_id", this.$store.state.auth_user.id);
             console.log('dataの表示')
@@ -156,6 +164,8 @@ export default {
                     this.gear_name = "";
                     this.gear_category = "";
                     this.content = "";
+                    this.youtube_url = "";
+
                     this.file = "";
                     // this.user_id = $route.params;
                     this.message = 'success'
@@ -169,10 +179,7 @@ export default {
                 },3000);
                 })
                 .catch(err => {
-                    console.log('errorの表示')
 
-                    console.log(err)
-                    console.log(err.response)
                     this.message = err.response.data.errors;
                     this.is_post_success = false;
                 });

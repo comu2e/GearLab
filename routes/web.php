@@ -22,6 +22,7 @@ Route::get('/', function () {
     return view('/layouts.landing');
 
 });
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
 Route::get('/home', function () {
     return redirect('/gears');

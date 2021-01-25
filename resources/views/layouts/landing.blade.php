@@ -122,8 +122,10 @@
             <div class="container">
 
                 <div class="jumbotron">
-                    <h1><small>キャンプを追求しよう！</small>
-                        <h1>Gear Lab</h1></h1>
+                    <h1>
+                        <h1>Gear Lab</h1>
+                        <h2>キャンプを追求しよう！</h2>
+                    </h1>
 
                     <p>
                         <a class="btn btn-success btn-lg  btn-round" href="{{url('/resume')}}" role="button">
@@ -204,13 +206,7 @@
                                                                        href="http://www.themeinthebox.com">ThemeintheBox.com</a>
                 </p>
             </div>
-            <div class="col-md-4">
-                <p class="text-right social"><i class="typcn typcn-social-facebook-circular"></i><i
-                        class="typcn typcn-social-twitter-circular"></i><i
-                        class="typcn typcn-social-tumbler-circular"></i><i
-                        class="typcn typcn-social-github-circular"></i><i
-                        class="typcn typcn-social-dribbble-circular"></i></p>
-            </div>
+
         </div>
     </div>
 </footer>

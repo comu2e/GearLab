@@ -97,7 +97,7 @@
 export default {
     // user: Number,
     mounted() {
-        console.log('Create Component is mouted')
+        // console.log('Create Component is mouted')
             // console.log(this.$store.state.auth_user)
     },
     data() {

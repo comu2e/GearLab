@@ -132,6 +132,7 @@ class GearApiController extends Controller
             $gear->gear_name = $request->gear_name;
             $gear->maker_name = $request->maker_name;
             $gear->content = $request->content;
+            $gear->youtube_url = $request->youtube_url;
             $gear->gear_category = $request->gear_category;
             $gear->updated_at = date('Y/m/d H:i:s');
             $gear->gear_category = $request->gear_category;
@@ -213,7 +214,6 @@ class GearApiController extends Controller
     public function createvideotag(Request $request)
     {
         $param = $request ->youtube_url;
-//        $param = 'https://www.youtube.com/watch?v=u7bCmgI0V2E';
         //とりあえずURLがyoutubeのURLであるかをチェック
         if(preg_match('#https?://www.youtube.com/.*#i',$param,$matches)){
             //parse_urlでhttps://www.youtube.com/watch以下のパラメータを取得

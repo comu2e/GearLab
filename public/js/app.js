@@ -2539,8 +2539,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   // user: Number,
-  mounted: function mounted() {
-    console.log('Create Component is mouted'); // console.log(this.$store.state.auth_user)
+  mounted: function mounted() {// console.log('Create Component is mouted')
+    // console.log(this.$store.state.auth_user)
   },
   data: function data() {
     return {
@@ -2721,6 +2721,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2763,6 +2770,12 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
       axios.get('/api/user_id=' + $user_id).then(function (res) {
         _this3.gears = res.data.data;
+      });
+    },
+    getYoutubetag: function getYoutubetag($youtube_url) {
+      axios.get('api/createtag?youtube_url=' + $youtube_url).then(function (res) {
+        console.log(res.data);
+        return res.data;
       });
     }
   },
@@ -42191,6 +42204,16 @@ var render = function() {
                 _c("img", {
                   attrs: { alt: "", src: gear.image_url, width: "25%" }
                 }),
+                _vm._v(" "),
+                gear.youtube_url !== null
+                  ? _c("div", [
+                      _vm._v(
+                        "\n                           " +
+                          _vm._s(_vm.getYoutubetag(gear.youtube_url)) +
+                          "\n                        "
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("div", { attrs: { align: "right" } }, [
                   _c("div", { staticClass: "card-title" }, [

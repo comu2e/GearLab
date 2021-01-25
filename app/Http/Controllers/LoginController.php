@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
-                'email' => ['The Provided credentials are incorrect']
+                'email' => ['入力されたEmailは正しくありません']
             ]);
         }
         Log::debug($user);

@@ -135,7 +135,11 @@
                             Concept
                         </a>
                         <a class="btn btn-danger btn-lg btn-round" href="{{url('/gears')}}" role="button">Experience <i
-                                class="fa fa-arrow-circle-o-right"></i> </a>
+                                class="fa fa-arrow-circle-o-right"></i>
+                        </a>
+                        <a class="btn btn-success btn-lg btn-round" href="{{ route('login.guest') }}"  role="button">Guest Login <i
+                                class="fa fa-arrow-circle-o-right"></i>
+                        </a>
 
                     </p>
                 </div>

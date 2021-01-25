@@ -1,55 +1,65 @@
 <template>
     <div class="container">
-        <div></div>
         <div align="center">
             <!--            <div>User_id is {{ $route.params.value.id }}</div>-->
             <div class="form-group">
-                <label for="category">気になるギアのカテゴリを選んでみましょう</label>
-                <select id="category" class="form-control" v-model="category" @change="searchGear(category)">
-                    <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
-                    <option v-for="category in gear_category" :value="category">
-                        {{ category }}
-                    </option>
-                </select>
+                <div class="btn-select">
+
+                    <p class="label">気になるギアのカテゴリを選んでみましょう</p>
+                    <select id="category" class="form-control select" v-model="category" @change="searchGear(category)">
+                        <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
+                        <option v-for="category in gear_category" :value="category">
+                            <h2> {{ category }}</h2>
+                        </option>
+                    </select>
+                </div>
+
             </div>
             <div>{{ category }}</div>
             <pagination :data="gears" @pagination-change-page="getResults" align="center"></pagination>
             <ul v-for="gear in gears.data" :key="gear.id" class="list-group">
-                <li class="list-group-item">
-                    <div align="center" scope="row">
-                        <div align="left">
-                            <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)" class="btn btn-primary" align="left" >
-                                <div>{{gear.user.name + 'のページへ'}}</div>
+<!--                <div v-if="gears.data.length !== 0">-->
+<!--                    {{gears.data.length}}-->
+                    <li class="list-group-item">
+                        <div align="center" scope="row">
+                            <div align="left">
+                                <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
+                                             class="btn btn-primary" align="left">
+                                    <div>{{ gear.user.name + 'のページへ' }}</div>
 
-                            </router-link>
-                            <div v-if="gear.user_id !== auth_user.id">
-                                <follow-button-component :gear_id=gear.id :user_id=gear.user_id></follow-button-component>
+                                </router-link>
+                                <div v-if="gear.user_id !== auth_user.id">
+                                    <follow-button-component :gear_id=gear.id
+                                                             :user_id=gear.user_id></follow-button-component>
+                                </div>
+                            </div>
+
+
+                            <img alt="" v-bind:src='gear.image_url' width="25%">
+                            <div align="right">
+
+                                <div class="card-title">{{ gear.gear_category }}</div>
+                                <div class="card-title">{{ gear.maker_name }}</div>
+
+                                <div class="card-title">{{ gear.gear_name }}</div>
+
+                                <div class="card-text text-muted" align="center">{{ gear.content }}</div>
+
+
+                                <div v-if="gear.user_id !== auth_user.id">
+                                    <like :gear_id=gear.id></like>
+
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">{{
+                                            gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")
+                                        }}</small>
+                                </div>
+
                             </div>
                         </div>
-
-
-                        <img alt="" v-bind:src='gear.image_url' width="25%">
-                        <div align="right">
-
-                            <div class="card-title">{{gear.gear_category }}</div>
-                            <div class="card-title">{{gear.maker_name }}</div>
-
-                            <div class="card-title">{{gear.gear_name }}</div>
-
-                            <div class="card-text text-muted" align="center">{{gear.content }}</div>
-
-
-                            <div v-if="gear.user_id !== auth_user.id">
-                                <like :gear_id=gear.id></like>
-
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分") }}</small>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
+                    </li>
+<!--                </div>-->
 
             </ul>
 
@@ -121,5 +131,50 @@ export default {
 </script>
 
 <style scoped>
+body {
+    text-align: center;
+}
 
+.btn-select {
+    width: 300px;
+    margin: 20px auto;
+    position: relative;
+    background: #333;
+    border-radius: 6px;
+    cursor: pointer; /* IEでcursorがチラついたので */
+}
+
+.label {
+    color: #fff;
+    background-color: #343a40;
+
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 20px;
+    opacity: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* IE10以上で矢印を消す */
+.select::-ms-expand {
+    display: none;
+}
+
+/* フォーカス時 */
+.select:focus {
+    z-index: -1;
+    opacity: 1;
+}
 </style>

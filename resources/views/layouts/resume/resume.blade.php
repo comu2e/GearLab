@@ -56,7 +56,7 @@
                 (080) 8858-2187 ·
                 <a href="mailto:comu2e@gmail.com">comu2e@gmail.com</a>
             </div>
-            <p class="lead mb-5">私はものづくりをすることが大好きです。幼い頃から電子工作・プログラミング・実家の山でブッシュクラフト（？）
+            <p class="lead mb-5">私はものづくりをすることが大好きです。幼い頃から電子工作・プログラミング・実家の山・竹林でブッシュクラフト
                 などをしてきました。
                 現在は東洋紡にて透析膜の製造管理を仕事としています。
             <div class="social-icons">
@@ -73,7 +73,7 @@
                 <div class="flex-grow-1">
                     <h3 class="mb-0">製造管理職</h3>
                     <div class="subheading mb-3">透析膜製造</div>
-                    <p>工場での自社内/お客様での歩留まり改善を行っています。</p>
+                    <p>工場での自社内/お客様の歩留まり改善を行っています。</p>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary">2017/5- 現在</span></div>
             </div>
@@ -149,14 +149,14 @@
                 <div>
                     <li class="list-inline-item"><i class="fab fa-aws"></i>
                     </li>
-                    <p>EC2/VPC/S3</p>
+                    <small>EC2/VPC/S3/ECS・ECR</small>
                 </div>
                 <hr>
             </ul>
             <h class="subheading mb-3">資格</h>
             <ul class="list-inline dev-icons">
                 <li class="list-inline-item">QC検定2級　2020年3月取得</li>
-                <li class="list-inline-item">TOEIC®Listening&Readingスコア 805点　2015年取得</li>
+                <li class="list-inline-item">TOEIC®Listening&Readingスコア 805点　2016年取得</li>
 
                 <hr>
             </ul>

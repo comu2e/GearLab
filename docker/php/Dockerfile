@@ -6,6 +6,7 @@ RUN apt-get update \
   && apt-get install -y zlib1g-dev mariadb-client \
   && apt-get install -y libzip-dev \
   && docker-php-ext-install zip pdo_mysql
+WORKDIR /var/www
 
 ##Composer install
 #COPY --from=composer /usr/bin/composer /usr/bin/composer
@@ -17,6 +18,5 @@ RUN apt-get update \
 #ENV PATH $PATH:/composer/vendor/bin
 #
 #
-#WORKDIR /var/www
 #
 #RUN composer global require "laravel/installer"

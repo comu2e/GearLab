@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('css/odometer-theme-default.css')}}">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 
     <script>
         window.odometerOptions = {

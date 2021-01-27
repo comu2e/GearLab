@@ -1,8 +1,22 @@
-FROM phppm/nginx:2.0.3
-RUN apk update && apk add --no-cache \
-      tzdata curl \
-      && apk del tzdata \
-      && rm -rf /var/cache/apk/*
-COPY . /var/www
-#COPY php.ini /etc/php7/php.ini
-CMD ["--bootstrap=laravel","--static-directory=public/"]
+FROM php:7.3-fpm
+COPY php.ini /usr/local/etc/php/
+COPY  docker/php /var/www/
+
+RUN apt-get update \
+  && apt-get install -y zlib1g-dev mariadb-client \
+  && apt-get install -y libzip-dev \
+  && docker-php-ext-install zip pdo_mysql
+WORKDIR /var/www
+
+##Composer install
+#COPY --from=composer /usr/bin/composer /usr/bin/composer
+#
+#ENV COMPOSER_ALLOW_SUPERUSER 1
+#
+#ENV COMPOSER_HOME /composer
+#
+#ENV PATH $PATH:/composer/vendor/bin
+#
+#
+#
+#RUN composer global require "laravel/installer"

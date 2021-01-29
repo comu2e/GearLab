@@ -1,6 +1,6 @@
 FROM php:7.3-fpm
-COPY php.ini /usr/local/etc/php/
-COPY  . /var/www/
+COPY ./docker/php/php.ini /usr/local/etc/php/
+COPY  ./ /var/www/
 
 RUN apt-get update \
   && apt-get install -y zlib1g-dev mariadb-client \

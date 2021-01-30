@@ -18,4 +18,4 @@ RUN mv composer.phar /usr/local/bin/composer
 # 環境変数設定
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME "/opt/composer"
-ENV PATH "$
+ENV PATH "$PATH:/opt/composer/vendor/bin"

@@ -2748,6 +2748,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42463,9 +42467,9 @@ var render = function() {
                 gear.youtube_url !== null
                   ? _c("div", [
                       _vm._v(
-                        "\n                           " +
+                        "\n                        " +
                           _vm._s(_vm.getYoutubetag(gear.youtube_url)) +
-                          "\n                        "
+                          "\n                    "
                       )
                     ])
                   : _vm._e(),
@@ -42492,6 +42496,22 @@ var render = function() {
                     [_vm._v(_vm._s(gear.content))]
                   ),
                   _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "card-text text-muted",
+                      attrs: { align: "center" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            参考にしたサイト: "
+                      ),
+                      _c("span", {
+                        domProps: { innerHTML: _vm._s(gear.youtube_url) }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
                   gear.user_id !== _vm.auth_user.id
                     ? _c(
                         "div",
@@ -42502,9 +42522,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v(
-                      "\n                                 使ってみたい人の数：　" +
+                      "\n                            使ってみたい人の数：　" +
                         _vm._s(gear.likes.length) +
-                        " 人\n                            "
+                        " 人\n                        "
                     )
                   ]),
                   _vm._v(" "),

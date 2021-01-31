@@ -37,10 +37,10 @@
 
                         <img alt="" v-bind:src='gear.image_url' width="40%">
 
-                        <div  v-if="gear.youtube_url !== null">
-<!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
-<!--                            <span v-html=getYoutubetag(gear.youtube_url)> </span>-->
-                           {{getYoutubetag(gear.youtube_url)}}
+                        <div v-if="gear.youtube_url !== null">
+                            <!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
+                            <!--                            <span v-html=getYoutubetag(gear.youtube_url)> </span>-->
+                            {{ getYoutubetag(gear.youtube_url) }}
                         </div>
 
                         <div align="right">
@@ -51,13 +51,17 @@
                             <div class="card-title">{{ gear.gear_name }}</div>
 
                             <div class="card-text text-muted" align="center">{{ gear.content }}</div>
+                            <p class="card-text text-muted" align="center">
+                                参考にしたサイト: <span v-html="gear.youtube_url"></span>
+
+                            </p>
 
 
                             <div v-if="gear.user_id !== auth_user.id">
                                 <like :gear_id=gear.id></like>
                             </div>
                             <div>
-                                 使ってみたい人の数：　{{gear.likes.length}} 人
+                                使ってみたい人の数：　{{ gear.likes.length }} 人
                             </div>
 
 
@@ -129,7 +133,7 @@ export default {
         getYoutubetag($youtube_url) {
             axios.get('api/createtag?youtube_url=' + $youtube_url)
                 .then((res) => {
-                   console.log(res.data);
+                    console.log(res.data);
                     return res.data;
 
                 });
@@ -196,6 +200,7 @@ body {
     z-index: -1;
     opacity: 1;
 }
+
 img {
     border-radius: 25px; /* ちょっとだけ角丸 */
 }

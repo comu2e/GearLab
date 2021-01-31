@@ -1951,6 +1951,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   props: ['user'],
@@ -7856,7 +7862,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.v-enter-active, .v-leave-active {\n    transition: opacity .5s;\n}\nbg-nav{\n    color:#353a3f\n}\na.nav-link.router-link-exact-active.router-link-exact-active{\n    border-bottom: red;\n}\nli.nav-item-bar.active {\n    color: #fff;\n    font-weight: 700;\n    opacity: 1;\n    border-bottom: solid 2px #0069d9;\n}\n.v-enter, .v-leave-to {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.v-enter-active, .v-leave-active {\n    transition: opacity .5s;\n}\nbg-nav{\n    color:#353a3f\n}\na.nav-link.router-link-exact-active.router-link-exact-active{\n    border-bottom: red;\n}\nli.nav-item-bar.active {\n    color: #fff;\n    font-weight: 700;\n    opacity: 1;\n    border-bottom: solid 2px #0069d9;\n}\n.a.nav-link.pull-right{\n    color: white;\n}\n.v-enter, .v-leave-to {\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -7894,7 +7900,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-ddd32c56] {\n    text-align: center;\n}\n.btn-select[data-v-ddd32c56] {\n    width: 300px;\n    margin: 20px auto;\n    position: relative;\n    background: #333;\n    border-radius: 6px;\n    cursor: pointer; /* IEでcursorがチラついたので */\n}\n.label[data-v-ddd32c56] {\n    color: #fff;\n\n    position: absolute;\n    width: 100%;\n    z-index: 1;\n}\n.select[data-v-ddd32c56] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    display: block;\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    padding: 20px;\n    opacity: 0.2;\n    position: relative;\n    z-index: 2;\n}\n\n/* IE10以上で矢印を消す */\n.select[data-v-ddd32c56]::-ms-expand {\n    display: none;\n}\n\n/* フォーカス時 */\n.select[data-v-ddd32c56]:focus {\n    z-index: -1;\n    opacity: 1;\n}\nimg[data-v-ddd32c56] {\n    border-radius: 25px; /* ちょっとだけ角丸 */\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-ddd32c56] {\n    text-align: center;\n}\n.btn-select[data-v-ddd32c56] {\n    width: 300px;\n    margin: 20px auto;\n    position: relative;\n    background: #0069d9;\n    border-radius: 6px;\n    cursor: pointer; /* IEでcursorがチラついたので */\n}\n.label[data-v-ddd32c56] {\n    color: #fff;\n\n    position: absolute;\n    width: 100%;\n    z-index: 1;\n}\n.select[data-v-ddd32c56] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    display: block;\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    padding: 20px;\n    opacity: 0.2;\n    position: relative;\n    z-index: 2;\n}\n\n/* IE10以上で矢印を消す */\n.select[data-v-ddd32c56]::-ms-expand {\n    display: none;\n}\n\n/* フォーカス時 */\n.select[data-v-ddd32c56]:focus {\n    z-index: -1;\n    opacity: 1;\n}\nimg[data-v-ddd32c56] {\n    border-radius: 25px; /* ちょっとだけ角丸 */\n}\n", ""]);
 
 // exports
 
@@ -41347,6 +41353,30 @@ var render = function() {
                 )
               ],
               1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              {
+                staticClass: "nav-item-bar",
+                class: { active: _vm.isActive === "5" },
+                on: {
+                  click: function($event) {
+                    return _vm.change("5")
+                  }
+                }
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-link pull-right",
+                    attrs: { to: { name: "create" } }
+                  },
+                  [_vm._v("\n                    ギアを登録\n                ")]
+                )
+              ],
+              1
             )
           ])
         ]
@@ -41368,7 +41398,7 @@ var render = function() {
                 staticClass: "nav-link pull-right",
                 attrs: { to: { name: "create" } }
               },
-              [_c("h3", [_vm._v("Gear+ ")])]
+              [_c("h3", [_vm._v("ギアを登録する ")])]
             )
           ],
           1
@@ -42153,7 +42183,11 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", "aria-label": "gear_maker" },
+                  attrs: {
+                    type: "text",
+                    "aria-label": "gear_maker",
+                    placeholder: "ギアのメーカを入力しましょう"
+                  },
                   domProps: { value: _vm.maker_name },
                   on: {
                     input: function($event) {
@@ -42179,7 +42213,11 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", "aria-label": "gear_name" },
+                  attrs: {
+                    type: "text",
+                    "aria-label": "gear_name",
+                    placeholder: "ギア名を入力しましょう"
+                  },
                   domProps: { value: _vm.gear_name },
                   on: {
                     input: function($event) {
@@ -42205,7 +42243,10 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { "aria-label": "ギアのお気に入りポイント" },
+                  attrs: {
+                    "aria-label": "ギアのお気に入りポイント",
+                    placeholder: "ギアのお気に入りポイントを入力しましょう"
+                  },
                   domProps: { value: _vm.content },
                   on: {
                     input: function($event) {
@@ -42231,7 +42272,11 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { "aria-label": "サイトのURL" },
+                  attrs: {
+                    "aria-label": "サイトのURL",
+                    placeholder:
+                      "参考にしたサイトのURLを貼り付けてみましょう 例：https://..."
+                  },
                   domProps: { value: _vm.youtube_url },
                   on: {
                     input: function($event) {

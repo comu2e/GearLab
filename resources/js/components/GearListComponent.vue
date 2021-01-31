@@ -163,7 +163,7 @@ body {
     width: 300px;
     margin: 20px auto;
     position: relative;
-    background: #333;
+    background: #0069d9;
     border-radius: 6px;
     cursor: pointer; /* IEでcursorがチラついたので */
 }

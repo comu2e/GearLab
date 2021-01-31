@@ -44,7 +44,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">ギアメーカー</span>
                             </div>
-                            <input type="text" class="form-control" aria-label="gear_maker" v-model="maker_name">
+                            <input type="text" class="form-control" aria-label="gear_maker"placeholder="ギアのメーカを入力しましょう" v-model="maker_name">
 
                         </div>
 
@@ -52,7 +52,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">ギア名</span>
                             </div>
-                            <input type="text" class="form-control" aria-label="gear_name" v-model="gear_name">
+                            <input type="text" class="form-control" aria-label="gear_name"placeholder="ギア名を入力しましょう"  v-model="gear_name">
 
                         </div>
 
@@ -60,14 +60,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">お気に入りポイント</span>
                             </div>
-                            <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="content"></textarea>
+                            <textarea class="form-control" aria-label="ギアのお気に入りポイント" placeholder="ギアのお気に入りポイントを入力しましょう" v-model="content"></textarea>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">参考にしたサイト</span>
                             </div>
-                            <textarea class="form-control" aria-label="サイトのURL" v-model="youtube_url"></textarea>
+                            <textarea class="form-control" aria-label="サイトのURL" placeholder="参考にしたサイトのURLを貼り付けてみましょう 例：https://..." v-model="youtube_url"></textarea>
                         </div>
 
                         <div v-for="err in message" role="alert" v-if="is_post_success == false ">

@@ -7890,7 +7890,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-ddd32c56] {\n    text-align: center;\n}\n.btn-select[data-v-ddd32c56] {\n    width: 300px;\n    margin: 20px auto;\n    position: relative;\n    background: #333;\n    border-radius: 6px;\n    cursor: pointer; /* IEでcursorがチラついたので */\n}\n.label[data-v-ddd32c56] {\n    color: #fff;\n\n    position: absolute;\n    width: 100%;\n    z-index: 1;\n}\n.select[data-v-ddd32c56] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    display: block;\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    padding: 20px;\n    opacity: 0.2;\n    position: relative;\n    z-index: 2;\n}\n\n/* IE10以上で矢印を消す */\n.select[data-v-ddd32c56]::-ms-expand {\n    display: none;\n}\n\n/* フォーカス時 */\n.select[data-v-ddd32c56]:focus {\n    z-index: -1;\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-ddd32c56] {\n    text-align: center;\n}\n.btn-select[data-v-ddd32c56] {\n    width: 300px;\n    margin: 20px auto;\n    position: relative;\n    background: #333;\n    border-radius: 6px;\n    cursor: pointer; /* IEでcursorがチラついたので */\n}\n.label[data-v-ddd32c56] {\n    color: #fff;\n\n    position: absolute;\n    width: 100%;\n    z-index: 1;\n}\n.select[data-v-ddd32c56] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    display: block;\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    padding: 20px;\n    opacity: 0.2;\n    position: relative;\n    z-index: 2;\n}\n\n/* IE10以上で矢印を消す */\n.select[data-v-ddd32c56]::-ms-expand {\n    display: none;\n}\n\n/* フォーカス時 */\n.select[data-v-ddd32c56]:focus {\n    z-index: -1;\n    opacity: 1;\n}\nimg[data-v-ddd32c56] {\n    border-radius: 25px; /* ちょっとだけ角丸 */\n}\n", ""]);
 
 // exports
 
@@ -42457,7 +42457,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("img", {
-                  attrs: { alt: "", src: gear.image_url, width: "25%" }
+                  attrs: { alt: "", src: gear.image_url, width: "40%" }
                 }),
                 _vm._v(" "),
                 gear.youtube_url !== null
@@ -42936,7 +42936,7 @@ var render = function() {
             _c("li", { staticClass: "list-group-item" }, [
               _c("div", { attrs: { align: "center", scope: "row" } }, [
                 _c("img", {
-                  attrs: { alt: "", src: gear.image_url, width: "30%" }
+                  attrs: { alt: "", src: gear.image_url, width: "40%" }
                 }),
                 _vm._v(" "),
                 _c(

@@ -13,7 +13,7 @@
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
-                        <img alt="" v-bind:src='gear.image_url' width="30%">
+                        <img alt="" v-bind:src='gear.image_url' width="40%">
                         <div align="right">
 
                             <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">

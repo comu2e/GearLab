@@ -7846,7 +7846,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-ddd32c56] {\n    text-align: center;\n}\n.btn-select[data-v-ddd32c56] {\n    width: 300px;\n    margin: 20px auto;\n    position: relative;\n    background: #333;\n    border-radius: 6px;\n    cursor: pointer; /* IEでcursorがチラついたので */\n}\n.label[data-v-ddd32c56] {\n    color: #fff;\n    background-color: #343a40;\n\n    position: absolute;\n    width: 100%;\n    z-index: 1;\n}\n.select[data-v-ddd32c56] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    display: block;\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    padding: 20px;\n    opacity: 0;\n    position: relative;\n    z-index: 2;\n}\n\n/* IE10以上で矢印を消す */\n.select[data-v-ddd32c56]::-ms-expand {\n    display: none;\n}\n\n/* フォーカス時 */\n.select[data-v-ddd32c56]:focus {\n    z-index: -1;\n    opacity: 1;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-ddd32c56] {\n    text-align: center;\n}\n.btn-select[data-v-ddd32c56] {\n    width: 300px;\n    margin: 20px auto;\n    position: relative;\n    background: #333;\n    border-radius: 6px;\n    cursor: pointer; /* IEでcursorがチラついたので */\n}\n.label[data-v-ddd32c56] {\n    color: #fff;\n\n    position: absolute;\n    width: 100%;\n    z-index: 1;\n}\n.select[data-v-ddd32c56] {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n    display: block;\n    cursor: pointer;\n    width: 100%;\n    border: none;\n    padding: 20px;\n    opacity: 0;\n    position: relative;\n    z-index: 2;\n}\n\n/* IE10以上で矢印を消す */\n.select[data-v-ddd32c56]::-ms-expand {\n    display: none;\n}\n\n/* フォーカス時 */\n.select[data-v-ddd32c56]:focus {\n    z-index: -1;\n    opacity: 1;\n}\n", ""]);
 
 // exports
 
@@ -41220,7 +41220,7 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-md-8" }, [
             _c("div", { staticClass: "card" }, [
-              _c("div", [_vm._v("編集画面")]),
+              _c("label", [_vm._v("編集画面")]),
               _vm._v(" "),
               _c(
                 "div",
@@ -42150,7 +42150,7 @@ var render = function() {
         _c("div", { staticClass: "form-group" }, [
           _c("div", { staticClass: "btn-select" }, [
             _c("p", { staticClass: "label" }, [
-              _vm._v("気になるギアのカテゴリを選んでみましょう")
+              _vm._v("気になるギアのカテゴリ")
             ]),
             _vm._v(" "),
             _c(
@@ -42685,120 +42685,108 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _vm._l(_vm.gears.data, function(gear) {
-          return _c(
-            "ul",
-            { staticClass: "list-group" },
-            [
-              _vm._l(1, function(n) {
-                return _vm.is_post_success == true
-                  ? _c("div", { attrs: { role: "alert" } }, [
-                      _c("p", { staticClass: "alert alert-success" }, [
-                        _vm._v(
-                          "\n                    " +
-                            _vm._s("ギアの登録を解除しました！") +
-                            "\n                "
-                        )
-                      ])
-                    ])
-                  : _vm._e()
-              }),
-              _vm._v(" "),
-              _c("li", { staticClass: "list-group-item" }, [
-                _c("div", { attrs: { align: "center", scope: "row" } }, [
-                  _c("img", {
-                    attrs: { alt: "", src: gear.image_url, width: "30%" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { attrs: { align: "right" } },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { to: { name: "home" } },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.getUserGears(gear.user.id)
-                            }
-                          }
-                        },
-                        [
-                          _c("div", [
-                            _vm._v(_vm._s("投稿者: " + gear.user.name))
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v(_vm._s("お気にいりポイント : " + gear.content))
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v(
-                          _vm._s(
-                            _vm._f("moment")(
-                              gear.updated_at,
-                              " 投稿日: YYYY年MM月DD日HH時mm分"
-                            )
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", [
-                        _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "mt-2 ml-1" },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-danger",
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteGear(gear.id)
-                                }
-                              }
-                            },
-                            [_vm._v("ギアの登録を解除する")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: {
-                                  name: "edit",
-                                  params: { gearId: gear.id }
-                                }
-                              }
-                            },
-                            [
-                              _c("button", { staticClass: "btn btn-primary" }, [
-                                _vm._v("ギアの説明を編集する")
-                              ])
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
+        _vm._l(1, function(n) {
+          return _vm.is_post_success == true
+            ? _c("div", { attrs: { role: "alert" } }, [
+                _c("p", { staticClass: "alert alert-success" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s("ギアの登録を解除しました！") +
+                      "\n            "
                   )
                 ])
               ])
-            ],
-            2
-          )
+            : _vm._e()
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.gears.data, function(gear) {
+          return _c("ul", { staticClass: "list-group" }, [
+            _c("li", { staticClass: "list-group-item" }, [
+              _c("div", { attrs: { align: "center", scope: "row" } }, [
+                _c("img", {
+                  attrs: { alt: "", src: gear.image_url, width: "30%" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { attrs: { align: "right" } },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link",
+                        attrs: { to: { name: "home" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.getUserGears(gear.user.id)
+                          }
+                        }
+                      },
+                      [_c("div", [_vm._v(_vm._s("投稿者: " + gear.user.name))])]
+                    ),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(
+                        _vm._s(
+                          _vm._f("moment")(
+                            gear.updated_at,
+                            " 投稿日: YYYY年MM月DD日HH時mm分"
+                          )
+                        )
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", [
+                      _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "mt-2 ml-1" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteGear(gear.id)
+                              }
+                            }
+                          },
+                          [_vm._v("ギアの登録を解除する")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: { name: "edit", params: { gearId: gear.id } }
+                            }
+                          },
+                          [
+                            _c("button", { staticClass: "btn btn-primary" }, [
+                              _vm._v("ギアの説明を編集する")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ])
+            ])
+          ])
         })
       ],
       2

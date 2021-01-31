@@ -2,14 +2,14 @@
     <div class="container">
         <div align="center">
             <pagination :data="gears" @pagination-change-page="getUserGears(this.$store.state.auth_user)" align="center"></pagination>
+            <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
+                <p class="alert alert-success" >
+                    {{ 'ギアの登録を解除しました！' }}
+                </p>
 
+            </div>
             <ul v-for="gear in gears.data" class="list-group">
-                <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
-                    <p class="alert alert-success" >
-                        {{ 'ギアの登録を解除しました！' }}
-                    </p>
 
-                </div>
                 <li class="list-group-item">
                     <div align="center" scope="row">
 

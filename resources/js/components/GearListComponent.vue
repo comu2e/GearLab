@@ -5,7 +5,7 @@
             <div class="form-group">
                 <div class="btn-select">
 
-                    <p class="label">気になるギアのカテゴリを選んでみましょう</p>
+                    <p class="label">気になるギアのカテゴリ</p>
                     <select id="category" class="form-control select" v-model="category" @change="searchGear(category)">
                         <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
                         <option v-for="category in gear_category" :value="category">
@@ -162,7 +162,6 @@ body {
 
 .label {
     color: #fff;
-    background-color: #343a40;
 
     position: absolute;
     width: 100%;

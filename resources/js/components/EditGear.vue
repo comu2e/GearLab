@@ -4,7 +4,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div>編集画面</div>
+                        <label>編集画面</label>
                         <div class="card-body　d-flex justify-content-center">
                             <div align="center">
                                 <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>

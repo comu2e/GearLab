@@ -146,10 +146,10 @@ export default {
             //Vuexのstoreからauth_user情報を呼び出す
             data.append("user_id", this.$store.state.auth_user.id);
             console.log('dataの表示')
-            console.log(data);
-            for (let value of data.entries()) {
-                console.log(value);
-            }
+            // console.log(data);
+            // for (let value of data.entries()) {
+            //     console.log(value);
+            // }
 
             NProgress.start();
             axios.post("/api/gears", data)
@@ -157,9 +157,9 @@ export default {
                 .then(response => {
                     setTimeout(()=>{
                     // this.getGears();
-                    console.log('responseの表示')
-
-                    console.log(response);
+                    // console.log('responseの表示')
+                    //
+                    // console.log(response);
                     this.message = response.data.success;
                     this.confirmedImage = "";
                     this.maker_name = "";

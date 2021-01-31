@@ -9,19 +9,22 @@
                         <img alt="" v-bind:src='gear.image_url' width="30%">
                         <div align="right">
 
-                            <div>{{'投稿者 : '+user }}</div>
-                            <div>{{'カテゴリ: ' + gear.gear_category }}</div>
+                            <div class="card-title">{{ gear.gear_category }}</div>
+                            <div class="card-title">{{ gear.maker_name }}</div>
 
-                            <div>{{'お気にいりポイント : ' +gear.content }}</div>
-                            <div>{{gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")  }}</div>
-                            <div>{{'メーカー名 : ' + gear.maker_name }}</div>
-<!--                            <like-component :post="gear"></like-component>-->
+                            <div class="card-title">{{ gear.gear_name }}</div>
+
+                            <div class="card-text text-muted" align="center">{{ gear.content }}</div>
+
                             <div v-if="gear.user_id !== auth_user.id">
                                 <like :gear_id=gear.id></like>
 
                             </div>
-<!--                            <p class="card-text mb-0"><small class="text-muted">いいね数 {{gear.likes.length}}</small></p>-->
-
+                            <div class="card-footer">
+                                <small class="text-muted">{{
+                                        gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")
+                                    }}</small>
+                            </div>
 
                         </div>
 
@@ -44,7 +47,9 @@ export default {
 
         return {
             gears: [],
-            user:''
+            user:'',
+            date: this.$moment().format(),
+
         }
     },
     computed:{

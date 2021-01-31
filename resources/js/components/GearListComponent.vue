@@ -35,7 +35,7 @@
                         </div>
 
 
-                        <img alt="" v-bind:src='gear.image_url' width="25%">
+                        <img alt="" v-bind:src='gear.image_url' width="40%">
 
                         <div  v-if="gear.youtube_url !== null">
 <!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
@@ -195,5 +195,8 @@ body {
 .select:focus {
     z-index: -1;
     opacity: 1;
+}
+img {
+    border-radius: 25px; /* ちょっとだけ角丸 */
 }
 </style>

@@ -24,7 +24,7 @@
                     <div align="center" scope="row">
                         <div align="left">
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
-                                         class="btn btn-primary" align="left">
+                                         class="btn btn-primary mb-3" align="left">
                                 <div>{{ gear.user.name + 'のページへ' }}</div>
 
                             </router-link>
@@ -55,8 +55,12 @@
 
                             <div v-if="gear.user_id !== auth_user.id">
                                 <like :gear_id=gear.id></like>
-
                             </div>
+                            <div>
+                                 使ってみたい人の数：　{{gear.likes.length}} 人
+                            </div>
+
+
                             <div class="card-footer">
                                 <small class="text-muted">{{
                                         gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")

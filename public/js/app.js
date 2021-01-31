@@ -2069,6 +2069,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.gearId = this.$route.params.gearId;
@@ -2082,6 +2088,7 @@ __webpack_require__.r(__webpack_exports__);
       maker_name: "",
       gear_name: "",
       gear_category: "",
+      youtube_url: "",
       is_post_success: null,
       user_id: "",
       content: "",
@@ -2095,14 +2102,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/gears/' + id).then(function (res) {
-        _this.gear = res.data['data'];
+        _this.gear = res.data.data;
       });
     },
     getGears: function getGears() {
       var _this2 = this;
 
       axios.get('/api/gears').then(function (res) {
-        _this2.gears = res.data['data'];
+        _this2.gears = res.data.data;
       });
     },
     deleteGear: function deleteGear(id) {
@@ -2116,11 +2123,8 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this4 = this;
 
-      axios.put('/gears' + this.$route.params.gearId, this.gear).then(function (res) {
-        _this4.$router.push({
-          name: 'home'
-        });
-
+      axios.put('/api/gears/' + this.$route.params.gearId, this.gear).then(function (res) {
+        // this.$router.push({name: 'home'});
         _this4.is_post_success = true;
       })["catch"](function (err) {
         _this4.message = err.response.data.errors;
@@ -41220,8 +41224,6 @@ var render = function() {
         _c("div", { staticClass: "row justify-content-center" }, [
           _c("div", { staticClass: "col-md-8" }, [
             _c("div", { staticClass: "card" }, [
-              _c("label", [_vm._v("編集画面")]),
-              _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "card-body　d-flex justify-content-center" },
@@ -41381,7 +41383,7 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "input-group" }, [
+                  _c("div", { staticClass: "input-group mb-3" }, [
                     _vm._m(3),
                     _vm._v(" "),
                     _c("textarea", {
@@ -41402,6 +41404,32 @@ var render = function() {
                             return
                           }
                           _vm.$set(_vm.gear, "content", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gear.youtube_url,
+                          expression: "gear.youtube_url"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { "aria-label": "サイトのURL" },
+                      domProps: { value: _vm.gear.youtube_url },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.gear, "youtube_url", $event.target.value)
                         }
                       }
                     })
@@ -41461,14 +41489,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-prepend" }, [
-      _c(
-        "label",
-        {
-          staticClass: "input-group-text",
-          attrs: { for: "inputGroupSelect01" }
-        },
-        [_vm._v("ギアカテゴリ")]
-      )
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("ギアカテゴリ")])
     ])
   },
   function() {
@@ -41494,6 +41515,16 @@ var staticRenderFns = [
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
         _vm._v("お気に入りポイント")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _vm._v("参考にしたサイト")
       ])
     ])
   }
@@ -42009,7 +42040,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { "aria-label": "Youtube動画のURL" },
+                  attrs: { "aria-label": "サイトのURL" },
                   domProps: { value: _vm.youtube_url },
                   on: {
                     input: function($event) {
@@ -42074,14 +42105,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-prepend" }, [
-      _c(
-        "label",
-        {
-          staticClass: "input-group-text",
-          attrs: { for: "inputGroupSelect01" }
-        },
-        [_vm._v("ギアカテゴリ")]
-      )
+      _c("label", { staticClass: "input-group-text" }, [_vm._v("ギアカテゴリ")])
     ])
   },
   function() {
@@ -42116,7 +42140,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
-        _vm._v("参考にしたYoutube動画")
+        _vm._v("参考にしたサイト")
       ])
     ])
   }

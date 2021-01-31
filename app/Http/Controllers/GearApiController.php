@@ -132,7 +132,7 @@ class GearApiController extends Controller
             $gear->gear_name = $request->gear_name;
             $gear->maker_name = $request->maker_name;
             $gear->content = $request->content;
-            $gear->youtube_url = $request->youtube_url;
+            $gear->youtube_url = self::replaceUrl($request->youtube_url);
             $gear->gear_category = $request->gear_category;
             $gear->updated_at = date('Y/m/d H:i:s');
             $gear->gear_category = $request->gear_category;
@@ -258,5 +258,26 @@ class GearApiController extends Controller
         }
         // パラメータが不正(youtubeのURLではない)ときは埋め込みコードを生成しない。
         return false;
+    }
+    public static function replaceUrl($text)
+    {
+        $texts = explode(PHP_EOL, $text); //PHP_EOLは,改行コードをあらわす.改行があれば分割する
+        $pattern = '/^https?:\/\/[^\s 　\\\|`^"\'(){}<>\[\]]*$/'; //正規表現パターン
+        $replacedTexts = array(); //空の配列を用意
+
+        foreach ($texts as $value) {
+            $replace = preg_replace_callback($pattern, function ($matches) {
+                //textが１行ごとに正規表現にmatchするか確認する
+                if (isset($matches[1])) {
+                    return $matches[0]; //$matches[0] がマッチした全体を表す
+                }
+                //既にリンク化してあれば置換は必要ないので、配列に代入
+                return '<a href="' . $matches[0] . '" target="_blank" rel="noopener">' . $matches[0] . '</a>';
+            }, $value);
+            $replacedTexts[] = $replace;
+            //リンク化したコードを配列に代入
+        }
+        return implode(PHP_EOL, $replacedTexts);
+        //配列にしたtextを文字列にする
     }
 }

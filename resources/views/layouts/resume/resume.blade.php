@@ -52,10 +52,7 @@
                 高橋
                 <span class="text-primary">英士</span>
             </h1>
-            <div class="subheading mb-5">
-                (080) 8858-2187 ·
-                <a href="mailto:comu2e@gmail.com">comu2e@gmail.com</a>
-            </div>
+
             <p class="lead mb-5">私はものづくりをすることが大好きです。幼い頃から電子工作・プログラミング・実家の山・竹林でブッシュクラフト
                 などをしてきました。
                 現在は東洋紡にて透析膜の製造管理を仕事としています。
@@ -229,6 +226,7 @@
                 <a href="{{url('/gears')}}" >
                     GearLab
                 </a>
+
                 </h2>
         </div>
     </section>

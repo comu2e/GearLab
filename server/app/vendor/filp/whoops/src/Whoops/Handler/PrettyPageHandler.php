@@ -242,7 +242,7 @@ class PrettyPageHandler extends Handler
             "name"             => explode("\\", $inspector->getExceptionName()),
             "message"          => $inspector->getExceptionMessage(),
             "previousMessages" => $inspector->getPreviousExceptionMessages(),
-            "docref_url"       => $inspector->getExceptionDocrefUrl(),
+            "docyoutube_url"       => $inspector->getExceptionDocrefUrl(),
             "code"             => $code,
             "previousCodes"    => $inspector->getPreviousExceptionCodes(),
             "plain_exception"  => Formatter::formatExceptionPlain($inspector),

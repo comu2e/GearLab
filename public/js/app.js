@@ -3068,6 +3068,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "LikeListComponent",
@@ -3077,7 +3080,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
   data: function data() {
     return {
       gears: [],
-      user: ''
+      user: '',
+      date: this.$moment().format()
     };
   },
   computed: {
@@ -42648,30 +42652,43 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { attrs: { align: "right" } }, [
-                _c("div", [_vm._v(_vm._s("投稿者 : " + _vm.user))]),
-                _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("カテゴリ: " + gear.gear_category))]),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                _c("div", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(gear.gear_category))
                 ]),
                 _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    _vm._s(
-                      _vm._f("moment")(
-                        gear.updated_at,
-                        " 投稿日: YYYY年MM月DD日HH時mm分"
-                      )
-                    )
-                  )
+                _c("div", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(gear.maker_name))
                 ]),
                 _vm._v(" "),
-                _c("div", [_vm._v(_vm._s("メーカー名 : " + gear.maker_name))]),
+                _c("div", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(gear.gear_name))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "card-text text-muted",
+                    attrs: { align: "center" }
+                  },
+                  [_vm._v(_vm._s(gear.content))]
+                ),
                 _vm._v(" "),
                 gear.user_id !== _vm.auth_user.id
                   ? _c("div", [_c("like", { attrs: { gear_id: gear.id } })], 1)
-                  : _vm._e()
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-footer" }, [
+                  _c("small", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      _vm._s(
+                        _vm._f("moment")(
+                          gear.updated_at,
+                          " 投稿日: YYYY年MM月DD日HH時mm分"
+                        )
+                      )
+                    )
+                  ])
+                ])
               ])
             ])
           ])

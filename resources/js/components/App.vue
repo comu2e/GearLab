@@ -20,6 +20,12 @@
                     <router-link :to="{ name: 'registerd'}" class="nav-link">登録したギア
                     </router-link>
                 </li>
+                <li class="nav-item-bar"v-on:click="change('5')" v-bind:class="{'active': isActive === '5'}">
+                    <router-link :to="{ name: 'create'}" class="nav-link pull-right">
+                        ギアを登録
+                    </router-link>
+
+                </li>
             </ul>
         </nav>
 
@@ -31,7 +37,7 @@
         <div class="fixed-bottom">
             <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark w-40">
                 <router-link :to="{ name: 'create'}" class="nav-link pull-right">
-                        <h3>Gear+ </h3>
+                        <h3>ギアを登録する </h3>
                 </router-link>
 
             </nav>
@@ -85,6 +91,9 @@ li.nav-item-bar.active {
     opacity: 1;
     border-bottom: solid 2px #0069d9;
 
+}
+.a.nav-link.pull-right{
+    color: white;
 }
 .v-enter, .v-leave-to {
     opacity: 0;

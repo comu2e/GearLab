@@ -20,11 +20,19 @@
                                 <div>{{ '投稿者: ' + gear.user.name }}</div>
 
                             </router-link>
-                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
+                            <div class="card-title">{{ gear.gear_category }}</div>
+                            <div class="card-title">{{ gear.maker_name }}</div>
 
-                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
-                            <div>{{gear.updated_at| moment(" 投稿日: YYYY年MM月DD日HH時mm分")   }}</div>
-                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
+                            <div class="card-title">{{ gear.gear_name }}</div>
+
+                            <div class="card-text text-muted" align="center">{{ gear.content }}</div>
+
+
+                            <div class="card-footer">
+                                <small class="text-muted">{{
+                                        gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")
+                                    }}</small>
+                            </div>
 
 
                             <div class="mt-2 ml-1">

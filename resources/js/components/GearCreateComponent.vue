@@ -27,7 +27,7 @@
                         <!--                        </p>-->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">ギアカテゴリ</label>
+                                <label class="input-group-text" >ギアカテゴリ</label>
                             </div>
                             <select class="form-control" v-model="gear_category">
                                 <option value="Fire" selected="selected">焚き火ーFire</option>
@@ -65,9 +65,9 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">参考にしたYoutube動画</span>
+                                <span class="input-group-text">参考にしたサイト</span>
                             </div>
-                            <textarea class="form-control" aria-label="Youtube動画のURL" v-model="youtube_url"></textarea>
+                            <textarea class="form-control" aria-label="サイトのURL" v-model="youtube_url"></textarea>
                         </div>
 
                         <div v-for="err in message" role="alert" v-if="is_post_success == false ">

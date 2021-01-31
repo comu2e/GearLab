@@ -2744,6 +2744,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42422,7 +42426,7 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn btn-primary mb-3",
                         attrs: { to: { name: "home" }, align: "left" },
                         nativeOn: {
                           click: function($event) {
@@ -42495,6 +42499,14 @@ var render = function() {
                         1
                       )
                     : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(
+                      "\n                                 使ってみたい人の数：　" +
+                        _vm._s(gear.likes.length) +
+                        " 人\n                            "
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-footer" }, [
                     _c("small", { staticClass: "text-muted" }, [

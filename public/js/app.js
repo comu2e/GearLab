@@ -1954,6 +1954,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   props: ['user'],
+  data: function data() {
+    return {
+      isActive: '1'
+    };
+  },
+  methods: {
+    change: function change(num) {
+      this.isActive = num;
+    }
+  },
   computed: {
     auth_user: function auth_user() {
       return this.$store.state.auth_user;
@@ -7798,7 +7808,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.v-enter-active, .v-leave-active {\n    transition: opacity .5s;\n}\n.v-enter, .v-leave-to {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.v-enter-active, .v-leave-active {\n    transition: opacity .5s;\n}\nbg-nav{\n    color:#353a3f\n}\na.nav-link.router-link-exact-active.router-link-exact-active{\n    border-bottom: red;\n}\nli.nav-item-bar.active {\n    color: #fff;\n    font-weight: 700;\n    opacity: 1;\n    border-bottom: solid 2px #0069d9;\n}\n.v-enter, .v-leave-to {\n    opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -41041,13 +41051,21 @@ var render = function() {
         "nav",
         {
           staticClass:
-            "navbar navbar-expand-sm  bg-dark navbar-dark justify-content-center sticky-top"
+            "navbar navbar-expand-sm bg-nav navbar-light justify-content-center sticky-top"
         },
         [
           _c("ul", { staticClass: "navbar-nav" }, [
             _c(
               "li",
-              { staticClass: "nav-item" },
+              {
+                staticClass: "nav-item-bar",
+                class: { active: _vm.isActive === "1" },
+                on: {
+                  click: function($event) {
+                    return _vm.change("1")
+                  }
+                }
+              },
               [
                 _c(
                   "router-link",
@@ -41060,7 +41078,15 @@ var render = function() {
             _vm._v(" "),
             _c(
               "li",
-              { staticClass: "nav-item" },
+              {
+                staticClass: "nav-item-bar",
+                class: { active: _vm.isActive === "2" },
+                on: {
+                  click: function($event) {
+                    return _vm.change("2")
+                  }
+                }
+              },
               [
                 _c(
                   "router-link",
@@ -41085,7 +41111,15 @@ var render = function() {
             _vm._v(" "),
             _c(
               "li",
-              { staticClass: "nav-item" },
+              {
+                staticClass: "nav-item-bar",
+                class: { active: _vm.isActive === "3" },
+                on: {
+                  click: function($event) {
+                    return _vm.change("3")
+                  }
+                }
+              },
               [
                 _c(
                   "router-link",
@@ -41098,7 +41132,15 @@ var render = function() {
             _vm._v(" "),
             _c(
               "li",
-              { staticClass: "nav-item" },
+              {
+                staticClass: "nav-item-bar",
+                class: { active: _vm.isActive === "4" },
+                on: {
+                  click: function($event) {
+                    return _vm.change("4")
+                  }
+                }
+              },
               [
                 _c(
                   "router-link",

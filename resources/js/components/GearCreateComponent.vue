@@ -56,18 +56,20 @@
 
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">お気に入りポイント</span>
                             </div>
                             <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="content"></textarea>
                         </div>
-                        <div class="input-group">
+
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">参考にしたYoutube動画</span>
                             </div>
                             <textarea class="form-control" aria-label="Youtube動画のURL" v-model="youtube_url"></textarea>
                         </div>
+
                         <div v-for="err in message" role="alert" v-if="is_post_success == false ">
                             <p class="alert alert-warning">
                                 {{ err }}

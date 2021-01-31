@@ -42672,7 +42672,7 @@ var render = function() {
           _c("li", { staticClass: "list-group-item" }, [
             _c("div", { attrs: { align: "center", scope: "row" } }, [
               _c("img", {
-                attrs: { alt: "", src: gear.image_url, width: "30%" }
+                attrs: { alt: "", src: gear.image_url, width: "40%" }
               }),
               _vm._v(" "),
               _c("div", { attrs: { align: "right" } }, [
@@ -43004,7 +43004,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("img", {
-                  attrs: { alt: "", src: gear.image_url, width: "35%" }
+                  attrs: { alt: "", src: gear.image_url, width: "40%" }
                 }),
                 _vm._v(" "),
                 _c("div", { attrs: { align: "right" } }, [

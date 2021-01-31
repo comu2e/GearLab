@@ -33,7 +33,7 @@
                         </div>
 
 
-                        <img alt="" v-bind:src='gear.image_url' width="35%">
+                        <img alt="" v-bind:src='gear.image_url' width="40%">
 
 
 

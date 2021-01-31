@@ -6,7 +6,7 @@
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
-                        <img alt="" v-bind:src='gear.image_url' width="30%">
+                        <img alt="" v-bind:src='gear.image_url' width="40%">
                         <div align="right">
 
                             <div class="card-title">{{ gear.gear_category }}</div>

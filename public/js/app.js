@@ -3219,6 +3219,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent */ "./resources/js/components/FollowButtonComponent.vue");
 //
 //
 //
@@ -3271,9 +3272,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserGearComponent",
+  components: {
+    FollowButtonComponent: _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   created: function created() {
     this.getUserGears(this.$route.params.value);
   },
@@ -3281,9 +3304,10 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     return {
       keyword: '',
       category: 'All',
-      gears: [],
+      gears: {},
       gear: [],
-      gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Fire"]
+      gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Fire"],
+      date: this.$moment().format()
     };
   },
   methods: {
@@ -42251,7 +42275,7 @@ var render = function() {
                     _c(
                       "router-link",
                       {
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn btn-primary mb-3",
                         attrs: { to: { name: "home" }, align: "left" },
                         nativeOn: {
                           click: function($event) {
@@ -42282,7 +42306,7 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("img", {
-                  attrs: { alt: "", src: gear.image_url, width: "25%" }
+                  attrs: { alt: "", src: gear.image_url, width: "35%" }
                 }),
                 _vm._v(" "),
                 gear.youtube_url !== null
@@ -42882,7 +42906,7 @@ var render = function() {
       [
         _c("div", { staticClass: "form-group" }, [
           _c("label", { attrs: { for: "category" } }, [
-            _vm._v("気になるギアのカテゴリを選んでみましょう")
+            _vm._v("気になるギアのカテゴリ")
           ]),
           _vm._v(" "),
           _c(
@@ -42917,9 +42941,9 @@ var render = function() {
             _vm._l(_vm.gear_category, function(category) {
               return _c("option", { domProps: { value: category } }, [
                 _vm._v(
-                  "\n                            " +
+                  "\n                        " +
                     _vm._s(category) +
-                    "\n                        "
+                    "\n                    "
                 )
               ])
             }),
@@ -42931,35 +42955,79 @@ var render = function() {
         _vm._v(" "),
         _c("pagination", {
           attrs: { data: _vm.gears, align: "center" },
-          on: { "pagination-change-page": _vm.getResults }
+          on: {
+            "pagination-change-page": function($event) {
+              return _vm.getUserGears()
+            }
+          }
         }),
         _vm._v(" "),
         _vm._l(_vm.gears.data, function(gear) {
-          return _c("ul", { staticClass: "list-group" }, [
+          return _c("ul", { key: gear.id, staticClass: "list-group" }, [
             _c("li", { staticClass: "list-group-item" }, [
               _c("div", { attrs: { align: "center", scope: "row" } }, [
+                _c(
+                  "div",
+                  { attrs: { align: "left" } },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary mb-3",
+                        attrs: { to: { name: "home" }, align: "left" },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.getUserGears(gear.user.id)
+                          }
+                        }
+                      },
+                      [
+                        _c("div", [
+                          _vm._v(_vm._s(gear.user.name + "のページへ"))
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    gear.user_id !== _vm.auth_user.id
+                      ? _c(
+                          "div",
+                          [
+                            _c("follow-button-component", {
+                              attrs: { gear_id: gear.id, user_id: gear.user_id }
+                            })
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
                 _c("img", {
-                  attrs: { alt: "", src: gear.image_url, width: "30%" }
+                  attrs: { alt: "", src: gear.image_url, width: "35%" }
                 }),
                 _vm._v(" "),
                 _c("div", { attrs: { align: "right" } }, [
-                  _c("div", [
-                    _vm._v(_vm._s("カテゴリ: " + gear.gear_category))
+                  _c("div", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(gear.gear_category))
                   ]),
                   _vm._v(" "),
-                  _c("div", [_vm._v(_vm._s("ギア名: " + gear.gear_name))]),
-                  _vm._v(" "),
-                  _c("div", [_vm._v(_vm._s("ユーザーID: " + gear.user_id))]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s("お気にいりポイント : " + gear.content))
+                  _c("div", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(gear.maker_name))
                   ]),
                   _vm._v(" "),
-                  _c("div", [_vm._v(_vm._s(" 投稿日: " + gear.updated_at))]),
-                  _vm._v(" "),
-                  _c("div", [
-                    _vm._v(_vm._s("メーカー名 : " + gear.maker_name))
+                  _c("div", { staticClass: "card-title" }, [
+                    _vm._v(_vm._s(gear.gear_name))
                   ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "card-text text-muted",
+                      attrs: { align: "center" }
+                    },
+                    [_vm._v(_vm._s(gear.content))]
+                  ),
                   _vm._v(" "),
                   gear.user_id !== _vm.auth_user.id
                     ? _c(
@@ -42967,7 +43035,20 @@ var render = function() {
                         [_c("like", { attrs: { gear_id: gear.id } })],
                         1
                       )
-                    : _vm._e()
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-footer" }, [
+                    _c("small", { staticClass: "text-muted" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm._f("moment")(
+                            gear.updated_at,
+                            " 投稿日: YYYY年MM月DD日HH時mm分"
+                          )
+                        )
+                      )
+                    ])
+                  ])
                 ])
               ])
             ])
@@ -65666,7 +65747,7 @@ __webpack_require__.r(__webpack_exports__);
     component: _components_GearListComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }, {
     path: '/user_gears',
-    name: 'user_gear',
+    name: 'user_gears',
     component: _components_UserGearComponent__WEBPACK_IMPORTED_MODULE_7__["default"]
   }, {
     path: '/gears/create',

@@ -24,7 +24,7 @@
                     <div align="center" scope="row">
                         <div align="left">
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
-                                         class="btn btn-primary" align="left">
+                                         class="btn btn-primary mb-3" align="left">
                                 <div>{{ gear.user.name + 'のページへ' }}</div>
 
                             </router-link>
@@ -35,7 +35,7 @@
                         </div>
 
 
-                        <img alt="" v-bind:src='gear.image_url' width="25%">
+                        <img alt="" v-bind:src='gear.image_url' width="35%">
 
                         <div  v-if="gear.youtube_url !== null">
 <!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->

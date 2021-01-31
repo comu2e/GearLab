@@ -2,17 +2,17 @@
     <div class="container">
         <div align="center">
 
-                <div class="form-group">
-                    <label for="category">気になるギアのカテゴリ</label>
-                    <select id="category" class="form-control" v-model="category">
-                        <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
+                <!--<div class="form-group">
+                    <label class="label">気になるギアのカテゴリ</label>
+                    <select id="category" class="form-control select" @change="searchGear(category)">
+                        &lt;!&ndash;                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>&ndash;&gt;
                         <option v-for="category in gear_category" :value="category">
                             {{ category }}
                         </option>
                     </select>
                 </div>
 
-            <div>{{ category }}</div>
+            <div>{{ category }}</div>-->
             <pagination :data="gears" @pagination-change-page="getUserGears()" align="center"></pagination>
 
             <ul v-for="gear in gears.data" :key="gear.id" class="list-group">
@@ -171,5 +171,46 @@ export default {
 </script>
 
 <style scoped>
+img {
+    border-radius: 25px; /* ちょっとだけ角丸 */
+}
+.label {
+    color: #fff;
+
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.btn-select {
+    width: 300px;
+    margin: 20px auto;
+    position: relative;
+    background: #333;
+    border-radius: 6px;
+    cursor: pointer; /* IEでcursorがチラついたので */
+}
+.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    padding: 20px;
+    opacity: 0;
+    position: relative;
+    z-index: 2;
+}
+/* IE10以上で矢印を消す */
+.select::-ms-expand {
+    display: none;
+}
+
+/* フォーカス時 */
+.select:focus {
+    z-index: -1;
+    opacity: 1;
+}
 
 </style>

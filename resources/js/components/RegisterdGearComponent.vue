@@ -93,5 +93,7 @@ export default {
 </script>
 
 <style scoped>
-
+img {
+    border-radius: 25px; /* ちょっとだけ角丸 */
+}
 </style>

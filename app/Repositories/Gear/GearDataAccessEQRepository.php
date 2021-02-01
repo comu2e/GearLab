@@ -14,7 +14,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
      */
     public function getAll()
     {
-        $gears = Gear::with(['user','likes','followers'])->paginate(2);
+        $gears = Gear::with(['user','likes','followers'])->paginate(3);
         return $gears;
     }
 
@@ -27,7 +27,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
     public function getUser($user_id)
     {
 
-        return Gear::with(['user','likes'])->where('user_id', $user_id)->orderby('updated_at', 'desc')->paginate(2);
+        return Gear::with(['user','likes'])->where('user_id', $user_id)->orderby('updated_at', 'desc')->paginate(3);
 
     }
 
@@ -38,7 +38,7 @@ class GearDataAccessEQRepository implements GearDataAccessRepositoryInterface
 
     public function getCategorizedGear($category)
     {
-        return Gear::with(['user','likes'])->where('gear_category', $category)->orderby('updated_at', 'desc')->paginate(2);
+        return Gear::with(['user','likes'])->where('gear_category', $category)->orderby('updated_at', 'desc')->paginate(3);
 
     }
 

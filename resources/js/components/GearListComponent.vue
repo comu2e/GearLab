@@ -5,7 +5,7 @@
             <div class="form-group">
                 <div class="btn-select">
 
-                    <p class="label">気になるギアのカテゴリを選んでみましょう</p>
+                    <p class="label">気になるギアのカテゴリ</p>
                     <select id="category" class="form-control select" v-model="category" @change="searchGear(category)">
                         <!--                    <option :value="null" disabled>Gearのカテゴリを選択してください。</option>-->
                         <option v-for="category in gear_category" :value="category">
@@ -24,7 +24,7 @@
                     <div align="center" scope="row">
                         <div align="left">
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
-                                         class="btn btn-primary" align="left">
+                                         class="btn btn-primary mb-3" align="left">
                                 <div>{{ gear.user.name + 'のページへ' }}</div>
 
                             </router-link>
@@ -35,12 +35,12 @@
                         </div>
 
 
-                        <img alt="" v-bind:src='gear.image_url' width="25%">
+                        <img alt="" v-bind:src='gear.image_url' width="40%">
 
-                        <div  v-if="gear.youtube_url !== null">
-<!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
-<!--                            <span v-html=getYoutubetag(gear.youtube_url)> </span>-->
-                           {{getYoutubetag(gear.youtube_url)}}
+                        <div v-if="gear.youtube_url !== null">
+                            <!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
+                            <!--                            <span v-html=getYoutubetag(gear.youtube_url)> </span>-->
+                            {{ getYoutubetag(gear.youtube_url) }}
                         </div>
 
                         <div align="right">
@@ -51,12 +51,20 @@
                             <div class="card-title">{{ gear.gear_name }}</div>
 
                             <div class="card-text text-muted" align="center">{{ gear.content }}</div>
+                            <p class="card-text text-muted" align="center">
+                                参考にしたサイト: <span v-html="gear.youtube_url"></span>
+
+                            </p>
 
 
                             <div v-if="gear.user_id !== auth_user.id">
                                 <like :gear_id=gear.id></like>
-
                             </div>
+                            <div>
+                                使ってみたい人の数：　{{ gear.likes.length }} 人
+                            </div>
+
+
                             <div class="card-footer">
                                 <small class="text-muted">{{
                                         gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")
@@ -125,7 +133,7 @@ export default {
         getYoutubetag($youtube_url) {
             axios.get('api/createtag?youtube_url=' + $youtube_url)
                 .then((res) => {
-                   console.log(res.data);
+                    console.log(res.data);
                     return res.data;
 
                 });
@@ -155,14 +163,13 @@ body {
     width: 300px;
     margin: 20px auto;
     position: relative;
-    background: #333;
+    background: #0069d9;
     border-radius: 6px;
     cursor: pointer; /* IEでcursorがチラついたので */
 }
 
 .label {
     color: #fff;
-    background-color: #343a40;
 
     position: absolute;
     width: 100%;
@@ -178,7 +185,7 @@ body {
     width: 100%;
     border: none;
     padding: 20px;
-    opacity: 0;
+    opacity: 0.2;
     position: relative;
     z-index: 2;
 }
@@ -192,5 +199,9 @@ body {
 .select:focus {
     z-index: -1;
     opacity: 1;
+}
+
+img {
+    border-radius: 25px; /* ちょっとだけ角丸 */
 }
 </style>

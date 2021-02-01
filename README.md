@@ -79,6 +79,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
   - Docker  
   - AWS ECS(EC2) / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
+  - github actionsでの自動デプロイ
   **本番環境**
  
      - AWS(詳細はネットワーク構成図参照)

@@ -13,7 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v5
-
+        with:
+          php_versions: 7.3
+          progress: yes
+          versions: latest
+      
       - id: install-aws-cli
         uses: unfor19/install-aws-cli-action@v1
         with:

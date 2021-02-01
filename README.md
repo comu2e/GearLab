@@ -85,20 +85,6 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
          - Nginx 2.0.3
 
 
-
-## :construction_worker: ローカルでの起動方法
-
-1. ~/GearLab/に移動してbuildしてappコンテナに入ります。
-
-    ```php
-    docker build -t gearlab .
-    docker run -d -p 8000:80 gearlab
-    ```
-
-
-6. [http://localhost:80000/](http://localhost:8000/) にアクセスします。
- 
- 
  
  ## :cloud:ネットワーク構成図
   ![AWS](https://user-images.githubusercontent.com/5231283/104843022-eb2c6680-590b-11eb-95b2-7077c0aafeb3.jpg)

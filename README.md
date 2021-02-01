@@ -90,6 +90,6 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
  
  ## :cloud:ネットワーク構成図
-  ![AWS](https://user-images.githubusercontent.com/5231283/104843022-eb2c6680-590b-11eb-95b2-7077c0aafeb3.jpg)
+ ![AWS](https://user-images.githubusercontent.com/5231283/106479293-86693280-64ed-11eb-8ad4-79c3aa2440d7.png)
 
 

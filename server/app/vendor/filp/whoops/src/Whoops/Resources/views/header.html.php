@@ -39,9 +39,9 @@
     <?php endif ?>
 
     <ul class="search-for-help">
-      <?php if (!empty($docref_url)): ?>
+      <?php if (!empty($docyoutube_url)): ?>
       <li>
-        <a rel="noopener noreferrer" target="_blank" href="<?php echo $docref_url; ?>" title="Search for help in the PHP manual.">
+        <a rel="noopener noreferrer" target="_blank" href="<?php echo $docyoutube_url; ?>" title="Search for help in the PHP manual.">
           <!-- PHP icon by Icons Solid -->
           <!-- https://www.iconfinder.com/icons/322421/book_icon -->
           <!-- Free for commercial use -->

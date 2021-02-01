@@ -2,29 +2,37 @@
     <div class="container">
         <div align="center">
             <pagination :data="gears" @pagination-change-page="getUserGears(this.$store.state.auth_user)" align="center"></pagination>
+            <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
+                <p class="alert alert-success" >
+                    {{ 'ギアの登録を解除しました！' }}
+                </p>
 
+            </div>
             <ul v-for="gear in gears.data" class="list-group">
-                <div v-for="n in 1"role="alert" v-if="is_post_success == true ">
-                    <p class="alert alert-success" >
-                        {{ 'ギアの登録を解除しました！' }}
-                    </p>
 
-                </div>
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
-                        <img alt="" v-bind:src='gear.image_url' width="30%">
+                        <img alt="" v-bind:src='gear.image_url' width="40%">
                         <div align="right">
 
                             <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
                                 <div>{{ '投稿者: ' + gear.user.name }}</div>
 
                             </router-link>
-                            <div>{{ 'カテゴリ: ' + gear.gear_category }}</div>
+                            <div class="card-title">{{ gear.gear_category }}</div>
+                            <div class="card-title">{{ gear.maker_name }}</div>
 
-                            <div>{{ 'お気にいりポイント : ' + gear.content }}</div>
-                            <div>{{gear.updated_at| moment(" 投稿日: YYYY年MM月DD日HH時mm分")   }}</div>
-                            <div>{{ 'メーカー名 : ' + gear.maker_name }}</div>
+                            <div class="card-title">{{ gear.gear_name }}</div>
+
+                            <div class="card-text text-muted" align="center">{{ gear.content }}</div>
+
+
+                            <div class="card-footer">
+                                <small class="text-muted">{{
+                                        gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")
+                                    }}</small>
+                            </div>
 
 
                             <div class="mt-2 ml-1">
@@ -85,5 +93,7 @@ export default {
 </script>
 
 <style scoped>
-
+img {
+    border-radius: 25px; /* ちょっとだけ角丸 */
+}
 </style>

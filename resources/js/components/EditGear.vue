@@ -4,7 +4,6 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div>編集画面</div>
                         <div class="card-body　d-flex justify-content-center">
                             <div align="center">
                                 <label class="col-md-4 col-form-label text-md-right"> ギアの写真</label>
@@ -25,7 +24,7 @@
                             <!-- 確認用画像 -->
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <label class="input-group-text" for="inputGroupSelect01">ギアカテゴリ</label>
+                                    <label class="input-group-text">ギアカテゴリ</label>
                                 </div>
                                 <select class="form-control" v-model="gear.gear_category">
                                     <option value="Fire" selected="selected">焚き火ーFire</option>
@@ -54,11 +53,18 @@
 
                             </div>
 
-                            <div class="input-group">
+                            <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">お気に入りポイント</span>
                                 </div>
                                 <textarea class="form-control" aria-label="ギアのお気に入りポイント" v-model="gear.content"></textarea>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">参考にしたサイト</span>
+                                </div>
+                                <textarea class="form-control" aria-label="サイトのURL" v-model="gear.youtube_url"></textarea>
                             </div>
 
                             <div v-for="err in message" role="alert" v-if="is_post_success == false ">
@@ -98,12 +104,14 @@ export default {
             maker_name: "",
             gear_name: "",
             gear_category: "",
+            youtube_url:"",
             is_post_success:null,
             user_id: "",
             content: "",
             view: true,
             gears: {},
             confirmedImage: ""
+
         };
     }
     ,
@@ -111,7 +119,7 @@ export default {
         getGearById(id) {
             axios.get('/api/gears/' + id)
                 .then((res) => {
-                    this.gear = res.data['data'];
+                    this.gear = res.data.data;
 
                 });
         }
@@ -119,7 +127,7 @@ export default {
         getGears() {
             axios.get('/api/gears')
                 .then((res) => {
-                    this.gears = res.data['data'];
+                    this.gears = res.data.data;
                 });
         }
         ,
@@ -134,9 +142,9 @@ export default {
 
         //画像、コメント投稿用のvue側のaxios通信
         submit() {
-            axios.put('/gears' + this.$route.params.gearId, this.gear)
+            axios.put('/api/gears/' + this.$route.params.gearId, this.gear)
                 .then((res) => {
-                    this.$router.push({name: 'home'});
+                    // this.$router.push({name: 'home'});
                     this.is_post_success = true;
 
                 }) .catch(err => {

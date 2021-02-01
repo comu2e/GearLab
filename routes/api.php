@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/createtag','GearApiController@createvideotag');
+Route::get('/replace','GearApiController@replaceUrl');
 
 Route::post('/login', 'LoginController@login');
 //GearのAPI

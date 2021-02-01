@@ -11,12 +11,6 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: php-actions/composer@v5
-        with:
-          php_version: 7.3
-          progress: yes
-          version: latest
       
       - id: install-aws-cli
         uses: unfor19/install-aws-cli-action@v1
@@ -25,7 +19,14 @@ jobs:
           verbose: false # default
       - name: Checkout
         uses: actions/checkout@v2
-
+        
+      - name: Composer install
+      - uses: php-actions/composer@v5
+        with:
+          php_version: 7.3
+          progress: yes
+          version: latest
+      
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

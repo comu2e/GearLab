@@ -92,4 +92,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
  ## :cloud:ネットワーク構成図
  
 ![Untitled Diagram](https://user-images.githubusercontent.com/5231283/106593200-dbf81a80-6593-11eb-95b5-61b2b9511007.png)
+## :straight_ruler:ER構成図
+ 
+![graph](https://user-images.githubusercontent.com/5231283/106598060-9559ee80-659a-11eb-960d-726faed30bae.png)
 

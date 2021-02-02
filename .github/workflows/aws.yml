@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - master-1
 
 name: Deploy to Amazon ECS on Staging
 

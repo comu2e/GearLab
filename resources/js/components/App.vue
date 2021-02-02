@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item-bar"v-on:click="change('5')" v-bind:class="{'active': isActive === '5'}">
                     <router-link :to="{ name: 'create'}" class="nav-link pull-right">
-                        ギアを登録
+                        ギア登録画面へ
                     </router-link>
 
                 </li>
@@ -37,7 +37,7 @@
         <div class="fixed-bottom">
             <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark w-40">
                 <router-link :to="{ name: 'create'}" class="nav-link pull-right">
-                        <h3>ギアを登録する </h3>
+                        <h3>ギア登録画面へ </h3>
                 </router-link>
 
             </nav>

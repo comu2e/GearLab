@@ -1,5 +1,5 @@
 FROM nginx:1.18.0
-COPY ./ /var/www
+COPY  ../../  /var/www
 #public以下だけで試してみる
 
 COPY default.conf /etc/nginx/conf.d/default.conf

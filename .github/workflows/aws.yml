@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - master-1
 
 name: Deploy to Amazon ECS on Staging
 
@@ -46,17 +46,34 @@ jobs:
         run: |
           echo $ECR_REPOSITORY
           IMAGE_TAG=latest
+          docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest ./docker/nginx
+          docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
+          
           docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest .
           docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
       
-      - name: Download task definition
-        run: |
-          aws ecs describe-task-definition --task-definition gearlab-task-definition --query taskDefinition > task-definition.json
-
+          
+      - name: Render Amazon ECS task definition for 1st container
+        id: render-container1
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: .aws/task-definition.json
+          container-name: nginx
+          image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
+      
+      - name: Render Amazon ECS task 2nd definition # ECSタスク定義ファイルレンダリング
+        id: render-container2
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: $.aws/task-definition.json
+          #レポジトリ以下のタスク定義ファイルがあるPath
+          container-name: php
+          image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
+        
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: task-definition.json
+          task-definition: .aws/task-definition.json
           service: gearlab-service
           cluster: gearlab-cluster
-          wait-for-service-stability: true
+      

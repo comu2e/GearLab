@@ -46,11 +46,22 @@ jobs:
         run: |
           echo $ECR_REPOSITORY
           IMAGE_TAG=latest
+          docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest ./docker/nginx/
+          docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
+          
           docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest .
           docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
       
-
-      - name: Render Amazon ECS task definition # ECSタスク定義ファイルレンダリング
+          
+      - name: Render Amazon ECS task definition for 1st container
+        id: render-web-container
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: .aws/task-definition.json
+          container-name: nginx
+          image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
+      
+      - name: Render Amazon ECS task 2nd definition # ECSタスク定義ファイルレンダリング
         id: render-container
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:

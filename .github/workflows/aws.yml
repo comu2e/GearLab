@@ -65,7 +65,8 @@ jobs:
         id: render-container2
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ${{ steps.render-container1.outputs.task-definition }}# レポジトリ以下のタスク定義ファイルがあるPath
+          task-definition: ${{ steps.render-container1.outputs.task-definition }}
+          #レポジトリ以下のタスク定義ファイルがあるPath
           container-name: php
           image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
         

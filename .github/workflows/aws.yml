@@ -61,7 +61,7 @@ jobs:
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: .aws/task-definition.json
+          task-definition: ${{ steps.render-container.outputs.task-definition }}
           service: gearlab-service
           cluster: gearlab-cluster
           wait-for-service-stability: true

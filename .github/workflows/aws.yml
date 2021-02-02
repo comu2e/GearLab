@@ -54,7 +54,7 @@ jobs:
       
           
       - name: Render Amazon ECS task definition for 1st container
-        id: render-web-container
+        id: render-web-container1
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: .aws/task-definition.json
@@ -62,7 +62,7 @@ jobs:
           image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
       
       - name: Render Amazon ECS task 2nd definition # ECSタスク定義ファイルレンダリング
-        id: render-container
+        id: render-container2
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: .aws/task-definition.json # レポジトリ以下のタスク定義ファイルがあるPath
@@ -72,7 +72,7 @@ jobs:
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.render-container.outputs.task-definition }}
+          task-definition: ${{ steps.render-container.outputs.task-definition2 }}
           service: gearlab-service
           cluster: gearlab-cluster
-          wait-for-service-stability: true
+      

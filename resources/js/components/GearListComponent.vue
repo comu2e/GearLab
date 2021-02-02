@@ -37,10 +37,10 @@
 
                         <img alt="" v-bind:src='gear.image_url' width="40%">
 
-                        <div v-if="gear.youtube_url !== null">
+                        <div v-if="gear.ref_url !== null">
                             <!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
-                            <!--                            <span v-html=getYoutubetag(gear.youtube_url)> </span>-->
-                            {{ getYoutubetag(gear.youtube_url) }}
+                            <!--                            <span v-html=getYoutubetag(gear.ref_url)> </span>-->
+                            {{ getYoutubetag(gear.ref_url) }}
                         </div>
 
                         <div align="right">
@@ -52,7 +52,7 @@
 
                             <div class="card-text text-muted" align="center">{{ gear.content }}</div>
                             <p class="card-text text-muted" align="center">
-                                参考にしたサイト: <span v-html="gear.youtube_url"></span>
+                                参考にしたサイト: <span v-html="gear.ref_url"></span>
 
                             </p>
 
@@ -130,8 +130,8 @@ export default {
                     this.gears = res.data.data;
                 });
         },
-        getYoutubetag($youtube_url) {
-            axios.get('api/createtag?youtube_url=' + $youtube_url)
+        getYoutubetag($ref_url) {
+            axios.get('api/createtag?ref_url=' + $ref_url)
                 .then((res) => {
                     console.log(res.data);
                     return res.data;

@@ -46,10 +46,10 @@ jobs:
         run: |
           echo $ECR_REPOSITORY
           IMAGE_TAG=latest
-          docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest .
+          docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest nginx.Dockerfile
           docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
 
-          docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest .
+          docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest php.Dockerfile
           docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
 
 

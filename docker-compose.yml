@@ -6,7 +6,7 @@ services:
     image: php:latest
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: php.Dockerfile
     volumes:
       - ./:/var/www
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
@@ -16,7 +16,7 @@ services:
     image: nginx:latest
     build:
       context: .
-      dockerfile: ./docker/nginx/Dockerfile
+      dockerfile: nginx.Dockerfile
     ports:
       - 80:80
     volumes:

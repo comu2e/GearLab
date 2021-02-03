@@ -3,7 +3,7 @@
 use App\Models\Gear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-URL::forceScheme('https');
+URL::forceScheme('http');
 
 
 /*

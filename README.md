@@ -7,7 +7,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 - **キャンプ道具（Gear:ギア）を発見することを手助けするアプリ**です。
 - 他の人が使っているギアを参考にして使ってみたいギアを発見することで**自分にあったキャンプ生活を良くしていくことを目的**としました。
 - **Laravel/Vue.js**を使い、SPA化しています。
-- 2020年11月の**2ヶ月間で０から公開できるレベルを目標**として制作しています。
+- 2020年12月の**2ヶ月間で０から公開できるレベルを目標**として制作しています。
 
 ## :bulb: 作成経緯
 
@@ -33,7 +33,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
 ## :alarm_clock: 作製期間
 
-2020年12月からすべて**独学**で制作しています。
+2020年12月からすべて独学で制作しています。
 
 ## :notebook: 学習方法
 
@@ -78,7 +78,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
  ### インフラ 
 
   - Docker  
-  - AWS ECS(EC2) / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
+  - AWS EC2 / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
   - github actionsでの自動デプロイ
   
  ## 本番環境
@@ -94,4 +94,4 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 ![Untitled Diagram](https://user-images.githubusercontent.com/5231283/106886891-c156aa80-6727-11eb-826c-4f68100a5a9b.jpg)
 
 ## :straight_ruler:ER構成図
-![database](https://user-images.githubusercontent.com/5231283/106886720-8d7b8500-6727-11eb-9235-b6707c8dfa9e.png)
+![eq2](https://user-images.githubusercontent.com/5231283/106887394-70938180-6728-11eb-9ec0-bf58d969a985.png)

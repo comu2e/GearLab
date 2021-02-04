@@ -1,6 +1,7 @@
 ## GearLab について
 
 GearLabはキャンプを充実させるキャンプギアを共有できるサイトです。
+![output2](https://user-images.githubusercontent.com/5231283/106913101-00e0bf00-6747-11eb-8499-d7fa8046f721.gif)
 
 ## :earth_asia: 概要
 

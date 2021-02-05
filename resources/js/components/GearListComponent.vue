@@ -25,7 +25,7 @@
                         <div align="left">
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
                                          class="btn btn-primary mb-3" align="left">
-                                <div>{{ gear.user.name + 'のページへ' }}</div>
+<!--                                <div>{{ gear.user.name + 'のページへ' }}</div>-->
 
                             </router-link>
                             <div v-if="gear.user_id !== auth_user.id">
@@ -37,11 +37,7 @@
 
                         <img alt="" v-bind:src='gear.image_url' width="40%">
 
-                        <div v-if="gear.youtube_url !== null">
-                            <!--                            https://jp.vuejs.org/v2/guide/syntax.html でユーザーから与えられたコンテンツに対しては行ってはいけないので下記の使い方はしない-->
-                            <!--                            <span v-html=getYoutubetag(gear.youtube_url)> </span>-->
-                            {{ getYoutubetag(gear.youtube_url) }}
-                        </div>
+
 
                         <div align="right">
 
@@ -51,8 +47,10 @@
                             <div class="card-title">{{ gear.gear_name }}</div>
 
                             <div class="card-text text-muted" align="center">{{ gear.content }}</div>
-                            <div class="card-text text-muted" align="center">{{ gear.ref_url }}</div>
+                            <p class="card-text text-muted" align="center">
+                                参考にしたサイト: <span v-html="gear.ref_url"></span>
 
+                            </p>
 
 
                             <div v-if="gear.user_id !== auth_user.id">
@@ -128,8 +126,8 @@ export default {
                     this.gears = res.data.data;
                 });
         },
-        getYoutubetag($youtube_url) {
-            axios.get('api/createtag?youtube_url=' + $youtube_url)
+        getYoutubetag($ref_url) {
+            axios.get('api/createtag?ref_url=' + $ref_url)
                 .then((res) => {
                     console.log(res.data);
                     return res.data;

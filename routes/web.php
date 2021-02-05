@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
     // asset()やurl()がhttpsで生成される
-    URL::forceScheme('http');
+    URL::forceScheme('https');
 /*
 |--------------------------------------------------------------------------
 | Web Route

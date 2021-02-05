@@ -13,7 +13,7 @@
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
-                        <img alt="" v-bind:src='gear.image_url' width="40%">
+                        <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="300"></a>
                         <div align="right">
 
                             <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
@@ -27,7 +27,10 @@
 
                             <div class="card-text text-muted" align="center">{{ gear.content }}</div>
 
+                            <p class="card-text text-muted" align="center">
+                                参考にしたサイト: <span v-html="gear.ref_url"></span>
 
+                            </p>
                             <div class="card-footer">
                                 <small class="text-muted">{{
                                         gear.updated_at | moment(" 投稿日: YYYY年MM月DD日HH時mm分")

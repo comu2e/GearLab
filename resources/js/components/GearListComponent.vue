@@ -25,7 +25,7 @@
                         <div align="left">
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
                                          class="btn btn-primary mb-3" align="left">
-<!--                                <div>{{ gear.user.name + 'のページへ' }}</div>-->
+                                <div>{{ gear.user.name+ 'のページへ' }}</div>
 
                             </router-link>
                             <div v-if="gear.user_id !== auth_user.id">
@@ -33,15 +33,9 @@
                                                          :user_id=gear.user_id></follow-button-component>
                             </div>
                         </div>
-
-
+<!--                        画像拡大機能-->
                         <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="300"></a>
-
-
-
-
                         <div align="right">
-
                             <div class="card-title">{{ gear.gear_category }}</div>
                             <div class="card-title">{{ gear.maker_name }}</div>
 
@@ -117,6 +111,7 @@ export default {
                 .then((res) => {
                     this.gears = res.data.data;
                 });
+
         },
         /**
          * ユーザーのギアタイムラインを出す
@@ -126,11 +121,12 @@ export default {
                 .then((res) => {
                     this.gears = res.data.data;
                 });
+
+
         },
         getYoutubetag($ref_url) {
             axios.get('api/createtag?ref_url=' + $ref_url)
                 .then((res) => {
-                    console.log(res.data);
                     return res.data;
 
                 });

@@ -13,13 +13,9 @@
                 <li class="list-group-item">
                     <div align="center" scope="row">
 
-                        <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="300"></a>
+                        <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="200"></a>
                         <div align="right">
 
-                            <router-link  :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"class="nav-link">
-                                <div>{{ '投稿者: ' + gear.user.name }}</div>
-
-                            </router-link>
                             <div class="card-title">{{ gear.gear_category }}</div>
                             <div class="card-title">{{ gear.maker_name }}</div>
 
@@ -73,8 +69,8 @@ export default {
         }
     },
     methods: {
-        getUserGears(user_id) {
-            axios.get('/api/user_id=' + user_id)
+        getUserGears(page=1,user_id) {
+            axios.get('/api/user_id=' + user_id+'/?page=' + page)
                 .then((res) => {
                     this.gears = res.data.data;
                 });

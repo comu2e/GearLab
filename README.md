@@ -1,13 +1,13 @@
 ## GearLab について
 
 GearLabはキャンプを充実させるキャンプギアを共有できるサイトです。
-
+<img src="https://user-images.githubusercontent.com/5231283/106913101-00e0bf00-6747-11eb-8499-d7fa8046f721.gif" width="800" height="800" />
 ## :earth_asia: 概要
 
 - **キャンプ道具（Gear:ギア）を発見することを手助けするアプリ**です。
 - 他の人が使っているギアを参考にして使ってみたいギアを発見することで**自分にあったキャンプ生活を良くしていくことを目的**としました。
 - **Laravel/Vue.js**を使い、SPA化しています。
-- 2020年11月の**2ヶ月間で０から公開できるレベルを目標**として制作しています。
+- 2020年12月の**2ヶ月間で０から公開できるレベルを目標**として制作しています。
 
 ## :bulb: 作成経緯
 
@@ -33,7 +33,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
 ## :alarm_clock: 作製期間
 
-2020年12月からすべて**独学**で制作しています。
+2020年12月からすべて独学で制作しています。
 
 ## :notebook: 学習方法
 
@@ -55,7 +55,8 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 - フォローユーザ　一覧表示機能
 - ページネーション機能
 - 管理者機能(ユーザーの一覧表示とユーザーの削除)
-
+-　画像クリック時拡大機能
+- 参考にしたサイト投稿機能　(ユーザーが貼ったURLにリンクが自動で作製されるようにしています。）
 ### その他
 
 - git 2.24.3
@@ -65,11 +66,12 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 ## :rainbow: こだわった点
 - バックエンドではAPIの導入
 - スムーズな遷移を実現するために、Vue.jsを使ったSPA化
-- N+1問題が起きないようなSQL
+- N+1問題
 
 ## :computer: 使用技術
  ### バックエンド
-  - PHP 7.3.12 /Laravel 8.13.0 
+  - PHP 7.3.12 /Laravel 8.13.0
+  - composer 2.0.6
  ### フロントエンド
         
   - javascript/ Vue.js (2.6.12) /Vuex/ Vue Router 
@@ -77,8 +79,10 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
  ### インフラ 
 
   - Docker  
-  - AWS ECS(EC2) / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
-  **本番環境**
+  - AWS EC2 / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
+  - github actionsでの自動デプロイ
+  
+ ## 本番環境
  
      - AWS(詳細はネットワーク構成図参照)
          - RDS for MySQL8.0
@@ -87,6 +91,8 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
  
  ## :cloud:ネットワーク構成図
-  ![AWS](https://user-images.githubusercontent.com/5231283/104843022-eb2c6680-590b-11eb-95b2-7077c0aafeb3.jpg)
 
+![Untitled Diagram](https://user-images.githubusercontent.com/5231283/106886891-c156aa80-6727-11eb-826c-4f68100a5a9b.jpg)
 
+## :straight_ruler:ER構成図
+![eq2](https://user-images.githubusercontent.com/5231283/106887394-70938180-6728-11eb-9ec0-bf58d969a985.png)

@@ -34,7 +34,7 @@
                             </div>
                         </div>
 <!--                        画像拡大機能-->
-                        <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="300"></a>
+                        <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="200"></a>
                         <div align="right">
                             <div class="card-title">{{ gear.gear_category }}</div>
                             <div class="card-title">{{ gear.maker_name }}</div>

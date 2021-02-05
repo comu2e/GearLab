@@ -67,7 +67,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">参考にしたサイト</span>
                             </div>
-                            <textarea class="form-control" aria-label="サイトのURL" placeholder="参考にしたサイトのURLを貼り付けてみましょう 例：https://..." v-model="youtube_url"></textarea>
+                            <textarea class="form-control" aria-label="サイトのURL" placeholder="参考にしたサイトのURLを貼り付けてみましょう 例：https://..." v-model="ref_url"></textarea>
                         </div>
 
                         <div v-for="err in message" role="alert" v-if="is_post_success == false ">
@@ -112,7 +112,7 @@ export default {
             user_id: "",
             is_post_success:null,
             content: "",
-            youtube_url:"",
+            ref_url:"",
             view: true,
             gears: {},
             confirmedImage: ""
@@ -142,7 +142,7 @@ export default {
             data.append("gear_name", this.gear_name);
             data.append("gear_category", this.gear_category);
             data.append("content", this.content);
-            data.append("youtube_url", this.youtube_url);
+            data.append("ref_url", this.ref_url);
             //Vuexのstoreからauth_user情報を呼び出す
             data.append("user_id", this.$store.state.auth_user.id);
             console.log('dataの表示')
@@ -166,7 +166,7 @@ export default {
                     this.gear_name = "";
                     this.gear_category = "";
                     this.content = "";
-                    this.youtube_url = "";
+                    this.ref_url = "";
 
                     this.file = "";
                     // this.user_id = $route.params;

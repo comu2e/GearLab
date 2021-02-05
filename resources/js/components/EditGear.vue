@@ -64,7 +64,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">参考にしたサイト</span>
                                 </div>
-                                <textarea class="form-control" aria-label="サイトのURL" v-model="gear.youtube_url"></textarea>
+                                <textarea class="form-control" aria-label="サイトのURL" v-model="gear.ref_url"></textarea>
                             </div>
 
                             <div v-for="err in message" role="alert" v-if="is_post_success == false ">
@@ -104,7 +104,7 @@ export default {
             maker_name: "",
             gear_name: "",
             gear_category: "",
-            youtube_url:"",
+            ref_url:"",
             is_post_success:null,
             user_id: "",
             content: "",

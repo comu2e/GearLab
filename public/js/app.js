@@ -2094,7 +2094,7 @@ __webpack_require__.r(__webpack_exports__);
       maker_name: "",
       gear_name: "",
       gear_category: "",
-      youtube_url: "",
+      ref_url: "",
       is_post_success: null,
       user_id: "",
       content: "",
@@ -2574,7 +2574,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       user_id: "",
       is_post_success: null,
       content: "",
-      youtube_url: "",
+      ref_url: "",
       view: true,
       gears: {},
       confirmedImage: ""
@@ -2603,7 +2603,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       data.append("gear_name", this.gear_name);
       data.append("gear_category", this.gear_category);
       data.append("content", this.content);
-      data.append("youtube_url", this.youtube_url); //Vuexのstoreからauth_user情報を呼び出す
+      data.append("ref_url", this.ref_url); //Vuexのstoreからauth_user情報を呼び出す
 
       data.append("user_id", this.$store.state.auth_user.id);
       console.log('dataの表示');
@@ -2636,7 +2636,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           _this2.gear_name = "";
           _this2.gear_category = "";
           _this2.content = "";
-          _this2.youtube_url = "";
+          _this2.ref_url = "";
           _this2.file = ""; // this.user_id = $route.params;
 
           _this2.message = 'success'; //ファイルを選択のクリア
@@ -2671,8 +2671,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FollowButtonComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FollowButtonComponent */ "./resources/js/components/FollowButtonComponent.vue");
-//
-//
 //
 //
 //
@@ -2800,8 +2798,8 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
         _this3.gears = res.data.data;
       });
     },
-    getYoutubetag: function getYoutubetag($youtube_url) {
-      axios.get('api/createtag?youtube_url=' + $youtube_url).then(function (res) {
+    getYoutubetag: function getYoutubetag($ref_url) {
+      axios.get('api/createtag?ref_url=' + $ref_url).then(function (res) {
         console.log(res.data);
         return res.data;
       });
@@ -41636,19 +41634,19 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.gear.youtube_url,
-                          expression: "gear.youtube_url"
+                          value: _vm.gear.ref_url,
+                          expression: "gear.ref_url"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: { "aria-label": "サイトのURL" },
-                      domProps: { value: _vm.gear.youtube_url },
+                      domProps: { value: _vm.gear.ref_url },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.gear, "youtube_url", $event.target.value)
+                          _vm.$set(_vm.gear, "ref_url", $event.target.value)
                         }
                       }
                     })
@@ -42265,8 +42263,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.youtube_url,
-                      expression: "youtube_url"
+                      value: _vm.ref_url,
+                      expression: "ref_url"
                     }
                   ],
                   staticClass: "form-control",
@@ -42275,13 +42273,13 @@ var render = function() {
                     placeholder:
                       "参考にしたサイトのURLを貼り付けてみましょう 例：https://..."
                   },
-                  domProps: { value: _vm.youtube_url },
+                  domProps: { value: _vm.ref_url },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.youtube_url = $event.target.value
+                      _vm.ref_url = $event.target.value
                     }
                   }
                 })
@@ -42470,23 +42468,15 @@ var render = function() {
                   "div",
                   { attrs: { align: "left" } },
                   [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-primary mb-3",
-                        attrs: { to: { name: "home" }, align: "left" },
-                        nativeOn: {
-                          click: function($event) {
-                            return _vm.getUserGears(gear.user.id)
-                          }
+                    _c("router-link", {
+                      staticClass: "btn btn-primary mb-3",
+                      attrs: { to: { name: "home" }, align: "left" },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.getUserGears(gear.user.id)
                         }
-                      },
-                      [
-                        _c("div", [
-                          _vm._v(_vm._s(gear.user.name + "のページへ"))
-                        ])
-                      ]
-                    ),
+                      }
+                    }),
                     _vm._v(" "),
                     gear.user_id !== _vm.auth_user.id
                       ? _c(
@@ -42506,16 +42496,6 @@ var render = function() {
                 _c("img", {
                   attrs: { alt: "", src: gear.image_url, width: "40%" }
                 }),
-                _vm._v(" "),
-                gear.youtube_url !== null
-                  ? _c("div", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.getYoutubetag(gear.youtube_url)) +
-                          "\n                    "
-                      )
-                    ])
-                  : _vm._e(),
                 _vm._v(" "),
                 _c("div", { attrs: { align: "right" } }, [
                   _c("div", { staticClass: "card-title" }, [
@@ -42540,12 +42520,19 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "div",
+                    "p",
                     {
                       staticClass: "card-text text-muted",
                       attrs: { align: "center" }
                     },
-                    [_vm._v(_vm._s(gear.ref_url))]
+                    [
+                      _vm._v(
+                        "\n                                参考にしたサイト: "
+                      ),
+                      _c("span", {
+                        domProps: { innerHTML: _vm._s(gear.ref_url) }
+                      })
+                    ]
                   ),
                   _vm._v(" "),
                   gear.user_id !== _vm.auth_user.id
@@ -42558,9 +42545,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", [
                     _vm._v(
-                      "\n                            使ってみたい人の数：　" +
+                      "\n                                使ってみたい人の数：　" +
                         _vm._s(gear.likes.length) +
-                        " 人\n                        "
+                        " 人\n                            "
                     )
                   ]),
                   _vm._v(" "),

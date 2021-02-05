@@ -2724,12 +2724,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2776,7 +2770,6 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
     },
     getYoutubetag: function getYoutubetag($ref_url) {
       axios.get('api/createtag?ref_url=' + $ref_url).then(function (res) {
-        console.log(res.data);
         return res.data;
       });
     }
@@ -3057,6 +3050,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "LikeListComponent",
@@ -3101,6 +3097,9 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -42454,15 +42453,23 @@ var render = function() {
                   "div",
                   { attrs: { align: "left" } },
                   [
-                    _c("router-link", {
-                      staticClass: "btn btn-primary mb-3",
-                      attrs: { to: { name: "home" }, align: "left" },
-                      nativeOn: {
-                        click: function($event) {
-                          return _vm.getUserGears(gear.user.id)
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-primary mb-3",
+                        attrs: { to: { name: "home" }, align: "left" },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.getUserGears(gear.user.id)
+                          }
                         }
-                      }
-                    }),
+                      },
+                      [
+                        _c("div", [
+                          _vm._v(_vm._s(gear.user.name + "のページへ"))
+                        ])
+                      ]
+                    ),
                     _vm._v(" "),
                     gear.user_id !== _vm.auth_user.id
                       ? _c(
@@ -42861,9 +42868,11 @@ var render = function() {
         return _c("ul", { staticClass: "list-group" }, [
           _c("li", { staticClass: "list-group-item" }, [
             _c("div", { attrs: { align: "center", scope: "row" } }, [
-              _c("img", {
-                attrs: { alt: "", src: gear.image_url, width: "40%" }
-              }),
+              _c(
+                "a",
+                { attrs: { href: gear.image_url, "data-lightbox": "demo" } },
+                [_c("img", { attrs: { src: gear.image_url, width: "300" } })]
+              ),
               _vm._v(" "),
               _c("div", { attrs: { align: "right" } }, [
                 _c("div", { staticClass: "card-title" }, [
@@ -42890,6 +42899,20 @@ var render = function() {
                 gear.user_id !== _vm.auth_user.id
                   ? _c("div", [_c("like", { attrs: { gear_id: gear.id } })], 1)
                   : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text text-muted",
+                    attrs: { align: "center" }
+                  },
+                  [
+                    _vm._v("\n                            参考にしたサイト: "),
+                    _c("span", {
+                      domProps: { innerHTML: _vm._s(gear.ref_url) }
+                    })
+                  ]
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-footer" }, [
                   _c("small", { staticClass: "text-muted" }, [
@@ -42966,9 +42989,11 @@ var render = function() {
           return _c("ul", { staticClass: "list-group" }, [
             _c("li", { staticClass: "list-group-item" }, [
               _c("div", { attrs: { align: "center", scope: "row" } }, [
-                _c("img", {
-                  attrs: { alt: "", src: gear.image_url, width: "40%" }
-                }),
+                _c(
+                  "a",
+                  { attrs: { href: gear.image_url, "data-lightbox": "demo" } },
+                  [_c("img", { attrs: { src: gear.image_url, width: "300" } })]
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -43007,6 +43032,22 @@ var render = function() {
                         attrs: { align: "center" }
                       },
                       [_vm._v(_vm._s(gear.content))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "card-text text-muted",
+                        attrs: { align: "center" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            参考にしたサイト: "
+                        ),
+                        _c("span", {
+                          domProps: { innerHTML: _vm._s(gear.ref_url) }
+                        })
+                      ]
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-footer" }, [

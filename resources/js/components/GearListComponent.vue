@@ -51,10 +51,8 @@
                             <div class="card-title">{{ gear.gear_name }}</div>
 
                             <div class="card-text text-muted" align="center">{{ gear.content }}</div>
-                            <p class="card-text text-muted" align="center">
-                                参考にしたサイト: <span v-html="gear.youtube_url"></span>
+                            <div class="card-text text-muted" align="center">{{ gear.ref_url }}</div>
 
-                            </p>
 
 
                             <div v-if="gear.user_id !== auth_user.id">

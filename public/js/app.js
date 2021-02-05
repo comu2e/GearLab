@@ -2756,8 +2756,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -42542,19 +42540,12 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "p",
+                    "div",
                     {
                       staticClass: "card-text text-muted",
                       attrs: { align: "center" }
                     },
-                    [
-                      _vm._v(
-                        "\n                            参考にしたサイト: "
-                      ),
-                      _c("span", {
-                        domProps: { innerHTML: _vm._s(gear.youtube_url) }
-                      })
-                    ]
+                    [_vm._v(_vm._s(gear.ref_url))]
                   ),
                   _vm._v(" "),
                   gear.user_id !== _vm.auth_user.id

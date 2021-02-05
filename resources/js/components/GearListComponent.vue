@@ -35,7 +35,8 @@
                         </div>
 
 
-                        <img alt="" v-bind:src='gear.image_url' width="40%">
+                        <a  v-bind:href='gear.image_url' data-lightbox="demo"><img v-bind:src='gear.image_url' width="300"></a>
+
 
 
 

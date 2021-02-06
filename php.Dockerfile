@@ -1,6 +1,9 @@
 FROM php:7.3-fpm
+RUN ls
+RUN pwd
 COPY ./docker/php/php.ini /usr/local/etc/php/
-COPY  ./GearLab /var/www/
+
+COPY  . /var/www/
 
 RUN apt-get update \
   && apt-get install -y zlib1g-dev mariadb-client \

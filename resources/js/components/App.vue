@@ -68,7 +68,6 @@ export default {
     },
     mounted() {
         this.$store.commit("setter", this.$props.user);
-        console.log(this.$store.state.auth_user);
     }
 }
 </script>

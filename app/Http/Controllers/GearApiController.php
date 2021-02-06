@@ -46,7 +46,6 @@ class GearApiController extends Controller
         Log::debug('index');
 
         $gear = $this->Gear->getAll();
-
         return response()->json([
             'message' => 'ok',
             'data' => $gear

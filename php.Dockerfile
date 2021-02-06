@@ -1,8 +1,5 @@
 FROM php:7.3-fpm
-RUN ls
-RUN pwd
 COPY ./docker/php/php.ini /usr/local/etc/php/
-
 COPY  . /var/www/
 
 RUN apt-get update \

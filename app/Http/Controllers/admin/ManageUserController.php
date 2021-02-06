@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gear;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -26,7 +27,9 @@ class ManageUserController extends Controller
 
     function delete($id)
     {
-        $user = User::find($id)->delete();
+        User::find($id)->delete();
+//        ユーザー削除時にそのギアも削除する。
+        Gear::where('user_id',$id)->delete();
         return redirect('/admin/user');
 
     }

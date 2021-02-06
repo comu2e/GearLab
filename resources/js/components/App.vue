@@ -1,7 +1,7 @@
 <template>
 
     <div class="container mt-5 mb-3">
-        <nav class="navbar navbar-expand-sm bg-nav navbar-light justify-content-center sticky-top">
+        <nav class="navbar navbar-expand-sm bg-nav navbar-light bg-white justify-content-center sticky-top">
 
             <ul class="navbar-nav">
                 <li class="nav-item-bar" v-on:click="change('1')" v-bind:class="{'active': isActive === '1'}">
@@ -35,9 +35,9 @@
             </router-view>
         </transition>
         <div class="fixed-bottom">
-            <nav class="navbar navbar-expand-sm justify-content-center bg-dark navbar-dark w-40">
-                <router-link :to="{ name: 'create'}" class="nav-link pull-right">
-                        <h3>ギア登録画面へ </h3>
+            <nav class="navbar navbar-expand-sm bg-nav justify-content-center  bg-primary w-40"v-on:click="change('5')" v-bind:class="{'active': isActive === '5'}">
+                <router-link :to="{ name: 'create'}" class="nav-link pull-right  text-white ">
+                    <h3>ギア登録画面へ </h3>
                 </router-link>
 
             </nav>

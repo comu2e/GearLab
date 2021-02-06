@@ -1,8 +1,8 @@
 
 <template>
     <div>
-        <button v-if="status == false" type="button" @click.prevent="follow" class="btn btn-outline-success">フォローする！</button>
-        <button v-else type="button" @click.prevent="follow" class="btn btn-primary">フォローずみ！</button>
+        <i v-if="status == false" type="button" @click.prevent="follow" class="fas fa-user-plus">フォローする！</i>
+        <i v-else type="button" @click.prevent="follow" class="fas fa-user-minus">フォロー解除する！</i>
     </div>
 </template>
 

@@ -67,7 +67,8 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 - バックエンドではAPIの導入
 - スムーズな遷移を実現するために、Vue.jsを使ったSPA化
 - N+1問題
-
+- github-actionsでの自動デプロイ
+- Docker/AWSの使用
 ## :computer: 使用技術
  ### バックエンド
   - PHP 7.3.12 /Laravel 8.13.0

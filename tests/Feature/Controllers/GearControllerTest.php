@@ -22,12 +22,6 @@ class GearControllerTest extends TestCase
     /**
      * @test index
      */
-    public function アプリのindexを開く()
-    {
 
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
 
 }

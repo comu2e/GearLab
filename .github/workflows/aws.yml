@@ -18,8 +18,7 @@ jobs:
           version: 2 # default
           verbose: false # default
       - name: Checkout
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v2        
       - name: Composer install
         uses: php-actions/composer@v5
         with:
@@ -42,7 +41,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO_NAME }}
-
+        working-directory: ./
         run: |
           echo $ECR_REPOSITORY
           IMAGE_TAG=latest
@@ -51,29 +50,3 @@ jobs:
 
           docker build -t 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest -f php.Dockerfile .
           docker push 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
-
-#
-#      - name: Render Amazon ECS task definition for 1st container
-#        id: render-container1
-#        uses: aws-actions/amazon-ecs-render-task-definition@v1
-#        with:
-#          task-definition: .aws/task-definition.json
-#          container-name: nginx
-#          image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/nginx:latest
-
-#      - name: Render Amazon ECS task 2nd definition # ECSタスク定義ファイルレンダリング
-#        id: render-container2
-#        uses: aws-actions/amazon-ecs-render-task-definition@v1
-#        with:
-#          task-definition: .aws/task-definition.json
-#          #レポジトリ以下のタスク定義ファイルがあるPath
-#          container-name: php
-#          image: 499506883380.dkr.ecr.ap-northeast-1.amazonaws.com/php:latest
-#
-#      - name: Deploy Amazon ECS task definition
-#        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-#        with:
-#          task-definition: .aws/task-definition.json
-#          service: gearlab-service
-#          cluster: gearlab-cluster
-

@@ -1,6 +1,5 @@
 FROM nginx:1.18.0
-RUN pwd
-RUN cat ./docker/nginx/default.conf 
+
 COPY  ./  /var/www
 #public以下だけで試してみる
 

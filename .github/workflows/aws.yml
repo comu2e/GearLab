@@ -23,9 +23,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Setup PHP ${{ matrix.php-version }}
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
 
       - name: Composer install
         uses: php-actions/composer@v5
@@ -35,7 +35,7 @@ jobs:
          version: latest
 
       - name: Run test suite
-          run: composer run-script test
+        run: composer run-script test
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1

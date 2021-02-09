@@ -9,10 +9,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        php-version: ['7.2', '7.3']
-
     steps:
 
       - id: install-aws-cli
@@ -22,10 +18,10 @@ jobs:
           verbose: false # default
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup PHP ${{ matrix.php-version }}
+      - name: Setup PHP 7.3
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-version }}
+          php_version: 7.3
 
       - name: Composer install
         uses: php-actions/composer@v5

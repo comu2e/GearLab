@@ -66,8 +66,8 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 ## :rainbow: こだわった点
 - バックエンドではAPIの導入
 - スムーズな遷移を実現するために、Vue.jsを使ったSPA化
-- N+1問題
-- github-actionsでの自動デプロイ
+- N+1問題への対処
+- スムーズに保守開発できるようにするために、github-actionsでのCI/CDパイプライン構築しました。
 - Docker/AWSの使用
 ## :computer: 使用技術
  ### バックエンド
@@ -81,7 +81,7 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
   - Docker  
   - AWS EC2 / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
-  - github actionsでの自動デプロイ
+  - github actionsでのCI/CDパイプライン
   
  ## 本番環境
  

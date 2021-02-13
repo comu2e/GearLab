@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class LikeControllerTest extends TestCase
@@ -27,9 +28,58 @@ class LikeControllerTest extends TestCase
     }
 
     /**
-     * A basic feature test example.
+     *
+     * @test LikeController@index
+     */
+
+    public function ユーザーがいいねしたgearを取得する()
+    {
+        $gear_id_array = Gear::select('id')->get();
+
+        $user = User::all()->first->get();
+        foreach ($gear_id_array as $gear_id) {
+            $path = "/gears/" . $gear_id->id . "/check";
+            $gear = Gear::all()->find($gear_id);
+            $response = $this->actingAs($user)->get($path);
+            if ($gear->isLiked($user->id)) {
+                $response->assertStatus(201);
+            } else {
+                $response->assertStatus(200)
+                ->assertJson();
+            }
+
+        }
+
+    }
+
+
+    /**
+     * A basic feature LikeController@store.
      *
      * @test store
+     */
+    public function gearにいいねする()
+    {
+        //gearのidを取得する
+        $gear_id_array = Gear::select('id')->get();
+        $user = User::all()->first->get();
+        foreach ($gear_id_array as $gear_id) {
+            $path = "/gears/" . $gear_id->id . "/likes";
+            $gear = Gear::all()->find($gear_id);
+            $response = $this->actingAs($user)->post($path, [$gear]);
+            if ($gear->isLiked($user->id)) {
+                $response->assertStatus(201);
+            } else {
+                $response->assertStatus(200);
+            }
+
+        }
+    }
+
+    /**
+     * A basic feature test LikeController@check.
+     *
+     * @test check
      */
     public function いいねcheckする()
     {
@@ -39,11 +89,10 @@ class LikeControllerTest extends TestCase
         foreach ($gear_id_array as $gear_id) {
             $path = "/gears/" . $gear_id->id . "/check";
             $gear = Gear::all()->find($gear_id);
-            $response = $this->actingAs($user)->get($path, [$gear]);
+            $response = $this->actingAs($user)->get($path);
             $response->assertStatus(200);
 
         }
-
     }
 }
 

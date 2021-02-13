@@ -44,8 +44,7 @@ class LikeControllerTest extends TestCase
             if ($gear->isLiked($user->id)) {
                 $response->assertStatus(201);
             } else {
-                $response->assertStatus(200)
-                ->assertJson();
+                $response->assertStatus(200);
             }
 
         }

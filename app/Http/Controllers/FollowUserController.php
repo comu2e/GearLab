@@ -21,16 +21,12 @@ class FollowUserController extends Controller
 
     public function store($user_id)
     {
-        $user = Auth::user();
         $auth_user_id = Auth::id();
-//        $following_user = User::find($user_id);
         $following_user = FollowUser::where('user_id', $auth_user_id)->get();
 
         $isFollowedByAuth = $following_user->where('followed_user_id', $user_id)->count();
-//        $data = $isFollowedByAuth;
 
         $data = '';
-
         if ($auth_user_id !== $user_id) {
             if ($isFollowedByAuth) {
                 // 対象のレコードを取得して、削除する。

@@ -27,7 +27,6 @@ Route::post('/login', 'LoginController@login');
 //GearのAPI
 Route::apiResource('/gears', 'GearApiController');
 Route::get('/gears/category/{category}', 'GearApiController@categorize_gear');
-//Route::apiResource('/likes', 'LikeApiController', ['only' => ['show_index']]);
 
 
 Route::get('/user_id={user_id}','GearApiController@user_index');

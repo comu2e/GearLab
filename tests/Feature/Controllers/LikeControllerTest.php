@@ -21,9 +21,7 @@ class LikeControllerTest extends TestCase
             $user = User::factory()->create();
         }
 
-        for ($i = 0; $i < 100; $i++) {
-            $gear = Gear::factory()->create();
-        }
+        $this->gear = Gear::factory()->create();
 
     }
 
@@ -64,12 +62,17 @@ class LikeControllerTest extends TestCase
         $user = User::all()->first->get();
         foreach ($gear_id_array as $gear_id) {
             $path = "/gears/" . $gear_id->id . "/likes";
+
             $gear = Gear::all()->find($gear_id);
             $response = $this->actingAs($user)->post($path, [$gear]);
             if ($gear->isLiked($user->id)) {
                 $response->assertStatus(201);
+                $this->assertEquals(1, $this->gear->likes()->count());
+
             } else {
                 $response->assertStatus(200);
+                $this->assertEquals(0, $this->gear->likes()->count());
+
             }
 
         }

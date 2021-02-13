@@ -12,19 +12,18 @@ class AuthTest extends TestCase
     /**
      * A basic feature test example.
      *
-     * @return void
+     * @test auth
      */
     use RefreshDatabase;
 
-    public function testAuth()
+    public function gearにアクセスする()
     {
 
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)
-            ->get('/');
+            ->get('/gears');
 
         $response->assertStatus(200);
-
     }
 }

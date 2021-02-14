@@ -22,7 +22,8 @@ class FollowUserControllerTest extends TestCase
         for ($i = 0; $i < 100; $i++) {
             User::factory()->create();
         }
-        $this->auth_user = User::first();
+
+        $this->auth_user = User::find(1);
 
 
     }
@@ -57,29 +58,27 @@ class FollowUserControllerTest extends TestCase
             ->json('post', route('follows.follows.store', [
                 'user' => 2,
             ]));
-        $response->assertStatus(201)
-            ->assertJsonFragment([
-                'user_id' => $this->auth_user->id,
-            ])
-        ;
-        $this->markTestIncomplete(
-            'このテストは、まだ実装されていません。'
-        );
-
+        $response->assertStatus(201);
+        $json = $response['user_id'];
+        $this->assertEquals($json, $this->auth_user->id);
     }
+
     /**
      *
-     * $@test index
+     * $@test followしているかをテストする。
      * @depends testFollow
      */
     public function testIsFollowed()
     {
-
         $response = $this->actingAs($this->auth_user)
-            ->json('get', route('follows.follow.check', [
+            ->json('post', route('follows.follows.store', [
                 'user' => 2,
             ]));
-        $response->assertStatus(200);
-        $this ->assertEquals(0,$response->content());
+        //
+        $this->assertDatabaseHas('follow_users', ['user_id' => json_decode($response->content())->user_id])
+            ->assertDatabaseHas('follow_users', ['user_id' => $this->auth_user->id]);
+
+        $this->assertDatabaseHas('follow_users', ['followed_user_id' => json_decode($response->content())->followed_user_id])
+            ->assertDatabaseHas('follow_users', ['followed_user_id' => 2]);
     }
 }

@@ -64,12 +64,11 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
 
 ## :rainbow: こだわった点
 - バックエンドではAPIの導入
-- スムーズな遷移を実現するために、Vue.jsを使ったSPA化
+- テストコードの学習 : phpunitでfeatureテスト,dusk使用してブラウザテストしています。
 - N+1問題への対処
+- スムーズな遷移を実現するために、Vue.jsを使ったSPA化
 - スムーズに保守開発できるようにするために、github-actionsでのCI/CDパイプライン構築しました。
 - Docker/AWSの使用
-- テストコードの学習
-　phpunitでfeatureテスト,dusk使用してブラウザテストしています。
 ## :computer: 使用技術
  ### バックエンド
   - PHP 7.3.12 /Laravel 8.13.0

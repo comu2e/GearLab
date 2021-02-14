@@ -18,7 +18,6 @@ class LoginControllerTest extends TestCase
         #/guestにアクセスしたときはguestLoginが呼び出されて/gearsにリダイレクトする。
         $response = $this->get('guest');
         $response->assertStatus(302);
-        $response = $this->assertAuthenticated();
 
     }
 }

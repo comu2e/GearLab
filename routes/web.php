@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
-    // asset()やurl()がhttpsで生成される
-    URL::forceScheme('https');
+// asset()やurl()がhttpsで生成される
+URL::forceScheme('http');
 /*
 |--------------------------------------------------------------------------
 | Web Route
@@ -60,7 +60,7 @@ Route::get('profile', function () {
 })->middleware('auth');
 
 Route::post('/admin/user/{id}', 'GearController@delete');
-Route::get('/following/{user_id}','FollowUserController@index');
+Route::get('/following/{user_id}', 'FollowUserController@index');
 
 //ログインしたときに表示
 Route::group(['middleware' => 'auth'], function () {
@@ -84,9 +84,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UserController');
     Route::resource('gears', 'GearController', ['except' => ['create']]);
 
-//    Route::post('/gears','GearController@store');
-//    Route::put('/gears','GearController@update');
-//Route::post('gears','GearController@post');
 
     Route::get('edit/{id}', 'GearController@edit_gear')->name('gear_edit');
     Route::post('edit/{id}', 'GearController@update_gear')->name('gear_update');

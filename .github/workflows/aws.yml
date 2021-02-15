@@ -48,7 +48,6 @@ jobs:
          php_version: 7.3
          progress: yes
          version: latest
-
       - name: Run test suite
         run: composer run-script test
 

@@ -24,10 +24,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 7.3
- 
+      - name: run php--ini
+        run: php --ini
       - name: install php zip
         run : | 
-              sudo apt autoremove
               sudo apt-get update  
               sudo apt-get install php7.3-zip 
         

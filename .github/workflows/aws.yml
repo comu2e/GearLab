@@ -31,7 +31,7 @@ jobs:
       - name: install php zip
         run : | 
               sudo apt-get update  
-              sudo apt-get install php7.3-zip 
+              sudo apt-get install php-zip
         
       - name: Composer install
         uses: php-actions/composer@v5

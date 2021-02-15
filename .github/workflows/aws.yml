@@ -26,7 +26,10 @@ jobs:
           php-version: 7.3
  
       - name: install php zip
-        run :  sudo apt autoremove &&  apt-get update  && apt-get install php7.3-zip 
+        run : | 
+              sudo apt autoremove
+              sudo apt-get update  
+              sudo apt-get install php7.3-zip 
         
       - name: Composer install
         uses: php-actions/composer@v5

@@ -24,14 +24,17 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 7.3
-    
+ 
+      - name: composer update action
+        uses: kawax/composer-update-action@v2
+
       - name: Composer install
         uses: php-actions/composer@v5
         with:
          php_version: 7.3
          progress: yes
          version: latest
-#          command: composer update
+
       - name: Run test suite
         run: composer run-script test
 

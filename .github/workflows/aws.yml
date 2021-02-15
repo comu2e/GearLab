@@ -25,7 +25,9 @@ jobs:
         with:
           php-version: 7.3
       - name: run php--ini
-        run: php --ini
+        run: | 
+              php --ini
+              php --ri zip
       - name: install php zip
         run : | 
               sudo apt-get update  

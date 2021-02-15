@@ -23,7 +23,7 @@ jobs:
       - name: Setup PHP 7.3
         uses: shivammathur/setup-php@v2
         with:
-          php_version: 7.3
+          php-version: 7.3
     
 
     

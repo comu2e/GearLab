@@ -6,6 +6,8 @@ on:
 name: Deploy to Amazon ECS on Staging
 
 jobs:
+  
+        
   deploy:
     name: Deploy
     runs-on: ubuntu-18.04
@@ -21,34 +23,23 @@ jobs:
       - name: Setup PHP 7.3
         uses: shivammathur/setup-php@v2
         with:
-          php_version: 7.3
-      dusk-php-latest:
-        runs-on: ubuntu-latest
-        container: docker://zaherg/laravel-dusk:latest
-        steps:
-          - uses: actions/checkout@v1
-            with:
-              fetch-depth: 1
-          - name: Prepare the environment
-            run: cp .env.example .env
-          - name: Install Composer dependencies
-            run: |
-              composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
-              php artisan key:generate
-          - name: Run dusk tests
-            run: |
-              php artisan dusk:chrome-driver
-              nohup bash -c './vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &'
-              nohup bash -c 'php artisan serve > /dev/null 2>&1 &'
-              php artisan dusk
-
+          php-version: 7.3
+      - name: run php--ini
+        run: | 
+              php --ini
+              php --ri zip
+      - name: install php zip
+        run : | 
+              sudo apt-get update  
+              sudo apt-get install php-zip
+        
       - name: Composer install
         uses: php-actions/composer@v5
         with:
          php_version: 7.3
          progress: yes
          version: latest
-
+         command: update
       - name: Run test suite
         run: composer run-script test
 

@@ -25,15 +25,23 @@ jobs:
         
       - name: Install php7.3-zip 
         run: sudo apt-get install php7.3-zip 
-        
+      - name: Setup chromedriver
+        run: |
+          sudo apt-fast install -y xvfb debconf-utils screen google-chrome-stable
+          wget -c -nc --retry-connrefused --tries=0 http://chromedriver.storage.googleapis.com/2.43/chromedriver_linux64.zip
+          unzip -o -q chromedriver_linux64.zip
+          export DISPLAY=:99
+          ./chromedriver --url-base=/wd/hub &
+          echo ">>> Started chrome-driver"
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+
+
       - name: Composer install
         uses: php-actions/composer@v5
         with:
          php_version: 7.3
          progress: yes
          version: latest
-      - name : Run dusk install
-        run : php artisan dusk:install
       - name: Run test suite
         run: composer run-script test
 

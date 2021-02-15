@@ -32,8 +32,8 @@ jobs:
          php_version: 7.3
          progress: yes
          version: latest
-      - name : Run composer key
-        run : composer install --no-interaction
+      - name : Run dusk install
+        run : php artisan dusk:install
       - name: Run test suite
         run: composer run-script test
 

@@ -31,7 +31,7 @@ jobs:
          version: latest
 
       - name: Run test suite
-        run: composer run-script test
+        run:  apt-get install php7.3-zip &&  composer run-script test
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1

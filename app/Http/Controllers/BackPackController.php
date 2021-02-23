@@ -19,13 +19,11 @@ class BackPackController extends Controller
 
     public function createContents(Request $request)
     {
-        Log::debug('API storeメソッドの実行');
-        Log::debug($request);
-        Log::debug(request());
+
         $backpacks = BackPack::create([
 //            テストここにgear_idを追加していく
-            'user_id'=>1,
-            'arr_gear' => ['Toni Abbah', 'Anastacia Mast', 'Soji Igbonna'],
+            'user_id'=>$request -> user_id,
+            'arr_gear' => $request -> arr_gear,
         ]);
         if ($backpacks) {
             return response()->json([

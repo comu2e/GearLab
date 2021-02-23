@@ -46,4 +46,4 @@ Route::get('/get_token', function (Request $request) {
 
 
 //BackPack機能
-Route::get('/backpack', 'BackPackController@createContents');
+Route::post('/backpack', 'BackPackController@createContents');

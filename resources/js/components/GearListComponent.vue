@@ -16,13 +16,23 @@
 
             </div>
             <div>{{ category }}</div>
+            <div>
+                <button class="btn-primary" v-on:click="toggle_switch()">バックパックに詰め込む</button>
+                <div v-if="backpack_flag">
+                    <button @click="store_backpack">Push</button>
+                </div>
+            </div>
             <pagination :data="gears" @pagination-change-page="getResults" align="center"></pagination>
             <ul v-for="gear in gears.data" :key="gear.id" class="list-group">
-                <!--                <div v-if="gears.data.length !== 0">-->
-                <!--                    {{gears.data.length}}-->
+
                 <li class="list-group-item">
                     <div align="center" scope="row">
+
                         <div align="left">
+                            <div v-if="backpack_flag">
+                                <input type="checkbox" :id=gear.id :value=gear.id v-model="arr_gear">
+                            </div>
+
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
                                          class="btn btn-primary mb-3" align="left">
                                 <div>{{ gear.user.name+ 'のページへ' }}</div>
@@ -92,8 +102,9 @@ export default {
             gear: [],
             gear_category: ['All', "Kitchen", "Cutting", "BackPack", "Shelter", "Fire"],
             date: this.$moment().format(),
-
-
+            //
+            arr_gear:[],
+            backpack_flag:true
         }
     },
     methods: {
@@ -131,7 +142,18 @@ export default {
 
                 });
         },
+        toggle_switch: function() {
+            this.backpack_flag = !this.backpack_flag
+        },
+        store_backpack:function (){
+            let data = new FormData();
+            data.append('arr_gear',this.arr_gear);
+            data.append('user_id', this.$store.state.auth_user.id);
+            axios.post("api/backpack",data).then(response =>{
+                this.arr_gear = "";
 
+            } )
+        }
     },
     computed: {
         auth_user() {

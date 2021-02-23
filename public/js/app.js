@@ -2734,6 +2734,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2796,7 +2797,7 @@ var category = ['All', 'Cutting', 'Shelter', 'Kitchen', 'BackPack'];
       data.append('arr_gear', this.arr_gear);
       data.append('user_id', this.$store.state.auth_user.id);
       axios.post("api/backpack", data).then(function (response) {
-        _this4.arr_gear = "";
+        _this4.arr_gear = [];
       });
     }
   },
@@ -42541,7 +42542,9 @@ var render = function() {
                                 }
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _c("div", [_vm._v(_vm._s(_vm.arr_gear))])
                         ])
                       : _vm._e(),
                     _vm._v(" "),

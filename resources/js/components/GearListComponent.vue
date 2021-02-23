@@ -31,6 +31,7 @@
                         <div align="left">
                             <div v-if="backpack_flag">
                                 <input type="checkbox" :id=gear.id :value=gear.id v-model="arr_gear">
+                                <div>{{arr_gear}}</div>
                             </div>
 
                             <router-link :to="{ name: 'home'}" @click.native="getUserGears(gear.user.id)"
@@ -150,7 +151,7 @@ export default {
             data.append('arr_gear',this.arr_gear);
             data.append('user_id', this.$store.state.auth_user.id);
             axios.post("api/backpack",data).then(response =>{
-                this.arr_gear = "";
+                this.arr_gear = [];
 
             } )
         }

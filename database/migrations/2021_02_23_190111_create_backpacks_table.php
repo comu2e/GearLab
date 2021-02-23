@@ -13,6 +13,7 @@ class CreateBackpacksTable extends Migration
      */
     public function up()
     {
+
         Schema::create('backpacks', function (Blueprint $table) {
             $table->id();
             $table->timestamps();

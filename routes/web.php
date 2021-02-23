@@ -101,3 +101,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 });
+Route::get('/backpack', 'BackPackController@createContents');

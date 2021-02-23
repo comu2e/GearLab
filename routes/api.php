@@ -3,7 +3,7 @@
 use App\Models\Gear;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-URL::forceScheme('https');
+URL::forceScheme('http');
 
 
 /*
@@ -43,3 +43,7 @@ Route::get('/get_token', function (Request $request) {
     $token = $user->createToken('token_for_user1')->accessToken;
     return response()->json(['token' => $token]);
 });
+
+
+//BackPack機能
+Route::get('/backpack', 'BackPackController@createContents');

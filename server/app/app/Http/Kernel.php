@@ -3,6 +3,10 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+<<<<<<< HEAD
+=======
+use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
+>>>>>>> develop
 
 class Kernel extends HttpKernel
 {
@@ -20,7 +24,11 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
+<<<<<<< HEAD
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+=======
+        ConvertEmptyStringsToNull::class,
+>>>>>>> develop
     ];
 
     /**

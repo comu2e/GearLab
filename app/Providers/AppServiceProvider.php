@@ -22,7 +22,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+<<<<<<< HEAD
     public function boot()
     {
     }
+=======
+	public function boot(UrlGenerator $url)
+	{
+		$url->forceScheme('http');
+	}
+>>>>>>> develop
 }

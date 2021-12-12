@@ -15,7 +15,8 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
 RUN apt-get update \
   && apt-get install -y zlib1g-dev mariadb-client \
   && apt-get install -y libzip-dev \
-  && docker-php-ext-install zip pdo_mysql
+  && docker-php-ext-install zip pdo_mysql \
+  && docker-php-ext-install bcmath pgsql pdo_pgsql
 
 # php.conf php-fpm.conf
 COPY conf/php.ini /usr/local/etc/php/php.ini
@@ -27,6 +28,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install --no-install-recommends -y libpq-dev libonig-dev libxml2-dev nodejs git zip unzip && \
     apt-get install --no-install-recommends -y zlib1g-dev libfreetype6-dev libpng-dev libjpeg62-turbo-dev libwebp-dev libxpm-dev && \
     apt-get clean && \
+
     rm -rf /var/cache/apt && \
     npm install npm@latest -g
 

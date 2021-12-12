@@ -79,13 +79,26 @@ GearLabはキャンプを充実させるキャンプギアを共有できるサ�
   - Docker  
   - AWS EC2/ ECR / VPC / Route53/ ALB / ACM / S3 / RDS /Cloudwatch
   - github actionsでのCI/CDパイプライン
-  
- ## 本番環境
- 
-     - AWS(詳細はネットワーク構成図参照)
-         - RDS for MySQL8.0
-         - Nginx 2.0.3
 
+### 初期セットアップ
+```
+$ touch cp .env.example .env
+
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose exec app composer install
+$ docker-compose exec app npm install
+$ docker-compose exec app npm run dev
+
+$ docker-compose exec app php artisan key:generate
+$ docker-compose exec app php artisan migrate:refresh --seed
+```
+ ## 本番環境
+- AWS(詳細はネットワーク構成図参照)
+  - RDS for MySQL8.0
+  - Nginx 2.0.3
+  - EC2 on ECS
+    
 ## 今後の開発予定
 　- php,vue.jsテストの追加
   - バックパック機能の追加　... シチュエーション別で使用しているギアをセットにして保存する機能：自分が使っているギアのセットを紹介したいときに使う機能
